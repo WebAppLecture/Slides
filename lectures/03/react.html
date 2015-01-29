@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Auf Eingaben reagieren</h1>
+<script>
+function validateForm() {
+	var error = [];
+	
+	if(document.vform.formname.value.length == 0)
+		error.push('Bitte das Namens-Feld ausfüllen');
+		
+	if(document.vform.formtel.value.length == 0)
+		error.push('Bitte das Telefon-Feld ausfüllen');
+	else if(!/^\([1-9][0-9]{2}\)\s?[0-9]{4}(\-[0-9]+)?/.test(document.vform.formtel.value))
+		error.push('Bitte das Format des Telefon-Felds beachten');
+	
+	document.getElementById('formerror').innerHTML = error.join('<br/>');	
+	return !error.length;
+}
+</script>
+<div class="halfleft">
+<ul>
+<li>Entweder über <code>onchange</code>, <code>onkeyup</code> (ein Element) etc. oder <mark>neu</mark> über <code>onforminput</code> (alles) im Form</li>
+<li>Oder beim Versenden des Formulars über das Ereignis <code>onsubmit</code> im entsprechenden <code>&lt;form&gt;</code> Element</li>
+<li>Haben über den Rückgabewert der Methode die Möglichkeit den Versand abzubrechen (<code>return false</code>)</li>
+<li>Ein kleines Beispiel:
+<form action="http://html5.florian-rappl.de/submitted.html" onsubmit="return validateForm();" method="GET" target="_blank" name="vform" style="margin-left: 30px">
+<div><label style="display: inline-block; width: 100px">Name*</label><input type="text" name="formname" placeholder="Bitte Namen eingeben" style="width: 150px"></div>
+<div><label style="display: inline-block; width: 100px">Telefon*</label><input type="tel" name="formtel" placeholder="Format: (941) 1234-56789" style="width: 150px"></div>
+<div><label>Anmerkung</label><br/>
+<textarea name="formremark" style="width: 250px"></textarea></div>
+<button type="submit">Abschicken</button> <small>(* Pflichtfeld)</small><br/>
+<span style="color: #F00;" id="formerror"></span>
+</form>
+</li>
+</div>
+<div class="doubleright">
+<ul>
+<li>Der verwendete HTML und JavaScript Code:
+<pre lang="html">
+&lt;form ... onsubmit=&quot;return validateForm();&quot; ... name=&quot;vform&quot;&gt;
+&lt;!-- ... und noch mehr code --&gt;
+&lt;/form&gt;
+</pre>
+<pre lang="javascript">
+function validateForm() {
+	var f = document.vform;
+	var error = [];//Array mit Fehlern
+	if(f.formname.value.length == 0)
+		error.push('...');
+	if(f.formtel.value.length == 0)
+		error.push('...');
+	else if(!/^\([1-9][0-9]{2}\)\s?[0-9]{4}(\-[0-9]+)?/.test(f.formtel.value))
+		error.push('...');
+	document.getElementById('formerror').innerHTML = error.join('&lt;br/&gt;');	
+	return !error.length;//=> 0->true else->false
+}//bei Rückgabe von false kein Submit
+</pre>
+</li>
+</ul>
+</div>
+<aside>
+<a href="http://bytes.com/topic/javascript/answers/494532-how-do-i-cancel-submit" target="_blank">Frage bzgl. Abbrechen eines Submits</a>
+<a href="http://www.javascriptkit.com/javatutors/javascriptkey.shtml" target="_blank">Auf Tastatureingaben reagieren</a>
+<a href="http://docstore.mik.ua/orelly/webprog/jscript/ch15_01.htm" target="_blank">O'Reilly über Forms mit JS</a>
+<a href="http://www.math.grin.edu/~rebelsky/Tutorials/JavaScript/EdMedia97/forms.html" target="_blank">Tutorial des Grinnell Colleges</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Asynchroner JavaScript</h1>
+<ul>
+<li>JavaScript war schon immer ein Single-Threaded Problem, d.h. wir hatten keine Chance eine Operation abzubrechen</li>
+<li>Mit den <mark>WebWorker</mark> haben wir nun die Möglichkeit Multithreading zu betreiben</li>
+<li>Zunächst sollte man dazu überprüfen ob der Browser dies unterstützt
+<pre lang="javascript">
+if(typeof Worker != "undefined") {
+	/* Wir können den WebWorker anwenden! */
+}
+</pre>
+</li>
+<li>Wie schon aus echten Programmiersprachen bekannt dürfen wir keine Cross-Threading-Zugriffe tätigen</li>
+<li>Daher läuft die Kommunikation über die Messaging API ab - ein Beispiel
+<pre lang="javascript">
+var worker = new Worker('my_worker.js');
+worker.postMessage('Hallo!');
+worker.onmessage = function(event) {
+	console.log(event);
+};
+</pre>
+</li>
+<li>Der Worker hat keinen Zugriff auf <code>window</code> oder den DOM - sein Basisobjekt ist das <code>Worker</code>-Objekt</li>
+</ul>
+<aside>
+<a href="http://en.wikipedia.org/wiki/Web_Workers" target="_blank">Wikipedia Artikel zu WebWorker</a>
+<a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/workers.html" target="_blank">Worker bei WHATWG</a>
+<a href="http://ejohn.org/blog/web-workers/" target="_blank">John Resig über WebWorker</a>
+<a href="https://developer.mozilla.org/en/Using_web_workers" target="_blank">MDN Artikel zum Thema</a>
+<a href="http://www.internet-magazin.de/ratgeber/javascript-parallel-ausfuehren-1107308.html" target="_blank">Tutorial im Internetmagazin</a>
+<a href="http://www.codeproject.com/KB/solution-center/HTML5-Web-Workers.aspx" target="_blank">Artikel bei Codeproject</a>
+</aside>
+</body>
+</html>

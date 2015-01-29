@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>jQuery UI einbinden</h1>
+<ul>
+<li>Um jQuery UI einzubinden geht man in der Regel so vor wie mit jQuery</li>
+<li>Im Gegensatz zu jQuery ist jQuery UI auch von mindestens einer CSS Datei abhängig</li>
+<li>Während man die Codebasis wie schon bei jQuery über Google laden kann, wird jetzt noch eine CSS Datei benötigt</li>
+<li>Diese können wir auf der jQuery UI Seite herunterladen oder bei Google hosten lassen (bietet Vorteile)</li>
+<li>Konkret sieht das ganze dann so aus:
+<pre lang="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;&lt;head&gt;&lt;!--Meta Tags, Titel, etc. --&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css&quot; /&gt;
+&lt;/head&gt;&lt;body&gt;&lt;!--Inhalte etc.--&gt;
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js&quot;&gt;&lt;/script&gt;
+&lt;!--Eigene Skripte bzw. von jQuery oder jQuery UI abhängige Skripte--&gt;
+&lt;/body&gt;&lt;/html&gt;
+</pre>
+</li>
+<li>Eine eigene Version zusammenzustellen kann auch Vorteile haben (z.B. ~26 kB gegen ~198 kB)</li>
+</ul>
+<aside>
+<a href="http://code.google.com/apis/libraries/devguide.html#jqueryUI" target="_blank">jQuery UI bei Google-Code</a>
+<a href="http://www.jqueryui.com" target="_blank">jQuery UI Webseite</a>
+<a href="http://stackoverflow.com/questions/820412/downloading-jquery-css-from-googles-cdn" target="_blank">jQuery UI CSS bei Google</a>
+<a href="http://jqueryui.com/docs/Getting_Started" target="_blank">How to Start Tutorial von jQuery UI</a>
+<a href="http://jqueryui.com/download" target="_blank">Eigenes jQuery UI zusammenstellen</a>
+</aside>
+</body>
+</html>

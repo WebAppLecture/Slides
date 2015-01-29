@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Das Video Element</h1>
+<ul>
+<li>Analog zum Audio-Element, besitzt jedoch zusätzlich noch Videobildanzeige</li>
+<li>Zusätzliche Attribute sind unter anderem gegeben durch 
+<ul>
+<li><code>poster</code> um ein Vorschaubild zu spezifizieren (ansonsten wird der erste Frame verwendet)</li>
+<li><code>height</code> bzw. <code>width</code> um die Größe des Videos zu bestimmen</li>
+</ul>
+</li>
+<li>Schauen wir uns doch mal ein Beispiel mit eigenen Steuerelementen an (von <a href="http://introducinghtml5.com/examples/ch04/custom-controls.html" target="_blank">hier</a>):
+<pre lang="html">
+&lt;div class=&quot;videochrome paused&quot;&gt;
+	&lt;div class=&quot;controls&quot;&gt;
+		&lt;div class=&quot;scrub&quot;&gt;
+			&lt;button class=&quot;play&quot; title=&quot;play&quot;&gt;&amp;#x25BA;&lt;/button&gt;
+			&lt;div class=&quot;duration&quot;&gt;0:00&lt;/div&gt;
+			&lt;div class=&quot;loaded&quot;&gt;&lt;div class=&quot;buffer&quot;&gt;&lt;div class=&quot;playhead&quot;&gt;&lt;span&gt;0:00&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;video loadeddata=&quot;canplay();&quot; play=&quot;playEvent();&quot; pause=&quot;pausedEvent();&quot; ended=&quot;this.pause();&quot; progress=&quot;updateSeekable();&quot; durationchanged=&quot;updateSeekable();&quot; timeupdate=&quot;updatePlayhead();&quot; src=&quot;leverage-a-synergy.ogv&quot;&gt;&lt;/video&gt;
+&lt;/div&gt;
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://html5video.org/" target="_blank">Seite über HTML5 Videos</a>
+<a href="http://en.wikipedia.org/wiki/HTML5_video" target="_blank">Wikipedia Artikel zu HTML5 Video</a>
+<a href="http://www.html5rocks.com/en/tutorials/video/basics/" target="_blank">HTML5Rocks Artikel zum Video Tag</a>
+<a href="http://www.w3schools.com/html5/html5_video.asp" target="_blank">W3Schools über die Videoformate</a>
+<a href="http://www.w3.org/TR/html5/video.html" target="_blank">W3C Spezifikation des Video Elements</a>
+<a href="http://sublimevideo.net/" target="_blank">SublimeVideo - HTML5 Video Player mit Fallback-Lösung</a>
+<a href="http://www.chipwreck.de/blog/2010/03/01/html-5-video-dom-attributes-and-events/" target="_blank">Ausführlicher Artikel über den video-Tag</a>
+</aside>
+</body>
+</html>

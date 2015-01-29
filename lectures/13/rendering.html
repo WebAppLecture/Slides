@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Rendering nachvollziehen</h1>
+<ul>
+<li>Wichtig ist die Phasen des Dokumentladevorgangs zu kennen:
+<ol>
+<li>Dokumentanfrage</li>
+<li>Interpretation des Quelltextes inkl. DOM-Erstellung und laden weiterer Resourcen</li>
+<li>Erstellen des Layouts</li>
+<li>Die Seite zeichnen</li>
+</ol>
+</li>
+<li>Ein zentrales Objekt ist das <code>RenderObject</code> (RenderObject.h) von dem Elemente erben:
+<pre lang="cpp">
+class RenderObject : public CachedImageClient { /* RenderButton : public RenderDeprecatedFlexibleBox */
+    friend class LayoutRepainter;				/* RenderDeprecatedFlexibleBox : public RenderBlock */
+    /* Noch mehr friend class Protoypen */		/* RenderBlock : public RenderBox */
+public:											/* RenderBox : public RenderBoxModelObject */
+    RenderObject(Node*); /* Hängt an einem DOM-Node */	/* RenderBoxModelObject : public RenderObject */
+    virtual ~RenderObject();
+    RenderTheme* theme() const; /* Style-Regeln vom Betriebssystem! */
+	/* ... */
+    RenderObject* parent() const { return m_parent; } /* Im Tree! */
+	/* ... */ };
+</pre>
+</li>
+<li>Es gibt jede Menge verschiedener spezialisierter <code>RenderObject</code> Klassen (rießiger Klassen-Baum)</li>
+</ul>
+<aside>
+<a href="http://www.youtube.com/watch?v=nJtBUHyNBxs" target="_blank">Video wie Gecko die Googleseite aufbaut</a>
+<a href="http://www.youtube.com/watch?v=RVnARGhhs9w" target="_blank">Rendering in WebKit</a>
+<a href="http://www.webkit.org/blog/114/" target="_blank">WebCore Rendering I – The Basics</a>
+<a href="https://github.com/WebKit/webkit/blob/master/Source/WebCore/rendering/RenderObject.h" target="_blank">RenderObject.h</a>
+<a href="https://github.com/WebKit/webkit/blob/master/Source/WebCore/rendering/RenderButton.h" target="_blank">RenderButton.h</a>
+<a href="http://de.wikipedia.org/wiki/HTML-Rendering" target="_blank">Wikipedia Artikel zu Rendering</a>
+</aside>
+</body>
+</html>

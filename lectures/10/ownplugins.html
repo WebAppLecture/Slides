@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Eigene jQuery Plugins</h1>
+<ul>
+<li>Eigene jQuery Plugins zu schreiben ist in vielen Fällen vorteilhaft</li>
+<li>Zum einen modularisiert man seine Arbeit (Wiederverwendbarkeit!), zum anderen schafft man auch mehr Übersichtlichkeit und weniger Fehler</li>
+<li>Code explizit als jQuery Plugin zu bauen hat außerdem Vorteile für die tägliche Verwendung</li>
+<li>Am Ende möchte man bequeme jQuery Methoden à la <code>$(...).meinPlugin(...)</code> schaffen</li>
+<li>In JavaScript können wir dies über <code>prototype</code> erreichen - dies wurde in jQuery abgekürzt:
+<pre lang="javascript">
+(function($) { // Anonyme Methode erstellen, mit einem Argument ($)
+  $.fn.myPluginName = function() { //Legen unsere Methode fest - statt prototype einfach fn schreiben
+    //Hier kommt der Plugin Code rein!
+  };
+})(jQuery); //Methode wird sofort mit dem jQuery Objekt aufgerufen
+</pre>
+</li>
+<li>Das tolle an unserem Plugin: Es wird von jQuery aufgerufen und besitzt mit <code>this</code> einen Zeiger auf die aktuelle jQuery Auswahl, z.B. ist bei <code>$('.klasse').myPluginName()</code> der <code>this</code> Zeiger äquivalent zu <code>$('.klasse')</code></li>
+<li>Am Ende <strong>sollten</strong> wir auch dieses zurückgeben - dies ist nur notwendig wenn die Rückgabe ungleich <code>return this</code> wäre</li>
+</ul>
+<aside>
+<a href="http://blog.jeremymartin.name/2008/02/building-your-first-jquery-plugin-that.html" target="_blank">Tutorial für ein eigenes Plugin</a>
+<a href="http://coding.smashingmagazine.com/2011/10/11/essential-jquery-plugin-patterns/" target="_blank">Designmuster für gute Plugins</a>
+<a href="http://www.keyframesandcode.com/resources/javascript/deconstructed/jquery/" target="_blank">jQuery Deconstructed</a>
+<a href="http://docs.jquery.com/Plugins/Authoring" target="_blank">Infos von der jQuery Seite</a>
+<a href="http://www.codeproject.com/KB/scripting/HowToWritePluginInJQuery.aspx" target="_blank">Codeproject Artikel mit einem guten Beispiel</a>
+</aside>
+</body>
+</html>

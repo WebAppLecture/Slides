@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (8)</h1>
+<pre lang="javascript">
+var mouseDown = false, point = {}, //Variablen zum Speichern des vorherigen Punktes und des Maustastenzustands
+	canvas = document.getElementById('canvas'); //Das Canvas ELement geholt
+canvas.onmousemove = moveHandler; //Den Movehandler festlegen (Maus wird bewegt)
+canvas.onmouseup = function () { mouseDown = false; }; //Den Uphandler festlegen (Maustaste losgelassen)
+canvas.onmousedown = downHandler; //Den Downhandler festlegen (Maustaste gedrückt)
+var c = canvas.getContext('2d'); //Das entsprechende Context-Objekt holen
+c.strokeStyle = '#666666'; c.lineWidth = 1; //Grundlegende Eigenschaften festlegen
+function downHandler(ev) {
+	mouseDown = true; //Maustastenzustand speichern
+	point.x = ev.clientX; point.y = ev.clientY; //Diesen Punkt als vorherigen Punkt speichern
+}
+function moveHandler(ev) {
+	if(mouseDown) { //Nur wenn die Maustaste gedrückt ist zeichnen wir
+		c.beginPath(); //Und zwar einen individuellen Pfad
+		c.moveTo(point.x, point.y); //Vom alten Punkt
+		c.lineTo(ev.clientX, ev.clientY); //Zum neuen Punkt
+		c.stroke(); //Zeichnen
+		c.closePath(); //Pfad schließen
+		point.x = ev.clientX; point.y = ev.clientY;	} //Neuen Punkt als vorherigen speichern
+}
+</pre>
+<p>Dieses Beispiel kann <a href="http://html5.florian-rappl.de/canvas.html" target="_blank">hier</a> ausgeführt werden.</p>
+</body>
+</html>

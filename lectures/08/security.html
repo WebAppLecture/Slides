@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Grenzenlos austauschen</h1>
+<ul>
+<li>Womit man sehr schnell Probleme kriegen wird sind AJAX-Abfragen über den Server hinweg</li>
+<li>Mit Server ist der Rechnername von dem die Seite stammt gemeint (z.B. <i>html5skript.florian-rappl.de</i>)</li>
+<li>Das Problem liegt in der Gefahr sog. Cross-Site Scripting, d.h. gefährlichen externen Programmen</li>
+<li>Ein möglich Ausweg ist serverseitig<sup>1</sup> - ein Skript auf dem Server führt die externe Abfrage durch</li>
+<li>Ein geschickterer Weg läuft über eine sog. JSONP-Abfrage - hier wird ein <code>&lt;script&gt;</code>-Element erstellt</li>
+<li>Dieses Element setzt das <code>src</code>-Attribut auf die aktuelle Abfrage, welche dann eine von uns erstellte Methode mit dem JSON Objekt (eigentliche Rückgabe) aufruft, z.B.
+<pre lang="html">
+&lt;script&gt;
+function parseResponse(obj) {
+	// Mach was mit dem JSON Objekt genannt obj
+}
+&lt;/script&gt;
+&lt;script src=&quot;http://extern.example/request?UserId=1234&amp;jsonp=parseResponse&quot;&gt;&lt;/script&gt;
+</pre></li>
+<li>Natürlich ist dieser Weg bereits in jQuery eingebaut, weshalb wir uns keine solche Methode erstellen müssen</li>
+</ul>
+<aside>
+<a href="http://en.wikipedia.org/wiki/JSONP" target="_blank">JSONP bei Wikipedia</a>
+<a href="http://remysharp.com/2007/10/08/what-is-jsonp/" target="_blank">Remy Sharp zu JSONP</a>
+<a href="http://jquery-howto.blogspot.com/2009/04/cross-domain-ajax-querying-with-jquery.html" target="_blank"><sup>1</sup> Einfaches PHP Script zum grenzenlosen Austausch</a>
+<a href="http://json-p.org/" target="_blank">Die offizielle Seite</a>
+</aside>
+</body>
+</html>

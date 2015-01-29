@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>jQuery Filter einsetzen</h1>
+<div class="doubleleft">
+<ul>
+<li>Manchmal reichen die CSS Selektoren nicht aus oder man möchte die bisherige Liste verfeinern</li>
+<li>Hier bieten sich die sog. jQuery Filter an, z.B.
+<ul>
+<li><code>eq(index)</code> wählt nur das Ergebnis an der (<i>index</i> + 1).-Stelle aus</li>
+<li><code>gt(index)</code> wählt Ergebnisse mit größerem Index als <i>index</i> aus</li>
+<li><code>lt(index)</code> wählt Ergebnisse mit kleinerem Index als <i>index</i> aus</li>
+<li><code>has('selektor')</code> wählt die aus die solche Elemente enthalten</li>
+<li><code>filter('selektor')</code> wendet einen weiteren jQuery Selektor an</li>
+</ul>
+</li>
+<li>Es sind immer zwei Möglichkeiten vorhanden:
+<pre lang="javascript">
+//Als Methode im Chaining-Konstrukt
+var liste = $('selektor1').filter('selektor2');
+//Als Erweiterung eines Selektors
+var liste = $('selektor1:filter(selektor2)');
+</pre>
+<code>filter()</code> kann man auch eine Funktion übergeben, die <code>true</code> (wird behalten) oder <code>false</code> (wird verworfen) zurückgibt</li>
+</ul>
+</div>
+<div class="halfright">
+<figure><img src="img/jqueryfilter.png" alt="Beispiel von jQuery Filtern" /><figcaption>Durch den Einsatz von jQuery Filtern kann man Ergebnislisten weiter verfeinern</figcaption></figure>
+</div>
+<aside>
+<a href="http://api.jquery.com/category/traversing/filtering/" target="_blank">jQuery Filtering</a>
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/using-jquery-to-manipulate-and-filter-data/" target="_blank">Tutorial über jQuery Filter</a>
+<a href="http://kilianvalkhof.com/2010/javascript/how-to-build-a-fast-simple-list-filter-with-jquery/" target="_blank">Tutorial zum schnellen Filtern mit jQuery</a>
+<a href="http://webstandard.kulando.de/post/2010/02/15/quicksand-animated-jquery-filter" target="_blank">Animierter Filter für jQuery</a>
+</aside>
+</body>
+</html>

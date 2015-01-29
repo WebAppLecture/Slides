@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (36)</h1>
+<ul>
+<li>Wir folgen dem Beispiel von Nerddinner<sup>1</sup> - die Konzepte sind umgesetzt durch <code>Routes</code> (legen URLs fest),
+<pre lang="csharp">
+routes.MapRoute("Default", "{controller}/{action}/{id}", //Namen der Route und Aufbau dieser festlegen
+				new { controller = "Home", action = "Index", id = "" }); //Standard-Werte festlegen
+</pre>
+</li>
+<li><code>Controller</code> (steuern die Ansichten und Modelle),
+<pre lang="csharp">
+[Authorize] //Attribute steuern besondere Eigenschaften der Methoden z.B. nur eingeloggte Benutzer
+public ActionResult Edit(int id) { //Die Methode heißt wie eine URL - Parameter wie Query
+	Dinner dinner = dinnerRepository.GetDinner(id);//Holt einen Eintag aus der Datenbank
+	if (!dinner.IsHostedBy(User.Identity.Name)) // Fragt ob ob dieser dem Benutzer gehört
+		return View("InvalidOwner"); // Falls nicht wird auf einen View der InvalidOwner heißt geleitet
+	return View(dinner); //Ansonsten wird der Standardview angezeigt mit den Daten aus der DB
+}
+</pre>
+</li>
+<li><code>Models</code> (stellen Daten dar) und <code>Views</code> (Ansichten - hier am Beispiel der Razor Syntax)
+<pre lang="csharp">
+&lt;h2&gt;The planets in our Solar System&lt;/h2&gt;&lt;ul&gt;
+@foreach(var p in Model) {
+    &lt;li&gt;@Html.ActionLink(p.Name, &quot;Index&quot;, new { p.Id })&lt;/li&gt;
+}&lt;/ul&gt;
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://nerddinner.codeplex.com/" target="_blank"><sup>1</sup> Nerddinner bei Codeplex</a>
+<a href="http://en.wikipedia.org/wiki/Microsoft_ASP.NET_Razor_View_Engine" target="_blank">Wikipedia zur Razor Syntax</a>
+<a href="http://weblogs.asp.net/scottgu/archive/2010/07/02/introducing-razor.aspx" target="_blank">Scott Gu über die Razor Syntax</a>
+</aside>
+</body>
+</html>

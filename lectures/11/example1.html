@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (27)</h1>
+<script>
+function ex27() {
+	var o = {}; // Erstellt ein neues Objekt
+	// Verwendung von defineProperty um Get/Set (Accesors) zu setzen
+	Object.defineProperty(o, "a", {	get : function() { return aValue; },
+									set : function(value) { aValue = value + 5; alert(value); },
+									enumerable : true,  
+									configurable : true	});
+	o.a = 10;
+	alert(o.a);
+	// Beispiel für eine Read-Only Variable mit festen Startwert
+	var bValue;  
+	Object.defineProperty(o, "b", {	value : 'Fester Wert!',
+									writable : false,  
+									enumerable : false,  
+									configurable : true});  
+	alert(o.b);
+	o.b = 'Das ist ein Test!'; // Wird wohl nicht gehen - ist Read-Only!
+	alert(o.b);
+}
+</script>
+<pre lang="javascript">
+var o = {}; // Erstellt ein neues Objekt
+// Verwendung von defineProperty um Get/Set (Accessors) zu setzen
+Object.defineProperty(o, "a", {	
+			get : function() { return aValue; },
+			set : function(value) { aValue = value + 5; alert(value); },
+			enumerable : true,  
+			configurable : true
+		}
+	);
+o.a = 10;
+alert(o.a);
+// Beispiel für eine Read-Only Variable mit festen Startwert (Data-Descriptors)
+var bValue;  
+Object.defineProperty(o, "b", {	
+			value : 'Fester Wert!',	//Startwert (geht nicht bei get/set)
+			writable : false,		//Schreibbar (geht nicht bei get/set)
+			enumerable : false,		//Wahr wenn die Eigenschaft im Objekt aufgelistet werden soll
+			configurable : true		//Wahr wenn die Beschreibung verändert / gelöscht werden darf
+		}
+	);  
+alert(o.b);
+o.b = 'Das ist ein Test!'; // Wird wohl nicht gehen - ist Read-Only!
+alert(o.b);
+</pre>
+<div class="hide">
+<a href="javascript:ex27();">Beispiel ausführen</a>.
+</div>
+</body>
+</html>

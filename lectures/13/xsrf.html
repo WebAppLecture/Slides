@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Cross Site Request Forgery</h1>
+<ul>
+<li>XSRF heißt soviel wie Seiten-übergreifende Aufruf-Manipulation und meint damit, dass dem Benutzer ein Seitenaufruf untergeschoben wird</li>
+<li>Geht man z.B. auf eine Seite auf der folgendes Quellcode platziert wurde,
+<pre lang="html">
+&lt;img src=&quot;http://de.wikipedia.org/w/index.php?title=Spezial:Userlogout&quot; /&gt;
+</pre>
+so wird man sich anschließend von Wikipedia ausgeloggt wiederfinden - dies ist ärgerlich aber harmlos
+</li>
+<li>Wichtige Regel bei WebApplikationen: <code>GET</code> wird zum lesen von Daten verwendet und sollte immer das selbe Ergebnis liefern</li>
+<li><code>POST</code> wird nur zum Schreiben von Daten verwendet und gibt unterschiedliche Ergebnisse aus - ein XSRF Angriff über eine falsche URL einer Resource kann durch notwendige <code>POST</code> Aufrufe verhindert werden</li>
+<li>In der Regel werden die Attacken so durchgeführt, dass man eingeloggt sein muss</li>
+<li>Ist man z.B. Administrator einer bestimmten (bekannten) Seite und geht (eingeloggt) auf eine andere Seite in der ein XSRF Angriff lauert, so kann einem ein Link zum Durchführen von bestimmten Adminaktionen wie z.B. Erstellen von Benutzern, Ändern von Benutzerpasswörtern etc. durchgeführt werden</li>
+<li>Zusätzlich sollte jedes Formular (d.h. jeder <code>POST</code> Request) durch ein Token (Verstecker Wert und Cookie) abgesichert werden - beim Posten werden die Werte des Cookies und des <code>hidden</code>-Eingabefeldes verglichen</li>
+</ul>
+<aside>
+<a href="http://de.wikipedia.org/wiki/Cross-Site_Request_Forgery" target="_blank">Wikipedia über XSRF</a>
+<a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)" target="_blank">Open Web Application Security Project über XSRF</a>
+<a href="http://www.internet-magazin.de/ratgeber/erklaert-so-nutzen-hacker-cross-site-request-forgery-fuer-angriffe-213798.html" target="_blank">So nutzen Hacker Cross Site Request Forgery für Angriffe</a>
+<a href="http://www.heise.de/security/meldung/Schutz-vor-Attacken-durch-Cross-Site-Request-Forgery-ausgehebelt-6769.html" target="_blank">Schutz vor Attacken durch Cross-Site-Request-Forgery ausgehebelt</a>
+<a href="http://www.entwicklerblog.net/sicherheit/cross-site-request-forgery/" target="_blank">Cross-Site Request Forgery</a>
+<a href="http://www.pluralsight-training.net/microsoft/players/PSODPlayer?author=scott-allen&name=mvc3-building-security&mode=live&clip=0&course=aspdotnet-mvc3-intro" target="_blank">ASP.NET MVC 3 Tutorial Video (Security)</a>
+</aside>
+</body>
+</html>

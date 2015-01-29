@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Elemente auswählen</h1>
+<ul>
+<li>Einbinden von jQuery erfolgt durch <code>&lt;script&gt;</code> Tag<sup>1</sup> (Download von <a href="http://jquery.com" target="_blank">jQuery.com</a>)</li>
+<li>Mit jQuery wird die Auswahl eines HTML-Elements sehr viel einfacher</li>
+<li>Die Auswahl erfolgt durch einen CSS ähnlichem Syntax (Vorteil für später)</li>
+<li>Wir können (0-n) Elemente direkt, per ID, per Klassen oder Pseudoklassen (z.B. <code>:hover</code>) ansprechen, z.B.
+<ul>
+<li>Ansprechen per ID:
+<pre lang="javascript">
+document.getElementById('foo');//Alter Weg
+$('#foo');//Neuer Weg
+</pre>
+</li>
+<li>Ansprechen per Klasse:
+<pre lang="javascript">
+document.getElementsByClassName('foo');//Alter Weg (wir müssten noch [0] schreiben bzw. durchiterieren)
+$('.foo'); //Neuer Weg (könnten nur die 0 auswählen ansonsten gelten Änderungen für alle!)
+</pre>
+oder Tag-Name:
+<pre lang="javascript">
+document.getElementsByTagName('input');//Alter Weg siehe getElementsByClassName
+$('input'); //Neuer Weg analog zu $('.foo')
+</pre>
+</li>
+</ul>
+</li>
+</ul>
+<aside>
+<p><sup>1</sup> Es empfiehlt sich jQuery von Google zu laden, da man hier Traffic spart und immer die aktuelle oder gewünschte Version erhält</p>
+<a href="http://code.google.com/apis/libraries/devguide.html#jquery" target="_blank">jQuery bei Google</a>
+<a href="http://api.jquery.com/category/selectors/" target="_blank">jQuery Selectors</a>
+<a href="http://codylindley.com/jqueryselectors/" target="_blank">Seite zum rumspielen mit Selectors</a>
+<a href="http://www.netmagazine.com/tutorials/getting-most-out-jquery-selectors" target="_blank">Tutorial zu jQuery Selectors</a>
+</aside>
+</body>
+</html>

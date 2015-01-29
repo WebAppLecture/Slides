@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Geolocation</h1>
+<ul>
+<li>Im <code>navigator</code>-Objekt des <code>window</code>-Objektes befindet sich neben allerlei Informationen über den Browser auch noch das <code>geolocation</code>-Objekt</li>
+<li>Bei Geolocation-Ereignissen erhalten wir immer ein <code>position</code>-Objekt, welches immer <code>coords</code> (Koordinaten) und eine <code>timestamp</code> (aktuelle Zeit) enthält</li>
+</ul>
+<div class="left">
+<ul><li>Das Coordinates-Objekt, welches wir sehr häufig verwenden, enthält folgende Eigenschaften:
+<pre lang="javascript">
+var pos = ...geolocation.lastPosition.coords;
+var x = pos.latitude;//Breitengrad in Grad
+var y = pos.longitude;//Längengrad in Grad
+var hor_tol = pos.accuracy; //Genauigkeit in m
+//Ab hier Angaben die NULL sein können
+var h = pos.altitude;//Höhe in m
+var ver_tol = pos.altitudeAccuracy;/* Genauigkeit der Höhenmessung in m */
+var dir = pos.heading;/* Richtung (in Grad) mit 0°=Norden (im Uhrzeigersinn) */
+var v = pos.speed;//Geschwindigkeit in m/s
+</pre>
+</li>
+<li>Da die Suche nach Koordinaten oftmals dauert ist die Geolocation API über Callbacks aufgebaut</li>
+</ul>
+</div>
+<div class="right">
+<figure><img src="img/latitudelongitude.jpg" alt="Orientierung am Globus" /><figcaption>Der Breitengrad verläuft von -90° (Südpol) bis 90° (Nordpol) und der Längengrad verläuft über 0° in England (London) bis hin zu 180° im paz. Ozean</figcaption></figure>
+</div>
+<aside>
+<a href="http://de.wikipedia.org/wiki/Geographische_Länge" target="_blank">Wikipedia über die geo. Länge</a>
+<a href="http://de.wikipedia.org/wiki/Geographische_Breite" target="_blank">Wikipedia über die geo. Breite</a>
+<a href="http://www.codeproject.com/Articles/233786/HTML5-The-New-Frontier" target="_blank">Codeproject Artikel über HTML5</a>
+<a href="http://9elements.com/html5demos/geolocation/" target="_blank">Ein Tutorial</a>
+<a href="http://maxheapsize.com/static/html5geolocationdemo.html" target="_blank">Ein kleines Demo</a>
+<a href="http://dev.w3.org/geo/api/spec-source.html" target="_blank">Die W3C Spezifikation</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Webkit Codebasis</h1>
+<div class="doubleright">
+<pre lang="cpp">
+namespace WebCore { // Namensraum für Webkit-HTML Objekte
+	class CanvasPattern;
+	class HTMLCanvasElement;
+	/* Mehr class Prototypen */
+	class CanvasRenderingContext { //Oberklasse für Context-Elemente
+		WTF_MAKE_NONCOPYABLE(CanvasRenderingContext);
+		WTF_MAKE_FAST_ALLOCATED;//Ausnutzen von Macros
+	public: //Öffentlich zugängliche Methoden
+		virtual ~CanvasRenderingContext() { }
+		void ref() { m_canvas->ref(); }
+		void deref() { m_canvas->deref(); }
+		HTMLCanvasElement* canvas() const { return m_canvas; }
+		virtual bool is2d() const { return false; }
+		virtual bool is3d() const { return false; }
+		virtual bool isAccelerated() const { return false; }
+		virtual void paintRenderingResultsToCanvas() {}
+		virtual bool paintsIntoCanvasBuffer() const { return true; }
+	protected: //Nur für die Vererbung bestimmt
+		CanvasRenderingContext(HTMLCanvasElement*); /* ... */
+	private: //Nur für klasseninterne Verwendung bestimmt
+		HTMLCanvasElement* m_canvas; //Referenz auf zugehöriges Canvas
+		HashSet<String> m_cleanURLs;
+	};
+}</pre>
+</div>
+<div class="halfleft">
+<ul>
+<li>Webkit ist eine Browser engine basierend auf C++</li>
+<li>Apple Safari und Google Chrome verwendet Webkit</li>
+<li>Wer C++ kann wird sich hier zurecht finden</li>
+<li>Der Quelltext kann auch online angezeigt werden</li>
+<li>Alternativ kann man das Projekt runterladen und zuhause kompilieren</li>
+<li>Da es sich um ein großes Projekt handelt hilft es sich mit sog. Design Patterns auszukennen</li>
+<li>Das Projekt nutzt selbstverständliche Objektorientierte Programmierung (OOP) aus</li>
+</ul>
+</div>
+<aside>
+<a href="http://www.webkit.org/" target="_blank">Offizielle Webkit Seite</a>
+<a href="http://de.wikipedia.org/wiki/WebKit" target="_blank">Wikpedia Artikel zu Webkit</a>
+<a href="http://www.vineetgupta.com/2010/11/how-browsers-work-part-1-architecture/" target="_blank">How Browsers Work - Architecture</a>
+<a href="http://codesearch.google.com/#OAMlx_jo-ck/src/third_party/WebKit/Source/WebCore/html/canvas/CanvasRenderingContext2D.h&type=cs" target="_blank">Canvas 2D Rendering Context</a>
+</aside>
+</body>
+</html>

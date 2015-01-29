@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (4)</h1>
+<script>
+function example4() {
+	var win = window.open('', '', 'width = 400, height = 400, toolbars = false, menubar = false');
+	win.document.write('Link auf meine Homepage'.bold().link('http://www.florian-rappl.de'));
+	win.document.write('<br/>Bitte umzurechnenden Betrag eingeben:<br/>');
+	var qty = win.document.createElement('input');
+	qty.type = 'text';
+	win.document.body.appendChild(qty);
+	win.document.write('<br/>Bitte Umrechnungsfaktor eingeben:<br/>');
+	var fak = win.document.createElement('input');
+	fak.type = 'text';
+	win.document.body.appendChild(fak);
+	win.document.write('<br/>Bitte Zielwährung benennen:<br/>');
+	var cur = win.document.createElement('input');
+	cur.type = 'text';
+	win.document.body.appendChild(cur);
+	win.document.write('<br/>');
+	var bt = win.document.createElement('button');
+	bt.innerHTML = 'Klicken!';
+	bt.onclick = function() { 
+		var q = parseFloat(qty.value.replace(',','.'));
+		var f = parseFloat(fak.value.replace(',','.'));
+		var w = cur.value;
+		
+		if(isNaN(q) || isNaN(f)) {
+			alert('Bitte eine korrekte Zahl eingeben z.B. 5.0!');
+			return;
+		}
+		
+		result.innerHTML = 'Der Betrag ist: ' + (q * f).toString().concat(' ').concat(w).bold();
+	};
+	win.document.body.appendChild(bt);
+	var result = win.document.createElement('p');
+	win.document.body.appendChild(result);
+}
+</script>
+<pre lang="javascript">
+var win = window.open('', '', 'width = 400, height = 400, toolbars = false, menubar = false');
+win.document.write('Link auf meine Homepage'.bold().link('http://www.florian-rappl.de'));//...
+var qty = win.document.createElement('input');
+qty.type = 'text';
+win.document.body.appendChild(qty);//... - noch mehr Code
+var bt = win.document.createElement('button');//... -noch mehr Elemente erstellen
+bt.onclick = function() { 
+	var q = parseFloat(qty.value.replace(',','.'));
+	var f = parseFloat(fak.value.replace(',','.'));
+	var w = cur.value;
+	if(isNaN(q) || isNaN(f))
+		alert('Bitte eine korrekte Zahl eingeben z.B. 5.0!');
+	else
+		result.innerHTML = 'Der Betrag ist: ' + (q * f).toString().concat(' ').concat(w).bold();
+};//Noch mehr Elemente hinzufügen und mehr Abfragen etc.
+var result = win.document.createElement('p');
+win.document.body.appendChild(result);
+</pre>
+<div class="hide">
+<button onclick="example4();">Zum Starten klicken</button>
+</div>
+<ul>
+<li>Neu hier: Nutzen das <strong>Chaining</strong> aus (Verkettung) - erhalten String zurück den wir wieder manipulieren</li>
+<li>Ebenfalls neu und vielleicht ungewohnt: sog. <strong>Nesting</strong> von Funktionen</li>
+</ul>
+</body>
+</html>

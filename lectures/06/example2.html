@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+<style>
+#beispiel13
+{
+	background-image: -o-linear-gradient(top, #F00, #FF0 25%, #0F0 50%, #0FF 75%, #00F);
+	background-image: -webkit-linear-gradient(top, #F00, #FF0 25%, #0F0 50%, #0FF 75%, #00F);
+	background-image: -moz-linear-gradient(top, #F00, #FF0 25%, #0F0 50%, #0FF 75%, #00F);
+	background-image: -ms-linear-gradient(top, #F00, #FF0 25%, #0F0 50%, #0FF 75%, #00F);
+	background-image: linear-gradient(top, #F00, #FF0 25%, #0F0 50%, #0FF 75%, #00F);
+	width: 200px;
+	height: 30px;
+	padding: 20px;
+	font-size: 20pt;
+	text-shadow: 2px 2px 2px #000;
+	box-shadow: 5px -5px 2px #F0F;
+	color: white;
+	text-align: center;
+	-o-transition: all 1s ease;
+	-ms-transition: all 1s ease;
+	-moz-transition: all 1s ease;
+	-webkit-transition: all 1s ease;
+	transition: all 1s ease;
+}
+#beispiel13:hover
+{
+	-o-transform: rotate(30deg) scale(1.2);
+	-ms-transform: rotate(30deg) scale(1.2);
+	-moz-transform: rotate(30deg) scale(1.2);
+	-webkit-transform: rotate(30deg) scale(1.2);
+	transform: rotate(30deg) scale(1.2);
+}
+#beispiel13:empty
+{
+	background: #CCC;
+	-o-transform: skew(45deg, 0) scale(0.5);
+	-ms-transform: skew(45deg, 0) scale(0.5);
+	-moz-transform: skew(45deg, 0) scale(0.5);
+	-webkit-transform: skew(45deg, 0) scale(0.5);
+	transform: skew(45deg, 0) scale(0.5);
+}
+</style>
+</head>
+<body><h1>Beispiel (13)</h1>
+<pre lang="css">
+#beispiel13 { /* Wählen Farbverlauf als Hintergrund */
+	background-image: linear-gradient(top, #F00, #FF0 25%, #0F0 50%, #0FF 75%, #00F);
+	transition: all 1s ease; /* Wollen Übergänge beim Ändern JEDER Eigenschaft */
+	width: 200px; height: 30px;	padding: 20px; /* Festlegen der Größe */
+	text-shadow: 2px 2px 2px #000; box-shadow: 5px -5px 2px #F0F; /* Schatteneffekte */
+	color: white; font-size: 20pt; text-align: center; /* Texteinstellungen */
+}
+#beispiel13:hover { /* Veränderung beim Drüberfahren */
+	transform: rotate(30deg) scale(1.2); /* Skalieren und Rotieren! */
+}
+#beispiel13:empty { /* Veränderungen wenn es eine leere Box ist */
+	transform: skew(45deg, 0) scale(0.5); /* Verzerren und Skalieren */
+	background: #CCC; /* Grauer Hintergrund */
+}
+</pre>
+<div id="beispiel13" class="hide">HERE I GO!</div>
+<div class="hide">
+Interaktion mit dem Beispiel: <a href="#" onclick="document.getElementById('beispiel13').innerHTML = 'HERE I GO'; return false;">Füllen!</a> | <a href="#" onclick="document.getElementById('beispiel13').innerHTML = ''; return false;">Leeren!</a>
+</div>
+</body>
+</html>

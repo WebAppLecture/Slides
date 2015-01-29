@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Regeln festlegen</h1>
+<div class="halfright">
+<figure><img src="img/css-rules.png" alt="CSS Regeln erklärt" /><figcaption>Schema beim Aufbau von CSS-Regeln</figcaption></figure>
+</div>
+<div class="doubleleft">
+<ul>
+<li>Je nach Element (Tag) kann es spezielle Eigenschaften geben</li>
+<li>Jedes Element besitzt u.a. folgende Eigenschaften
+<ul>
+<li><code>background-color</code> z.B. <code>#FF0000</code>, <code>red</code> oder <code>rgb(255,0,0)</code></li>
+<li><code>background-image</code> z.B. <code>url('../../beispiel.png')</code></li>
+<li><code>background-repeat</code> mit <code>no-repeat</code>, <code>repeat-x</code> und <code>repeat-y</code></li>
+<li><code>background-position</code> mit <code>x y</code> z.B. <code>2px 0</code> oder <code>left top</code></li>
+<li>Die oberen vier können in <code>background</code> kombiniert werden, z.B.
+</li>
+</ul>
+<pre lang="css">
+#identifier /*Wir legen für das Element mit id=identifier fest*/
+{ /*Hintergrund soll dunkelgrau sein und ein Bild, das sich*/
+	background: #777 url('logo.png') no-repeat center center;
+} /*nicht wiederholt im Zentrum des Elementes besitzen*/
+</pre>
+</li>
+<li>Dieses Prinzip (Kombination) ist nicht auf <code>background</code> beschränkt, sondern auch bei anderen Regeln (z.B. <code>border</code>) verwendet worden</li>
+</ul>
+</div>
+<aside>
+<a href="http://htmlhelp.com/reference/css/structure.html" target="_blank">CSS Strukturregeln erklärt</a>
+<a href="http://www.w3schools.com/css/css_syntax.asp" target="_blank">Syntax von CSS Regeln</a>
+<a href="http://www.javascriptkit.com/dhtmltutors/externalcss3.shtml" target="_blank">CSS3 Regeln</a>
+<a href="http://reference.sitepoint.com/css/atrulesref" target="_blank">Die @-Regel Referenz</a>
+<a href="http://www.w3schools.com/css/css_background.asp" target="_blank">CSS Background Eigenschaften</a>
+</aside>
+</body>
+</html>

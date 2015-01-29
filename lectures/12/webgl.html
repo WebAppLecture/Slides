@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>WebGL</h1>
+<div class="left">
+<ul>
+<li>WebGL bietet 3D Grafik auf Opera (ab 12), Chrome (ab 9), Safari (ab 5.1), Firefox (ab 4) und IE (ab 11)</li>
+<li>Die Syntax ist dabei stark an OpenGL angelegt (basiert WebGL doch auf OpenGL ES 2.0)</li>
+<li>WebGL läuft im Canvas-Element des Browsers ab und kann Hardwarebeschleunigt werden</li>
+<li>Es gibt allerhand Demos<sup>1</sup> auf der Seite der Khronos WebGL Gruppe und Tutorials zu OpenGL<sup>2</sup></li>
+<li>Folgender Code zum Initialisieren ist sinnvoll:
+<pre lang="javascript">
+function initWebGL(canvas) {
+  var gl = null;  
+  try { //WebGL Kontext holen
+    gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");  
+  } catch(e) {}  
+  if (!gl) alert("Der Browser unterstützt kein WebGL!");
+  return gl; }  
+</pre>
+</li>
+</ul>
+</div>
+<div class="right">
+<figure><img src="img/webgl-logo.png" alt="Offizielles WebGL Logo" /><figcaption>Das Logo der Khronos WebGL Gruppe</figcaption></figure>
+<figure><img src="img/webgl-demo.png" alt="Kleines Demo in Opera Next" /><figcaption>Abspielen des Ray-Tracing Demos auf Opera Next (v12)</figcaption></figure>
+</div>
+<aside>
+<a href="http://cloudmach.com/" target="_blank">Cloudmach WebGL Platform für 3D Apps</a>
+<a href="http://www.khronos.org/webgl/" target="_blank">Die WebGL Spezifikation</a>
+<a href="http://www.khronos.org/webgl/wiki/Main_Page" target="_blank">Offizielle WebGL Wiki</a>
+<a href="http://www.khronos.org/webgl/wiki/Demo_Repository" target="_blank"><sup>1</sup> Demos zu WebGL</a>
+<a href="http://www.opengl.org/sdk/docs/tutorials/" target="_blank"><sup>2</sup> Tutorials zu OpenGL</a>
+<a href="http://www.khronos.org/webgl/wiki/Tutorial" target="_blank">Tutorial für WebGL</a>
+<a href="https://developer.mozilla.org/en/WebGL/Getting_started_with_WebGL" target="_blank">MDN Tutorial zu WebGL</a>
+</aside>
+</body>
+</html>

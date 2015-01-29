@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (7)</h1>
+<pre lang="javascript">
+var video = document.getElementsByTagName('video'),//Holen uns das 1. Video-Element
+    duration = $('.duration').get(0),//Holen uns 1. class=duration Element
+	play = $('.play'),//Holen uns das Element mit class='play'
+	scrubWidth, //Hier wird die Breite des Scrubbings eingestellt
+    currentTime = $('span').get(0);//Holen uns das 1. Span-Element
+function canplay() { //Wird aufgerufen sobald abgespielt werden können
+  this.height = this.videoHeight; this.width = this.videoWidth;
+  //Legen die Größe des angezeigten Videos fest - Größe soll gleich dem echten Video sein
+  this.parentNode.style.height = this.videoHeight + 'px';  this.parentNode.style.width = this.videoWidth + 'px';
+  //Legen die Größe des Scrubbings fest (hier soll der Benutzer die Position des Videotracks einstellen können)
+  scrubWidth = parseFloat(getComputedStyle(buffer.parentNode, null).width);
+}
+function playEvent() {
+  $(this.parentNode).removeClass('paused'); play.attr('paused', true); //Klasse entfernen und Attribut hinzufügen
+}
+function pausedEvent() {
+   $(this.parentNode).addClass('paused'); play.attr('paused',''); //Klasse hinzufügen und Attribut entfernen
+}
+play.click(function () { //Code wird beim Klicken auf den Play-Button ausgeführt
+    if (video.ended) //Sollte das Video zuende sein spulen wir zurück
+		video.currentTime = 0; //Das machen wir über das Setzen der aktuellen Zeitmarke auf 0
+    if (video.paused) video.play() else video.pause(); //Ansonsten Pausieren oder Abspielen
+});
+</pre>
+</body>
+</html>

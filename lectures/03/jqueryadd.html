@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Elemente hinzufügen</h1>
+<ul>
+<li>Wir erinnern uns noch an den langen Syntax von zuvor (<code>createElement(...)</code> uvm. notwendig)</li>
+<li>jQuery schafft hier Abhilfe z.B. könnten wir sehr einfach ein Element hinzufügen:
+<pre lang="javascript">
+$('&lt;p/&gt;').text('Wenn ich hier HTML schreibe z.B. &lt;p&gt; Dann kommt &amp;lt;p&amp;gt; raus!').appendTo('#testBoxjQueryAdd');
+$('&lt;p/&gt;').html('&lt;strong&gt;Hier ist HTML was wert!&lt;/strong&gt;').appendTo('#testBoxjQueryAdd');
+</pre>
+</li>
+<li>Testen wir das gleich mal: <a href="#" id="textExample">Text-Beispiel</a> | <a href="#" id="htmlExample">HTML-Beispiel</a></li>
+<div id="testBoxjQueryAdd" class="hide" style="overflow-y: scroll;height: 80px;background: #EEE;padding: 10px;border:1px solid #BBB;">
+</div>
+<li>jQuery erstellt also nicht vorhandene Elemente direkt - wir können auch sofort deren Eigenschaften (<code>css()</code>, <code>attr()</code>, <code>height()</code>, <code>width()</code>, <code>text()</code>, <code>html()</code>, ...) bearbeiten</li>
+<li>Hinzufügen zu einem Element müssen wir sie allerdings (immer) noch - hier helfen uns aber <code>appendTo()</code>, <code>prependTo()</code>, <code>append()</code> und <code>prepend()</code> weiter</li>
+<li>Auch das Entfernen geht sehr viel leichter - es gibt <code>remove()</code>, <code>detach()</code>, <code>empty()</code> und <code>unwrap()</code></li>
+</ul>
+<aside>
+<a href="http://api.jquery.com/category/manipulation/dom-insertion-inside/" target="_blank">jQuery Elemente hinzufügen</a>
+<a href="http://api.jquery.com/appendTo/" target="_blank">jQuery Methode appendTo()</a>
+<a href="http://api.jquery.com/html/" target="_blank">HTML über html() einfügen</a>
+<a href="http://api.jquery.com/text/" target="_blank">Text über text() einfügen</a>
+<a href="http://docs.jquery.com/How_jQuery_Works" target="_blank">Tutorial wie jQuery funktioniert</a>
+<a href="http://tobiasahlin.com/blog/quick-guide-chaining-in-jquery/" target="_blank">Quick-Guide zum Chaining</a>
+</aside>
+<!--läd die jQuery Funktionalität / oder nicht-->
+<script src="scripts/loadjquery.js"></script>
+<script>
+$(function() {
+	$('#textExample').click(function(e) {
+		$('<p/>').text('Wenn ich hier HTML schreibe z.B. <p> Dann kommt &lt;p&gt; raus!').appendTo("#testBoxjQueryAdd");
+		e.preventDefault();
+		return false;
+	});
+	$('#htmlExample').click(function(e) {
+		$('<p/>').html('<strong>Hier ist HTML was wert!</strong>').appendTo("#testBoxjQueryAdd");
+		e.preventDefault();
+		return false;
+	});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Die Messaging API</h1>
+<ul>
+<li>Die Messaging API erfreut sich optimaler Browserunterstützung und bietet uns eine einfache Möglichkeit Text zwischen Seiten <mark>unterschiedlicher Herkunft</mark> zu versenden oder zu empfangen</li>
+<li>Im Regelfall wird die Messaging API dazu verwendet, dass Webseiten miteinander kommunizieren</li>
+<li>Normalerweise wird die Seite mit der man kommunizieren möchte in einem neuen Fenster oder <code>&lt;iframe&gt;</code> geladen - und zwar von unserer Seite aus, da wir sonst keinen Zugriff haben</li>
+<li>Wichtig ist, dass wir eine Referenz auf das <code>window</code> Objekt dieser Seite erhalten</li>
+<li>Weiterhin muss eine Nachricht natürlich aufgenommen werden können</li>
+<li>Dies kann man durch eine Ereignisbehandlung auf das <code>message</code> Ereignis ermöglichen, z.B.
+<pre lang="javascript">
+window.addEventListener('message', function(event) {
+	//event.data gibt uns die Nachricht an
+	//event.origin gibt uns die URL (der sendenden Seite) an
+	//event.source gibt uns eine Referenz zum window-Objekt der Quelle
+	event.source.postMessage('Howdy Cowboy!', event.origin); //Schreiben eine Nachricht zurück
+}, false); //Wir wollen nur Message Ereignisse an das window-Objekt behandeln
+</pre></li>
+<li>Somit kann man sehr leicht Kommunikationsschnittstellen in einer Webseite einbauen oder ausnutzen</li>
+</ul>
+<aside>
+<a href="http://www.w3.org/TR/webmessaging/" target="_blank">W3C Spezifikation</a>
+<a href="http://marakana.com/bookshelf/html5_tutorial/messaging.html" target="_blank">Tutorial zur Messaging API</a>
+<a href="https://developer.mozilla.org/en/DOM/window.postMessage" target="_blank">MDN zu postMessage</a>
+<a href="http://html5demos.com/postmessage2" target="_blank">Demo zu Messaging API</a>
+</aside>
+</body>
+</html>

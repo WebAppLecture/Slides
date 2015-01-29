@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Beispiel zu den Media-Queries</title>
+<style>
+body, html
+{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+body
+{
+	position: relative;
+	font-family: 'Georgia', 'Times New Roman', serif;
+	font-size: 14px;
+	background-image: -o-linear-gradient(bottom, #ABCDEF, #BCDEFF);
+	background-image: -webkit-linear-gradient(bottom, #ABCDEF, #BCDEFF);
+	background-image: -moz-linear-gradient(bottom, #ABCDEF, #BCDEFF);
+	background-image: -ms-linear-gradient(bottom, #ABCDEF, #BCDEFF);
+	background-image: linear-gradient(bottom, #ABCDEF, #BCDEFF);
+}
+button
+{
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+	border-radius: 5px;
+	background: #06C;
+	border: 1px solid #666;
+	height: 30px;
+	box-shadow: 2px 2px 2px #666;
+	color: #FFF;
+	font-weight: bold;
+	margin-top: 50px;
+}
+label
+{
+	position: relative;
+	width: 100%;
+	display: block;
+	margin: 50px 0;
+}
+input
+{
+	position: absolute;
+	right: 0;
+	width: 30%;
+	height: 25px;
+}
+select
+{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -40px;
+	margin-top: -40px;
+	height: 80px;
+	width: 80px;
+	text-align: center;
+	font-size: 40px;
+}
+button:hover
+{
+	background: #69C;
+	cursor: pointer;
+}
+body > div
+{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	border: 1px solid #AAA;
+	background: #FFF;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 1px 3px 3px #666;
+	width: 600px;
+	height: 400px;
+	margin: -221px 0 0 -321px;
+}
+
+@media all and (max-width: 700px) and (min-width: 500px)
+{
+	body
+	{
+		font-size: 10px;
+	}
+	body > div
+	{
+		width: 400px;
+		height: 300px;
+		margin: -161px 0 0 -211px;
+		padding: 10px;
+	}
+}
+
+@media all and (max-width: 500px)
+{
+	body
+	{
+		font-size: 8px;
+	}
+	body > div
+	{
+		width: 200px;
+		height: 150px;
+		margin: -81px 0 0 -106px;
+		padding: 5px;
+	}
+	label
+	{
+		margin: 0;
+	}
+}
+</style>
+</head>
+<body>
+<div id="start">
+<h1>Ein neues Spiel starten</h1>
+<label>Minimum<input type="number" min=0 max=1000 id="min" value="0" /></label>
+<label>Maximum<input type="number" min=0 max=1000 id="max" value="10" /></label>
+<label>Zeit (s)<input type="number" min=10 max=3600 id="zeit" value="60" /></label>
+<button id="startbutton">Spiel starten</button>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (30)</h1>
+<figure><img src="http://html5skript.florian-rappl.de/img/zelda.png" alt="Der verwendete Zelda-Sprite" /><figcaption>Der verwendete Sprite - Zelda mit Laufrichtung</figcaption></figure>
+<pre lang="javascript">
+var zelda = $('#link'), world = zelda.parent(), direction = 0;
+var logic = setInterval(function() { //Hier läuft die Logik ab (z.B. Bewegung)!
+	if(direction == 1) zelda.css('bottom', '+=3');
+	//usw. für alle Richtungen und PBC Check damit unser Held in der Welt bleibt!
+}, 25);
+var setAni = function(dir, press) {
+	if(!press) { direction = 0; zelda.destroy(); } //Bewegt sich nicht mehr - Sprite stoppen
+	else { direction = dir; zelda.sprite({ fps : 25, no_of_frames : 6 }).spState(dir); //Sprite starten
+};
+var keypress = function(event) {
+	switch (event.keyCode) {
+		case 37://Linke Pfeiltaste - 37 links, 38 hoch, 39 rechts 40 unten
+			setAni(2, event.type !== 'keyup'); // Als Richtungen sind die einzelnen Zeilen des Sprites
+			break;
+	} //usw. für alle notwendigen Tasten
+	return false;
+}; /* verschiedene Events binden */
+$('html').bind('keydown', keypress).bind('keyup', keypress); // Die beiden Events festlegen
+</pre>
+<aside>
+<a href="http://sdb.drshnaps.com/" target="_blank">Sprite Database</a>
+<a href="http://spriters-resource.com/" target="_blank">Spriters Resource</a>
+<a href="http://css-tricks.com/snippets/css/flip-an-image/" target="_blank">Ein Bild in CSS umdrehen</a>
+<a href="http://html5skript.florian-rappl.de/offlineexample/zelda.html" target="_blank">Das Beispiel</a>
+</aside>
+</body>
+</html>

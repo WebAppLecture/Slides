@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>JavaScript in HTML nutzen</h1>
+<ul>
+<li>Einbindung erfolgt wie erwähnt über das <code>&lt;script&gt;</code> Element</li>
+<li>Allgemein wird JavaScript immer über sog. <mark>Ereignisse</mark> angesprochen</li>
+<li>Je nachdem um welches HTML Element es sich handelt, stehen andere Ereignisse zur Verfügung</li>
+<li>Beispiel: Bei vielen Elementen existiert das <code>onclick</code> Event, das beim Klicken ausgeführt wird:
+<pre lang="html">
+&lt;button onclick=&quot;alert('Das ist ein Test!');&quot;&gt;Teste mich!&lt;/button&gt;
+</pre>
+<div class="hide">Das Ergebnis ist: <button onclick="alert('Das ist ein Test!');">Teste mich!</button></div>
+</li>
+<li>Daneben können wir mit JavaScript noch Werte aus HTML auslesen und manipulieren:
+<ul>
+<li>Die Seite ist im <code>document</code> Objekt gekapselt (hier ist z.B. auch das <code>&lt;body&gt;</code> Element als Objekt enthalten)</li>
+<li>Um im <code>document</code> auf benannte Elemente (z.B. <code>&lt;form name="eingabe" ... /&gt;</code>) zuzugreifen schreiben wir <code>document.getElementsByName('eingabe')[0]</code> (hierbei ist <code>[0]</code> ein Array-Zugriff auf das 1. Element)</li>
+<li>Der Array-Zugriff ist notwendig, da wir mehrere Elemente zurück erhalten (können)</li>
+<li>Um auf Elemente mit einer ID (z.B. <code>&lt;div id="content" ... &gt;</code>) zuzugreifen benutzt man <code>document.getElementById('content')</code> (die ID muss eindeutig sein)</li>
+</ul>
+</li>
+</ul>
+<aside>
+<a href="http://www.dummies.com/how-to/content/javascript-and-html.html" target="_blank">JS in HTML Tutorial</a>
+<a href="https://developer.mozilla.org/en/DOM/document.getElementById" target="_blank">Mozilla Referenz</a>
+<a href="http://www.tizag.com/javascriptT/javascript-getelementbyid.php" target="_blank">Tutorial zum Thema getElementById</a>
+<a href="http://devedge-temp.mozilla.org/library/manuals/2000/javascript/1.3/guide/embed.html" target="_blank">Historisches zur JavaScript Einbindung</a>
+<a href="http://www.javaworld.com/javaworld/jw-06-1996/jw-06-javascript.html" target="_blank">JavaScript in HTML Forms nutzen</a>
+<a href="http://www.w3schools.com/jsref/met_doc_getelementsbyname.asp" target="_blank">Elemente per Namensattribut nutzen</a>
+</aside>
+</body>
+</html>

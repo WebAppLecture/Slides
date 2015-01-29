@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>JavaScript Strangeness</h1>
+<ul>
+<li>Zunächst folgender Code:
+<pre lang="javascript">
+var a = 0;
+var b = -0;
+if(a === b)
+	alert('Gleich!');
+if(1/a !== 1/b)
+	alert('Ungleich!');
+</pre>
+</li>
+<li>Wer hätte das gedacht?! In JavaScript ist 0 gleich 0, <strong>aber</strong> das <mark>Vorzeichen wird gespeichert</mark>!</li>
+<li>Nun folgender Code:
+<pre lang="javascript">
+var i = 1;//hier wird i_außen gesetzt
+(function () {
+	alert(i);//undefined - hier ist schon var i_innen = null;
+	var i = 2;//jetzt ist i_innen = 2;
+	alert(i);//2 - wir sind ja im inneren Scope!
+})();
+</pre>
+</li>
+<li>Das Problem ist, dass wir im <mark>inneren Scope</mark> <code>i</code> neu definieren (Funktionen geben Scope, genannt Kontext)</li>
+</ul>
+<aside>
+<a href="http://www.codeproject.com/KB/scripting/javascript-gotchas.aspx" target="_blank">Codeproject Artikel</a>
+<a href="http://www.fitzblog.com/bid/2127/Nine-Javascript-Gotchas" target="_blank">Blog Artikel über 9 Gotchas</a>
+</aside>
+</body>
+</html>

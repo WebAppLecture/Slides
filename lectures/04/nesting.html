@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Nesting im Visier</h1>
+<ul>
+<li>Unter Nesting verstehen wir im Prinzip nichts anderes als Verschachteln, z.B. ist bekannt
+<pre lang="javascript">
+if (value > 5.0) { //äußerste If-Anweisung
+	if (value > 25.0) { //mittlere If-Anweisung
+		if (value > 100) { /* ... */ } //innerste If-Anweisung
+		else { /* ... */ } //else der innersten
+	} else if (value > 10) { /* ... */ //else if der mittleren
+	} else { /* ... */ } //else der mittleren
+} else { /* ... */ } //else der äußersten
+</pre>
+</li>
+<li>In JavaScript können wir aber auch Methoden in Methoden schachteln</li>
+<li>Dies bietet uns einige Vorteile (Zugriff auf Kontextvariablen), hat allerdings Performance Nachteil</li>
+<li>Methoden sind notwendig um einen Kontext für Variablen zu erzeugen, z.B.
+<pre lang="javascript">
+var a = ['Erster Eintrag','Zweiter Eintrag','Dritter Eintrag','Vierter Eintrag'];
+for(var i = 0; i &lt; a.length; i++) {
+	$('&lt;a /&gt;').text(a[i]).appendTo('body').css({ display : 'block'}).click(function() { alert(i); });
+</pre>
+wird hier das <code>i</code> von außen referenziert, d.h. wir erhalten immer 4 zurück</li>
+</ul>
+<aside>
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/stop-nesting-functions-but-not-all-of-them/" target="_blank">Artikel zum sinnvollen Nesten</a>
+<a href="http://javascript.about.com/od/decisionmaking/a/des09.htm" target="_blank">If-Anweisungen verschachteln</a>
+<a href="http://www.elated.com/articles/nested-arrays-in-javascript/" target="_blank">Mehrdimensionale Arrays durch Nesting</a>
+<a href="http://www.devarticles.com/c/a/JavaScript/Nesting-JavaScript-Functions/" target="_blank">JavaScript Methoden verschachteln</a>
+<a href="http://html5.florian-rappl.de/nesting.html" target="_blank">Beispiel zur Gefahr beim Nesten</a>
+</aside>
+</body>
+</html>

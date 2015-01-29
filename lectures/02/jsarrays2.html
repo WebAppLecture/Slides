@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Arrays (2)</h1>
+<ul>
+<li>Die Eigenschaft <code>length</code> gibt eine Zahl zurück, welche 1 größer als der größte Integer Key ist</li>
+<li>Mit <code>sort()</code> können wir das Array sortieren - optional unter Angabe einer Sortierfunktion</li>
+<li>Standardmäßig wird nur die Stringdarstellung sortiert, z.B.
+<pre lang="javascript">
+var a = [1, 5, 12, 23, 100];
+a.sort();//1 100 12 23 5
+a.sort(function(a,b) { 
+	return a-b;
+}); //1 5 12 23 100
+</pre>
+<li>Zum Entfernen mit <code>splice()</code> wird der Index und die Anzahl benötigt oder wir löschen das letzte mit <code>pop()</code>
+<pre lang="javascript">
+var kundenliste = []; //Erstellt ein leeres neues Array mit length=0
+kundenliste.push('Herbert Maier'); //Ein neuer Eintrag drin
+kundenliste.push('Max Hilbert', 'Anton Mustermann'); //Zwei weitere hinzugefügt
+var i = kundenliste.length; //Variable i hat nun den Wert 3
+kundenliste.splice(0, 2); //Entfernt zwei Einträge ab Index 0 - es bleibt 'Anton Mustermann'
+var j = kundenliste.length; //Variable j hat nun den Wert 1
+</pre></li>
+</ul>
+<aside>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort" target="_blank">MDN über Array.sort()</a>
+<a href="http://www.w3schools.com/jsref/jsref_splice.asp" target="_blank">Mehr über splice()</a>
+<a href="http://www.hunlock.com/blogs/Mastering_Javascript_Arrays" target="_blank">Profiwissen über JS Arrays</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Performance Tricks</h1>
+<ul>
+<li>Um JavaScript schneller laufen zu lassen sollten auf jeden Fall ständige DOM Abfragen vermieden werden</li>
+<li>Bei bekannten Typen empfiehlt es sich <code>===</code> und <code>!==</code> anstelle von <code>==</code> und <code>!=</code> zu verwenden (spart Cast!)</li>
+<li>Außerdem sollten verknüpfte Bedingungen so umgestellt werden, dass die einfachsten am Anfang stehen
+<pre lang="javascript">
+var x = 10, y = true;
+if (y || x * x > 1000) // Viel besser als x * x > 1000 || y
+	alert('true!');
+</pre>
+</li>
+<li>Die Performance von JavaScript skaliert invers mit der Anzahl der Operationen - weniger ist besser</li>
+<li>Daher gilt immer: Unnötige Operationen weglassen - am besten zusammenfassen wie hier:
+<pre lang="javascript">
+oElement.style.position = 'absolute'; //Schlechter Stil - lauter einzelne Operationen
+oElement.style.top = '0px'; /* etc... */
+oElement.setAttribute('style', 'position: absolute; top: 0px; /* etc... */'); //BESSER!
+</pre>
+Auch bei <code>for</code>-Schleifen kann man tricksen, so ist eine der effizientesten Arten folgende
+<pre lang="javascript">
+var anchors = document.getElementsByTagName('a');  
+for (var i = anchors.length; i--; ) { /* Anweisungen hier */ }
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://www.codeproject.com/KB/tips/Performances.aspx" target="_blank">Artikel auf Codeproject</a>
+<a href="http://www.sitepoint.com/faster-javascript-condition-expressions/" target="_blank">Schnellere Bedingungen</a>
+<a href="http://oreilly.com/server-administration/excerpts/even-faster-websites/writing-efficient-javascript.html" target="_blank">Ausführliche Benchmarks von Steve Souders</a>
+<a href="http://userjs.org/help/tutorials/efficient-code" target="_blank">Jede Menge Do's and Dont's von UserJS</a>
+<a href="http://www.impressivewebs.com/javascript-for-loop/" target="_blank">Effiziente for-Schleifen in JavaScript</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (6)</h1>
+<script>
+//Array mit Instanzen unserer Klasse
+var cars = [];
+//Erstellen den Konstruktor unserer Klasse
+var Auto = function(dist, carname) {
+	//Mit jeder Instanz wollen wir die Anzahl erhöhen
+	Auto.Count++;
+	this.Distance = dist || 0;
+	this.Name = carname || '(ohne Namen)';
+	var isDriving = false;
+	var velocity = 0.0;
+	var timeStarted = null;
+	var id = Auto.Count;
+	//Brauchen diese Öffentlichen Getter um mit externen toString() darauf zugreifen zu können
+	this.GetIsDriving = function() { return isDriving; };
+	this.GetVelocity = function() { return velocity; };
+	this.GetId = function() { return id; };
+	this.SetVelocity = function(v) {
+		var currentTime = new Date().getTime();
+		//Wenn er bereits fährt wollen wir die km mal zusammen zählen
+		if(isDriving)
+			this.Distance += velocity * (currentTime - timeStarted) / 1000;
+		//Wenn er jetzt fährt (setzen das isDriving in der if-Abfrage) wollen wir die Zeit setzen
+		if(isDriving = !!v)
+			timeStarted = currentTime;
+		//Auf jeden Fall sollten wir die Geschwindigkeit setzen
+		velocity = v;
+	};
+}
+//Statische Variable (nicht an Instanz gebunden) um die Autoanzahl gebunden
+Auto.Count = 0;
+//StartDriving Methode - außerhalb festgelegt
+Auto.prototype.StartDriving = function(velocity) {
+	this.SetVelocity(velocity);
+};
+//Überschreiben die toString() Methode
+Auto.prototype.toString = function() {
+	this.StartDriving(this.GetVelocity());
+	return 'Auto ' + this.GetId() + '/' + Auto.Count + '\nDistanz: ' + this.Distance + '\nFährt gerade: ' + (this.GetIsDriving() ? 'Ja' : 'Nein') + '\nGeschwindigkeit ' + this.GetVelocity() + ' km/h';
+};
+//Hilfsmethode zum Erstellen und Hinzufügen einer Instanz
+function create() {
+	document.getElementById('ex6v').disabled = false;
+	document.getElementById('ex6status').disabled = false;
+	cars.push(new Auto(document.getElementById('ex6km').value * 1, document.getElementById('ex6name').value));
+	var newOpt = document.createElement('option');//und erstellt einen Listeneintrag
+	newOpt.text = cars[cars.length - 1].Name;
+	document.getElementById('ex6select').add(newOpt);
+}
+//Hilfsmethode zum Setzen der Fahren-Eigenschaft
+function drive() {
+	cars[document.getElementById('ex6select').selectedIndex].StartDriving(ex6v.value * 1);
+}
+//Hilfsmethode zur Ausgabe des aktuellen Status
+function carAlert() {
+	alert(cars[document.getElementById('ex6select').selectedIndex].toString());
+}
+</script>
+<pre lang="javascript">
+var Auto = function(dist) { 			//Konstruktor
+	Auto.Count++;						/*Erhöhen die Zahl aller Autos*/
+	this.Distance = dist || 0;			//Legen Start km Fest
+	var isDriving = false, velocity = 0.0, timeStarted = null, id = Auto.Count;
+	this.GetIsDriving = function() { return isDriving; };	//Machen einen Getter draus
+	this.GetVelocity = function() { return velocity; };	//Machen einen Getter draus
+	this.GetId = function() { return id; };	//Machen einen Getter draus
+	this.SetVelocity = function(v) {	//Brauchen interne Methode wg. privaten Variablen
+		var currentTime = new Date().getTime();	//Aktuelle Uhrzeit auslesen
+		if(isDriving)		//Wenn er schon fährt sollen die vorhandenen km addiert werden
+			this.Distance += velocity * Math.floor((currentTime - timeStarted) / 1000);
+		if(isDriving = !!v)		//setze aktuellen Zustand und wenn er jetzt fährt dann
+			timeStarted = currentTime;		//setzen wir die aktuelle Zeit
+		velocity = v; }; }
+Auto.Count = 0;			//Statisches Feld - Speichert Zahl aller Autos
+Auto.prototype.StartDriving = function(velocity) { //externer Prototype
+	this.SetVelocity(velocity); };		/*Setzt die Geschwindigkeit*/
+Auto.prototype.toString = function() {
+	return 'Auto ' + this.GetId() + '/' + Auto.Count + '\nDistanz: ' + this.Distance + '\nFährt gerade: ' + (this.GetIsDriving() ? 'Ja' : 'Nein') + '\nGeschwindigkeit ' + this.GetVelocity() + ' km/h';
+</pre>
+<div class="hide">
+<input type="text" placeholder="Name des Auto" id="ex6name" /><input type="number" min=0 max=1000000 placeholder="Kilometerstand" id="ex6km" /><button onclick="create();">Hinzufügen</button>
+<select id="ex6select" onchange="ex6v.value = cars[ex6select.selectedIndex].GetVelocity();"></select><input type="range" min=0 max=200 id="ex6v" value="0" onchange="drive();" disabled /><button id="ex6status" disabled onclick="carAlert();">Status</button>
+</div>
+</body>
+</html>

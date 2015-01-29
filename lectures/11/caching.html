@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Serverseitiges Caching</h1>
+<div class="doubleleft">
+<ul>
+<li>Hat man die Zahl der http-Requests auf ein Minimum gebracht und verwendet optimierte Skripten, CSS und weitere Resourcen (auch am HTML kann man sparen), so bleibt nur noch der Weg auf den Server</li>
+<li>Für statische Seiten ist man mit Komprimierung und sehr langen Expires-Header auf jeden Fall optimal aufgestellt</li>
+<li>Bei dynamischen Seiten liegt das Problem im Regelfall an der Zahl der getätigten Datenbankabfragen</li>
+<li>Daher sollte man auf jeden Fall sehr häufig benutzte Queries, die sich selten ändern, <mark>cachen</mark></li>
+</ul>
+</div>
+<div class="halfright">
+<figure><img src="img/caching.png" alt="Sichtbar gutes Caching" /><figcaption>Der Effekt von guten Caching sollte auf jeden Fall spürbar sein</figcaption></figure>
+</div>
+<div class="clear">
+<ul>
+<li>Professionell gestaltete Webseiten verwenden einen Cache-Pool, der solche Resourcen in einen Zwischenspeicher (Arbeitsspeicher) hält</li>
+<li>Im Regelfall werden Resourcen mit einem Cache-Ablaufdatum und einer Priorität versehen, so dass veraltete Resourcen verworfen werden</li>
+<li>Auf der anderen Seite werden Resourcen je nach Prio auch verworfen, wenn der Speicher voll ist und Platz gemacht werden muss</li>
+<li>Caching ist bei allen großen Web-Skriptsprachen möglich (z.B. PHP, ASP, Ruby, ...)</li>
+</ul>
+</div>
+<aside>
+<a href="http://www.codeproject.com/KB/web-cache/MyCache.aspx" target="_blank">Codeproject Artikel</a>
+<a href="http://www.caucho.com/resin-3.0/performance/caching.xtp" target="_blank">Server Caching</a>
+<a href="http://httpd.apache.org/docs/2.1/caching.html" target="_blank">Guide für Caching am Apache Server</a>
+<a href="http://www.mnot.net/cache_docs/" target="_blank">Großes Caching Tutorial</a>
+<a href="http://rfc1437.de/page/caching-fur-php-systeme/" target="_blank">Artikel für Caching mit PHP</a>
+<a href="http://msdn.microsoft.com/de-de/library/bb979285.aspx" target="_blank">MSDN Artikel für Caching mit ASP.NET</a>
+</body>
+</aside>
+</html>

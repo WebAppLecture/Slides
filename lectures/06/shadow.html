@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Licht und Schatten</h1>
+<div class="right">
+<figure><div style="width: 250px; height: 70px; padding-top: 30px; background: #CCC; border: 1px solid #000; box-shadow: 5px 5px 3px #666; margin:auto; margin-bottom: 10px; color:#677;">#eins</div><figcaption>Die erste Box mit einem Schatten nach rechts unten (Dunkelgrau)</figcaption></figure>
+<figure><div style="width: 250px; height: 70px; padding-top: 30px; background: #CCC; border: 1px solid #000; box-shadow: -5px 5px 10px #F00; margin: 10px auto; color:#677;">#zwei</div><figcaption>Die zweite Box mit einem Schatten nach links unten (Rot)</figcaption></figure>
+<figure><div style="width: 250px; height: 30px; padding-top: 20px; background: #CCC; border: 1px solid #000; text-shadow: 3px 3px 5px #999; margin: 10px auto; color:#677; font-size: 2em;">#drei</div><figcaption>Die dritte Box mit einem Textschatten nach rechts unten (Grau)</figcaption></figure>
+<figure><div style="width: 250px; height: 30px; padding-top: 20px; background: #CCC; border: 1px solid #000; text-shadow: -3px 3px 2px #0F0; margin: 10px auto; color:#677; font-size: 2em;">#vier</div><figcaption>Die vierte Box mit einem Textschatten nach links unten (Grün)</figcaption></figure>
+</div>
+<div class="left">
+<ul>
+<li>Mit CSS3 sind Schatten für Texte und Boxen möglich</li>
+<li>Die Syntax für Boxen lautet
+<pre lang="css">
+#eins { box-shadow: 5px 5px 3px #666; }
+#zwei { box-shadow: -5px 5px 10px #F00; }
+</pre>
+</li>
+<li>Bei Text ist die Syntax sehr ähnlich z.B.
+<pre lang="css">
+#drei { text-shadow: 3px 3px 5px #999; }
+#vier { text-shadow: -3px 3px 2px #0F0; }
+</pre>
+</li>
+<li>Die Syntax ist also immer so aufgebaut:
+<ul>
+<li>Versatz horizontal (pos. rechts, neg. links)</li>
+<li>Versatz vertikal (pos. unten, neg. oben)</li>
+<li>Verschwommenheit (0 entspricht klar)</li>
+<li>Farbe des Schattens</li>
+</ul>
+</li>
+</ul>
+</div>
+<aside>
+<a href="http://robertnyman.com/css3/drop-shadow/drop-shadow.html" target="_blank">Schatten auf Boxen</a>
+<a href="http://robertnyman.com/css3/text-shadow/text-shadow.html" target="_blank">Schatten auf Text</a>
+<a href="http://www.css3.info/preview/box-shadow/" target="_blank">Boxschatten mit CSS3 erklärt</a>
+<a href="http://www.css3.info/preview/text-shadow/" target="_blank">Textschatten mit CSS3 erklärt</a>
+<a href="http://dev.opera.com/articles/view/beautiful-ui-styling-with-css3-text-shadow-box-shadow-and-border-radius/" target="_blank">Tipps zum UI Styling mit Schatten</a>
+</aside>
+</body>
+</html>

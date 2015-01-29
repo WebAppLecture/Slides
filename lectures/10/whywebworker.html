@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Warum WebWorker?</h1>
+<ul>
+<li>Die Applikation soll immer responsive bleiben (immer reagieren können)</li>
+<li>Als Faustregel gilt: Wenn eine Operation mehr als <strong>50 ms</strong> brauchen kann, sollte diese asynchron sein</li>
+<li>Ein WebWorker kann von außen über <code>terminate()</code> abgebrochen werden</li>
+<li>Innerhalb eines Workers haben wir nur die Möglichkeiten über <code>postMessage()</code> an die Quelle zu senden oder diese über das <code>onmessage</code>-Ereignis zu empfangen</li>
+<li>Diese Möglichkeiten unterliegen der Messaging API und können nur Strings senden und empfangen (JSON!)</li>
+<li>Des Weiteren können wir AJAX Requests, <mark>WebSockets</mark>, alle JS-Methoden wie <code>eval()</code>, <code>isNaN()</code> etc. und alle Timer wie <code>setInterval()</code> verwenden</li>
+<li>Mit Hilfe von <code>importScripts</code> kann man weitere Skripte (z.B. jQuery) reinladen</li>
+<li>Das <code>location</code>-Objekt enthält die Adresse des WebWorkers</li>
+<li>Worker dürfen das <code>navigator</code>-Objekt verwenden: <code>appName</code>, <code>appVersion</code>, <code>platform</code> und <code>userAgent</code></li>
+<li>Über <code>close()</code> können wir den Worker innerhalb schließen</li>
+<li>Innerhalb des Workers ist <code>this</code> gleich der Worker-Instanz</li>
+</ul>
+<aside>
+<a href="http://www.sitepoint.com/javascript-threading-html5-web-workers/" target="_blank">WebWorker bei Sitepoint</a>
+<a href="http://weblog.bocoup.com/javascript-web-workers-from-basics-to-jquery-hive-part-ii-browser-implementations" target="_blank">WebWorker Basics</a>
+<a href="http://thoriumware.com/?p=118" target="_blank">WebWorker mit JavaScript</a>
+<a href="http://blogs.msdn.com/b/ie/archive/2011/07/01/web-workers-in-ie10-background-javascript-makes-web-apps-faster.aspx" target="_blank">IE Blog auf MSDN zu WebWorker</a>
+</aside>
+</body>
+</html>

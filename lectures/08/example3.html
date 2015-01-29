@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (18)</h1>
+<pre lang="javascript">
+//Setzen des Ladebildes
+$('#example18insert').html('&lt;img src=&quot;loader.gif&quot; alt=&quot;Ladebalken für AJAX&quot; /&gt;');
+//Ausführen von AJAX
+$.ajax({
+	url: 'http://html5.florian-rappl.de/submitted.html', //Wir fragen diese (statische) Seite ab
+	cache: false, //Es soll nicht gechached werden -- wollen diese Seite immer neu erhalten
+	dataType: 'html', //Setzen HTML als Datentyp fest
+	type: 'GET', //Setzen GET als Methode fest
+	success: function(html, status) { //Was passiert wenn alles gepasst hat?
+		console.log('Erfolg.');
+		setTimeout(function() { $('#example18insert').html(html); }, 1000); //Content setzen
+	},
+	error: function(xhr, status, err) { //Was passiert im Falle eines Fehlers?
+		$('#example18insert').html(''); //Content zurücksetzen
+		alert('Fehler in der Abfrage!');
+	},
+	complete: function(xhr, status) { console.log('Abgeschlossen.'); } //Was passiert zum Abschluss?
+});
+</pre>
+<div class="hide">
+<button type="button" id="example18ajax">AJAX Starten!</button>
+<div id="example18insert"></div>
+</div>
+<!--läd die jQuery Funktionalität / oder nicht-->
+<script src="scripts/loadjquery.js"></script>
+<script>
+$(function() {
+	$('#example18ajax').click(function () {
+		$('#example18insert').html('<img src="icons/loader.gif" alt="Ladebalken für AJAX" />');
+		
+		$.ajax({
+			url: 'http://html5skript.florian-rappl.de/uiexample/ajax.html',
+			cache: false,
+			dataType: 'html',
+			type: 'GET',
+			success: function(html, status) {
+				console.log('Erfolg.');
+				setTimeout(function() { $('#example18insert').html(html); }, 1000);
+			},
+			error: function(xhr, status, err) {
+				$('#example18insert').html('');
+				alert('Fehler in der Abfrage!');
+			},
+			complete: function(xhr, status) { console.log('Abgeschlossen.'); }
+		});
+	});
+});
+</script>
+</body>
+</html>

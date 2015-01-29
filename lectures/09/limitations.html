@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Begrenzungen</h1>
+<ul>
+<li>Die Webdatenbanken sind im Moment (auch aufgrund der unruhigen Spezifikation) noch weite Zukunftsmusik</li>
+<li>WebStorage bietet wirklich viele Optionen - allerdings sind einige Details zu beachten</li>
+<li>Eine Stolperfalle findet sich mit <mark>Firefox Cookie Security</mark>:
+<pre lang="javascript">
+var cookiesEnabled = (function() { //Feststellen ob die Cookies verfügbar sind
+	var id = new Date().getTime(); //Erstellen ein Beispielcookie mit der aktuellen Zeit
+	document.cookie = '__cookieprobe=' + id + ';path=/'; //Setzen das Cookie (bzw. die Session)
+	return (document.cookie.indexOf(id) !== -1); //Wenn unser Wert vorhanden ist sind Cookies aktiviert
+})();
+</pre>
+In Firefox funktioniert WebStorage nur bei aktiven Cookies, daher ist dieser Code notwendig!
+</li>
+<li>Wichtig ist immer die maximale Größe zu beachten - hier hilft der try-catch-Block wie vorhin gelistet</li>
+<li>Eine weitere Einschränkung erhält man durch die Verwendung von Strings</li>
+<li>Wir können außer Strings keine weiteren Daten verwenden - dies kann aber durch <strong>JSON</strong> umgangen werden</li>
+<li>JSON ist fast immer die Lösung für "Wir akzeptieren alle Daten, solange diese Daten Strings sind"-Probleme</li>
+<li>Leider sind die Ereignisse für das Ändern von Storage-Daten bisher nur in Opera implementiert</li>
+</ul>
+<aside>
+<a href="http://sixrevisions.com/html/introduction-web-storage/" target="_blank">Einführung in WebStorage</a>
+<a href="http://dev.w3.org/html5/webstorage/" target="_blank">W3C über Web Storage</a>
+<a href="http://stackoverflow.com/questions/3232872/is-5mb-the-de-facto-limit-for-w3c-web-storage" target="_blank">Is 5MB the de facto limit for W3C Web Storage?</a>
+<a href="http://dev.opera.com/articles/view/web-storage/" target="_blank">Web Storage: easier, more powerful client-side data storage</a>
+</aside>
+</body>
+</html>

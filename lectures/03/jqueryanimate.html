@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Vitalität dank Animationen</h1>
+<div class="right">
+<figure><img src="img/jqueryanimate.png" alt="Animationsablauf mit jQuery" /><figcaption>Animationen mit jQuery laufen iterativ ab</figcaption></figure>
+<div class="hide" style="margin-top:60px">
+<div id="anitestbox" style="height: 50px; width: 50px; background-color: #F00; overflow: hidden;"></div>
+</div>
+</div>
+<div class="left">
+<ul>
+<li>jQuery bietet uns sehr viele Möglichkeiten Animationen zu gestalten</li>
+<li>Neben vordefinierten Animationen über <code>slideUp()</code>, <code>slideDown()</code> und <code>toggleSlide()</code> etc. kann man auch sehr schnell eigene Animationen erstellen</li>
+<li>Die entsprechende Methode heißt <code>animate()</code></li>
+<li><code>stop()</code> stoppt die aktuelle Animation des Elements</li>
+<li>Beispiel:
+<pre lang="javascript">
+function inAni(e) {
+	$(this).stop().animate({height : '20px', width : '100px'}, 2000, function() { ... });
+} //Setzen den Text ready über Callback
+function outAni(e) {
+	$(this).stop().text('').animate({height : '50px', width : '50px'}, 500);
+} //Entfernen den Text vor der Animation
+</pre>
+</li>
+</ul>
+</div>
+<aside>
+<a href="http://api.jquery.com/animate/" target="_blank">jQuery Animationen</a>
+<a href="http://api.jquery.com/category/effects/custom-effects/" target="_blank">Eigene Effekte in jQuery</a>
+<a href="http://api.jquery.com/category/effects/fading/" target="_blank">Vordefinierte Fading Effekte</a>
+<a href="http://api.jquery.com/category/effects/sliding/" target="_blank">Vordefinierte Sliding Effekte</a>
+<a href="http://addyosmani.com/blog/jquery-sprite-animation/" target="_blank">jQuery Animationen in 5 Minuten</a>
+</aside>
+<!--läd die jQuery Funktionalität / oder nicht-->
+<script src="scripts/loadjquery.js"></script>
+<script>
+$(function() {
+	function inAni(e) {
+		$(this).stop().animate({ 
+			height : '20px', 
+			width : '100px' 
+		}, 2000, function() { 
+			this.innerHTML = 'ready'; 
+		});
+	}
+	function outAni(e) {
+		$(this).stop().text('').animate({ 
+			height : '50px', 
+			width : '50px' 
+		}, 500);
+	}
+	$('#anitestbox').mouseover(inAni).mouseout(outAni);
+});
+</script>
+</body>
+</html>

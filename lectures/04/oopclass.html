@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>&quot;Klassen&quot; in JavaScript</h1>
+<ul>
+<li>In JavaScript gibt es <mark>kein</mark> Schlüsselwort um Klassen <mark>direkt</mark> zu erzeugen (Tricksen ist jedoch erlaubt!)</li>
+<li>Jedoch bietet uns JS <u>drei</u> Möglichkeiten eine Klasse zu erstellen
+<ul>
+<li>Als Objekt (hier haben wir aber keinen Konstruktor und daher nur eine Instanz verwenden) über
+<pre lang="javascript">
+var NameDerKlasse = {};//Erstellen des Object-Literals
+NameDerKlasse.WertDerEigenschaft = 5;//Eigenschaft
+NameDerKlasse.FunktionsName = function() {...};//Methode
+</pre>
+</li>
+<li>Als anonyme Funktion mit dem <code>new</code> Operator (hier haben wir einen sinnlosen Konstruktor)
+<pre lang="javascript">
+var NameDerKlasse = new function(...) { //Erstellen und zuweisen der anonymen Methode
+	this.WertDerEigenschaft = 5;//Eigenschaft
+	this.FunktionsName = function() {...}; };//Methode
+</pre>
+</li>
+<li>Als benannte Funktion mit dem <code>new</code> Operator (hier haben wir einen sinnvollen Konstruktor)
+<pre lang="javascript">
+function UnsereKlasse(...) { //Erstellen der benannten Methode
+	this.WertDerEigenschaft = 5;//Eigenschaft
+	this.FunktionsName = function() {...}; };//Methode
+var NameDerKlasse = new UnsereKlasse(...);//erstellt Instanz!
+</pre>
+</li>
+</ul>
+</li>
+</ul>
+<aside>
+<a href="http://webdevelopersjournal.com/articles/jsintro3/js_begin3.html" target="_blank">Erstellen einer Klasse in JS</a>
+<a href="http://www.codeproject.com/KB/aspnet/JsOOP1.aspx" target="_blank">OOP in JS</a>
+<a href="http://www.webmonkey.com/2010/02/make_oop_classes_in_javascript/" target="_blank">OOP Klassen erstellen</a>
+<a href="http://www.phpied.com/3-ways-to-define-a-javascript-class/" target="_blank">Drei Wege um Klassen zu definieren</a>
+<a href="http://james.padolsey.com/javascript/terse-javascript-101-part-1/" target="_blank">Konstruktor Trick</a>
+</aside>
+</body>
+</html>

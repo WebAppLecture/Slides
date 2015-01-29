@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Konvertieren von Strings</h1>
+<ul>
+<li>Wie erwähnt: Jede Eingabe erstmal ein String - wie wird dieser z.B. zu einer Zahl?</li>
+<li>Von einer Zahl zu einem String ist recht einfach z.B. bei <code>var i = 2</code> über </code>var str = i.toString()</code></li>
+<li>Umgekehrt ist es nicht so einfach - eine Möglichkeit ist <code>var str = '123'</code> mit <code>var i = str * 1</code></li>
+<li>Was geschieht wenn wir aber folgendes verwenden: <code>var str = 'abc'</code>? Wir erhalten <code>i = NaN</code></li>
+<li><strong>NaN</strong> heißt <i>Not a Number</i> und ist ein spezieller Wert! Funktion zum Test ist <code>isNaN()</code></li>
+<li>Konvertierungsmethoden wie <code>parseInt()</code> und <code>parseFloat()</code> können auch verwendet werden</li>
+<li>Geben zwar auch im ungünstigen Fall <code>NaN</code> zurück - eignen sich aber sehr gut um wirklich Komma- oder Ganzzahl zu erhalten</li>
+<li>Boolsche Konvertierung: alles konvertiert, z.B. ergibt 0 oder auch <code>null</code> als Wert <code>false</code></li>
+<li>Arrays mit Elemente, Objekte mit Inhalten etc. ergeben als Wert <code>true</code></li>
+<li>Auswerten von Benutzereingabe: mit <mark>regulären Ausdrücken</mark> (<code>match()</code>) und Typüberprüfung arbeiten</li>
+</ul>
+<aside>
+<a href="http://jibbering.com/faq/notes/type-conversion/" target="_blank">JS Type Konvertierungen</a>
+<a href="http://www.javascripter.net/faq/convert2.htm" target="_blank">Strings von und zu Zahlen</a>
+<a href="http://www.bennadel.com/blog/904-Javascript-s-Implicit-Boolean-Conversions.htm" target="_blank">Implizite Boolsche Konvertierungen</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Model-View-Presenter (MVP)</h1>
+<figure><img src="img/mvp.png" alt="Das MVP Muster" /><figcaption>Beziehungen der Klassen mit direkten Verweisen im MVP Konzept</figcaption></figure>
+<ul>
+<li>Das MVP Muster wurde Anfang der 90er von Taligent (Apple, IBM, HP) entwickelt</li>
+<li>Es nimmt dabei MVC als Grundlage und kapselt die Funktionalität in einem Controller ähnlichen Objekt</li>
+<li>Zusätzlich dazu ist der View verantwortlich für die UI Ereignisse (Postback) - dies war eigentlich der Job des Controllers</li>
+<li>Das <mark>Model</mark> kapselt die Daten, welche dargestellt werden sollen</li>
+<li>Der <mark>View</mark> stellt die Daten in einer Webseite dar und empfängt die Ereignisse</li>
+<li>Die Ereignisse werden an den <mark>Presenter</mark> weitergeleitet, welcher dann entsprechende Aktionen durchführt</li>
+<li>Dabei werden Änderungen an den Model und den View durchgeführt</li>
+<li>Bei MVP ist in Verbindung mit WinForms und WebForms (.NET) sogar oftmals eine Portierung der Anwendung möglich</li>
+<li></li>
+</ul>
+<aside>
+<a href="http://en.wikipedia.org/wiki/Model–view–presenter" target="_blank">Wikipedia Artikel</a>
+<a href="http://www.codeproject.com/KB/architecture/ModelViewPresenter.aspx" target="_blank">MVP mit ASP.NET</a>
+<a href="http://webformsmvp.com/" target="_blank">ASP.NET MVP Webforms</a>
+<a href="http://msdn.microsoft.com/en-us/magazine/cc188690.aspx" target="_blank">MSDN zu Model View Presenter</a>
+</aside>
+</body>
+</html>

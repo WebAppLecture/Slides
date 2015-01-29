@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Änderungen zu HTML 4</h1>
+Im Vergleich zu HTML 4 wurden v.a. neue Elemente und Attribute eingeführt, sowie HTML genauer spezifiziert. Dies bedeutet:
+<ul>
+<li>Es gibt nun nicht nur standardisierte Tags, sondern auch auch ein festgelegtes Verhalten</li>
+<li>Statt mehrere unterschiedliche Doctypes zu haben, die unterschiedliche Browsermodi aufrufen (oder nicht), gibt es nun ebenfalls einen standardisierten (HTML5) Doctype</li>
+<li>Viele bekannte Elemente sind einfacher zu schreiben, da ein Standard festgelegt wurde - so sind Skriptelemente standardmäßig auf die Sprache JavaScript festgelegt und Stylesheet Elemente auf CSS</li>
+</ul>
+Wie sieht das ganze nun in der Praxis aus?
+<pre lang="html">
+&lt;!DOCTYPE html&gt; &lt;!--Der neue DOCTYPE - endlich mal einer, den man sich merken kann--&gt;
+&lt;html lang="de"&gt; &lt;!--HTML ist immer noch unser Obertag - Möglichkeit die Sprache des Dokuments festzulegen--&gt;
+&lt;head&gt;
+&lt;meta charset="utf-8" /&gt; &lt;!--Direkt schließen à la XML ist OK - muss aber nicht sein--&gt;
+&lt;script src="test.js" &gt; &lt;/script&gt; &lt;!--Schließen à la leerer HTML Tag geht auch - hier muss--&gt;
+&lt;/head&gt;
+&lt;body&gt; &lt;!--Ohne einen Body Tag funkioniert z.B. im IE kein CSS Styling--&gt;
+...
+&lt;/bodY&gt; &lt;!--Die Schreibweise der Attribute und Tags ist nicht case-sensitive--&gt;
+&lt;/html&gt;
+</pre>
+<aside>
+<a href="http://www.w3.org/TR/html5-diff/" target="_blank">Änderung aus Sicht des W3C</a>
+<a href="http://www.html-5.com/tutorials/converting-to-html-5.html" target="_blank">Seite mit Infos zum Konvertieren von HTML 4 Seiten nach HTML5</a>
+<a href="http://stackoverflow.com/questions/134727/whats-the-key-difference-between-html-4-and-html-5" target="_blank">Zusammenfassung der Änderungen bei Stackoverflow</a>
+<a href="http://www.developerdrive.com/2011/08/10-essential-differences-between-html4-and-html5/" target="_blank">Zehn essentielle Unterschiede bei Developerdrive</a>
+</aside>
+</body>
+</html>

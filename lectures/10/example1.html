@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (24)</h1>
+<pre lang="javascript">
+if (navigator.geolocation) {
+	var options = { enableHighAccuracy: false, /* Akzeptieren alles */
+					timeout: 5000, /* Zeit in ms für TimeOut - 0 bedeutet kein TimeOut */
+					maximumAge: 0 /* 0 = Muss neu, Infinity = Muss alt, ansonsten in ms */
+	};
+	navigator.geolocation.getCurrentPosition(geoSuccess, geoFailure, options); 
+} else geoFailure(); // Wenn kein geolocation-Objekt existiert ist der Browser zu alt
+function showLocation(lat, lng) { //Dient zum Anzeigen der Position
+	/* Google Maps Code (Anzeigen der Karte) */ }
+function geoSuccess(position) { //Wird im Falle einer erfolgreichen Geopositionsabfrage aufgerufen
+	document.getElementById('ex24-loc').value = position.coords.latitude + "," + position.coords.longitude;
+	showLocation(position.coords.latitude, position.coords.longitude); //Anzeige der Position
+} //Ansonsten wird geoFailure aufgerufen
+function geoFailure() { document.getElementById('ex24-loc').value = 'Nicht verfügbar...'; }
+</pre>
+<div class="hide">
+<form action="#" id="ex24-form">
+  <p>
+	<b>Koordinaten:</b>
+	<input type="text" id="ex24-loc" size="40" />
+	<input type="submit" value="Suchen" />
+  </p>
+</form>
+<!-- Benutzen dieses divs als Container für die Karte -->
+<div id="ex24-map" style="width: 800px; height: 200px"></div>
+</div>
+<!-- Einbinden der Google Maps API -->
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+(function() {
+	if (navigator.geolocation) {
+		var options = {
+			enableHighAccuracy: false, /* Akzeptieren alles */
+			timeout: 5000, /* Zeit in ms für TimeOut - 0 bedeutet kein TimeOut */
+			maximumAge: 0 /* 0 = Muss berechnen, Infinity = Muss vorheriges verwenden, ansonsten Zeit in ms */
+		};
+		navigator.geolocation.getCurrentPosition(geoSuccess, geoFailure, options); 
+	} else
+		geoFailure();
+		
+	document.getElementById('ex24-form').onsubmit = function() {
+		var str = document.getElementById('ex24-loc').value;
+		var comma = str.indexOf(',');
+		
+		if(comma !== -1) {
+			var lat = parseFloat(str.substring(0, comma));
+			var lng = parseFloat(str.substring(comma + 1));
+			try {
+				showLocation(lat, lng);
+			} catch(e) { return false; }
+		}
+		
+		return false;
+	};
+
+	function showLocation(lat, lng) {
+		var latlng = new google.maps.LatLng(lat, lng);
+		
+		var myOptions = {
+		  zoom: 15,
+		  center: latlng,
+		  mapTypeControl: false,
+		  navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+		  mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+		
+		var map = new google.maps.Map(document.getElementById('ex24-map'), myOptions);
+
+		var marker = new google.maps.Marker({
+			position: latlng, 
+			map: map, 
+			title: 'Du bist hier!'
+		});
+	}
+
+	function geoSuccess(position) {
+		document.getElementById('ex24-loc').value = position.coords.latitude + "," + position.coords.longitude;
+		showLocation(position.coords.latitude, position.coords.longitude);
+	}
+
+	function geoFailure() {
+		document.getElementById('ex24-loc').value = 'Nicht verfügbar...';
+	}
+})();
+</script>
+</body>
+</html>

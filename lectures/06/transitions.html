@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+<style>
+.transitionbeispiele:hover { 
+	background: #F00;
+	width: 100px;
+}
+.transitionbeispiele { 
+	background: #0F0;
+	display: inline-block;
+	margin: 0 25px;
+	width: 50px;
+	height: 50px;
+}
+#transitionbeispieleeins {  
+	-o-transition: background-color 1s linear; 
+	-webkit-transition: background-color 1s linear; 
+	-moz-transition: background-color 1s linear; 
+	-ms-transition: background-color 1s linear; 
+}
+#transitionbeispielezwei { 
+	-o-transition: background-color 1s ease; 
+	-webkit-transition: background-color 1s ease; 
+	-moz-transition: background-color 1s ease; 
+	-ms-transition: background-color 1s ease; 
+}
+#transitionbeispieledrei { 
+	-o-transition: background-color 1s ease-in; 
+	-webkit-transition: background-color 1s ease-in; 
+	-moz-transition: background-color 1s ease-in; 
+	-ms-transition: background-color 1s ease-in; 
+}
+#transitionbeispielevier { 
+	-o-transition: background-color 1s ease-out; 
+	-webkit-transition: background-color 1s ease-out; 
+	-moz-transition: background-color 1s ease-out; 
+	-ms-transition: background-color 1s ease-out; 
+}
+#transitionbeispielefuenf { 
+	-o-transition: background-color 1s ease-in-out, width 0.5s 1s linear; 
+	-webkit-transition: background-color 1s ease-in-out, width 0.5s 1s linear; 
+	-moz-transition: background-color 1s ease-in-out, width 0.5s 1s linear; 
+	-ms-transition: background-color 1s ease-in-out, width 0.5s 1s linear; 
+}
+</style>
+</head>
+<body><h1>Effekte mit CSS3</h1>
+<ul>
+<li>Vorher waren Änderungen am CSS Stil z.B. durch <code>:hover</code> beim Überfahren, immer direkt</li>
+<li>Mit CSS3 haben wir die Möglichkeit Änderungen an Eigenschaften durch Pseudoklassen zu animieren</li>
+<li>Dies wird als <strong>Transition</strong> bzw. Effekt bezeichnet (nicht als Animation - dazu gleich mehr)</li>
+<li>Die Syntax benutzt dazu folgende Elemente (kann wiederholt durch <code>,</code> angegeben werden):
+<ul>
+<li>Welche Eigenschaften sind von der Transition betroffen? (<code>all</code> meint alle)</li>
+<li>Wie lange soll der Effekt gehen? z.B. <code>1s</code> oder ab wann und wie lang z.B. <code>0.5s 1s</code></li>
+<li>Welcher Effekt soll genau benutzt werden? z.B. <code>ease</code> (Standard) oder <code>linear</code></li>
+</ul>
+<pre lang="css">
+.beispiele:hover { background: #F00; width: 100px; } .beispiele { background: #0F0; width: 50px; }
+#eins { transition: background-color 1s linear; }
+#zwei { transition: background-color 1s ease; }
+#drei { transition: background-color 1s ease-in; }
+#vier { transition: background-color 1s ease-out; }
+#fuenf { transition: background-color 1s ease-in-out, width 0.5s 1s linear; }
+</pre>
+<div class="hide">
+<div class="transitionbeispiele" id="transitionbeispieleeins">#eins</div>
+<div class="transitionbeispiele" id="transitionbeispielezwei">#zwei</div>
+<div class="transitionbeispiele" id="transitionbeispieledrei">#drei</div>
+<div class="transitionbeispiele" id="transitionbeispielevier">#vier</div>
+<div class="transitionbeispiele" id="transitionbeispielefuenf">#fuenf</div>
+</div>
+</li>
+</ul>
+<aside>
+<a href="http://robertnyman.com/css3/css-transitions/css-transitions-simple.html" target="_blank">Beispiel zu einfachen Transitions</a>
+<a href="http://robertnyman.com/css3/css-transitions/css-transitions-rotation.html" target="_blank">Beispiel zu Transitions mit Transforms</a>
+<a href="http://robertnyman.com/css3/css-transitions/css-transitions-mac-os-x-stacks.html" target="_blank">Beispiel: MacOS-X Stacks</a>
+<a href="http://css3.bradshawenterprises.com/" target="_blank">Artikel über Transitions, Animations und Transforms</a>
+<a href="http://net.tutsplus.com/tutorials/html-css-techniques/css-fundametals-css-3-transitions/" target="_blank">Tutorial über Transitions</a>
+<a href="http://www.w3schools.com/css3/css3_transitions.asp" target="_blank">W3Schools über CSS3 Transitions</a>
+</aside>
+</body>
+</html>

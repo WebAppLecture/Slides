@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Kleiner Texteditor</h1>
+<ul>
+<li>Neben den erwähnten Attributen gibt es noch neue Attribute für <code>&lt;iframe&gt;</code></li>
+<li>Diese dienen hauptsächlich der Sicherheitsverbesserung</li>
+<li>Mit dem <code>sandbox</code> Attribut kann man den Inhalt speziell behandeln, z.B. wird durch
+<pre lang="html">
+&lt;iframe src=&quot;search_form.htm&quot; sandbox=&quot;allow-forms&quot;&gt;&lt;/iframe&gt;
+</pre>
+die Verwendung von Formularen in <i>search_form.htm</i> gestattet, der Rest (Skripte, Plugins, Zugriff auf Hauptseite etc.) ist untersagt</li>
+<li>Was man nicht außer Acht lassen sollte ist die vorher erwähnte Möglichkeit mit dem Attribut <code>contenteditable</code></li>
+<li>Dadurch ist auch folgendes Möglich (einfach in die Eingabezeile (URL) kopieren):
+<pre lang="html">
+data: text/html, &lt;pre contenteditable&gt;
+</pre></li>
+<li>Diese URL (anscheinend eine DataURL) kann man auch Bookmarken und immer wieder aufrufen</li>
+<li>Diese Technik funktioniert auch mit JavaScript (z.B. <code>javascript: alert('hi!');</code>) und wird Bookmarklet (oder auch Favlet) genannt</li>
+</ul>
+<aside>
+<a href="http://msdn.microsoft.com/en-us/library/ms537834(v=vs.85).aspx" target="_blank">MSDN Artikel über die Erstellung eines Editors</a>
+<a href="http://aloha-editor.org/" target="_blank">Der HTML5 Editor Aloha</a>
+<a href="http://stackoverflow.com/questions/4622403/any-wysiwyg-rich-text-editor-that-doesnt-use-html-contenteditable-or-designmod" target="_blank">StackOverflow Frage zu Editoren</a>
+<a href="http://universalruntime.tumblr.com/post/5244472335/contenteditable" target="_blank">Das Web editierbar machen</a>
+<a href="http://dl.dropbox.com/u/39519/talks/html5-foundation/index.html#1" target="_blank">Slides von Paul Irish</a>
+<a href="http://www.youtube.com/watch?v=WxmcDoAxdoY" target="_blank">Das Video des Talks von Paul Irish</a>
+</aside>
+</body>
+</html>

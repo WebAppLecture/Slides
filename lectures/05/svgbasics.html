@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Grundlegendes zu SVG</h1>
+<ul>
+<li>Alle Elemente (z.B. ein Kreis) sind echte HTML-Unterelemente von <code>&lt;svg&gt;</code></li>
+<li>Die bekanntesten Elemente sind:
+<ul>
+<li><code>circle</code> mit den Attributen <code>cx</code>, <code>cy</code> und <code>r</code></li>
+<li><code>ellipse</code> mit den Attributen <code>cx</code>, <code>cy</code>, <code>rx</code> und <code>ry</code></li>
+<li><code>rect</code> mit den Attributen <code>x</code>, <code>y</code>, <code>width</code> und <code>height</code></li>
+<li><code>line</code> mit den Attributen <code>x1</code>, <code>y1</code>, <code>x2</code> und <code>y2</code></li>
+<li><code>polygon</code> bzw. <code>polyline</code> mit dem Attribut <code>points</code> (Wert entspricht &quot;x1,y1 x2,y2 ...&quot;)</li>
+</ul>
+</li>
+<li>Generische Attribute sind z.B. <code>fill</code>, <code>fill-opacity</code> <code>stroke</code>, <code>stroke-width</code>, <code>stroke-opacity</code> etc.</li>
+<li>Wir müssten also zum Erstellen eines SVG-Bildes über JavaScript jede Menge Elemente erstellen und Eigenschaften setzen</li>
+<li>Zur Manipulation müssten wir über unsere aus jQuery oder einfachem JavaScript bekannten Selektoren verwenden</li>
+<li>Alternativ: <mark>Write once use anywhere</mark>! Wir schauen uns eine mögliche Umsetzung in Form von <strong>RaphaëlJS</strong> an</li>
+</ul>
+<aside>
+<a href="http://www.tutorialspoint.com/html5/html5_svg.htm" target="_blank">Grundlegendes Tutorial</a>
+<a href="http://www.carto.net/svg/manipulating_svg_with_dom_ecmascript/" target="_blank">SVG über JavaScript manipulieren</a>
+</aside>
+</body>
+</html>

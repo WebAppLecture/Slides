@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Das Audio Element</h1>
+<ul>
+<li>HTML5 erlaubt uns Audiodateien direkt über den <code>&lt;audio&gt;</code>-Tag einzubinden</li>
+<li>Der Tag ist von den Attributen her wie der <code>&lt;img&gt;</code>-Tag aufgebaut</li>
+<li>Das Element ist aus Fallbackgründen nicht selbstschließend - der Inhalt ist ein Fallback, z.B.
+<pre lang="html">
+&lt;audio src=&quot;...&quot;&gt;Ihr Browser unterstützt noch kein HTML5 Audio. Bitte &lt;a href=&quot;...&quot;&gt;hier&lt;/a&gt; klicken zum Download.&lt;/audio&gt;
+</pre>
+</li>
+<li>Natürlich gibt es neben <code>src</code> jede Menge neuer Attribute für dieses Element, u.a.
+<ul>
+<li><code>autoplay</code> spielt die Audiodatei automatisch ab (Vorsicht!)</li>
+<li><code>controls</code> zeigt Kontrollelemente (Start, Pause, ...) an (ansonsten gar nichts!)</li>
+<li><code>loop</code> stellt ein ob es sich um eine Endlosschleife handelt (Standardmäßig: <code>false</code>)</li>
+<li><code>preload</code> mit drei Werten (<code>auto</code>, <code>none</code>, <code>metadata</code>) zur Konfiguration des Vorladevorgangs</li>
+</ul>
+</li>
+<li>Neue JavaScript-Ereignisse sind u.a. <code>play</code>, <code>canplay</code>, <code>pause</code>, <code>seeking</code>, <code>abort</code>, <code>ended</code> und <code>error</code></li>
+<li>Wir können viele neue Eigenschaften (z.B. <code>volume</code>) bearbeiten und Methoden (z.B. <code>play()</code>) aufrufen</li>
+</ul>
+<aside>
+<a href="http://www.w3schools.com/html5/html5_audio.asp" target="_blank">Liste der unterstützten Formate</a>
+<a href="http://www.w3schools.com/html5/tag_audio.asp" target="_blank">W3Schools über den Audio-Tag</a>
+<a href="http://dev.w3.org/html5/spec/Overview.html#the-audio-element" target="_blank">W3C Spezifikation des Audio-Tags</a>
+<a href="http://html5doctor.com/native-audio-in-the-browser/" target="_blank">HTML5 Doctor über den Audio-Tag</a>
+<a href="http://jplayer.org/" target="_blank">jQuery Audioplayer für HTML5</a>
+</aside>
+</body>
+</html>

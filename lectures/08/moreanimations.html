@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Mehr Animationen!</h1>
+<div class="doubleright">
+<ul>
+<li>Bis jetzt haben wir uns nur die sehr allgemeine <code>animation()</code> Methode angeschaut</li>
+<li>In jQuery sind nicht nur einige Effekte (z.B. <code>linear</code>) bereits eingebaut, sondern auch einige Animationen</li>
+<li>Über die Methoden <code>fadeIn()</code>, <code>fadeOut()</code> und <code>fadeTo()</code> kann man Elemente sichtbar(er) bzw. unsichtbar(er) machen</li>
+<li>Analog kann man über <code>slideDown()</code> und <code>slideUp()</code> Elemente sichtbar bzw. unsichtbar machen</li>
+<li>Dazu gibt es noch über <code>fadeToggle()</code> bzw. <code>slideToggle()</code> die Möglichkeit zwischen Zuständen zu wechseln, z.B.
+<pre lang="javascript">
+$('#clickme').click(function() { //Was passiert beim Klick?
+  $('#book').slideToggle('slow', function() { //Animation
+    //Callback; 'slow' ist ein Macro von jQuery mit 600 ms
+}); }); //'normal' entspricht 400 ms, 'fast' 200 ms
+</pre>
+Zusätzlich kann man über <code>show()</code>, <code>hide()</code> und <code>toggle()</code> durch Übergabe einer Zeitangabe in ms auch animieren</li>
+</ul>
+</div>
+<div class="halfleft">
+<figure><img src="img/jquery-fadeout.png" alt="Die eingebaute fadeout-Animation" /><figcaption>Mit Hilfe der eingebauten fadeout-Animation kann man Elemente sehr elegant verstecken</figcaption></figure>
+</div>
+<aside>
+<a href="http://api.jquery.com/category/effects/" target="_blank">jQuery Effekte</a>
+<a href="http://www.sohtanaka.com/web-design/easy-toggle-jquery-tutorial/" target="_blank">Tutorial zu den toggle() Methoden</a>
+<a href="http://www.randomsnippets.com/2011/04/10/how-to-hide-show-or-toggle-your-div-with-jquery/" target="_blank">Tutorial zu Animationen</a>
+<a href="http://www.w3schools.com/jquery/eff_toggle.asp" target="_blank">W3Schools zu jQuery-Toggle</a>
+</aside>
+</body>
+</html>

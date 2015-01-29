@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Inline Bilder und Sprites</h1>
+<ul>
+<li>Zwei weitere Techniken um http-Anfragen zu sparen sind Inline-Bilder und CSS Sprites</li>
+<li>Erstere verwenden die bei Canvas besprochenen base64-kodierten Bytefolgen zur Speicherung des Bildes in HTML, z.B. wird aus der ersten Zeile (http-Request notwendig) die zweite (inline):
+<pre lang="html">
+&lt;img src=&quot;/icons/html5.png&quot; /&gt;
+&lt;img src=&quot;data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABA...&quot; /&gt;
+</pre></li>
+<li>CSS Sprites bauen auf der bekannten Sprite-Technik auf - eine Folge von Bildern wird in ein (größeres) Bild gepackt</li>
+<li>Man nutzt dabei aus, dass man bei CSS Hintergrundbildern (<code>background-image</code>) über <code>background-position</code> die Position des Hintergrunds angeben kann, z.B.
+<pre lang="css">
+.flags {
+   background: transparent url('flag-sprite.png') no-repeat; /* Gemeinsamer Hintergrund für ALLE */
+   width: 16px; /* Gleiche Größe für alle */
+   height: 16px; /* Elemente sehen in etwa so aus &lt;div id=&quot;de&quot; class=&quot;flags&quot;&gt;&lt;/div&gt; */
+}
+#cz { background-position: 0 -16px; } /* Verschiebt (0, 0) des Bildes auf (0, -16) des Elements */
+#de { background-position: 0 -32px; } /* und mehr! */
+</pre>
+</li>
+<li>Viele Grafikprogramme beherrschen das Erstellen von Sprites (zus. gibt es Generatoren im Internet)</li>
+</ul>
+<aside>
+<a href="http://www.websiteoptimization.com/speed/tweak/inline-images/" target="_blank">Artikel zu Inline Images auf WebsiteOptimization</a>
+<a href="http://dean.edwards.name/weblog/2005/06/base64-ie/" target="_blank">Base64 Encoded Images for Internet Explorer</a>
+<a href="http://en.wikipedia.org/wiki/Data_URI_scheme" target="_blank">Wikipedia Data URI scheme</a>
+<a href="http://www.greywyvern.com/code/php/binary2base64" target="_blank">Binary File to Base64 Encoder</a>
+<a href="http://css-tricks.com/css-sprites/" target="_blank">CSS Sprits - What They Are, Why They're Cool, and How To Use Them</a>
+<a href="http://webstandard.kulando.de/post/2010/05/26/css-sprite-ladegeschwindigkeit-optimieren-http-requests-verringern" target="_blank">CSS Sprites um Ladegeschwindigkeit zu optimieren</a>
+<a href="http://www.alistapart.com/articles/sprites" target="_blank">CSS Sprites: Image Slicing's Kiss of Death</a>
+</aside>
+</body>
+</html>

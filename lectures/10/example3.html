@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (26)</h1>
+<pre lang="javascript">
+//---JavaScript dieser Datei---
+if(typeof Worker != "undefined") {
+	var w = new Worker('prime.js');
+	w.onmessage = function(event) {
+		console.log(event); //Wir wollen das ganze auch als Event-Log sehen!
+		var el = document.createElement('span'); //Fügen dem DOM ein span Element hinzu
+		el.innerHTML = event.data + ", ";
+		document.getElementById('ex26-box').appendChild(el);
+	};
+	w.postMessage(JSON.stringify({ start : 100, end : 10000})); // Starten WebWorker mit Argumenten
+}
+//---JavaScript der Datei "prime.js"---
+/* Was passiert wenn wir eine Nachricht erhalten?! */
+onmessage = function(event) {
+	var obj = JSON.parse(event.data); /* Lesen die Argumente aus (JSON) und */
+	run(obj.start, obj.end); /* Starten Berechnung von einer Zahl bis zu einer anderen */
+};
+function run(s, e) {
+	/* Primzahlberechnung und im Falle einer Primzahl: */
+	postMessage(n.toString());
+}
+</pre>
+<div id="ex26-box" class="hide" style="max-height: 70px; overflow-y: scroll;">
+</div>
+<script>
+if(typeof Worker !== "undefined") {
+	var w = new Worker('uiexample/prime.js');
+	w.onmessage = function(event) {
+		console.log(event);
+		
+		if(isNaN(event.data) || document.getElementById('ex26-box').parentElement.style.display === 'none')
+			w.terminate();
+		else {
+			var el = document.createElement('span');
+			el.innerHTML = event.data + ", ";
+			document.getElementById('ex26-box').appendChild(el);
+		}
+	};
+	w.postMessage(JSON.stringify({ start : 100, end : 10000}));
+} else {
+	var el = document.createElement('span');
+	el.innerHTML = 'Der Browser unterstützt keine WebWorker!';
+	document.getElementById('ex26-box').appendChild(el);
+}
+</script>
+</body>
+</html>

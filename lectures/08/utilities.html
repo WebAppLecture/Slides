@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>jQuery Utilities nutzen</h1>
+<!--läd die jQuery Funktionalität / oder nicht-->
+<script src="scripts/loadjquery.js"></script>
+<ul>
+<li>jQuery bietet uns jede Menge nützlicher Methoden für die tägliche Arbeit mit JavaScript</li>
+<li>So haben wir bereits <code>$.each()</code> und <code>$.support</code> kennengelernt</li>
+<li>Mit jQuery ist auch die Browsererkennung einfacher: <code>$.browser</code> enthält alle Informationen</li>
+<li>Über <code>$.extend(target, default)</code> kann man ein Objekt mit <i>default</i>-Werten erweitern</li>
+<li>Mit <code>$.grep(array, function(v, i) { ... })</code> kann man Arrays sehr leicht filtern</li>
+<li>Durch <code>$.merge(first, second)</code> werden zwei Arrays zu einem neuen Array zusammengefügt, z.B.
+<pre lang="javascript">
+var copyOfArray = $.merge([], oldArray); //Erstellt Kopie von oldArray in copyOfArray
+</pre>
+Vorsicht: Die einzelnen Objekte sind u.u. immer noch referenziert, nur das Array ist kopiert.</li>
+<li><code>$.map(array, function(v, i) { ... })</code> weist jedem Wert eines Arrays einen neuen Wert zu, z.B.
+<pre lang="javascript">
+var squares = $.map( [2, 3, 4, 5, 6], function(n) { //Iteriert über das Array
+   return n * n; //Quadriert den Weg des Eintrags und gibt diesen Wert zurück
+}); //squares = [4, 9, 16, 25, 36]
+</pre>
+<mark>Vorsicht</mark>, da <code>$.each()</code> als Parameter zuerst den <i>index</i> und dann den <i>Wert</i> verwendet (hier umgekehrt)!
+</li>
+</ul>
+<aside>
+<a href="http://api.jquery.com/category/utilities/" target="_blank">jQuery Utilities</a>
+<a href="http://msmvps.com/blogs/luisabreu/archive/2009/08/07/jquery-utilities-functions-i-browser-detection.aspx" target="_blank">jQuery Browser Detektion im Detail</a>
+<a href="http://www.tutorialspoint.com/jquery/jquery-utilities.htm" target="_blank">Einführung zu den Utilities</a>
+<a href="http://www.jquery4u.com/category/utilities/" target="_blank">Utilities auf jQuery4U</a>
+</aside>
+</body>
+</html>

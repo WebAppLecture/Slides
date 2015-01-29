@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Nützlicher Einsatz</h1>
+<ul>
+<li>Mit Geolocation kann man sehr leicht interaktive Services aufbauen, z.B. in den Bereichen
+<ul>
+<li>Taxis, ÖPNV bzw. Reiseplanung um den aktuellen Standort zu ermitteln</li>
+<li>Webshops um eine direktere und genauere Ermittlung der Versandkosten durchzuführen</li>
+<li>Seiten von Unternehmen mit mehr Filialen können auf die Seite des nähesten Standortes weiterleiten</li>
+<li>Anzeigen können noch regionalen Geschaltet werden</li>
+</ul>
+</li>
+<li>Jede der Anwendungen läuft auf eine Nutzung der Koordinaten des Benutzers hinaus, um je nach Wert das Angebot zu filtern</li>
+<li>Im Prinzip läuft dies auf folgende Syntax hinaus:
+<pre lang="javascript">
+$(document).ready(function() { /* Verwenden der jQuery Ready Methode für JavaScript */
+	// Grundansicht der Seite laden (ohne Geo-Daten)
+    navigator.geolocation.getCurrentPosition(GeolocationPosition); /* analog dazu: watchPosition() */
+});
+function GeolocationPosition(position) { /* Callback wenn die Daten ermittelt worden sind */
+    var lat = position.coords.latitude;
+    var lon = position.coords.longitude;
+	//Weitere Inhalte laden (speziell für diese Koordianten!)
+}
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://maxheapsize.com/2009/04/11/getting-the-browsers-geolocation-with-html-5/" target="_blank">Beispiel zu Geolocation mit HTML5</a>
+<a href="http://html5demos.com/geo" target="_blank">Kleines Demo</a>
+<a href="http://nowsourcing.com/2010/07/27/10-ways-geolocation-is-changing-the-world/" target="_blank">10 Gründe wieso Geolocation die Welt verändert</a>
+<a href="http://msdn.microsoft.com/en-us/magazine/hh563893.aspx" target="_blank">12 coole Ideen für Geolocation auf MSDN</a>
+</aside>
+</body>
+</html>

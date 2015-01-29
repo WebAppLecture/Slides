@@ -1,0 +1,765 @@
+﻿@media only screen and (min-device-width: 900px) {
+/*Diese Zeile wird benötigt damit die neuen Elemente genau wie divs als Blöcke dargestellt werden */
+article, aside, dialog, figure, footer, header, hgroup, nav, section { display: block; }
+
+/*Die Seite soll den ganzen Platz einnehmen*/
+html {
+	height: 100%;
+	width: 100%;
+}
+
+body {
+	overflow: hidden;/*Zeigen keine Scrollbars an*/
+	padding: 0;
+	margin: 0;/*Richten uns direkt am Rand aus*/
+	background: #EEE;
+	color: #111;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	text-align: left;
+	/*Background-image mit einem generierten Verlauf (gradient)*/
+	background-image: -o-linear-gradient(top, rgb(149,191,214) 0%, rgb(76,136,168) 100%);
+	background-image: -webkit-linear-gradient(top, rgb(149,191,214) 0%, rgb(76,136,168) 100%);
+	background-image: -moz-linear-gradient(top, rgb(149,191,214) 0%, rgb(76,136,168) 100%);
+	background-image: -ms-linear-gradient(top, rgb(149,191,214) 0%, rgb(76,136,168) 100%);
+	background-image: linear-gradient(top, rgb(149,191,214) 0%, rgb(76,136,168) 100%);
+}
+
+/*Explizites Stylen des Markierungstags*/
+mark {
+	background-color: #FF3;
+}
+
+/*Im Hilfsdialog soll er doch anders dargestellt werden*/
+#help mark {
+	font-size: 12pt;
+	font-weight: bold;
+	width: 60px;
+	text-align: center;
+	color: #000;
+	display: inline-block;
+	margin-right: 8px;
+}
+
+/*Code Tag für entsprechende Schnipsel*/
+code {
+	font-family: "Courier New", Courier, monospace;
+	font-style: normal;
+	font-size: 1em;
+	color: #F00;
+}
+
+/*Explizites Stylen des Hervorhebungstags*/
+em {
+	font-weight: bolder;
+	font-style: normal;
+	color: #002299;
+}
+
+/*Stylen des Link Tags*/
+a {
+	text-decoration: underline;
+	color: #444;
+	padding-left: 12px;
+	background: url('../icons/link.png') no-repeat left center;
+}
+
+/*Pseudo-Klasse verwenden - was passiert beim drüberfahren?*/
+a:hover {
+	text-decoration: none;
+	color: #666;
+}
+
+.block {
+	position: fixed;
+	display: block;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.4);
+	z-index: 1100;
+}
+
+.progress {
+	position: absolute;
+	display: block;
+	top: 50%;
+	left: 50%;
+	height: 38px;
+	margin-top: -40px;
+	border: 1px solid #CCC;
+	background: #333;
+	width: 398px;
+	margin-left: -200px;
+}
+
+.bar {
+	height: 100%;
+	background: #F00;
+	background: -o-linear-gradient(left, #F00, #0F0);
+	background: -webkit-linear-gradient(left, #F00, #0F0);
+	background: -moz-linear-gradient(left, #F00, #0F0);
+	background: -ms-linear-gradient(left, #F00, #0F0);
+	background: linear-gradient(left, #F00, #0F0);
+	width: 0%;
+}
+
+.toc {
+	overflow: auto;
+}
+
+/*Für das Inhaltsverzeichnis setzen wir Spalten an*/
+.toc p {
+	-webkit-columns: 4;
+	-moz-columns: 4;
+	columns: 4;/* 4 Stück sollen es sein */
+	-webkit-break-inside: avoid-column;
+	-moz-break-inside: avoid-column;
+	break-inside: avoid-column; /* Wir wollen nicht im Element umbrechen */
+}
+
+/*Und wir stylen unsere Links anders*/
+.toc a {
+	display: block;
+	margin: 6px 10px 6px 0;
+	cursor: pointer;
+	padding-left: 16px;
+	background: url('../icons/right.gif') no-repeat left center;
+	font-size: 9pt;
+}
+
+/*Verändern beim Drüberfahren die Deckkraft*/
+#helpers:hover { 
+	opacity: 0.7;
+}
+
+.inline-hide {
+	display: inline-block;
+}
+ 
+#helpers { 
+	background-color: #000;
+	height: 32px;
+	/*Runde Ecken*/
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	bottom: -25px;
+	left: 50%;
+	/*Trick zur mittigen Ausrichtung*/
+	position: fixed;
+	margin-left: -200px;
+	width: 430px;
+	text-align: center;
+	/*Deckkraft setzen*/
+	opacity: 0.2;
+	z-index: 10;
+}
+
+/*Stylen der Buttons in der nav-Zeile*/
+#helpers button { 
+	background-color: transparent;
+	border: none medium currentColor;
+	color: #FFF;
+	cursor: pointer;/*Das Hand Symbol als Mauscursor*/
+	padding-top: 4px;
+	height: 32px;
+	opacity: 0.5;/*Buttons haben mehr Deckkraft*/
+}
+
+#helpers button:hover {
+	opacity: 1;/*Volle Deckkraft beim Drüberfahren*/
+	background-color: #444;
+}
+
+/*Sollen den Button auch disablen können - dann soll er sich aber auch nicht mehr verändern beim Drüberfahren*/
+#helpers button.disabled, nav#helpers button.disabled:hover {
+	opacity: 0.3;
+	cursor: default;
+	background-color: transparent;
+}
+
+/*Styling für den "Vorherige" Button*/
+#nav-prev { 
+	margin-right: 3px;
+}
+
+/*Styling für den "Nächste" Button*/
+#nav-next { 
+	margin-left: 3px;
+	margin-right: 20px;
+}
+
+/*Styling für die TextBox zur Seitenanzeige und Eingabe*/
+#nav-page {
+	width: 30px;
+	height: 32px;
+	text-align: center;
+	margin: 0;
+	background: #000;
+	vertical-align:top;
+	font-weight: bold;
+	color: #EEE;
+	padding-bottom: 3px;
+	border: 0;
+	padding: 0;
+}
+
+/*Styling für das Such-Element (div)*/
+#search {
+	position: absolute;/*Absolut auf der Seite*/
+	left: 50%;/*Zentriert und ein wenig nach oben versetzt*/
+	margin-left: -200px;
+	width: 400px;/*Größe setzen*/
+	height: 40px;
+	top: 0;
+	margin-top: -30px;/*Die Einrückung festlegen*/
+	background: #000;/*Hintergrundfarbe Schwarz*/
+	transition: all 0.5s ease;/*Es soll sich um einen Effekt handeln*/
+	border-radius: 0 0 15px 15px;/*Nach unten abgerundet*/
+	opacity: 0.4;/*Transparent*/
+}
+
+/*Was passiert beim Drüberfahren?*/
+#search:hover {
+	margin-top: 0;/*Abstand nach oben ändern*/
+	opacity: 0.8;
+}
+
+/*Styling für die Textbox in der Suche*/
+#search > input {
+	-webkit-appearance: none;/*Einstellung für Safari*/
+	display: block;/*Soll als Block dargestellt werden*/
+	position: absolute;/*Und natürlich absolut*/
+	top: 8px;
+	left: 25px;
+	height: 22px;
+	width: 300px;
+	background: #FFF;/*Weißer Hintergrund*/
+	border: 0;
+	padding: 1px 10px;/*Links und rechts mehr Abstand*/
+	border-radius: 7px 0 0 7px;/*Nur links abgerundet*/
+	box-sizing: content-box;/*Wg. Webkit-Std. notwendig: http://www.w3.org/TR/css3-ui/#box-sizing*/
+}
+
+#search > input:hover {	
+	background: #FFB; /*Leicht Gelber Hintergrund*/
+}
+
+/*Styling für den button*/
+#search > button {
+	display: block;/*Analog und straight-forward*/
+	position: absolute;
+	right: 25px;
+	top: 8px;
+	height: 24px;
+	width: 32px;
+	background: #CCC url('../icons/search.png') no-repeat center center;
+	border: 0;
+	padding: 1px;
+	border-radius: 0 7px 7px 0;
+}
+
+/* Beim Drüberfahren soll die Hand und ein dunklerer Hintergrund angezeigt werden*/
+#search > button:hover {
+	background-color: #BBB;
+	cursor: pointer;
+}
+
+/*Suchergebnisse*/
+#searchresults {
+	position: absolute;
+	display: block;
+	left: 25px;
+	width: 350px;
+	top: 55px;
+	margin: 0;
+	padding: 0;
+	max-height: 400px;/*Dieses Attribut verhindert, dass die Box größer wird*/
+	overflow: hidden;/*Wir zeigen keinen Überlauf an*/
+}
+
+/*Styling für die Auflistung*/
+#searchresults > ul {
+	display: block;
+	list-style-type: none;
+	color: #FFF;
+	font-size: 10pt;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+/*Styling für Einträge*/
+#searchresults li, #clearsearch {
+	display: block;
+	margin: 0;
+	padding: 0;
+	height: 20px;
+}
+
+/* Beim Drüberfahren */
+#searchresults li:hover {
+	color: #3FF; /*Helles Blau*/
+	cursor: pointer; /*Hand als Mauszeiger*/
+}
+
+/*Styling für Hilfstext zu Eintrag*/
+#searchresults li small {
+	font-weight: normal;
+	font-size: 9pt;/*Kleine Schrift*/
+	color: #F60;
+	margin: 0 5px;/*Ein bisschen Abstand nach links und rechts*/
+}
+
+/*Hier kommt unsere eigene Scrollleiste rein*/
+#scrollarea {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 4px;
+	border-radius: 2px;
+	background: #333;/*Ziemlich dunkel aber abgegrenzt*/
+	overflow: hidden;
+}
+
+/*Hier stylen wir unsere eigene Scrollleiste*/
+#scrollleiste {
+	background: #CCC;/*schon Hell im Vergleich*/
+	width: 4px;
+	border-radius: 2px;
+}
+
+/*Für den Link zum Löschen der Suchergebnisse*/
+#clearsearch {
+	position: absolute;
+	left: 25px;
+	top: 35px;
+	color: #FFF;
+	font-weight: normal;
+	font-size: 9pt;
+	cursor: pointer;
+	background: url('../icons/clearsearch.png') no-repeat left center;
+	padding-left: 20px;
+	text-decoration: none;
+}
+
+#clearsearch:hover { 
+	color: #F60;
+}
+
+menu { 
+	display: inline;
+	margin: 1em 0 1em 40px;
+	padding: 0 2px 0 2px;
+}
+
+article.deck {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+/*Stylen von Kopf und Fußzeile*/
+body > header, body > footer {
+	width: 100%;
+	margin: 0;
+	position: absolute;
+	left: 0;
+	font-size: 50%;
+}
+
+/*Legen den Kopf absolut an den Anfang*/
+body > header {
+	top: 0;
+}
+
+/*Ein wenig mit dem Logo rumspielen*/
+body > header img {
+	/*Anwenden der drei Transformationen: Drehen um 10°, auf 80% skalieren und um 10px nach oben schieben*/
+	transform: rotate(10deg) scale(0.8) translateY(-10px);
+	/*Bild soll links neben der Überschrift fließen*/
+	float: left;
+}
+
+/*Die hgroup soll alle Elemente beinhalten*/
+body > header hgroup {
+	height: 35px;
+	margin: 5px auto;
+	width: 700px;
+}
+
+body > header h1 {
+	color: #4C88A8;
+	font-size: 10pt;
+	padding-top: 20px;
+}
+
+#main-title > h1 {
+	margin-top: 30px;
+	font-size: 4em;
+	text-align: center;
+}
+
+#main-title > h2 {
+	margin-top: 80px;
+}
+
+/*Style für eine Folie*/
+article.deck section {
+	position: absolute;
+	display: none;
+	padding: 0 2ex;
+	width: 900px;
+	height: 650px;
+	background: #FFF;
+	border: 1px solid #CCC;
+	overflow: hidden;
+	top: 50%;
+	left: 50%;
+	margin-top: -325px;
+	margin-left: -450px;
+	line-height: 120%;
+	box-shadow: 0 0 30px #000;
+}
+
+article.deck section.current {
+	display: block;
+}
+
+article.deck section.previous {
+/*	display: block;
+	margin-left: 0;
+	left: -880px;*/
+}
+
+article.deck section.next {
+/*	display: block;
+	margin-left: 0;
+	left: auto;
+	right: -880px;*/
+}
+
+#loadscreen {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 11;
+	background: #EEE url('../icons/init.gif') no-repeat center center;
+}
+
+#loadscreen p {
+	display: block;
+	height: 40px;
+	width: 200px;
+	text-align: center;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	font-size: 9pt;
+	color: #444;
+	font-weight: bold;
+	margin: 50px 0 0 -100px;
+}
+
+/*Styling eines entsprechenden Ladeicons*/
+article.deck section.loading {
+	background: #FFF url('../icons/loader.gif') no-repeat center center;
+}
+
+/*Styling einer Fehlerseite*/
+article.deck section div.error {
+	margin: 300px auto;
+}
+
+/*Mit entsprechender Überschrift*/
+article.deck section div.error h1 {
+	font-weight: bold;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+	width: 50%;
+}
+
+article.deck section li {
+	margin: 28px 0;
+}
+
+article.deck section li:first-child {
+	margin-top: 0;
+}
+
+article.deck section li li {
+	margin: 20px 0;
+}
+
+article.deck section li li:first-child {
+	margin-top: 20px;
+}
+
+/*Verwenden eines CSS3-Selectors - nur alle Geraden*/
+article.deck section li:nth-child(even) {
+	color: #036;
+}
+
+/*Verwenden eines CSS3-Selectors - nur alle Ungeraden*/
+article.deck section li:nth-child(odd) {
+	color: #039;
+}
+
+/*Neuer Fancy-Stil für die Überschriften*/
+article.deck section h1, article.deck section h2 {
+	font-family: 'Segoe UI Light', "Segoe UI", "Georgia", "Lucida Grande", "Verdana", "Arial", "Helvetica", sans-serif;
+	font-style: normal;
+	font-weight: 100;
+}
+
+article.deck section h1 {
+	font-size: 42px;
+	/*Das gabs schon vorher*/
+	text-shadow: 2px 2px 10px #777;
+	color: #777;
+	margin: 32px 0;
+	/*Das wird nun nicht mehr verwendet: font-size: 28pt;*/
+}
+
+article.deck section h2 {
+	color: #555;
+	font-size: 32px;
+	text-shadow: 2px 2px 15px #555;
+}
+
+article.deck section div.right {
+	float: right;
+	width: 450px;
+}
+
+article.deck section div.left {
+	float: left;
+	width: 450px;
+}
+
+article.deck section div.halfleft {
+	float: left;
+	width: 300px;
+}
+
+article.deck section div.halfright {
+	float: right;
+	width: 300px;
+}
+
+article.deck section div.doubleleft {
+	float: left;
+	width: 600px;
+}
+
+article.deck section div.doubleright {
+	float: right;
+	width: 600px;
+}
+
+article.deck section div.three {
+	width: 290px;
+	float: left;
+}
+
+article.deck section div.middle {
+	margin: 0 7px;
+	width: 290px;
+	padding: 0 7px;
+}
+
+article.deck section div.clear {
+	clear: both;
+}
+
+/*Styling der Hilfebox*/
+#help {
+	position: absolute;
+	left: 20px;
+	top: 80px;
+	font-size: 7pt;
+	border: 1px solid #666;
+	background: #222;
+	color: #EEE;
+	width: 230px;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 5px 5px 5px #BBB;
+}
+
+#help h1 {
+	font-size: 8pt;
+	border-bottom: 1px dashed #FFF;
+}
+
+#help ul {
+	margin: 0;
+	padding: 0;
+	list-style-type:none;
+}
+
+#help li { 
+	margin: 2px 0;
+}
+
+/*Aside nutzen wir für unsere Referenzen*/
+aside {
+	/*Setzen auch hier die Spaltenzahl fest - diesmal auf 2*/
+	columns: 2;
+	margin: 0 0 0 -450px;
+	position: absolute;
+	width: 900px;
+	border: 1px solid #EEE;
+	color: #222;
+	background: #FFB;
+	bottom: 80px;
+	left: 50%;
+	font-size: 8pt;
+	box-shadow: 0px 5px 5px #BBB;/*Ein wenig Schatten verwenden*/
+	border-radius: 3px;/*Und runde Ecken*/
+	padding: 10px 0;
+}
+
+/*Wollen die Elemente als Block anzeigen*/
+aside a, aside p {
+	color: #000;
+	margin: 5px 5px;
+	padding: 0 0 0 18px;
+	background: url('../icons/right.png') no-repeat left center;
+	display: block;
+}
+
+/*In Preformated Tags soll Quellcode kommen - daher die Formatierung*/
+pre {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	font-family: "Courier New", Courier, monospace;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+/*In den figure Tags sollen unsere Bilder mit Bildtitel stehen*/
+figure {
+	text-align: center;
+	margin: auto;
+}
+
+figure.title {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+figure img { 
+	border: 1px solid #FFF; 
+}
+
+figure img:hover {
+	border: 1px solid #CCC; 
+}
+
+figcaption {
+	color: #888;
+	font-size: 8pt;
+}
+
+body > footer { 
+	bottom: 5px;
+}
+
+body > footer p {
+	margin: 0 0 0 -450px;
+	padding: 0 0 0 50%;
+	font-size: 8pt;
+	color: #FFF;
+}
+
+section > footer {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
+#print ul {	
+	list-style-type: none; 
+}
+
+.ui-dialog-titlebar-close {
+	background-image: none; 
+}
+
+.ui-dialog-buttonset button {
+	background-color: rgb(57, 145, 244);
+	border: 1px solid #777;
+	border-radius: 6px;
+	box-shadow: 0px 4px 3px #BBB;
+	color: #FFF;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 11pt;
+	font-weight: bold;
+	height: 34px;
+	padding: 5px 10px 6px 10px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+.tdno {
+	font-style: italic;
+	color: #F00;
+}
+
+.tdyes { 
+	color: green;
+}
+.note { 
+	display: none;
+}
+
+.small { 
+	font-size: 10pt;
+}
+
+.ui-dialog-buttonset button:hover {
+	background-color: rgb(80, 170, 255);
+}
+
+.snippet-menu img {
+	border: 0;
+	opacity: 0.5;
+}
+
+.snippet-menu img:hover {
+	border: 0;
+	opacity: 1;
+}
+
+/* Logo Zeug für die 1. Folie (Titelblatt) */
+.logo-ur, .logo-phy, .logo-fr {
+	cursor: pointer;
+	margin-right:5px;
+	vertical-align:text-top;
+}
+
+.logo-ur:hover, .logo-phy:hover, .logo-fr:hover { 
+	transform: rotate(30deg);
+}
+
+.logo-ur { 
+	margin-top: -14px;
+}
+
+.logo-phy { 
+	margin-top: 2px;
+}
+
+.logo-fr { 
+	margin-top:-8px;
+}

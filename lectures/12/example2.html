@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (31)</h1>
+<style>
+#ex31-drop_zone { 
+	border: 3px dashed #ccc; 
+	height: 100px; 
+	border-radius: 15px; 
+}
+#ex31-drop_zone.hover { 
+	border: 3px dashed #333; 
+	background: rgba(255, 0, 0, 0.1); 
+}
+</style>
+<pre lang="javascript">
+function handleFileSelect(evt) {
+	/* Drag und Drop beenden */
+	var files = evt.dataTransfer.files;// FileList Objekt verwenden
+	var output = [];//Buffer für Ausgabe erstellen
+	for (var i = 0, f; f = files[i]; i++) //Ein paar Eigenschaften auflisten (mit Formatierungen)
+		output.push(f.name, f.type, f.size, f.lastModifiedDate.toLocaleDateString());
+	document.querySelector('#ex31-list').innerHTML = output.join('');
+}
+//Die EventListener hinzufügen
+var dropZone = document.querySelector('#ex31-drop_zone');
+/* Eventlistener für dragover und dragleave festlegen */
+dropZone.addEventListener('drop', handleFileSelect, false);
+</pre>
+<div class="hide">
+<div id="ex31-drop_zone"></div> 
+<output id="ex31-list"></output>
+</div>
+<script>
+function handleFileSelect(evt) {
+	evt.stopPropagation();
+	evt.preventDefault();
+	this.className = '';//Optischen Drag beenden
+	var files = evt.dataTransfer.files;// FileList object
+	var output = [];//Buffer für Ausgabe
+	for (var i = 0, f; f = files[i]; i++) //Ein paar Eigenschaften auflisten
+		output.push('<li><strong>', f.name, '</strong> (', f.type || 'n/a', ') - ', f.size, ' Bytes, letzte Änderung: ', f.lastModifiedDate.toLocaleDateString(), '</li>');
+	document.querySelector('#ex31-list').innerHTML = '<ul>' + output.join('') + '</ul>';
+}
+
+//Die EventListener auflisten
+var dropZone = document.querySelector('#ex31-drop_zone');
+dropZone.addEventListener('dragover', function (ev) { 
+	this.className = 'hover';
+	ev.stopPropagation(); 
+	ev.preventDefault(); 
+	ev.dataTransfer.dropEffect = 'copy'; }, false);
+dropZone.addEventListener('dragleave', function (ev) {
+	this.className = '';
+	ev.stopPropagation(); 
+	ev.preventDefault(); }, false);
+dropZone.addEventListener('drop', handleFileSelect, false);
+</script>
+</body>
+</html>

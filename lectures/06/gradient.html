@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Farbverläufe</h1>
+<ul>
+<li>Im Moment ist die Spezifikation für Farbverläufe noch in permanenter Bewegung</li>
+<li>Es läuft aber wohl ganz klar auf diese Syntax raus:
+<pre lang="css">
+.linear { background-image: linear-gradient(top, #00f, #fff); }
+.linearStop { background-image: linear-gradient(left top, #00f, #fff 80%); }
+.linearMultiple { background-image: linear-gradient(left, #F00, #0F0 50%, #00F); }
+.radial { background-image: radial-gradient(40% 40%, farthest-side, #ffffa2, #00f); }
+</pre>
+<div style="width: 800px; height: 50px; background-image: -o-linear-gradient(left, #F00, #0F0 50%, #00F); background-image: -moz-linear-gradient(left, #F00, #0F0 50%, #00F); background-image: -ms-linear-gradient(left, #F00, #0F0 50%, #00F); background-image: -webkit-linear-gradient(left, #F00, #0F0 50%, #00F); linear-gradient(left, #F00, #0F0 50%, #00F);"></div>
+</li>
+<li>Die Gradienten funktionieren leider (wie viele andere CSS3) Features im Moment nur über Browser-Spezifische Präfixe - nehmen wir als Beispiel <code>linear-gradient(...)</code></li>
+<li>Daraus wird in Opera <code>-o-linear-gradient(...)</code> und in Firefox <code>-moz-linear-gradient</code></li>
+<li>Microsoft hat als Präfix <code>-ms-</code>, Apple und Google verwenden <code>-webkit-</code></li>
+<li>Wir werden uns später noch mit den Präfixen beschäftigen</li>
+<li>Eine Möglichkeit die Präfixe zu umgehen ist JavaScript<sup>1</sup></li>
+</ul>
+<aside>
+<a href="http://robertnyman.com/css3/gradients/gradients.html" target="_blank">Robert Nyman zu Gradienten</a>
+<a href="http://leaverou.github.com/prefixfree/" target="_blank"><sup>1</sup>Prefix-Free JavaScript</a>
+<a href="http://gradients.glrzad.com/" target="_blank">Gradient-Generator</a>
+<a href="http://www.westciv.com/tools/gradients/" target="_blank">Noch ein (mächtigerer) Generator</a>
+<a href="http://www.webkit.org/blog/1424/css3-gradients/" target="_blank">Webkit Tutorial zu Gradienten</a>
+<a href="http://www.zenelements.com/blog/css3-gradients/" target="_blank">Artikel über CSS3 Farbverläufe</a>
+</aside>
+</body>
+</html>

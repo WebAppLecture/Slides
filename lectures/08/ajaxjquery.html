@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>AJAX mit jQuery</h1>
+<ul>
+<li>Alle AJAX Abfragen laufen in jQuery über <code>$.ajax()</code>, auch speziellere Methoden wie <code>$.getJSON()</code></li>
+<li>jQuery bietet uns standardmäßig Ereignisse und Möglichkeiten die Abfrage individuell zu gestalten</li>
+<li>Die grundsätzliche Syntax lautet
+<pre lang="javascript">
+var settings = {}; //Einstellungen für die Abfrage
+var ajaxObjekt = $.ajax('url der abfrage', settings); //Abfrage tätigen
+ajaxObjekt.abort(); //Abfrage abbrechen, optional wenn notwendig
+</pre>
+die zurückgegebene Variable ist optional - mit ihr ist es z.B. möglich den Vorgang abzubrechen</li>
+<li>Fast alle Möglichkeiten stecken in dem übergebenen <code>settings</code>-Objekt, z.B.
+<pre lang="javascript">
+var settings = {
+	async: true, // könnten den Request auch Blockend aufbauen - mit false
+	cache: false, // jQuery sendet in der URL ein _=[TIMESTAMP] mit um Caching zu verhindern
+	complete: function(obj, status) { }, // Callback wenn abgeschlossen
+	crossDomain: false, // aus Sicherheitsgründen notwendig - true wenn Zugriff auf anderen Server
+	data: { }, // Objekt das an den Server mittels Name-Wert-Paaren geschickt wird (a la HTML-Form)
+	dataType: 'xml', // Datentyp des AJAX-Requests - auch JSON, Script bzw. HTML sind möglich
+	error: function(obj, status, err) { }, // Callback wenn Fehler auftritt
+	success: function(data, status, obj) { }, // Callback wenn erfolgreich abgeschlossen
+	type: 'GET' } // bestimmt den Typ des Requests - auch POST, PUT etc. sind möglich
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://api.jquery.com/jQuery.ajax/" target="_blank">jQuery AJAX</a>
+<a href="http://www.chazzuka.com/php-ajax-login-form-using-jquery-82/" target="_blank">PHP AJAX Login mit jQuery</a>
+<a href="http://www.sitepoint.com/ajax-jquery/" target="_blank">Tutorial AJAX mit jQuery und PHP</a>
+<a href="http://www.php4every1.com/tutorials/jquery-ajax-tutorial/" target="_blank">Noch ein jQuery AJAX mit PHP Tutorial</a>
+</aside>
+</body>
+</html>

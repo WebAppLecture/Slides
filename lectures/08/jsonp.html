@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>JSON als Datenformat</h1>
+<ul>
+<li>JSON kann man auch als Datenübertragungsformat nutzen - hier muss man strikte Regeln beachten</li>
+<li>Abweichend von der laschen Notation in JavaScript-Code sind folgende Regeln:
+<ul>
+<li>Jeder Eintrag besteht aus einem Name-Wert-Paar, wobei der Name ein String ist</li>
+<li>Strings werden immer in doppelte Anführungsstriche gesteckt - nie in einfache</li>
+<li>Die Namen der Eigenschaften sind daher auch in <mark>doppelte Anführungsstriche</mark> zu stecken</li>
+<li>Boolsche Werte lauten <code>true</code> und <code>false</code> und nicht <code>0</code>, <code>False</code> oder dergleichen</li>
+<li>Für Arrays und Objekte gelten immer die entsprechende Literale, d.h. ein Array ist <code>[]</code></li>
+<li>Ganzzahlen, sowie Gleitkommazahlen mit oder ohne wissenschaftlicher Notation, sind erlaubt</li>
+<li>Folgende Escape-Sequenzen existieren: <code>\"</code>, <code>\\</code>, <code>\/</code>, <code>\b</code>, <code>\f</code>, <code>\n</code>, <code>\r</code>, <code>\t</code> und <code>\uXXXX</code> (4 stellig Hex.)</li>
+</ul>
+</li>
+<li>Natürlich gibt es für fast jede Programmiersprache bereits entsprechende Parser und Ersteller von JSON Strings</li>
+<li>Wenn man sich einen eigenen Serverseitigen Parser / Generator schreiben möchte, sollte man diesen vorher testen</li>
+<li>Für Tests auf korrekte Syntax kann man Webseiten wie JSONLint<sup>1</sup> nutzen</li>
+</ul>
+<aside>
+<a href="http://jsonlint.com/" target="_blank"><sup>1</sup> Seite von JSONLint</a>
+<a href="http://www.json.org" target="_blank">Offizielle JSON Seite</a>
+<a href="http://msdn.microsoft.com/en-us/library/bb410770.aspx" target="_blank">MSDN zu JSON</a>
+<a href="http://en.wikipedia.org/wiki/JSON-RPC" target="_blank">Wikipedia Artikel zu JSON-RPC</a>
+</aside>
+</body>
+</html>

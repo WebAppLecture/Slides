@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Responsive Design</h1>
+<ul>
+<li>Mit CSS3 wurde auch ein neuer Ansatz für Webseiten design eingeführt: sog. <mark>Media Queries</mark></li>
+<li>Dies bedeutet, dass die Webseite auf das verwendete Gerät (z.B. Mobiltelefon, PC, ...) und seine Eigenschaften (z.B. Größe, Auflösung, ...) reagiert</li>
+<li>Aus CSS 2.1 kennt man schon das <code>media</code> Attribut von Stylesheets, z.B.
+<pre lang="html">
+&lt;link rel=&quot;stylesheet&quot; media=&quot;print&quot; href=&quot;druck.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; media=&quot;screen&quot; href=&quot;layout.css&quot; /&gt;
+</pre>
+Nun wurde in CSS3 das Attribut um weitere Möglichkeiten erweitert, z.B.
+<pre lang="html">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;screenklein.css&quot; media=&quot;screen and (max-width: 600px)&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;allesklein.css&quot; media=&quot;all and (max-width: 600px)&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;smartphone.css&quot; media=&quot;(max-device-width: 600px)&quot; /&gt;
+</pre>
+</li>
+<li>Neben <code>and</code> (Verknüpfen von Bedingungen) gibt es noch das Komma, welches als ODER eingesetzt wird</li>
+<li>Weitere Abrufbare Eigenschaften sind (Auszug): <code>height</code> bzw. <code>device-height</code>, <code>orientation</code> (portrait, landscape), <code>aspect-ratio</code> bzw. <code>device-aspect-ratio</code>, <code>color</code> (Farbtiefe in Bits) und <code>resolution</code> (Dichte der Pixel in dpi)</li>
+</ul>
+<aside>
+<a href="http://www.thismanslife.co.uk/projects/lab/responsiveillustration/" target="_blank">Responsive Design anschaulich erklärt</a>
+<a href="http://www.heise.de/ix/artikel/Allen-recht-1058764.html" target="_blank">Artikel bei Heise über Media Queries</a>
+<a href="http://www.w3.org/TR/css3-mediaqueries/" target="_blank">Die W3C Spezifikation</a>
+<a href="http://css-tricks.com/6731-css-media-queries/" target="_blank">CSS Tricks zum Thema</a>
+<a href="http://www.drweb.de/magazin/media-queries-mobile-version-von-websites-mit-css3-erstellen/" target="_blank">DrWeb Artikel</a>
+</aside>
+</body>
+</html>

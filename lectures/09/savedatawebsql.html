@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>WebSQL</h1>
+<ul>
+<li><mark>Alle Browser</mark> unterstützen die Storage-Objekte (IE ab 8, Chrome ab 4, Firefox ab 2, ...):
+<pre lang="javascript">
+if (typeof(localStorage) == 'undefined') //Gibt das localStorage Objekt (oder z.B. sessionStorage) Objekt nicht
+    alert('Das LocalStorage-Element wird nicht unterstützt - bitte den Browser erneuern...');
+</pre>
+</li>
+<li>Aufgrund der Verbreitung und Sicherheit (Zugriff nur auf Objekte der selben Domäne) eignen sich die Storage Objekte v.a. für clientseitige optimierte Cookies mit Cache-Verhalten (z.B. verwendet von Google-Mail)</li>
+<li>Dieses Konzept sollte daher auch für komplexere Objekte (Datenbanken) übernommen werden</li>
+<li>Leider wurde das ursprüngliche Konzept (<mark>WebSQL</mark>) nicht gut umgesetzt</li>
+<li>Mittlerweile wurde diese API gestrichen und durch eine neue, <mark>IndexedDB</mark> ersetzt:
+<pre lang="javascript">
+var request = indexedDB.open("DBName", "Beschreibung"); //Öffnen die Datenbank
+request.onsuccess = function(event) { //Öffnen erfolgreich - Erstellen eine Datenbank
+	var db = event.result; //Benutzen die Event-Argumente
+	request = db.createObjectStore("TabName", "id", true); //Tabellenname, Schlüssel, Auto-Inkrement setzen
+	request.onsuccess = function() { db.setVersion("1").onsuccess = function(event) { loadData(db); }; }; };
+</pre>
+</li>
+<li>Vorteil an der neuen API ist die Einfachheit und Ausrichtung auf asynchrone Aufrufe</li>
+</ul>
+<aside>
+<a href="http://en.wikipedia.org/wiki/Indexed_Database_API" target="_blank">Wikipedia Artikel zu IndexedDB</a>
+<a href="http://en.wikipedia.org/wiki/Web_SQL_Database" target="_blank">Wikipedia Artikel zu WebSQL</a>
+<a href="http://hacks.mozilla.org/2010/06/comparing-indexeddb-and-webdatabase/" target="_blank">MDN Beispiel zu WebSQL und IndexedDB</a>
+<a href="https://developer.mozilla.org/en/IndexedDB" target="_blank">MDN über IndexedDB</a>
+</aside>
+</body>
+</html>

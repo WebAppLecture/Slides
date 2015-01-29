@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Die @-Regeln</h1>
+<ul>
+<li>Wir kennen bereits die @-Regeln <code>@fontface</code> und <code>@keyframes</code>
+<li>Durch <code>@charset</code> kann man die Kodierung festlegen (UTF-8 ist Standard!), z.B.
+<pre lang="css">
+@charset "ISO-8859-15";
+</pre>
+</li>
+<li>Über <code>@import</code> können wir weitere (externe) Stylesheets einbinden, z.B.
+<pre lang="css">
+@import url("/css/main.css"); /* Oder mit Media-Query */
+@import url("style.css") screen and (max-width: 600px);
+</pre>
+</li>
+<li>Dank <code>@media</code> haben wir Zugriff auf die Media-Queries, z.B.
+<pre lang="css">
+@media print { /* Selektoren mit Regeln */ }
+@media screen and (max-width: 600px) { /* Selektoren mit Regeln */ }
+</pre>
+</li>
+<li>Mit <code>@page</code> können wir die Druckausgabe anpassen (mehr dazu später) und mit <code>@namespace</code> erlaubt uns Namensräume (für Elemente) einzustellen, z.B.
+<pre lang="css">
+@namespace foo "http://example.com/ns/foo";
+foo|#mydiv { /* Regeln */ } /* Für dieses Element mit diesem xmlns Attribut */
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://www.w3.org/TR/CSS2/media.html" target="_blank">W3C Spezifikation der Mediatypen</a>
+<a href="http://www.htmldog.com/guides/cssadvanced/atrules/" target="_blank">HTMLDog zu den @-Regeln</a>
+<a href="http://reference.sitepoint.com/css/atrulesref" target="_blank">Referenz auf Sitepoint</a>
+<a href="http://css-tricks.com/6731-css-media-queries/" target="_blank">CSS Tricks dazu</a>
+</aside>
+</body>
+</html>

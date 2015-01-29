@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (35)</h1>
+Was passiert beim folgenden Code? (Wir ignorieren den Text - wäre ein einfaches <code>HTMLElement</code>)
+<pre lang="html">
+&lt;button&gt;Das ist ein Button - mit Text&lt;/button&gt;
+</pre>
+Wir brauchen ein spezielles <code>HTMLElement</code> (Auszug aus <i>HTMLButtonElement.h</i>):
+<pre lang="cpp">
+namespace WebCore {
+	class HTMLButtonElement : public HTMLFormControlElement {
+	public:
+		HTMLButtonElement(const QualifiedName&amp;, Document*, HTMLFormElement* = 0);
+		virtual ~HTMLButtonElement(); // Destruktor
+		virtual RenderObject* createRenderer(RenderArena*, RenderStyle*); /* ... */
+		virtual bool canStartSelection() const { return false; } // Aha!
+		// Hier stehen wirklich einzigartige Eigenschaften des Buttons drin!
+		virtual bool willValidate() const { return false; } // Kommt uns bekannt vor
+	private:
+		enum Type { SUBMIT, RESET, BUTTON }; // Aha! /* weiteres Internes */
+	};	}
+</pre>
+Betrachten wir mal die eigentliche Implementierung in <i>HTMLButtonElement.cpp</i> um das Rendering anzuschauen:
+<pre lang="cpp">
+RenderObject* HTMLButtonElement::createRenderer(RenderArena* arena, RenderStyle*) {
+    return new (arena) RenderButton(this); // Geben einen RenderButton als RenderObject zurück
+}  //arena übernimmt das Speichermanagement (allocate und free Methoden) -- new ist überladen<sup>1</sup>
+</pre>
+<aside>
+<a href="https://github.com/WebKit/webkit/blob/master/Source/WebCore/html/HTMLButtonElement.cpp" target="_blank">HTMLButtonElement.cpp</a>
+<a href="https://github.com/WebKit/webkit/blob/master/Source/WebCore/html/HTMLButtonElement.h" target="_blank">HTMLButtonElement.h</a>
+<a href="https://github.com/WebKit/webkit/blob/master/Source/WebCore/html/HTMLButtonElement.idl" target="_blank">HTMLButtonElement.idl</a>
+<a href="http://www.bearcave.com/software/c++_mem.html" target="_blank"><sup>1</sup> <code>new</code> überladen in C++</a>
+</aside>
+</body>
+</html>

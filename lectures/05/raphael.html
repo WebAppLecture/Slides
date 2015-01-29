@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Verwenden von RaphaëlJS</h1>
+<ul>
+<li>Es existiert Lösung für SVG mit jQuery - wollen jedoch eine mächtigere unabhängige Lösung</li>
+<li>Der grundlegende Syntax ist allerdings sehr jQuery ähnlich: Konstruktor <code>Raphael(x,y,width,height)</code></li>
+<li>Die damit erhaltene Variable kann Objekte wie z.B. einen Kreis mit <code>circle(x,y,r)</code> erstellen</li>
+<li>Diese Methoden geben uns die Objekte direkt zurück (<mark>Chaining</mark>), so dass wir z.B. <code>attr(name,value)</code> verwenden können</li>
+<li>Analog zu jQuery gibt es auch hier <code>animate()</code>, <code>hide()</code> und <code>show()</code>, sowie Events wie <code>click()</code> etc.</li>
+<li>Welche weiteren wichtigen Objekte haben wir direkt zur Verfügung?
+<ul>
+<li>Über <code>rect(x,y,w,h)</code> können wir ein Rechteck (x,y ist links oben) erstellen</li>
+<li>Über <code>ellipse(x,y,rx,ry)</code> können wir eine Ellipse (x,y ist Mitte) erstellen</li>
+<li>Mit <code>path(p)</code> kann man einen Pfad erstellen</li>
+</ul>
+</li>
+<li>Das Argument der letzten Methode sieht z.B. so aus: <code>M 250 250 l 0 -50 z</code></li>
+<li><strong>M</strong> (Move) startet den Pfad (setzt Startpunkt), <strong>z</strong> schließt den Pfad und <strong>l</strong> (line) bewegt den Pfad (relativ)</li>
+</ul>
+<aside>
+<a href="http://raphaeljs.com/" target="_blank">RaphaëlJS</a>
+<a href="http://raphaeljs.com/reference.html" target="_blank">RaphaëlJS Referenz</a>
+<a href="http://raphaeljs.com/icons/" target="_blank">Freie (SVG) Icons durch RaphaëlJS</a>
+<a href="http://raphaeljs.com/playground.html" target="_blank">Direktes rumspielen mit RaephaëlJS</a>
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/an-introduction-to-the-raphael-js-library/" target="_blank">Tutorial zur Bibliothek</a>
+<a href="http://return-true.com/2011/06/using-raphaeljs-to-create-a-map/" target="_blank">Eine Karte (U.K.) erstellen</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Einstieg in CSS</h1>
+<ul>
+<li>Über CSS definieren wir extern, intern oder im Element wie Elemente dargestellt werden sollen
+<pre lang="html">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;beispieldatei.css&quot;&gt;&lt;!--Externe gesetzte Regeln --&gt;
+&lt;style&gt; /* Intern gesetzte CSS Regeln  */ &lt;/style&gt;
+&lt;element style=&quot;/* Auf dieses Element gesetzte Regeln */&quot; ...&gt;
+</pre>
+dazu muss man die entsprechenden Elemente auswählen (Selektor) und Regeln für diese festlegen</li>
+<li>Die Grundlegende Syntax lautet daher immer:
+<pre lang="CSS">
+selektor1, selektor2, ...
+{
+	eigenschaft: regel;
+	/* Weitere Regeln stehen hier! */
+}
+</pre>
+</li>
+<li>Sog. <mark>Responsive Design</mark> ist möglich um andere Darstellungen auf Smartphones, Druckern etc. zu bieten</li>
+<li>Um Elemente auszuwählen kann man deren Tagnamen, Struktur, Werte von Attributen sowie die Eigenschaften der Attribute <code>class</code> und <code>id</code> verwenden</li>
+<li>Einige Eigenschaften vererben an Kindelemente, so dass es z.B. reicht die Schriftart nur einmal zu setzen</li>
+</ul>
+<aside>
+<a href="http://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">Wikipedia Artikel zu CSS</a>
+<a href="http://www.w3schools.com/css/" target="_blank">W3Schools CSS Tutorial</a>
+<a href="http://www.w3.org/Style/CSS/Overview.en.html" target="_blank">W3C CSS WG mit Statusinfos</a>
+<a href="http://www.csszengarden.com/" target="_blank">CSS Zen Garten zum guten Design</a>
+<a href="http://jigsaw.w3.org/css-validator/" target="_blank">Der CSS Validator</a>
+<a href="http://de.selfhtml.org/css/" target="_blank">SelfHTML CSS Tutorial</a>
+</aside>
+</body>
+</html>

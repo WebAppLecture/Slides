@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>jQuery UI Möglichkeiten</h1>
+<div class="doubleleft">
+<ul>
+<li>Mit jQuery UI wird jQuery um richtige Benutzeroberflächen-Möglichkeiten erweitert</li>
+<li>Somit können wir für nicht vorhandene Steuerelemente (z.B. Range-Slider) einen sehr guten Fallback einbauen</li>
+<li>Der Vorgang würde folgendermaßen ablaufen:
+<ul>
+<li>Wieder mal bauen wir unsere Seite so auf, dass diese ohne JavaScript lauffähig ist</li>
+<li>Wir verwenden HTML5 Eingabeelemente (z.B. Range-Slider, Nummerbox etc.)</li>
+<li>In unserem JavaScript Code führen wir <code>$(document).ready(function() { ... })</code> aus</li>
+<li>Dort fragen wir ab, ob unsere neuen Formelemente immer noch den anfangs gesetzten Wert in <code>type</code> hat</li>
+<li>Falls das Attribut auf <code>type="text"</code> steht, brauchen wir einen Fallback</li>
+</ul>
+</li>
+<li>Außerdem können wir unsere Webseite um notwendige Elemente wie z.B. modale Dialoge erweitern</li>
+</ul>
+</div>
+<div class="halfright">
+<ul>
+<li><code>draggable()</code> und <code>droppable()</code></li>
+<li><code>resizable()</code></li>
+<li><code>sortable()</code></li>
+<li><code>autocomplete()</code></li>
+<li><code>slider()</code></li>
+<li><code>accordion()</code></li>
+<li><code>datepicker()</code></li>
+<li><code>dialog()</code></li>
+<li><code>progressbar()</code></li>
+<li>uvm.</li>
+</ul>
+</div>
+<aside>
+<a href="http://speckyboy.com/2010/01/20/25-tutorials-and-resources-for-learning-jquery-ui/" target="_blank">25 Tutorials zu jQuery UI</a>
+<a href="http://net.tutsplus.com/tutorials/html-css-techniques/how-to-build-cross-browser-html5-forms/" target="_blank">Cross Browser Forms erstellen</a>
+<a href="http://forrst.com/posts/HTML5_Form_jQuery_fallback-hTO" target="_blank">HTML5 Forms Fallback mit jQuery UI</a>
+<a href="http://bililite.com/blog/understanding-jquery-ui-widgets-a-tutorial/" target="_blank">jQuery UI Widgets verstehen</a>
+</aside>
+</body>
+</html>

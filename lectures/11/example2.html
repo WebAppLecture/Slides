@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (28)</h1>
+<!--läd die jQuery Funktionalität / oder nicht-->
+<script src="scripts/loadjquery.js"></script>
+<script>
+$(function() {
+	$('input[data-autocomplete-source]').each(function() {
+		var target = $(this);
+		target.keypress(function() {
+			var options = {};
+			options[target.attr('name')] = target.val();
+			$.getJSON(target.attr('data-autocomplete-source'), options, function(data) {
+				content = [];
+				$.each(data.hits, function(i, v) {
+					content.push(v.title);
+				});
+				$('#' + target.attr('list')).html('<option>' + content.join('</option><option>') + '</option>');
+			});
+		});
+	});
+});
+</script>
+HTML:
+<pre lang="html">
+&lt;input type=&quot;text&quot; name=&quot;s&quot; list=&quot;ex28-titles&quot;
+	data-autocomplete-source=&quot;http://html5skript.florian-rappl.de/search.aspx?callback=?&quot; /&gt;
+&lt;datalist id=&quot;ex28-titles&quot;&gt;&lt;/datalist&gt;&lt;!-- Geht zur Zeit nur in Opera und Firefox! --&gt;
+</pre>
+JavaScript (sollte in externer Datei liegen!):
+<pre lang="javascript">
+$(function() { //Verwenden von jQuery-Ready
+	$('input[data-autocomplete-source]').each(function() { //Alle gefundenen Elemente durchgehen
+		var target = $(this); //Kleiner Helfer
+		target.keypress(function() { //Bei Veränderung machen wir was (Autocomplete über JSON)
+			var options = {}; //Konstruieren das Optionen-Objekt
+			options[target.attr('name')] = target.val(); //Zuweisen des Namens als Schlüssel, Wert als Wert
+			$.getJSON(target.attr('data-autocomplete-source'), options, function(data) { //JSON Abfrage
+				content = []; //Buffer der Ausgabe
+				$.each(data.hits, function(i, v) { //Serverantwort durchgehen
+					content.push(v.title); //Und im Buffer speichern
+				}); //Ausgabe auf Seite (im datalist-Tag) speichern
+				$('#' + target.attr('list')).html('&lt;option&gt;' + content.join('&lt;/option&gt;&lt;option&gt;') + '&lt;/option&gt;');
+			});
+		});
+	});
+});
+</pre>
+<div class="hide">
+Eingabe: <input type="text" name="s" data-autocomplete-source="http://html5skript.florian-rappl.de/search.aspx?callback=?" list="ex28-titles" />
+<datalist id="ex28-titles"></datalist>
+</div>
+<aside>
+<a href="http://www.quackit.com/html_5/tags/html_datalist_tag.cfm" target="_blank">Tutorial für HTML5-Autocomplete</a>
+<a href="http://www.w3schools.com/html5/tag_datalist.asp" target="_blank">W3Schools Informationen zum datalist-Tag</a>
+</aside>
+</body>
+</html>

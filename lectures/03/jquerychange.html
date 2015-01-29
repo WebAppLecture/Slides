@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Elemente ändern</h1>
+<ul>
+<li>Einer der Vorteile im Verwenden von jQuery liegt in der (universalen) Syntax zum Ändern von Elementen</li>
+<li>Im Prinzip gelten folgende Regeln:
+<ul>
+<li>Will man das Attribut eines HTML Tags ändern (oder auslesen) so verwendet man <code>attr()</code>, z.B.
+<pre lang="javascript">
+var getter = $('#beispielID').attr('href');//Speichert den Wert des Attributes href in getter
+$('#beispielID').attr('href', 'beispiel.html');//Setzt den Wert (und gibt jQuery-Instanz zurück)
+</pre>
+</li>
+<li>Will man den Style eines HTML Elements ändern (oder auslesen) so verwendet man <code>css()</code>, z.B.
+<pre lang="javascript">
+var getter = $('#beispielID').css('display');//Speichert den Wert der Eigenschaft display des Styles
+$('#beispielID').css({ 'display' : 'none'});//So kann man auch mehrere Werte setzen - Objekt!
+</pre>
+</li>
+<li>Will man das Ereignis eines HTML Elements ändern (oder auslösen) so verwendet man <code>bind()</code>, z.B.
+<pre lang="javascript">
+$('#beispielID').bind('click');//Führt das Click-Ereignis aus
+$('#beispielID').click();//Sehr viel kürzere Alternative - speziell für Click
+$('#beispielID').bind('click', function() {});//Setzt das Click-Ereignis
+$('#beispielID').click(function() {});//Ebenfalls kürzere Alternative
+</pre>
+</li>
+</ul>
+</ul>
+<aside>
+<a href="http://api.jquery.com/category/events/" target="_blank">jQuery Events</a>
+<a href="http://www.barneyb.com/barneyblog/2009/04/10/jquery-bind-data/" target="_blank">jQuery EventHandler binden</a>
+<a href="http://api.jquery.com/category/manipulation/" target="_blank">jQuery zur DOM Manipulation</a>
+<a href="http://www.catswhocode.com/blog/manipulating-the-dom-with-jquery-10-useful-code-snippets" target="_blank">10 nützliche Codeschnippsel zu DOM-Veränderungen</a>
+<a href="http://calisza.wordpress.com/2009/03/29/6-jquery-snippets-you-can-use-to-manipulate-select-inputs/" target="_blank">6 nützliche Codes für Formular-Veränderungen</a>
+<a href="http://www.tutorialspoint.com/jquery/jquery-dom.htm" target="_blank">Tutorial um mit jQuery das DOM zu verändern</a>
+</aside>
+</body>
+</html>

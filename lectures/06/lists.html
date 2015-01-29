@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Listen richtig stylen</h1>
+<div class="left">
+<ul>
+<li>Listen eignen sich sehr gut für Menüs, da man hier sehr schönes Styling vornehmen kann und die Abwärtskompatibilität perfekt ist</li>
+<li><code>list-style-type</code> kann durch Angabe von <i>disc</i>, <i>circle</i>, <i>square</i>, <i>decimal</i>, <i>lower-roman</i>, <i>upper-roman</i>, <i>lower-alpha</i>, <i>upper-alpha</i>, <i>none</i> gesetzt werden</li>
+<li>Über <code>list-style-image</code> läßt sich ein Bild für die Auflistung einstellen, d.h. <i>url(...)</i></li>
+<li><code>list-style-position</code> definiert wo sich der Punkt befinden soll, d.h. <i>inside</i> oder <i>outside</i></li>
+<li>Alle Angaben können über <code>list-style</code> zusammengefasst werden</li>
+</ul>
+</div>
+<div class="right">
+<figure><img src="img/listswocss.png" alt="Eine Liste ohne CSS" /><figcaption>Das Aussehen der Liste ohne CSS auf die Listenelemente</figcaption></figure>
+<figure><img src="img/listswithcss.png" alt="Eine Liste mit CSS" /><figcaption>Durch CSS hat sich das Aussehen der Liste komplett verändert</figcaption></figure>
+</div>
+<div class="clear">
+<pre lang="css">
+ul#navlist { text-align: left; list-style: none; padding: 0; margin: 0 auto; width: 70%; }
+ul#navlist li { display: block; margin: 0; padding: 0; }
+ul#navlist li a { display: block; width: 100%; padding: 0.5em 0 0.5em 2em; border-width: 1px; border-color: #ffe #aaab9c #ccc #fff; border-style: solid; color: #777; text-decoration: none; background: #f7f2ea; }
+ul#navlist li#active a { background: #f0e7d7; color: #800000; }
+</pre>
+</div>
+<aside>
+<a href="http://www.w3schools.com/css/css_list.asp" target="_blank">W3Schools Artikel</a>
+<a href="http://www.alistapart.com/articles/taminglists/" target="_blank">Listen zähmen</a>
+<a href="http://css.maxdesign.com.au/listamatic/" target="_blank">Auswahl von Listen</a>
+<a href="http://www.somacon.com/p357.php" target="_blank">List-Style Wizard</a>
+<a href="http://www.marcofolio.net/css/8_different_ways_to_beautifully_style_your_lists.html" target="_blank">8 tolle Listenbeispiele</a>
+<a href="http://www.mediacollege.com/internet/css/ul-list.html" target="_blank">Mehr über ungeordnete Listen</a>
+<a href="http://codeasily.com/css/style-ordered-list" target="_blank">Mehr über geordnete Listen</a>
+</aside>
+</body>
+</html>

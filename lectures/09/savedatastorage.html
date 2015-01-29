@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>WebStorage</h1>
+<ul>
+<li>Mit WebStorage haben wir nun ein mächtiges Werkzeug, dass uns nicht nur jede Menge Speicher garantiert (min. <strong>5 MB</strong>), sondern auch nur Clientseitig abläuft</li>
+<li>Um nicht über die Begrenzung hinaus zu schießen hilft folgender Code:
+<pre lang="javascript">
+try { /* try-catch-Block analog zu C++ / C# / ... mit Code um Items zu setzen */ }
+catch (e) { /* Ein Fehler tritt auf - Fehlerbehandlung */
+    if (e === QUOTA_EXCEEDED_ERR) { //Wir haben unser Quota (Speicherplatzbegrenzung) gesprengt!
+		/* ... */ }
+}
+</pre>
+</li>
+<li>Das <code>window</code>-Objekt enthält zwei Objekte, <code>localStorage</code> (permanent, sofort über mehrere Fenster hinweg verfügbar) und <code>sessionStorage</code> (flüchtig, nur in dem aktuellen Fenster solange die Seite läuft aktiv)</li>
+<li>Bei den Storage-Elementen kann man im Prinzip nur die folgenden Zugriffen tätigen:
+<pre lang="javascript">
+var enthalteneElemente = localStorage.length; /* Liefert die Anzahl der enthaltenen Elemente zurück */
+var name = localStorage.key(0); /* Fragt den Schlüsselnamen über den Index ab */
+var value = localStorage.getItem(name); /* Liest einen Eintrag aus */
+localStorage.removeItem(name); /* Entfernt einen Eintrag */
+localStorage.setItem(name, value); /* Erstellt / Ersetzt einen Wert */
+localStorage.clear(); /* Entfernt alle Einträge */
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://www.codeproject.com/Articles/233786/HTML5-The-New-Frontier" target="_blank">Codeproject Artikel zu HTML5</a>
+<a href="http://davidwalsh.name/html5-storage" target="_blank">David Walsh über HTML5 Storage</a>
+<a href="http://en.wikipedia.org/wiki/Web_Storage" target="_blank">Wikipedia Eintrag</a>
+<a href="http://dev.w3.org/html5/webstorage/" target="_blank">W3C Spezifikation</a>
+<a href="http://onepixelahead.com/2010/08/23/html5-web-storage-example/" target="_blank">Beispiel zur Verwendung von WebStorage</a>
+</aside>
+</body>
+</html>

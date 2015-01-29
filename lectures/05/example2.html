@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (10)</h1>
+<pre lang="javascript">
+var paper = Raphael(10, 50, 320, 200);
+var rectangle = paper.rect(5,5,100,20);
+rectangle.NewAttributes = { x: 495, width: 300, fill: '#A03' };
+var circle = paper.circle(35,50,20);
+circle.attr('stroke-width', 1);
+circle.NewAttributes = { cx: 400, fill: '#088', 'stroke-width': 15, r: 30 };
+var ellipse = paper.ellipse(35,85,20,10);
+ellipse.NewAttributes = { cy: 100, ry: 30, rx: 10, cx: 25 };
+rectangle.attr('fill','#F00').attr('stroke','#444').click( function() { alter(rectangle, 3000); } );
+circle.attr('fill','#0F0').attr('stroke','#444').click( function() { alter(circle, 1500); } );
+ellipse.attr('fill','#00F').attr('stroke','#444').click( function() { alter(ellipse, 500); } );
+function alter(v, t) {
+	var at = v.attr();
+	v.animate(v.NewAttributes, t);
+	v.NewAttributes = at;
+}
+</pre>
+<div class="hide" id="svgTestArea" style="height: 130px; width: 800px; border: 1px solid #CCC;">
+</div>
+<script>
+(function() {
+	var script = document.createElement('script');
+	var head = document.getElementsByTagName('head')[0];
+	script.src = 'scripts/raphael-min.js';
+	script.onload = onLoad;
+	head.appendChild(script);
+	
+	function onLoad() {
+		var paper = Raphael(document.getElementById('svgTestArea'), 800, 130);
+		var rectangle = paper.rect(5,5,100,20);
+		rectangle.NewAttributes = { x: 495, width: 300, fill: '#A03' };
+		var circle = paper.circle(35,50,20);
+		circle.attr('stroke-width', 1);
+		circle.NewAttributes = { cx: 400, fill: '#088', 'stroke-width': 15, r: 30 };
+		var ellipse = paper.ellipse(35,85,20,10);
+		ellipse.NewAttributes = { cy: 100, ry: 30, rx: 10, cx: 25 };
+		rectangle.attr('fill','#F00').attr('stroke','#444').click( function() { alter(rectangle, 3000); } );
+		circle.attr('fill','#0F0').attr('stroke','#444').click( function() { alter(circle, 1500); } );
+		ellipse.attr('fill','#00F').attr('stroke','#444').click( function() { alter(ellipse, 500); } );
+	}
+	
+	function alter(v, t) {
+		var at = v.attr();
+		v.animate(v.NewAttributes, t);
+		v.NewAttributes = at;
+	}
+})();
+</script>
+</body>
+</html>

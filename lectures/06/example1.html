@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+<style>
+@font-face
+{
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Ubuntu'), url('http://themes.googleusercontent.com/static/fonts/ubuntu/v3/_xyN3apAT_yRRDeqB3sPRg.woff') format('woff');
+}
+
+#beispiel12
+{
+	list-style-type: none;
+	font: 16pt 'Ubuntu';
+	background: hsl(25, 90%, 60%);
+	border-radius: 30px 30px 15px 15px / 15px;
+	margin: 0; padding: 0;
+}
+
+#beispiel12 > li:nth-child(odd)
+{
+	background: rgba(140, 200, 92, 0.2);
+}
+
+#beispiel12 > li:nth-child(even)
+{
+	background: rgba(140, 200, 92, 1);
+}
+
+#beispiel12 > li
+{
+	color: white;
+	border: 1px solid #CCC;
+	display: inline-block;
+	margin: 0 25px;
+	padding: 0;
+	width: 150px;
+	height: 50px;
+	vertical-align: middle;
+}
+
+#beispiel12 > li:empty
+{
+	border: 1px dashed #F00;
+}
+</style>
+</head>
+<body><h1>Beispiel (12)</h1>
+<pre lang="css">
+@font-face {
+	font-family: 'Ubuntu'; /* Verwenden die populäre Schrift Ubutunu die wir von Google kriegen */
+	src: local('Ubuntu'), url('.../_xyN3apAT_yRRDeqB3sPRg.woff') format('woff'); /* Wuff Wuff */
+}
+#beispiel12 {
+	list-style-type: none; /* Schalten den Listen-Typ ab - keine Aufzählungszeichen */
+	font: 16pt 'Ubuntu'; /* Verwenden unsere eigene Schrift */
+	background: hsl(25, 90%, 60%); /* Hintergrund über HSL definieren */
+	border-radius: 30px 30px 15px 15px / 15px; /* Runde Ecken versteht sich, oben elliptisch */
+}
+#beispiel12 > li:nth-child(odd) { background: rgba(140, 200, 92, 0.2); } /* Ungerade li */
+#beispiel12 > li:nth-child(even) { background: rgba(140, 200, 92, 1); } /* Gerade li */
+#beispiel12 > li {
+	color: white; vertical-align: middle; /* Textfarbe und Ausrichtung */
+	display: inline-block; /* Anzeige in einer Zeile */
+	border: 1px solid #CCC; /* Rahmen bestimmen */
+	margin: 0 25px; /* Abstand 0 nach oben und unten, 25 pixel links und rechts */
+	width: 150px; height: 50px; /* Setzen der Größe */
+}
+#beispiel12 > li:empty { border: 1px dashed #F00; } /* Regel für leere li */
+</pre>
+<ul id="beispiel12" class="hide">
+<li>Das ist ein erster Test</li>
+<li>Und noch ein Test</li>
+<li></li>
+<li>Letzter Test</li>
+</ul>
+</body>
+</html>

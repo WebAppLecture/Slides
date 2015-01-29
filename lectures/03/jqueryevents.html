@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Ereignisse mit jQuery</h1>
+<ul>
+<li>Einer der größten Vorteile in der Verwendung von jQuery: Ereignisse</li>
+<li>jQuery verwendet selbst Ereignisse in Form von <mark>Callbacks</mark> an vielen Stellen (z.B. Animationen)</li>
+<li>Daneben können wir noch unsere Ereignisse sehr bequem anbinden (<code>bind()</code>) oder entfernen (<code>unbind()</code>)</li>
+<li>Um alle Events mit einem Handler abzuhören kann man <code>live()</code> verwenden</li>
+<li>Über <code>die()</code> kann man mit einer Methode alle EventHandler eines Elements entfernen</li>
+<li>Einer der größten Vorteile in der Verwendung von Events mit jQuery sind die (<strong>Event</strong>-)Parameter</li>
+<li>Beispiel eines MouseMove Ereignisses:
+<pre lang="javascript" id="testtarget">
+$('#testtarget').mousemove(function(ev) {
+  var pos = $(ev.target).offset();
+  var msg = 'EventHandler für .mousemove() PAGE { x = ' + ev.pageX + ', y = ' + ev.pageY + '} INNR { x = ';
+  msg += (ev.pageX - pos.left) + ', y = ' + (ev.pageY - pos.top) + ' } TIME { ' + ev.timeStamp + ' }';
+  $('#testlog').text(msg); });
+</pre>
+<div id="testlog" class="hide" style="overflow-y: scroll;height: 40px;background: #EEE;padding: 10px;border:1px solid #BBB;">
+</div>
+</li>
+</ul>
+<aside>
+<a href="http://api.jquery.com/category/events/" target="_blank">Events mit jQuery</a>
+<a href="http://api.jquery.com/bind/" target="_blank">jQuery Hilfe zu bind</a>
+<a href="http://api.jquery.com/unbind/" target="_blank">jQuery Hilfe zu unbind</a>
+<a href="http://api.jquery.com/die/" target="_blank">jQuery Hilfe zu die</a>
+<a href="http://api.jquery.com/live/" target="_blank">jQuery Hilfe zu live</a>
+<a href="http://www.bennadel.com/blog/1871-Translating-Global-jQuery-Event-Coordinates-To-A-Local-Context.htm" target="_blank">Globale in lokale Koordinaten umwandeln</a>
+</aside>
+<!--läd die jQuery Funktionalität / oder nicht-->
+<script src="scripts/loadjquery.js"></script>
+<script>
+$(function() {
+	$('#testtarget').mousemove(function(ev) {
+	  var pos = $(ev.target).offset();
+	  var msg = 'EventHandler für .mousemove() PAGE { x = ';
+	  msg += ev.pageX + ', y = ' + ev.pageY + '} INNR { x = ';
+	  msg += (ev.pageX - pos.left) + ', y = ' + (ev.pageY - pos.top) + ' } TIME { ' + ev.timeStamp + ' }';
+	  $('#testlog').text(msg);
+	});
+});
+</script>
+</body>
+</html>

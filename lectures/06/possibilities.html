@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+<style>
+#handoverexample { cursor: default; width: 200px; height: 20px; background: #622; opacity: 0.4; }
+#handoverexample:hover { cursor: pointer ; opacity: 0.6;}
+</style>
+</head>
+<body><h1>Möglichkeiten</h1>
+<ul>
+<li>Nochmals zum Einbinden von CSS - die drei Möglichkeiten beleuchtet:
+<ul>
+<li>Als <code>style</code>-Attribut im entsprechenden Element: Nur verwenden wenn sich die Regeln <strong>nie</strong> wiederholen</li>
+<li>Im <code>&lt;style&gt;</code>-Tag: Wenn die Regeln <strong>nur</strong> auf dieser Seite vorkommen (und es nicht zu viele sind)</li>
+<li>Im <code>&lt;link&gt;</code>-Tag: Wenn die Regel auf <strong>mehreren</strong> Seiten vorkommt (oder um schneller zu laden)</li>
+</ul>
+</li>
+<li>Was hat man über CSS noch für Möglichkeiten:
+<ul>
+<li>In CSS kann man auch den Mauszeiger (<code>cursor</code> Eigenschaft) einstellen, z.B. ist <code>default</code> der Standardzeiger und <code>pointer</code> die Hand:
+<div id="handoverexample" class="inline-hide"></div>
+<pre lang="CSS">
+#beispiel { cursor: default; }
+#beispiel:hover { cursor: pointer ; }
+</pre>
+</li>
+<li>Über <code>@import</code> Regel können (weitere) externe CSS Dateien in CSS eingelesen werden</li>
+<li>Konditionen gehen auch über @-Anweisungen (z.B. spezielle Darstellung bei kleineren Auflösungen)</li>
+<li>Mit CSS3 können wir auch Berechnungen durchführen z.B. durch <code>calc(75% - 100px)</code></li>
+<li>Bei Berechnungen sollte man allerdings aufpassen - dies war schon früher möglich führte jedoch häufig zu rekursiven Aufrufen!</li>
+</ul>
+</li>
+</ul>
+<aside>
+<a href="http://www.w3schools.com/css/css_howto.asp" target="_blank">W3Schools über die Möglichkeiten</a>
+<a href="http://www.webstartcenter.com/howto/css_inc.php" target="_blank">Möglichkeiten zum Einbinden</a>
+<a href="http://stackoverflow.com/questions/147500/is-it-possible-to-include-one-css-file-into-another" target="_blank">Einbinden von externen CSS Dateien</a>
+<a href="http://www.w3schools.com/cssref/pr_class_cursor.asp" target="_blank">Die Cursor Anweisung</a>
+<a href="http://www.quirksmode.org/css/cursor.html" target="_blank">Cursors Artikel von Quirksmode</a>
+<a href="http://www.echoecho.com/csscursors.htm" target="_blank">Älteres Tutorial zu Cursors</a>
+</aside>
+</body>
+</html>

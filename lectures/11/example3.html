@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (29)</h1>
+<style>
+.flags
+{
+	background: url('img/flagsprite.png') no-repeat;
+	display: inline-block;
+	height: 11px;
+	padding-left: 20px;
+}
+#de { background-position: 0px 0px; }
+#en { background-position: 0px -11px; }
+#fr { background-position: 0px -22px; }
+#jp { background-position: 0px -33px; }
+#kr { background-position: 0px -44px; }
+</style>
+<script src="scripts/loadjquery.js" defer="defer"></script>
+<pre lang="html">
+&lt;style&gt;
+.flags
+{
+	background: url('http://html5skript.florian-rappl.de/img/flagsprite.png') no-repeat;
+	display: inline-block;
+	height: 11px;
+	padding-left: 20px;
+}
+#de { background-position: 0px 0px; }
+#en { background-position: 0px -11px; }
+#fr { background-position: 0px -22px; }
+#jp { background-position: 0px -33px; }
+#kr { background-position: 0px -44px; }
+&lt;/style&gt;
+&lt;script src=&quot;../../scripts/loadjquery.js&quot; defer=&quot;defer&quot;&gt;&lt;/script&gt;
+&lt;img src=&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAA...&quot; alt=&quot;HTML5 Logo&quot; align=&quot;middle&quot; /&gt; HTML5 Beispiel!
+&lt;p&gt;Bitte Sprache wählen: &lt;a id=&quot;de&quot; class=&quot;flags&quot;&gt;deutsch&lt;/a&gt; | &lt;a id=&quot;en&quot; class=&quot;flags&quot;&gt;english&lt;/a&gt; | &lt;a id=&quot;fr&quot; class=&quot;flags&quot;&gt;français&lt;/a&gt; | &lt;a id=&quot;jp&quot; class=&quot;flags&quot;&gt;日本&lt;/a&gt; | &lt;a id=&quot;kr&quot; class=&quot;flags&quot;&gt;한국의&lt;/a&gt;&lt;/p&gt;
+</pre>
+<div class="hide">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABOVJREFUeNrsWz1MFEEUfnu75w8ROcEY/IVGpOQKLTT+FTYmBGy09JTWwsqYWKiFjYnRwhajrRXE0iCHhYUWHJUcNoe/FCCnklNgd8eZvRF2l9m9ndnZn4u85GVzf7sz33zvve/N7gGI2R3siPod2/vI5u7XLD+Dfdz2ehF7jv62wPiu13WFLQPpMjL52/T4MI4LahLO0UVXR5Zdx95tY0KkJoMBBUrjccZnCvW7tveKtveLHuccjItyaQuB2E1GCFSog4RQGLGtfrHBOd2hV8VeSoIBz7CfpR7WprA/opO5whF646JJU0shK0m+mLCxKpUhULFRtOJKcI2+76ZpyfW9Kg0F92dV13nA5zybtmmbFsyUIF/63N9ToOqsmaxy4MXMU1lJ8LJkuRuHkWTZEICgOqDShOwONOagAMw2IQCBxpy4EGppl9OOGCsAy0tmZEIoshBQtyiSAECRhsB/nwNSbwihSPcDUq+zjVWxMQcCAAuKarMxIuiYpVSBTG8esjcec/8um83CzrY2oWvWHhRAL79dDwEj2hDwa3VTYaYhNlYpSRDVluKf8PwXKefhAcAzptDHD/EDsLAOgKmjwGMNA8BUakugKT5WaVIYzX8DZffejStVnvQuXaoGRvuOxOjPC4AvrdDCHBMAY3QYzGk2CKR0a52qlD5AVLnyhEAzbTpGAkDDEGDa9tbUymBeAPxRnZ9jX+DQ4SRksHwGYGnZNB0hz1ilVQETawFWOlOwTNZgiI2+moGtHdu5r7X6ZsShA0JEADcAJBH2MT/5/Ys9ySN5AOIevcBWgV7AmHnnFEKrSDhZ8ybBVHSFDXRANUoAvAc1PZmMDDbi6wWITaROBm9sgycSYUC9SV+KdfXjlsIN42vl/jVQWoJre13JQHbPFvbKHOiFbZduMiT3V2dC1MPlAJEqAH5tMW9F0hfVcAMzw0n21O4KKx372CXw0/v0hoA2MATqwFVGR/gEdNwVcq1Mx342y2pOvaEL3hARYgCWmKnvCHklu9QQ8OwIW/g3PdSDvZ4q0NkJxqsDfCmGFtgAKAIdodKyM1gOdMrgSqIAeCe0TlBPnGfuGLFiP3t80DMJotpPqWOTenvc9NgdJhPXhm6tlUqyT0ikszn5Gq90K6g9x0A7ctQ6elF/vQpMS6O/KAAkEZ4RVYIkHFTi5y6CpmnQmhN/KNxFf24NIBoCP6TVeoXv2YAAMvhHHAD4D7IcXVfolsFhO0HREChC/V8dbGk7fA8y+ZPWDdNM/lT4SWPhY8y8Bb38DvTSmKsTZI4tuST4TwsYL59bblGMAkF2hoKWQ5LorEmXXjnuAEdhkT8kZWV7ullCqoEFBAZFJexo27W2ymR1dWvSYxvkridQIe4JruUhkUl97u9BMsBRu3qgdU/WUdq4th++m46Ho7AMVlLHAN8VnJ0BY1lNcgjCABCq5RIBDa84uRe4uozcOqAaJwDeYkh2DjHqk9aXkXVEpthmTSpDgFlF0L9VxpP+g6TU+igAuEAZcBrq//LqDrXKOJvrmNZkwownPhs1P+TvNRMg+AyTlOdUcVXopkCcpsAEzg9KBvxozco9ZKKj5CjjfqUSBa0wIASEAQpGX8jTlWwTLsoeqxJ1TGMwcjZ2DAZgR4WuMqH1SNQPaUYOAAOQPsqMAVslsdM61n3HvwIMAEbY5Ec+KNRqAAAAAElFTkSuQmCC" alt="HTML5 Logo" align="middle" /> HTML5 Beispiel!
+<p>Bitte Sprache wählen: <a id="de" class="flags">deutsch</a> | <a id="en" class="flags">english</a> | <a id="fr" class="flags">français</a> | <a id="jp" class="flags">日本</a> | <a id="kr" class="flags">한국의</a></p>
+</div>
+</body>
+</html>

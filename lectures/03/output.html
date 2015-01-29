@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Das <code>output</code> Element</h1>
+<ul>
+<li>Semantischer Tag um als Platzhalter für die Ausgabe von Skripts zu dienen</li>
+<li>Besitzt keine Eigenschaft <code>value</code></li>
+<li>Ist nur für die clientseitige Darstellung relevant (wird nicht übertragen)</li>
+<li>Beim Reset des Formulars wird auch der Inhalt des <code>output</code> Elements zurückgesetzt</li>
+<li>v.a. sinnvoll für Berechnungen, temp. Anzeigen und zur Kontrolle von Benutzereingaben</li>
+<li>Ein einfaches Beispiel:
+<pre lang="html">
+&lt;form onsubmit=&quot;return false&quot; oninput=&quot;o.value = a.value*1 + b.value*1&quot;&gt;
+  &lt;input name=&quot;a&quot; id=&quot;a&quot; type=&quot;number&quot; step=&quot;any&quot;&gt; +
+  &lt;input name=&quot;b&quot; id=&quot;b&quot; type=&quot;number&quot; step=&quot;any&quot;&gt; =
+  &lt;output name=&quot;o&quot; for=&quot;a b&quot;&gt;&lt;/output&gt;
+&lt;/form&gt;
+</pre></li>
+</ul>
+<aside>
+<a href="http://html5doctor.com/the-output-element/" target="_blank">HTML5 Doktor</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output" target="_blank">MDN Artikel</a>
+<a href="http://dev.w3.org/html5/spec-preview/the-output-element.html" target="_blank">W3C Spezifikation</a>
+</aside>
+</body>
+</html>

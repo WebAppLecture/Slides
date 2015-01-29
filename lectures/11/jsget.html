@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>JavaScript Getter</h1>
+<ul>
+<li>Getter und Setter stellen eine Kapselung von Variablen dar, wobei der Zugriff auf die Variablen wie mit Eigenschaften (d.h. wie öffentliche Variablen) erfolgt</li>
+<li>Nachdem die Variable jedoch gekapselt ist, kann man <strong>VOR</strong> der Zuweisung eine Überprüfung durchführen</li>
+<li>Außerdem ist es möglich Eigenschaften einzuführen, die keine echten Variablen darstellen, aber wie solche angesprochen werden sollen</li>
+<li>Wir können Getter direkt in der Objektdeklaration einbauen, wie z.B.
+<pre lang="javascript">
+var lost = {
+	loc : "Island",
+	get location () {
+		return this.loc;
+	}
+};
+alert(lost.location);
+</pre>
+</li>
+<li>Genauso können bestehende Elemente wie <code>HTMLElement</code> erweitert werden, z.B.
+<pre lang="javascript">
+HTMLElement.prototype.__defineGetter__("description", function () { return this.desc; });
+alert(document.body.description);
+</pre>
+</li>
+</ul>
+<aside>
+<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank">MDN Artikel über Get/Set</a>
+<a href="http://ejohn.org/blog/javascript-getters-and-setters/" target="_blank">John Resig über Getter und Setter</a>
+<a href="http://robertnyman.com/2009/05/28/getters-and-setters-with-javascript-code-samples-and-demos/" target="_blank">Robert Nyman über Get/Set</a>
+</body>
+</html>

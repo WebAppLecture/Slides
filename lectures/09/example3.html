@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+<style>
+.ex22-nosession { border: 1px solid #F00; }
+</style>
+</head>
+<body><h1>Beispiel (22)</h1>
+<ul>
+<li>Hierbei handelt es sich um das selbe Beispiel wie bei Cookies - aber es gibt einige (große) Unterschiede</li>
+<li>Wichtig: Testen der unterschiedlichen Typen (Lokal und Session) zwischen 2 Fenstern (Tabs)</li>
+</ul>
+<pre lang="javascript">
+/* Hier sind KEINE zusätzlichen Methoden um den Zugriff zu erleichtern ! */
+//Zugriff auf die sessionStorage ermöglichen
+var storage = sessionStorage;
+document.getElementById('ex21-name').onchange = function() { //Beim Wechsel anzeigen
+	document.getElementById('ex21-value').value = storage.getItem(this.value);
+};
+document.getElementById('ex21-save').onclick = function() { //Speichern im aktuellen Element
+	storage.setItem(document.getElementById('ex21-name').value, document.getElementById('ex21-value').value);
+	document.getElementById('ex21-name').onchange(); //Wechseln
+};
+document.getElementById('ex21-erase').onclick = function() {
+	storage.removeItem(document.getElementById('ex21-name').value); //Den Eintrag löschen
+	document.getElementById('ex21-name').onchange(); //Wechseln
+};
+document.getElementById('ex22-type').onchange = function() { //Hier wollen wir den Modus festlegen
+	storage = this.selectedIndex ? window.localStorage : window.sessionStorage; //Entweder local oder session
+	document.getElementById('ex22-name').onchange(); //Wechseln
+};
+</pre>
+<div class="hide">
+<select id="ex22-type"><option>session</option><option>local</option></select><select id="ex22-name"><option>Session auswählen</option><option value="HTML5StorageOne">Schlüssel-1</option><option value="HTML5StorageTwo">Schlüssel-2</option><option value="HTML5StorageThree">Schlüssel-3</option><option value="HTML5StorageFour">Schlüssel-4</option><option value="HTML5StorageFive">Schlüssel-5</option></select>
+<input id="ex22-value" placeholder="Wert eingeben" /><button type="button" id="ex22-save">Speichern</button><button type="button" id="ex22-erase">Löschen</button>
+</div>
+<script>
+(function() {
+	var storage = window.sessionStorage;
+	
+	document.getElementById('ex22-name').onchange = function() {
+		var dis = 'disabled';
+		document.getElementById('ex22-value').className = '';
+		
+		if(this.selectedIndex) {
+			dis = '';
+			var content = storage.getItem(this.value);
+			
+			if(!content) {
+				document.getElementById('ex22-value').className = 'ex22-nosession';
+				content = '';
+			}
+				
+			document.getElementById('ex22-value').value = content;
+		}
+			
+		document.getElementById('ex22-save').disabled = dis;
+		document.getElementById('ex22-erase').disabled = dis;
+	};
+	
+	document.getElementById('ex22-save').onclick = function() {
+		storage.setItem(document.getElementById('ex22-name').value, document.getElementById('ex22-value').value);
+		document.getElementById('ex22-name').onchange();
+	};
+	
+	document.getElementById('ex22-erase').onclick = function() {
+		storage.removeItem(document.getElementById('ex22-name').value);
+		document.getElementById('ex22-name').onchange();
+	};
+	
+	document.getElementById('ex22-type').onchange = function() {
+		storage = this.selectedIndex ? window.localStorage : window.sessionStorage;
+		document.getElementById('ex22-name').onchange();
+	}
+
+	document.getElementById('ex22-name').onchange();
+})();
+</script>
+</body>
+</html>

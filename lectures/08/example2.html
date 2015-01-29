@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+<style>
+.ex17slide { color: #FFF; font-weight: bold; text-align: center; }
+</style>
+</head>
+<body><h1>Beispiel (17)</h1>
+<pre lang="javascript">
+function onChangeHandler(s) {
+	var value = 'slide'; //Wert der ausgewählten Radiobox rausfinden und in value speichern - Standardwert slide
+	$('input:radio[name=radiogroup]').each(function(i,v) { //Alle RadioBoxen die "radiogroup" als name=... haben
+		if(v.checked) //Wenn die angewählt ist
+			value = v.value; //Den Namen speichern
+	});
+	var selection = s.value; //Der Wert der Nummernbox in selection abspeichern (ist String!)
+	function filterList(i, v) { //Unsere Methode um die Liste zu filtern - wenn der Text der selection entspricht
+		return $(v).text() === selection; //Dann bleibt das betrachtete Element in der Liste - ansonsten nicht
+	};
+	if(value === 'slide') //Slide ausgewählt?
+		$('.box').slideUp('fast').filter(filterList).slideDown('slow');
+	else if(value === 'fade') //Fade ausgewählt?
+		$('.box').fadeOut('fast').filter(filterList).fadeIn('slow'); //Slow ist 600 ms
+	else //Toggle ausgewählt?
+		$('.box').hide('fast').filter(filterList).show('slow'); //Fast ist 200 ms
+}
+$(document).ready(function() { //Verstecken die (sehr) langsam am Anfang
+	$('.box').fadeOut(2000); //über einen FadeOut Effekt mit 2000 ms
+});
+</pre>
+<div class="hide">
+<table border="0" width="100%"><tr><td width="33%">
+<div class="ex17slide" style="background: #F00;">1</div></td><td width="33%">
+<div class="ex17slide" style="background: #0F0;">2</div></td><td width="33%">
+<div class="ex17slide" style="background: #00F;">3</div></td></tr>
+</table>
+<input type="radio" value="slide" name="example17radio" checked /> Slide | <input type="radio" value="fade" name="example17radio" /> Fade | <input type="radio" value="toggle" name="example17radio" /> Toggle | Wert: <input type="number" id="example17selection" value="0" />
+</div>
+<!--läd die jQuery Funktionalität / oder nicht-->
+<script src="scripts/loadjquery.js"></script>
+<script>
+$(function() {
+	$('.ex17slide').fadeOut(2000);
+	$('#example17selection').change(function (e) {
+		var value = 'slide';
+		
+		$('input:radio[name=example17radio]').each(function(i,v) {
+			if(v.checked) value = v.value;
+		});
+		
+		var selection = this.value;
+		
+		function filterList(i, v) {
+			return $(v).text() === selection;
+		};
+		
+		if(value === 'slide')
+			$('.ex17slide').slideUp('fast').filter(filterList).slideDown('slow');
+		else if(value === 'fade')
+			$('.ex17slide').fadeOut('fast').filter(filterList).fadeIn('slow');
+		else
+			$('.ex17slide').hide('fast').filter(filterList).show('slow');
+	});
+});
+</script>
+</body>
+</html>

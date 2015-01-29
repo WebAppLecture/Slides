@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Canvas JavaScript Methoden</h1>
+<ul>
+<li><code>getContext('2d')</code> <strong>gibt</strong> uns das entsprechende Zeichenobjekt (hier: <mark>2D</mark>, z.B. auch möglich: <strong>webgl</strong>)</li>
+<li>Das 2D-Kontextobjekt hat einige Eigenschaften, z.B.
+<ul>
+<li><code>fillStyle</code> (Füllfarbe), <code>strokeStyle</code> (Stiftfarbe) und <code>lineWidth</code> (Stiftbreite)</li>
+<li><code>shadowOffsetX/Y</code>, (Schattenversatz), <code>shadowBlur</code> (Unschärfe) und <code>shadowColor</code> (Schattenfarbe)</li>
+<li><code>font</code> (Schriftart), <code>textAlign</code> (hor. Ausrichtung) und <code>textBaseline</code> (ver. Ausrichtung)</li>
+</ul>
+</li>
+<li>Neben diesen Eigenschaften gibt es noch jede Menge Methoden (mit eigenen Objekten), z.B.
+<ul>
+<li><code>fillRect(x,y,width,height)</code> (Rechteck füllen), <code>strokeRect(x,y,width,height)</code> (Rechteck zeichnen) und <code>clearRect(x,y,width,height)</code> (Rechteck mit Hintergrundfarbe füllen)</li>
+<li><code>beginPath()</code> und <code>closePath()</code> um Pfad zu erstellen, der durch <code>fill()</code>, <code>stroke()</code> gefüllt wird</li>
+<li>Mit <code>moveTo(x,y)</code> bzw. <code>lineTo(x,y)</code> werden Teilstücke des Pfades festgelegt</li>
+<li>Über <code>drawImage(img_el,x,y,width,heigth)</code> können wir Bilder einbinden</li>
+<li>Durch <code>createImageData(x,y,width,height)</code> kann Pixelkarte ein Bereich mit Pixelmanipulation erstellt werden</li>
+</ul>
+</li>
+<li>Sehr gute Einsatzmöglichkeiten des Canvas-Tags bieten sich durch ein Video-Element</li>
+</ul>
+<aside>
+<a href="http://dev.opera.com/articles/view/html-5-canvas-the-basics/#the2dcontextapi" target="_blank">Opera Canvas Tutorial</a>
+<a href="http://wiki.delphigl.com/index.php/Tutorial_WebGL" target="_blank">WebGL Tutorial</a>
+<a href="https://developer.mozilla.org/en/Canvas_tutorial" target="_blank">MDN über Canvas</a>
+<a href="http://www.w3schools.com/html5/html5_canvas.asp" target="_blank">W3Schools Canvas Tutorial</a>
+</aside>
+</body>
+</html>

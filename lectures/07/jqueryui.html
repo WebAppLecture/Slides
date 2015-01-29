@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>jQuery UI im Blickpunkt</h1>
+<div class="doubleleft">
+<ul>
+<li>Manche Elemente (z.B. Range-Slider oder Datepicker) haben bis jetzt sehr geringe Unterstützung</li>
+<li>Des Weiteren möchte man oftmals spezielle Steuerelemente einbauen</li>
+<li>Beispiele hierfür: Accordions, Dialoge, Progressbars und Tabs</li>
+<li>Mit jQuery UI wurden all diese Optionen in einem Paket gebündelt</li>
+<li>Toll ist hier die sog. Themefähigkeit (über CSS) und die Verwendung mit jQuery, sowie die ausführliche Dokumentation</li>
+<li>Die prinzipielle Syntax baut auf jQuery auf, z.B.
+<pre lang="javascript">
+$('#meindialog').dialog();//Erstellt einen Dialog - default
+$('#print').dialog({ //Erstellt Dialog mit eigenen Optionen
+	autoOpen: false, //Öffnet sich nicht gleich
+	width: 600, //Größe soll 600px sein
+	modal: true, //ist modal (d.h. besitzt immer Fokus)
+	title: 'Druckvorschau', //Titel
+	buttons: { "Ok" : function() {} },//Buttons mit Callbacks
+});
+</pre>
+</li>
+</ul>
+</div>
+<div class="halfright">
+<figure><img src="img/jqueryui.png" alt="jQuery UI" /><figcaption>jQuery UI ist eine Erweiterung von jQuery mit komplexen Steuerelementen</figcaption></figure>
+</div>
+<aside>
+<a href="http://jqueryui.com" target="_blank">Die Seite von jQuery UI</a>
+<a href="http://docs.jquery.com/Ui" target="_blank">jQuery UI Dokumentation</a>
+<a href="http://en.wikipedia.org/wiki/JQuery_UI" target="_blank">Wikipedia Artikel zu jQuery UI</a>
+<a href="http://wijmo.com" target="_blank">Kommerzielle Erweiterung von jQuery UI</a>
+</aside>
+</body>
+</html>

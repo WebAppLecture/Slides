@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Noch einmal CSS3</h1>
+<ul>
+<li>In CSS3 kann man mehrere Hintergründe einbinden, z.B. über
+<pre lang="css">
+selektor { background: url('hintergrund1.gif') no-repeat 0 0, url('hintergrund2.gif') no-repeat 100% 0; }
+</pre>
+</li>
+<li>Als Workaround für ältere Browser empfiehlt sich folgendes
+<pre lang="css">
+selektor { /* FALLBACK für NON-CSS3 Browser ... */ } 
+body:last-child selektor { /* Für CSS3 Browser */ }
+</pre></li>
+<li>Neben Rahmen über <code>border</code> sind auch sog. <code>Outlines</code> möglich, z.B.
+<pre lang="css">
+selektor {
+border: 1px solid #000;
+outline: 1px solid #699;
+outline-offset: -9px; }
+</pre>
+</li>
+<li>In CSS3 kann man nun auch explizit das Box-Model durch das IE(5)-Model ersetzen:
+<pre lang="css">
+selektor { box-sizing: content-box; /* Reguläres Box-Model - *meistens* Standard */ }
+selektor { 	box-sizing: border-box; /* Nicht standardisiertes Model - vorsicht Webkit-Textboxen! */ }
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://www.codeproject.com/KB/HTML/CSS3.aspx" target="_blank">Codeproject Artikel über CSS3</a>
+<a href="http://codecandies.de/2009/11/22/kurz-gecodet-multiple-backgrounds/" target="_blank">Nico Brünjes über Multiple Backgrounds</a>
+<a href="http://www.css3.info/preview/outline/" target="_blank">CSS Outlines</a>
+<a href="http://www.w3.org/TR/css3-ui/" target="_blank">W3C über Border und Content Box</a>
+</aside>
+</body>
+</html>

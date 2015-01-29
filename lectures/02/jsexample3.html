@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (3)</h1>
+<script>
+function setColor(e) {
+	var bg = 'none';
+	
+	if(e.selectedIndex)
+		bg = e.options[e.selectedIndex].value;
+	
+	document.getElementById('testBox').style.background = bg;
+}
+
+function setButtonName(e) {
+	e.innerHTML = document.getElementById('testBox').style.background;
+}
+</script>
+<div class="left">
+JavaScript Code:
+<pre lang="javascript">
+//Setzt die Farbe der Box mit der ID testBox
+function setColor(e) {
+	var bg = 'none';//Standardwert
+	//Schauen ob selectedIndex != 0
+	if(e.selectedIndex)
+		bg = e.options[e.selectedIndex].value;
+	//Wert über das Style Attribut setzen
+	document.getElementById('testBox').style.background = bg;
+}
+//Setzt den Wert des auslösenden Elements
+function setButtonName(e) {
+	e.innerHTML = document.getElementById('testBox').style.background;
+}
+</pre>
+</div>
+<div class="right">
+HTML Code:
+<pre lang="html">
+&lt;!--Box erstellen--&gt;
+&lt;div id=&quot;testBox&quot; style=&quot;background: none;&quot;&gt;
+	&lt;!--Optionsfeld mit Ereignis erstellen--&gt;
+	&lt;select onchange=&quot;setColor(this);&quot;&gt;
+		&lt;option&gt;---&lt;/option&gt;
+		&lt;option value=&quot;#F00&quot;&gt;Red&lt;/option&gt;
+		&lt;option value=&quot;#0F0&quot;&gt;Green&lt;/option&gt;
+		&lt;option value=&quot;#00F&quot;&gt;Blue&lt;/option&gt;
+	&lt;/select&gt;
+	&lt;!--Button erstellen und Ereignis festlegen--&gt;
+	&lt;button onclick=&quot;setButtonName(this);&quot;&gt;Anklicken&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+</div>
+<div class="hide clear">
+<div id="testBox" style="background: none;">
+<select onchange="setColor(this);"><option>---</option><option value="#F00">Red</option><option value="#0F0">Green</option><option value="#00F">Blue</option></select>
+<button onclick="setButtonName(this);">Anklicken</button>
+</div>
+</div>
+<ul>
+<li>Neues hier: Der Auslöser kann über <code>this</code> die eigene Referenz mitgeben</li>
+<li>Eigenschaft eines jeden Elements: <code>style</code> - eine von vielen Eigenschaften davon ist <code>background</code></li>
+</ul>
+<aside>
+<a href="http://www.w3schools.com/jsref/dom_obj_style.asp" target="_blank">Die style Eigenschaft</a>
+<a href="http://www.w3schools.com/jsref/coll_select_options.asp" target="_blank">Die options Collection des select Elements</a>
+</aside>
+</body>
+</html>

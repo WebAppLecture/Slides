@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>JavaScript Promises</h1>
+<ul>
+<li>Durch Promises ist es möglich auf ein Ergebnis zu warten ohne dass diese Wartezeit die Seite blockiert</li>
+<li>Das Konzept wurde von Microsoft wg. einer ähnlichen Technologie in .NET 4.5 eingeführt</li>
+<li>Man verringert die Zahl der notwendigen Callbacks und schafft mehr Übersichtlichkeit</li>
+<li>Außerdem kann man durch dieses Konzept wieder <strong>Chaining</strong> sehr gut nutzen</li>
+<li>Ein JavaScript Promise ist definiert durch folgende Zustände:
+<ul>
+<li>Zustandslos</li>
+<li>Erfolgreich</li>
+<li>Fehlgeschlagen</li>
+</ul>
+</li>
+<li>Der Code einer asynchronen (d.h. einer Methode die länger als 50 ms benötigt und nicht-blockend sein soll) Methode würde nun so ausgewertet werden
+<pre lang="javascript">
+function doAjax() { return $.get('foo.htm'); } //Blockende AJAX Methode
+function doMoreAjax() { return $.get('bar.htm'); } //Noch eine andere blockende AJAX Methode
+$.when( doAjax(), doMoreAjax() ) //Dies sind unsere langsamen (aber notwendigen) Methoden => ausgelagert
+	.then(function() { console.log( 'I fire once BOTH ajax requests have completed!' ); }) //Erfolg
+	.fail(function() { console.log( 'I fire if one or more requests failed.' ); }); //Misserfolg
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://msdn.microsoft.com/en-us/library/windows/apps/hh464930.aspx" target="_blank">MSDN zu Promises</a>
+<a href="http://blogs.msdn.com/b/ie/archive/2011/09/11/asynchronous-programming-in-javascript-with-promises.aspx" target="_blank">Erklärung der Verbesserung mit Promises</a>
+<a href="http://www.slideshare.net/ryan_blunden/promises-in-java-script-with-jquerykey" target="_blank">Promises mit jQuery</a>
+<a href="http://www.erichynds.com/jquery/using-deferreds-in-jquery/" target="_blank">Deferreds in jQuery nutzen</a>
+</aside>
+</body>
+</html>

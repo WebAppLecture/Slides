@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Polymorphie in JavaScript</h1>
+<ul>
+<li>Polymorphie bedeutet, dass man eigene Implementierungen bekannter Methoden erstellen kann</li>
+<figure><img src="img/polymorphism.png" alt="Beispielhafte Vererbungsstruktur" /><figcaption>Beispiel einer Vererbung - Rectangle, Circle und Triangle erben von Shape</figcaption></figure>
+<li>Können über das <code>prototype</code> Schlüsselwort die Basis einer Klasse definieren</li>
+<li>Um dem Beispiel aus der Grafik zu folgen:
+<pre lang="javascript">
+function Shape() { //Grundsätzliches festlegen, hier x und y Startpunkt
+	this.X = 0; this.Y = 0; } //Wie immer public Eigenschaften mit this
+Shape.prototype.Draw = function () { ... };//Draw von Shape als Standard festlegen
+Rectangle.prototype = new Shape();//Vererbung erfolgt hier (Basis ist ein neuer Shape)
+Rectangle.prototype.Draw = function () { ... };//Eigene Implementierung (zeichnet Rechteck)
+Circle.prototype = new Shape();//Vererbung erfolgt hier (Basis ist ein neuer Shape)
+Circle.prototype.Draw = function () { ... };//Eigene Implementierung (zeichnet Ellipse)
+Triangle.prototype = new Shape();//Vererbung erfolgt hier (Basis ist ein neuer Shape)
+Triangle.prototype.Draw = function () { ... };//Eigene Implementierung (zeichnet Dreieck)
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://mckoss.com/jscript/object.htm" target="_blank">Artikel über OOP und JS</a>
+<a href="http://www.zipcon.net/~swhite/docs/computers/languages/object_oriented_JS/inheritance.html" target="_blank">Vererbung in JavaScript</a>
+<a href="http://www.codeproject.com/KB/aspnet/JsOOP1.aspx" target="_blank">OOP in JS</a>
+<a href="http://javascript.about.com/library/blpolyfunc.htm" target="_blank">Polymorphe JavaScript Methoden</a>
+<a href="http://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">Wikipedia Artikel zu OOP</a>
+</aside>
+</body>
+</html>

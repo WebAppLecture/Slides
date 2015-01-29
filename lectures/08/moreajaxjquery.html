@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Was kann jQuery noch?</h1>
+<ul>
+<li>Damit man sich viel Schreibarbeit sparen kann ist es möglich die Standardeinstellung von jQuery's AJAX Methode zu ändern,
+<pre lang="javascript">
+$.ajaxSetup({
+	cache: true, //Soll immer gecached werden
+	dataType: 'JSON', //Soll immer als JSON erwartet werden
+	error: function() { ... }, //Soll immer hier abgefangen werden
+	timeout: 60000, //Immer 60 Sekunden Timeout - also 1 Minute
+	type: 'POST' }); //Standardmäßig POST verwenden
+</pre>
+Somit können wir uns das Einstellen dieser Eigenschaften sparen</li>
+<li>Des Weiteren erlaubt uns jQuery Elemente über Ereignisse an AJAX zu koppeln, z.B.
+<pre lang="javascript">
+$('#irgendwas').ajaxError(function() {
+	/* Hier steht unser Code - wird aufgerufen wenn ein AJAX Request fehlschlägt */ });
+$('#wasanders').ajaxSend(function() {
+	/* Hier steht unser Code - wird VOR jedem Sendevorgang aufgerufen */ });
+</pre>
+Weitere Ereignisse sind <code>ajaxStart</code>, <code>ajaxSuccess</code>, <code>ajaxComplete</code> und <code>ajaxStop</code></li>
+<li>Es gibt spezialisierte Methoden, die <code>ajax()</code> mit entsprechenden Parametern aufrufen, z.B. <code>getScript()</code>, <code>getJSON()</code>, <code>load()</code>, <code>get()</code> und <code>post()</code></li>
+</ul>
+<aside>
+<a href="http://www.bennadel.com/blog/2131-Using-jQuery-ajaxSetup-To-Accumulate-Global-Data-Parameters-For-AJAX-Requests.htm" target="_blank">Die Verwendung von ajaxSetup</a>
+<a href="http://www.tutorialspoint.com/jquery/ajax-jquery-ajaxsetup.htm" target="_blank">Tutorialspoint über ajaxSetup</a>
+<a href="http://api.jquery.com/jQuery.ajaxSetup/" target="_blank">jQuery ajaxSetup Dokumentation</a>
+<a href="http://api.jquery.com/category/ajax/" target="_blank">Alle jQuery AJAX Methoden</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Nützliche Bibliotheken</h1>
+<ul>
+<li>Bei der Erstellung einer eigenen Game Engine empfiehlt sich die Verwendung von externen Bibliotheken</li>
+<li>Auch bei bestehenden Code sollte man zur Erweiterung bestehende Bibliothek in Betracht ziehen</li>
+<li>Um Sprites wunderbar zu animieren (auch Hintergründe etc.) empfiehlt sich Spritely<sup>1</sup>, z.B.
+<pre lang="javascript">
+$('#beispielelement').sprite({fps: 14, no_of_frames: 8});
+</pre>
+Dies benutzt ein CSS Spritesheet zur eigentlichen Animation.
+</li>
+<li>Häufig braucht man spezielle Benutzersteuerelemente (besonderes Design) - hierbei hilft jQuery v.a. in Verbindung mit jQuery UI ebenfalls<sup>2,3</sup>, z.B.
+<pre lang="javascript">
+$('.slider-handle').draggable({
+	drag: function(e,ui) { /* Verändern des Wertes und optische Anpassungen */ }
+});
+</pre>
+</li>
+<li>Mit Plugins wie Waypoints<sup>4</sup> kann man das Scrollverhalten des Benutzers auslesen, z.B.
+<pre lang="javascript">
+$('.entry').waypoint(function() {
+   alert('Du hast zu einem Eintrag gescrollt!');
+});
+</pre>
+</ul>
+<aside>
+<a href="http://spritely.net/" target="_blank"><sup>1</sup> Sprites mit jQuery</a>
+<a href="http://gamequery.onaluf.org/" target="_blank">GameQuery</a>
+<a href="http://css-tricks.com/anythingzoomer-jquery-plugin/" target="_blank">Anything Zoomer</a>
+<a href="http://www.designchemical.com/lab/jquery-floater-plugin/getting-started/" target="_blank">Floater Plugin</a>
+<a href="http://www.m2az.com/folderPreview/" target="_blank">FolderPreview</a>
+<a href="http://tutorialzine.com/2010/03/colorful-sliders-jquery-css3/" target="_blank"><sup>2</sup> Bunte Slider für jQuery</a>
+<a href="http://tutorialzine.com/2011/03/better-check-boxes-jquery-css/" target="_blank"><sup>3</sup> Bessere Checkboxen bauen</a>
+<a href="http://imakewebthings.github.com/jquery-waypoints/" target="_blank"><sup>4</sup> jQuery Waypoints</a>
+<a href="http://jquerylist.com/" target="_blank">Nützliche Plugins auf jQueryList</a>
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/inettuts/" target="_blank">iGoogle Interface nachmachen</a>
+</aside>
+</body>
+</html>

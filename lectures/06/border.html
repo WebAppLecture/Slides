@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+<style>
+.rightBorder {
+	width: 250px;
+	height: 30px;
+	border: 2px solid #AAA;
+	background: #EEE;
+	text-align: center;
+	display: inline-block;
+	margin-right: 10px;
+	padding-top: 10px;
+}
+</style>
+</head>
+<body><h1>Der richtige Rahmen</h1>
+<ul>
+<li>Bereits erwähnt wurde die <code>border</code> Eigenschaft - hierzu ein Beispiel:
+<pre lang="CSS">
+#someBox { 
+	border: 1px solid #CCC; /*Oben, rechts, unten, links 1px durchgezogen grau*/
+	border-left: 2px dashed #F00; /*Links 2px gestrichelt rot*/
+	border-bottom: 1em dotted green; /*Unten 1em (1 M in aktueller Schriftgröße) gepunktet Grün*/ } 
+</pre>
+<div style="width: 200px; height: 30px; border: 1px solid #CCC; border-left: 2px dashed #F00; border-bottom: 1em dotted green;">Die TestBox!</div>
+</li>
+<li>Mit CSS3 wurden Rahmen deutlich flexibler - wir können nun über <code>border-radius</code> <strong>runde Ecken</strong> erzeugen!</li>
+<li>Wir setzen <code>border-radius: lo ro ru lu</code> von links oben nach links unten</li>
+<li>Der Teufel liegt im Detail: Man kann auch mit zwei Angaben arbeiten - sozusagen elliptische Ecken!</li>
+<li>z.B. über <code>border-radius: lo1 ro1 ru1 lu1 / lo2 ro2 ru2 lu2</code> - ist immer äquivalent ist zu:</li>
+<li>den einzelnen Angaben z.B. <code>border-top-left-radius: lo1 lo2</code></li>
+<div style="border-radius: 20px;" class="rightBorder">border-radius:20px</div>
+<div style="border-radius: 20px / 10px;" class="rightBorder">border-radius:20px / 10px</div>
+<div style="border-radius: 20px / 8px 2px;" class="rightBorder">border-radius:20px / 8px 2px</div>
+</ul>
+<aside>
+<a href="http://robertnyman.com/css3/border-radius/border-radius.html" target="_blank">Robert Nyman zum Border-Radius</a>
+<a href="http://www.w3schools.com/cssref/pr_border-style.asp" target="_blank">W3Schools über border-style</a>
+<a href="http://www.css3.info/border-radius-apple-vs-mozilla/" target="_blank">Runde Ecken am Anfang (Apple v Mozilla)</a>
+<a href="http://www.w3schools.com/cssref/css3_pr_border-radius.asp" target="_blank">W3Schools zu den runden Ecken</a>
+<a href="http://www.the-art-of-web.com/css/border-radius/" target="_blank">Mit border-radius rumspielen</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (25)</h1>
+<pre lang="css">
+body &gt; div { /* Allgemeine Angaben */
+	position: absolute;
+	left: 50%; top: 50%;
+	border: 1px solid #AAA;
+	/* Nun spezielle Angaben - erstmal für unseren Bildschirm */
+	width: 600px; height: 400px;
+	margin: -221px 0 0 -321px; padding: 20px;
+} /* Nun für Geräte mit einer maximalen Breite von 700px und einer minimalen Breite von 500px */
+@media all and (max-width: 700px) and (min-width: 500px) { 
+	body { font-size: 10px; } /* Schriftart neu setzen etc. */
+	body &gt; div {
+		width: 400px; height: 300px;
+		margin: -161px 0 0 -211px; padding: 10px;
+	}
+} /* Und abschließend noch für sehr kleine Geräte (&lt;= 500px Breite) */
+@media all and (max-width: 500px) {
+	body { font-size: 8px; } /* Schriftart neu setzen etc. */
+	body &gt; div {
+		width: 200px; height: 150px;
+		margin: -81px 0 0 -106px; padding: 5px;
+	}
+	label { margin: 0; } /* Labels hätten zu viel Abstand für diese Auflösung */
+}
+</pre>
+<div class="hide">
+Das Beispiel kann <a href="http://html5skript.florian-rappl.de/uiexample/mediaquery.html" target="_blank">hier</a> betrachtet werden.
+</div>
+<aside>
+<a href="http://html5skript.florian-rappl.de/uiexample/mediaquery.html" target="_blank">Das Beispiel</a>
+</aside>
+</body>
+</html>

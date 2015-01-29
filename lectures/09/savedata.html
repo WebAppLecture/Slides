@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Daten speichern - Überblick</h1>
+<ul>
+<li>Beim clientseitigen Speichern von Daten kann man prinzipiell zwei Unterschiedliche Arten festhalten:
+<ul>
+<li>Flüchtige Speicherung (Nur solange der Browser läuft)</li>
+<li>Permanente Speicherung (Wird i.d.R. auch beim nächsten Browserstart noch vorhanden sein)</li>
+</ul>
+</li>
+<li>In der 1. Kategorie gab es die sog. <mark>Sessions</mark>, in der 2. die <mark>Cookies</mark></li>
+<li>Eine Session ist jedoch nichts anderes wie ein Cookie ohne Ablaufdatum (daher nur gültig bis der Browser geschlossen wird)</li>
+<li>In HTML5 sind noch zwei weitere Möglichkeiten hinzugekommen:
+<ul>
+<li><mark>WebStorage</mark> um eine effizientere Zugriffsmöglichkeit zu schaffen (für 1. und 2. Kategorie)</li>
+<li><mark>WebSQL</mark> um eine integrierte Datenbank einzubauen (nur für 2. Kategorie)</li>
+</ul>
+</li>
+<li>Im Gegensatz zu Cookies (und damit auch Sessions) sind die neuen Technologien nur Clientseitig verfügbar</li>
+<li>Bei WebSQL ist das letzte Wort noch nicht gefallen - mittlerweile geht es eher in die Richtung <mark>IndexedDB</mark> bzw. ehemals WebSimpleDB</li>
+<li>Fakt ist, dass es bald eine (auf allen Browsern laufende) per SQL anzusprechende Datenquelle gibt</li>
+</ul>
+<aside>
+<a href="http://dev.w3.org/html5/webstorage/" target="_blank">W3C Spezifikation zu WebStorage</a>
+<a href="http://www.w3.org/TR/IndexedDB/" target="_blank">W3C Spezifikation zu IndexedDB</a>
+<a href="http://www.dev-articles.com/article/Html-5-part-3-:-Data-Storage-423001" target="_blank">Artikel über die neuen Technologien</a>
+<a href="http://www.webmonkey.com/2011/04/how-to-use-html5s-local-storage-tools-today/" target="_blank">LocalStorage jetzt schon verwenden</a>
+</aside>
+</body>
+</html>

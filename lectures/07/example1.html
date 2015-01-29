@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (14)</h1>
+<!--läd die jQuery Funktionalität / oder nicht-->
+<script src="scripts/loadjquery.js"></script>
+<script>
+$(function() {
+	if (typeof console == "undefined" || typeof console.log == "undefined")
+		var console = { log: function() {} };
+	
+	var hashanchors = $('a').filter(function() {
+		var href = $(this).attr('href');
+		
+		if(!$.support.hrefNormalized) {
+			var loc = window.location; 
+			href = href.replace(loc.protocol + '//' + loc.host + loc.pathname, '');
+		}
+		
+		return (href && href.substr(0, 1) === '#');
+	});
+
+	console.log(hashanchors);
+});
+</script>
+<pre lang="javascript">
+//Filtern alle anchor-Tags
+var hashanchors = $('a').filter(function() {
+	//Lesen aktuellen href="" string aus
+	var href = $(this).attr('href');
+	//Überprüfen ob Browser normalisierte URLs unterstützt d.h. "http://meineseite/dieseseite#hash" -> "#hash"
+	if(!$.support.hrefNormalized) {
+		//Falls nicht, dann müssen wir den vorderen Teil ersetzen
+		var loc = window.location; //Arbeiten über die location
+		//Und dann über replace
+		href = href.replace(loc.protocol + '//' + loc.host + loc.pathname, '');
+	}
+	//Geben zurück ob es sich um einen hash ('#' steht an ersten Stelle) handelt oder nicht
+	return (href &amp;&amp; href.substr(0, 1) === '#');
+});
+//Speichern das Ergebnis in der Konsole des Browsers
+console.log(hashanchors);
+</pre>
+<ul>
+<li>Nun könnten wir in der gefilterten Liste von <code>&lt;a&gt;</code>-Tags Manipulationen vornehmen</li>
+<li>So könnten wir z.B. alle Hashes entfernen und durch URLs ersetzen (hier: Speicherung in Konsole)</li>
+</ul>
+</body>
+</html>

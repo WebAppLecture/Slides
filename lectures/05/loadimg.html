@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Bilder laden und verwenden</h1>
+<ul>
+<li>Wie wir bereits festgestellt haben können wir mit Canvas auch Bilder zeichen - woher kommen diese?</li>
+<li>Die Bilder müssen durch einen <code>&lt;img&gt;</code>-Tag bereits geladen sein, dies erreichen wir durch
+<pre lang="javascript">
+var img = document.createElement('img');//Erstellt das Bild
+img.onload = function() { /* Was tun wenn geladen?*/ };//Falls Bild gecached vor src
+img.src = url;//Legt fest woher das Bild kommt - hier könnten wir auch toDataURL() verwenden
+</pre>
+</li>
+<li>Da wir das Bild nirgends angehängt haben wird es auch nicht auf der Seite angezeigt werden</li>
+<li>Es kann wichtig sein das <code>onload</code> Ereignis vor dem Setzen des <code>src</code> Attributes festzulegen</li>
+<li>Als Bild erwartet der Canvas-Kontext immer das entsprechende HTML-Image-Element (d.h. den Tag)</li>
+<li>D.h. wir können nun die Variable <i>img</i> verwenden z.B. in <code>createPattern(img, 'repeat')</code></li>
+</ul>
+<div class="hide">
+<canvas width="900" height="130" id="imgloadcanvas" style="border: 1px solid #CCC;">
+</canvas>
+</div>
+<aside>
+<a href="http://www.random-image.net/" target="_blank">Bild Randomizer</a>
+<a href="http://thinkvitamin.com/code/how-to-draw-with-html-5-canvas/" target="_blank">Mit Canvas malen</a>
+<a href="http://virtuelvis.com/archives/2005/12/canvas-image-manipulation" target="_blank">Bild Manipulationen in Canvas</a>
+</aside>
+<script>
+(function() {
+	var c = document.getElementById('imgloadcanvas').getContext('2d');
+	var cimg = document.createElement('img');
+	var locH = location.hash;
+	
+	cimg.onload = function() {			
+		c.clearRect(0,0,c.canvas.width,c.canvas.height);
+		c.drawImage(cimg, Math.floor(Math.random() * (c.canvas.width - cimg.width)), Math.floor(Math.random() * (c.canvas.height - cimg.height)));
+		c.fillText('Zufallsbild von html5.florian-rappl.de/ranimg.php?topic=html5', c.canvas.width - 350, c.canvas.height - 10);
+	};
+	
+	var cInt = setInterval(function() {
+		if(location.hash != locH)
+			clearInterval(cInt);
+		else
+			cimg.src = 'http://html5.florian-rappl.de/ranimg.php?topic=html5&random=' + Math.random();
+	}, 3000);
+})();
+</script>
+</body>
+</html>

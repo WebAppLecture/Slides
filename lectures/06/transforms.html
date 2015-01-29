@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Transformationen</h1>
+<ul>
+<li>Neu in CSS3 sind auch Koordinatentransformationen - hier haben wir mehrere Möglichkeiten:
+<ul>
+<li>Translation mit <code>translate(dx,dy)</code> zum Verschieben (Standard: 0, 0)</li>
+<li>Rotation mit <code>rotate(alpha)</code> zum Drehen (Standard: 0)</li>
+<li>Skalieren mit <code>scale(zoomfaktor)</code> zum Verändern der Größe (Standard: 1)</li>
+<li>Verzerren mit <code>skew(phi,psi)</code> zur Schrägstellung (Standard: 0, 0)</li>
+</ul>
+<pre lang="css">
+#eins { transform: translate(10px, -10px); }
+#zwei { transform: rotate(45deg); }
+#drei { transform: scale(1.5); }
+#vier { transform: skewX(15deg); }
+#fuenf { transform: skew(15deg, 15deg); }
+#sechs { transform: scale(0.5) rotate(-20deg) translate(0, 10px);  }
+</pre>
+<div style="margin: 20px 0;">
+<div style="display: inline-block; width: 50px; height: 50px; background: #ffffa2; border: 1px solid #000; margin: 0 25px;">ohne</div>
+<div style="display: inline-block; width: 50px; height: 50px; background: #ffffa2; border: 1px solid #000; margin: 0 25px; -o-transform: translate(10px, -10px);  -webkit-transform: translate(10px, -10px); -moz-transform: translate(10px, -10px); -ms-transform: translate(10px, -10px);">#eins</div>
+<div style="display: inline-block; width: 50px; height: 50px; background: #ffffa2; border: 1px solid #000; margin: 0 25px; -o-transform: rotate(45deg); -webkit-transform: rotate(45deg); -ms-transform: rotate(45deg); -moz-transform: rotate(45deg);">#zwei</div>
+<div style="display: inline-block; width: 50px; height: 50px; background: #ffffa2; border: 1px solid #000; margin: 0 25px; -o-transform: scale(1.5); -webkit-transform: scale(1.5); -ms-transform: scale(1.5); -moz-transform: scale(1.5);">#drei</div>
+<div style="display: inline-block; width: 50px; height: 50px; background: #ffffa2; border: 1px solid #000; margin: 0 25px; -o-transform: skewX(15deg); -webkit-transform: skewX(15deg); -ms-transform: skewX(15deg); -moz-transform: skewX(15deg);">#vier</div>
+<div style="display: inline-block; width: 50px; height: 50px; background: #ffffa2; border: 1px solid #000; margin: 0 25px; -o-transform: skew(15deg, 15deg); -webkit-transform: skew(15deg, 15deg); -ms-transform: skew(15deg, 15deg); -moz-transform: skew(15deg, 15deg);">#fuenf</div>
+<div style="display: inline-block; width: 50px; height: 50px; background: #ffffa2; border: 1px solid #000; margin: 0 25px; -o-transform: scale(0.5) rotate(-20deg) translate(0, 10px); -webkit-transform: scale(0.5) rotate(-20deg) translate(0, 10px); -ms-transform: scale(0.5) rotate(-20deg) translate(0, 10px); -moz-transform: scale(0.5) rotate(-20deg) translate(0, 10px);">#sechs</div>
+</div>
+</li>
+<li>Daneben sind noch 3D-Transformationen möglich, hier ist die Unterstützung allerdings noch zu gering</li>
+</ul>
+<aside>
+<a href="http://www.zenelements.com/blog/css3-transform/" target="_blank">Artikel über die Möglichkeiten mit transform</a>
+<a href="http://www.w3schools.com/cssref/css3_pr_transform.asp" target="_blank">W3Schools über Transform</a>
+<a href="http://www.w3.org/TR/css3-2d-transforms/" target="_blank">Die W3C Spezifikation</a>
+<a href="http://css3.bradshawenterprises.com/" target="_blank">Artikel über Transitions, Animationen und Transforms</a>
+<a href="http://robertnyman.com/css3/css-transforms/css-transforms.html" target="_blank">Transformationen auf Robert Nymans Seite</a>
+</aside>
+</body>
+</html>

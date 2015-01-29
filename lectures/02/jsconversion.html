@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Konvertieren mit Operatoren</h1>
+<ul>
+<li>Um eine boolsche Variable zu erhalten, ist doppelte Negation, d.h. <code>!!myvar</code> ausgezeichnet</li>
+<li>Strings kann man allgemein durch Addition mit einem String, z.B. <code>myvar + ''</code>, erhalten</li>
+<li>Alle Typen konvertieren zu Zahlen bei (fast) allen Operationen, z.B. <code>myvar * 1</code> oder <code>+myvar</code></li>
+<li>Wir können solche Zahlen auch runden, hier ist <code>~~myvar</code> geeignet</li>
+<li>Neben boolschen Werten, Zahlen und Strings können wir auch Standardwerte definieren</li>
+<li>So gibt <code>myvar || mydefault</code> immer <code>mydefault</code> zurück, außer <code>myvar</code> konvertiert zu <code>true</code></li>
+<li>Umgekehrt gibt <code>myvar &amp;&amp; mydefault</code> immer <code>myvar</code> zurück, außer <code>myvar</code> konvertiert zu <code>true</code></li>
+<li>Sinnvoll vor Konvertierungen sind auch die Operatoren <code>typeof</code> und <code>instanceof</code>, z.B.
+<pre lang="javascript">
+var o = {};//Instanz eines Objekts erstellt (prototype: Objekt)
+var f = function() {};//Instanz einer Funktion erstellt (prototype: Objekt)
+o instanceof Object;//true
+typeof o;//"object"
+f instanceof Object;//true
+typeof f;//"function"
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://jibbering.com/faq/notes/type-conversion/" target="_blank">JavaScript Type Konvertierungen</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof" target="_blank">MDN zu typeof</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/instanceof" target="_blank">MDN zu instanceof</a>
+</aside>
+</body>
+</html>

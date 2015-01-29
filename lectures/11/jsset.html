@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>JavaScript Setter</h1>
+<ul>
+<li>Variablen mit Getter zu kapseln ist noch nicht genug - wirklich sinnvoll ist der Setter</li>
+<li>So kann man gezielt auf Variablenänderungen reagieren, z.B. ist folgendes möglich:
+<pre lang="javascript">var lost = {
+	loc : "Island",
+	set location(val) {
+		this.loc = val;
+		alert('The Location has moved! New Location: ' + this.loc);
+	}
+};
+lost.location = "Another island";
+</pre>
+</li>
+<li>Analog zu den Gettern können wir wieder bestehende Objekte erweitern
+<pre lang="javascript">
+HTMLElement.prototype.__defineSetter__("description", function (val) { this.desc = val; });
+document.body.description = "Beautiful body";
+</pre>
+</li>
+<li>Analog zu den vorherigen Möglichkeiten kann man noch den Weg des IE (ab Version 8) gehen
+<pre lang="javascript">
+Object.defineProperty(obj, name, { get : function() { }, set : function() {} })
+</pre></li>
+</ul>
+<aside>
+<a href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank">MDN Artikel über Get/Set</a>
+<a href="http://ejohn.org/blog/javascript-getters-and-setters/" target="_blank">John Resig über Getter und Setter</a>
+<a href="http://www.html-world.de/program/js_2.php" target="_blank">Kurzer Überblick über JS inkl. Get/Set</a>
+<a href="http://robertnyman.com/javascript/#javascript-getters-setters-object-defineproperty-compatibility" target="_blank">Robert Nyman Kompatibilitätsliste</a>
+</aside>
+</body>
+</html>

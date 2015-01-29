@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (15)</h1>
+HTML Code:
+<pre lang="html">
+&lt;p&gt;Wert:&lt;input type=&quot;range&quot; id=&quot;ex15-range&quot; onchange=&quot;ex15-shownumber();&quot; value=&quot;0&quot; /&gt;
+&lt;span id=&quot;ex15-shownumber&quot;&gt; 0 &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Datum:&lt;input type=&quot;datetime&quot; id=&quot;ex15-datetime&quot; /&gt;&lt;/p&gt;
+</pre>
+JavaScript Code:
+<pre lang="javascript">
+$(document).ready(function() {//Verwenden die jQuery Ready Methode
+	//Erstellt einen Datumsstring im Format YYYY-MM-DD mit dem aktuellen Datum
+	document.getElementById('ex15-date').value = new Date().toISOString().substr(0,10);
+	if(document.getElementById('ex15-range').type == 'text') //Fallback notwendig?!
+		$('&lt;div id=&quot;ex15-range&quot;&gt;&lt;/div&gt;').replaceAll('#ex15-range').slider({
+			slide: function(event, ui) { ex15shownumber(ui.value); }//Slider-Change Event
+		});//Beim Slider benötigen wir leider ein div - daher $().replaceAll('') notwendig
+	if(document.getElementById('ex15-date').type == 'text')	//Beim Datepicker sieht das anders aus
+		$('#ex15-date').datepicker({ dateFormat: 'yy-mm-dd' });
+});//Methode um den aktuellen Wert des Sliders anzuzeigen
+function ex15shownumber(value) { $('#ex15-shownumber').text(value); }
+</pre>
+<a href="http://html5skript.florian-rappl.de/uiexample/example.html" class="hide" target="_blank">Das Beispiel hier ausführen.</a>
+<aside>
+<a href="http://html5skript.florian-rappl.de/uiexample/example.html" target="_blank">Das Beispiel</a>
+</aside>
+</body>
+</html>

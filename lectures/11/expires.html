@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>ETags und Expired Header</h1>
+<ul>
+<li>Entity-Tags sind ein Konzept das Server und Browser zur Validierung von Cache-Komponenten verwenden</li>
+<li>Im Cache vorhandene Elemente werden verwendet, wenn diese noch nicht abgelaufen sind</li>
+<li>Das Ablaufsdatum stellt man über den <code>Expires</code>-Header einer Serverantwort ein, z.B.
+<pre lang="php">
+GET /images/beispiel.gif HTTP/1.1
+Host: html5skript.florian-rappl.de
+HTTP/1.1 200 OK
+Last-Modified: Tue, 12 Dec 2012 03:30:59 GMT
+Content-Length: 1195
+</pre>
+</li>
+<li>Das Verfallsdatum sollte möglichst weit in der Zukunft liegen (Resourcenabhängig!)</li>
+<li>Wenn die Resource veraltet ist, wird ein sog. <i>bedingter GET-Request</i> durchgeführt</li>
+<li>Serverseitige Behandlung ist entweder durch Vergleich des Last-Modified-Datums oder des ETags möglich</li>
+<li>ETags sind flexibler, da hier ebenfalls auf Änderungen in Headern eingegangen werden kann</li>
+<li>Der Nachteil von ETags liegt in der Verwendung von mehreren Servern (bzw. ein Cluster)</li>
+<li>Daher gilt: ETags sollten vermieden oder nur in korrigierter Fassung verwendet werden</li>
+</ul>
+<aside>
+<a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.21" target="_blank">HTTP-Spezifikation bzgl. Expires</a>
+<a href="http://de.wikipedia.org/wiki/HTTP_ETag" target="_blank">ETag bei Wikipedia</a>
+<a href="http://solariz.de/2044/etag_webseite_cache_caching_beschleunigen.htm" target="_blank">Gute Erklärung zu ETags und Caching von Marco Götze</a>
+</aside>
+</body>
+</html>

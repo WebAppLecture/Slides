@@ -1,0 +1,13 @@
+﻿CACHE MANIFEST
+# -- 2011-12-06 -- (v1)
+
+CACHE:
+index.html
+jquery.js
+site.js
+
+FALLBACK:
+online.js offline.js
+
+NETWORK:
+same.html

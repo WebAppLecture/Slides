@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Das richtige Datenformat</h1>
+<ul>
+<li>Eine wichtige Entscheidung ist die Wahl des Datenformats. Folgende Möglichkeiten existieren:
+<ul>
+<li>HTML: Naheliegend und besitzt durchaus Vorteile wenn Teile der Seite komplett ersetzen wollen. Allerdings sind Auswertungen direkt nur schwer möglich sind und großer Overhead inbegriffen.</li>
+<li>XML: Aufgrund des X in AJAX ein beliebtes Format, u.a. weil es das Standardaustauschformat von Webservices (SOAP) ist. Dokumente sind sehr schnell (vom Browser) geparsed. Der Nachteil ist, dass es zum direkten Anzeigen schlechter als HTML geeignet ist und noch immer zu viel Overhead besitzt.</li>
+<li>JSON: Von allen Formaten am schlechtesten zur direkten Anzeige zu gebrauchen - allerdings auch mit dem geringsten Overhead. Der Hauptvorteil liegt darin, dass JSON fast natives JavaScript ist und daher die Auswertung am schnellsten durchgeführt werden kann.</li>
+</ul>
+</li>
+</ul>
+<div class="left">
+<pre lang="xml">
+&lt;data&gt;
+    &lt;seasons&gt;
+        &lt;season&gt;Winter&lt;/season&gt;
+        &lt;season&gt;Sommer&lt;/season&gt;
+    &lt;/seasons&gt;
+    &lt;days&gt;
+        &lt;day name=&quot;Montag&quot; short=&quot;Mo&quot; abbr=&quot;M&quot;/&gt;
+        &lt;day name=&quot;Dienstag&quot; short=&quot;Di&quot; abbr=&quot;D&quot;/&gt;
+        &lt;day name=&quot;Mittwoch&quot; short=&quot;Mi&quot; abbr=&quot;M&quot;/&gt;
+    &lt;/days&gt;
+&lt;/data&gt;
+</pre>
+</div>
+<div class="right">
+<pre lang="javascript">
+{
+	"seasons":[
+		"Winter",
+		"Sommer"
+	],
+	"days":[
+		{"name":"Montag","short":"Mo","abbr":"M"},
+		{"name":"Dienstag","short":"Di","abbr":"D"},
+		{"name":"Mittwoch","short":"Mi","abbr":"M"}
+	]
+}
+</pre>
+</div>
+<aside>
+<a href="http://www.quirksmode.org/blog/archives/2005/12/the_ajax_respon.html" target="_blank">Quirksmode über das richtige Format</a>
+<a href="http://digitalbazaar.com/2010/11/22/json-vs-xml/" target="_blank">JSON gegen XML für Webservices</a>
+<a href="http://ajaxian.com/archives/json-vs-xml-the-debate" target="_blank">Debatte JSON / XML</a>
+<a href="http://blogs.nitobi.com/dave/2005/09/29/javascript-benchmarking-iv-json-revisited/" target="_blank">Vergleich von JSON und XML Parsern</a>
+<a href="http://cscie153.dce.harvard.edu/lecture_notes/2009/20091027/handout.html" target="_blank">Harvard Vorlesung zu Webentwicklung mit XML</a>
+</aside>
+</body>
+</html>

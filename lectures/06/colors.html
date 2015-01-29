@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Farben in CSS3</h1>
+<div class="left">
+<ul>
+<li>In CSS gibt es mehrere Wege Farben zu definieren, z.B. über den Namen <code>color: red</code></li>
+<li>Es gibt auch noch die hexadezimale Darstellung, z.B. <code>background: #FF2266</code></li>
+<li>Diese Darstellung wird immer im RGB-Modell durchgeführt, und kann auch Dezimal geschrieben werden: <code>background: rgb(255, 34, 102)</code></li>
+<li>In CSS3 wurden transparente Farben eingeführt - das sog. RGBA-Modell. Um dies nutzen zu können schreibt man z.B. <code>color: rgba(255, 32, 102, 0.5)</code>, wobei hier Alpha auf 50% steht</li>
+<li>Ein Alpha-Wert von 100% (1.0) bedeutet volle Deckung (keine Transparenz)</li>
+<li>Daneben wurde in CSS3 das HSL (Hue Saturation Light, d.h. Farbwinkel Sättigung Licht) eingeführt
+<pre lang="css">
+#hslexample /*Sättigung von 70%*/
+{ border-top: 2px solid hsl(120, 70%, 50%); }
+/*Farbwinkel von 120° entspricht Blau*/
+</pre>
+</li>
+</ul>
+</div>
+<div class="right">
+<figure><img src="img/rgb_cube.png" alt="Das RGB Farbmodell" /><figcaption>Ausschnitte aus dem RGB Modell (Rot, Grün, Blau)</figcaption></figure>
+<figure><img src="img/hsv_cone.png" alt="Das HSL Farbmodell" /><figcaption>Ausschnitte aus dem HSV Modell (Farbwinkel, Sättigung, Licht)</figcaption></figure>
+</div>
+<aside>
+<a href="http://www.w3.org/TR/css3-color/" target="_blank">CSS3 Farb-Erweiterungen</a>
+<a href="http://www.css3.info/preview/hsl/" target="_blank">HSL in CSS3</a>
+<a href="http://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank">Wikipedia Artikel zu HSL (und HSV)</a>
+<a href="http://html5.florian-rappl.de/colors.html" target="_blank">Seite zum Testen von Farben</a>
+<a href="http://www.css3.info/preview/rgba/" target="_blank">RGBA bei CSSinfo</a>
+<a href="http://xilize.sourceforge.net/Reference/colorref.html" target="_blank">Namen von vordefinierten Farben</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Namensräume und statische Felder</h1>
+<ul>
+<li>Namensräume verfolgen das Ziel Objekte voneinander abzugrenzen um Ordnung zu schaffen</li>
+<li>Wir können dies in JavaScript sehr leicht schaffen indem wir unsere Klassen in Objekte schachteln, z.B.
+<pre lang="javascript">
+var Namensraum = { };//Einen Namensraum erstellen
+Namensraum.Shape = function() { ... };//Den Konstruktor im Namensraum erstellen
+Namensraum.Shape.prototype.Draw = function() { ... };//Funktionen hinzufügen
+var instanz = new Namensraum.Shape();//Instanz erstellen
+</pre>
+</li>
+<li>Statische Eigenschaften und Methoden (Felder) können ebenfalls hinzugefügt werden</li>
+<li>Hier gehen wir analog zu den <code>prototype</code>s vor - nur ohne dieses Schlüsselwort, d.h.
+<pre lang="javascript">
+Shape = function() { ... };//Den Konstruktor wie vorhin erstellen
+Shape.Foo = function() { ... };//Statische Methode foo angelegt
+Shape.Value = 10;//Statische Eigenschft Value an- und festgelegt
+</pre>
+</li>
+<li>Statische Felder sind instanzlos (d.h. unabhängig) und können von jeder Instanz aufgerufen werden</li>
+<li>Statische Methoden sehen nur weitere statische bzw. im aktuellen Kontext vorhandene Felder</li>
+</ul>
+<aside>
+<a href="http://elegantcode.com/2011/01/19/basic-javascript-part-7-static-properties-and-methods/" target="_blank">Statische Eigenschaften und Methoden</a>
+<a href="http://elegantcode.com/2011/01/26/basic-javascript-part-8-namespaces/" target="_blank">Namensräume in JavaScript</a>
+<a href="http://justjs.org/js-oop/static-methods-in-javascript/" target="_blank">Statische Felder erstellen</a>
+</aside>
+</body>
+</html>

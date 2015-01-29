@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Interessante Attribute</h1>
+<ul>
+<li>Wir haben bereits gesehen, dass das <code>&lt;form&gt;</code>-Element neue interessante Attribute erhalten hat, z.B.
+<ul>
+<li><code>autocomplete</code> (soll die Autovervollständigung <i>[nicht]</i> verwenden?) und</li>
+<li><code>novalidate</code> (soll <i>[nicht]</i> nicht Clientseitig validiert werden?)</li>
+</ul>
+</li>
+<li>Auch die Eingabeelemente haben einige neue Attribute erhalten - hier sind noch anzuführen:
+<ul>
+<li><code>form</code> zur Auswahl des zuhörigen Formulars (entbindet Elemente vom übergeordneten Formular)</li>
+<li><code>list</code> für eigene Autocomplete-Listen (siehe Beispiel 28)</li>
+<li><code>multiple</code> (v.a. für <code>&lt;select&gt;</code> und <code>type=file</code> geeignet)</li>
+<li>zusätzlich gibt es die bereits erwähnten Attribute</li>
+</ul>
+</li>
+<li>Für das <code>&lt;menu&gt;</code>-Element (Kontextmenü) kann man mit dem Attribut <code>label</code> Sektionen erstellen</li>
+<li>Man kann Styles nun <i>scopen</i>, d.h. Gültigkeit nur für einen untergeordneten Block erklären, z.B.
+<pre lang="html">
+&lt;div&gt;
+	&lt;style scoped=&quot;scoped&quot;&gt; /* Regeln */ &lt;/style&gt;
+	&lt;!-- Noch mehr Elemente auf die diese Regeln zutreffen --&gt;
+&lt;/div&gt;
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://css.dzone.com/news/html5-data-attribute-feed" target="_blank">Artikel zu HTML5 data-* Attribut</a>
+<a href="http://www.html5tuts.co.uk/tutorials/forms/" target="_blank">Eine Einführung in HTML5 Formulare</a>
+<a href="http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/" target="_blank">28 HTML5 Features die man wissen muss</a>
+<a href="http://www.htmlgoodies.com/html5/markup/html5-attribute-change-reference-for-web-developers.html#fbid=l1hlkhtIZeL" target="_blank">HTML5-Attribute</a>
+</aside>
+</body>
+</html>

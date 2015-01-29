@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>W3C Specification</h1>
+<ul>
+<li>Die W3C Spezifikation zu lesen kann viele Möglichkeiten aufzeigen und ist daher wichtig</li>
+<li>Als Beispiel betrachten wir die W3C Spezifikation der Geolocation<sup>1</sup></li>
+<li>Die W3C Spezifikation wird niemals auf Unterschiede zwischen den Browsern oder den aktuellen Status der Implementierungen eingehen</li>
+<li>Am wichtigsten sind die hier definierten <i>Interfaces</i> z.B.
+<pre lang="csharp">
+interface Coordinates {
+	readonly attribute double latitude;
+	readonly attribute double longitude;
+	readonly attribute double? altitude; /* ... */
+};
+</pre>
+</li>
+<li>Die Interfaces werden in einer IDL genannt CORBA beschrieben und geben uns einige Informationen über
+<ul>
+<li>Attribute und deren Status (<code>readonly</code> ist nur Get) sowie Typ (z.B. <code>double</code>)</li>
+<li>Ob das Attribut immer vorhanden ist (<code>double?</code> entspricht einem Optional (<code>nullable</code>) Typ)</li>
+</ul>
+</li>
+<li>Außerdem enthält die Spezifikation jede Menge (theoretischer) Beispiele und Erklärungen</li>
+</ul>
+<aside>
+<a href="http://www.w3.org/TR/geolocation-API/" target="_blank"><sup>1</sup> W3C Spezifikation der Geolocation</a>
+<a href="http://www.alistapart.com/articles/readspec/" target="_blank">A List Apart</a>
+<a href="http://www.germanforblack.com/articles/moving-towards-readable-w3c-specs" target="_blank">Artikel über W3C Design</a>
+<a href="http://www.w3schools.com/w3c/w3c_intro.asp" target="_blank">W3Schools Einführung zu W3C</a>
+<a href="http://www.w3.org/TR/html5-author/" target="_blank">HTML5: Edition for Web Authors</a>
+<a href="http://en.wikipedia.org/wiki/OMG_IDL" target="_blank">Wikipedia Artikel zu CORBA</a>
+<a href="http://en.wikipedia.org/wiki/Interface_description_language" target="_blank">Wikipedia Artikel zu IDL</a>
+</aside>
+</body>
+</html>

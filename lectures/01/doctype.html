@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Ein Standard, ein Doctype</h1>
+<figure><img src="img/htmldoctype.png" alt="Die Fragmentierung durch den Doctype" /><figcaption>HTML 4 wollte durch drei Doctypes eine Abwärtsfähigkeit schaffen - HTML5 schafft dies mit nur einem Doctype</figcaption></figure>
+<ul>
+<li>HTML 4 hat drei verschiedene Doctypes:
+<ul>
+<li><code>strict</code>, was CSS am genausten unterstützt und einen XML ähnlich strikten Syntax fordert</li>
+<li><code>transitional</code> um auch ältere Elemente, sowie einen eher laschen Syntax zu unterstützen</li>
+<li><code>frameset</code> zur Unterstützung von <code>&lt;frame&gt;</code> Elementen (ansonsten analog zum vorherigen)</li>
+</ul>
+</li>
+<li>Dies sorgte neben dem (unnötig) langen Doctype zu Verwirrung und Unmut</li>
+<li>Uneinigkeit herrschte ebenfalls: Opera fand rund 15000 verschiedene Doctypes auf 2 Mio. Webseiten</li>
+<li>Ein möglicher Doctype von HTML 4:
+<pre lang="html">
+&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://www.w3schools.com/html/html_doctype.asp" target="_blank">W3Schools über HTML Doctypes</a>
+<a href="http://www.w3schools.com/html5/tag_doctype.asp" target="_blank">W3Schools über HTML5 Doctype</a>
+<a href="http://htmlhelp.com/tools/validator/doctype.html" target="_blank">Wahl eines Doctypes (HTML 4)</a>
+<a href="http://themaingate.net/dev/html/all-you-need-is-doctype-html" target="_blank">Blog über den HTML5 Doctype</a>
+</aside>
+</body>
+</html>

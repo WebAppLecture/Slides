@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>GZIP Komprimierung</h1>
+<div class="doubleleft">
+<ul>
+<li>Die Performance kann durch einige HTML-Entscheidungen bereits deutlich verbessert werden</li>
+<li>Nichtsdestotrotz gibt es Faktoren wie die Bandbreite des Endanwenders, den ISP, die Nähe zu Peering-Punkten und andere auf die man keinen Zugriff hat</li>
+<li>Über eine Komprimierung des Antwortstreams (Response) kann man die benötigte Bandbreite verringern</li>
+<li>Dies hat mehrere positive Auswirkungen (schnellerer Zugriff, geringerer Traffic)</li>
+<li>Hierbei gibt es aber folgende 2 Nachteile zu beachten: Der Server muss mehr arbeiten (Komprimieren) und auch der Client (Dekomprimieren)</li>
+</ul>
+</div>
+<div class="halfright">
+<figure><img src="img/gzip.png" alt="Ablauf der GZIP Komprimierung" /><figcaption>GZIP wird nur dann verwendet, wenn der Client ebenfalls mit dieser Technologie zurecht kommt</figcaption></figure>
+</div>
+<div class="clear">
+<ul>
+<li>Eine alternative Komprimierung bietet <code>deflate</code>, welche jedoch weniger effizient ist</li>
+<li>HTML-Dokumente, Skripten und Stylesheets sollten komprimiert werden, Image und PDF-Dateien nicht!</li>
+<li>Der Grund liegt ganz einfach darin, dass diese Formate bereits komprimiert sind und sich der Aufwand nicht lohnen würde eine Komprimierung durchzuführen</li>
+</ul>
+</div>
+<aside>
+<a href="http://developer.yahoo.com/performance/rules.html" target="_blank">Steve Souders über GZIP Komprimierung</a>
+<a href="http://blogschreiber.com/archiv/2009/12/quicktip-wie-man-seine-webseite-mit-gzip-optimiert-link/" target="_blank">Artikel zur GZIP Komprimierung für die Homepage</a>
+<a href="http://www.gzip.org/" target="_blank">Die offizielle Seite von GNU zip (GZIP)</a>
+<a href="http://betterexplained.com/articles/how-to-optimize-your-site-with-gzip-compression/" target="_blank">How To Optimize Your Site with GZIP</a>
+</aside>
+</body>
+</html>

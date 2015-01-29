@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Model-View-ViewModel (MVVM)</h1>
+<ul>
+<li>Ein eher neues Konzept ist MVVM, das eine Verbesserung von MVP darstellt</li>
+<li>Das Konzept wird durch ereignisgesteuertes Binding ermöglicht - d.h. man bindet Darstellungen an Quellen</li>
+<li>Ändert sich eine Quelle (d.h. die Daten), wird die Darstellung aktualisiert</li>
+<li>Dies ist bei statischen Webseiten unmöglich, kann aber durch JavaScript ermöglicht werden
+<pre lang="html">
+&lt;p&gt;First name: &lt;input data-bind=&quot;value: firstName&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Last name: &lt;input data-bind=&quot;value: lastName&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;Full name: &lt;strong data-bind=&quot;text: fullName&quot;&gt;&lt;/strong&gt;&lt;/p&gt;
+</pre>
+</li>
+<li>Eine bekannte Bibliothek hierfür ist KnockoutJS</li>
+<li>Hier werden verschiedene Elemente über <mark>unobtrusive JavaScript</mark> gebunden:
+<pre lang="javascript">
+function AppViewModel() {
+    this.firstName = ko.observable("Bert");
+    this.lastName = ko.observable("Bertington");
+    this.fullName = ko.computed(function() {
+    return this.firstName() + " " + this.lastName();    
+    }, this);
+}
+ko.applyBindings(new AppViewModel()); // Activates knockout.js
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://weblogs.asp.net/dwahlin/archive/2009/12/08/getting-started-with-the-mvvm-pattern-in-silverlight-applications.aspx" target="_blank">Dan Wahlin über MVVM</a>
+<a href="http://knockoutjs.com" target="_blank">KnockoutJS - JavaScript MVVM</a>
+<a href="http://learn.knockoutjs.com/#/?tutorial=intro" target="_blank">Interaktives Tutorial zu Knockout</a>
+<a href="http://stackoverflow.com/questions/5112899/knockout-js-vs-backbone-js-vs" target="_blank">Stackoverflow Vergleich Knockout gegen Backbone</a>
+<a href="http://www.guido-muehlwitz.de/2011/08/knockout-js/" target="_blank">Guido Mühlwitz über KnockoutJS</a>
+<a href="http://blog.thomasbandt.de/39/2397/de/blog/clientseitige-lokalisierung-mit-net-und-knockoutjs.html" target="_blank">Thomas Bandt über Lokalisierung mit KnockoutJS</a>
+</aside>
+</body>
+</html>

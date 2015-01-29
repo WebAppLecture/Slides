@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Die Node API</h1>
+<ul>
+<li>Nach dem Starten von node sitzt man im allgemeinen Kontext</li>
+<li>Hier hat man zunächst (scheinbar) weniger Möglichkeiten als im vorher bekannten <code>Window</code> Kontext</li>
+<li>Dies täuscht - tatsächlich offenbart dieser Kontext sehr viele Systemmöglichkeiten</li>
+<li>Nach wie vor existiert <code>console</code> (nur wird jetzt wirklich das Terminal bedient)</li>
+<li>Über <code>require</code> wurde das Modulsystem integriert (bekannt aus <mark>RequireJS</mark>)</li>
+<li>Neue Objekte wie <code>Int8Array</code> wurden hinzugefügt</li>
+<li>Die Eigenschaft <code>process</code> ist unser Zugang zum eigenen Prozess</li>
+<li>Hier ist z.B. die Prozess-ID <code>pid</code> enthalten (<code>process.pid</code>)</li>
+<li>Die Startargumente sind über <code>process.argv</code> zugreifbar (Array, 1. Element ist node, 2. der Skript, ...)</li>
+<li>Die geladenen Module sind in <code>module</code> verfügbar (z.B. ist <i>repl</i> geladen)</li>
+</ul>
+<aside>
+<a href="http://nodejs.org/api/index.html" target="_blank">Node.js API</a>
+<a href="http://nodejs.org/api/process.html" target="_blank">Process Objekt in node.js</a>
+</aside>
+</body>
+</html>

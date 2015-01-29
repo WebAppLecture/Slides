@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>CSS3 ohne Präfixe</h1>
+<ul>
+<li>Bis jetzt haben wir die Präfixhölle unter den Tisch gekehrt (<code>-ms-</code>, <code>-o-</code>, <code>-webkit-</code>, <code>-moz</code>)</li>
+<li>Der Grund liegt darin, dass es sich bei den entsprechenden Eigenschaften noch nicht um endgültig abgesegnete Spezifikationen handelt</li>
+<li>Neben der Lösung, dass man die zusätzlich notwendigen Zeilen selbst schreibt (bzw. kopiert, einfügt und dann das Präfix ändert) gibt es noch elegantere Lösungen</li>
+<li>Eine Möglichkeit besteht darin, Seiten wie prefixmycss<sup>1</sup> zu verwenden - hier fügt man seinen Code ein und erhält den entsprechenden Code zurück</li>
+<li>Der Vorteil an dieser Methode liegt darin, dass eben kein JavaScript aktiviert sein muss damit das CSS richtig funktioniert</li>
+<li>Wenn JavaScript aktiv ist, stellt die Bibliothek prefixfree<sup>2</sup> eine ausgezeichnete Lösung dar</li>
+<li>Der Vorteil ist, dass man die CSS Datei nicht unnötig aufbläht und nur die Präfixes angewandt werden, die notwendig sind</li>
+<li>Ein sauberer CSS Code der auf Präfixe verzichtet ist sicherlich die Zukunft</li>
+<li>Ein Beispiel für prefixfree stellt dieses Skript dar (siehe Quellcode)</li>
+</ul>
+<aside>
+<a href="http://prefixmycss.com/" target="_blank"><sup>1</sup> CSS Code Modifizierer</a>
+<a href="http://leaverou.github.com/prefixfree/" target="_blank"><sup>2</sup> JavaScript Lösung Prefixfree</a>
+<a href="http://www.css3.info/why-and-when-browsers-prefix-css3-features/" target="_blank">Warum CSS Präfixe?</a>
+<a href="http://stackoverflow.com/questions/3748512/dynamic-css3-prefix-user-agent-detection" target="_blank">Entscheiden ob ein Präfix gebraucht wird</a>
+</aside>
+</body>
+</html>

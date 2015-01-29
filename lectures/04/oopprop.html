@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Private und Public</h1>
+<script>
+var rectangles = [];//Speichert alle Instanzen
+
+function Rectangle(x, y, w, h) {
+	this.X = x || 0; this.Y = y || 0; //Setzen über den Konstruktor die Werte - x || 0 ist Trick um null Wert abzufangen
+	this.Width = w || 0; this.Height = h || 0; //Das selbe mit diesen Werten (alles PUBLIC)
+	var moves = 0; //PRIVATE Variable
+	this.Move = function(dx, dy) { //Funktion ist public und steuert interne
+		moves++;//Moves Variable
+		alert('Wurde bereits ' + moves + ' mal bewegt!'); this.X += dx || 0; this.Y += dy || 0; };
+	this.ShowMessage = function() {
+		alert('Pos: ' + this.X + ', ' + this.Y + '; Dim: ' + this.Width + ', ' + this.Height); };
+}
+
+function createInstance() {//Erstellt eine neue Instanz
+	var r = new Rectangle();
+	rectangles.push(r);//fügt diese dem Array hinzu
+	var newOpt = document.createElement('option');//und erstellt einen Listeneintrag
+	newOpt.text = rectangles.length + '. Eintrag';
+	document.getElementById('instances').add(newOpt);
+	document.getElementById('testMoveButton').disabled = '';//Hebt disabled auf!
+	document.getElementById('testMessageButton').disabled = '';
+}
+
+function moveInstance() {//Bewegt die Instanz des aktuellen Elements
+	var dx = document.getElementById('testMoveDx').value * 1;//Trick zum Konvertieren
+	var dy = document.getElementById('testMoveDy').value * 1;
+	rectangles[document.getElementById('instances').selectedIndex].Move(dx,dy);
+}
+
+function msgInstance() {//Ruft die Nachricht des aktuellen Elements auf
+	rectangles[document.getElementById('instances').selectedIndex].ShowMessage();
+}
+</script>
+<ul>
+<li>Eben haben wir das Schlüsselwort <code>this</code> verwendet um Eigenschaften und Funktionen festzulegen (=<strong>public</strong>)</li>
+<li>Was würde bei Verwendung von <code>var</code> passieren? Wir könnten (außerhalb) nicht darauf zugreifen (=<strong>private</strong>)</li>
+<li>Das bedeutet, dass wir in JavaScript zwischen (int.) <u>Var</u>iablen und (ext.) Eigenschaften unterscheiden können</li>
+</ul>
+<pre lang="javascript">
+function Rectangle(x, y, w, h) {
+	this.X = x || 0; this.Y = y || 0; //Setzen über den Konstruktor die Werte - x || 0 ist Trick um null Wert abzufangen
+	this.Width = w || 0; this.Height = h || 0; //Das selbe mit diesen Werten (alles PUBLIC)
+	var moves = 0; //PRIVATE Variable
+	this.Move = function(dx, dy) { //Funktion ist public und steuert interne
+		moves++;//Moves Variable [ nur intern! ]
+		alert('Wurde bereits ' + moves + ' mal bewegt!'); this.X += dx || 0; this.Y += dy || 0; };
+	this.ShowMessage = function() { //Zeigt die Daten an (auch hier muss this verwendet werden)
+		alert('Pos: ' + this.X + ', ' + this.Y + '; Dim: ' + this.Width + ', ' + this.Height); };
+}
+</pre>
+<div class="hide">
+<button onclick="createInstance();">Neue Instanz erstellen</button> Instanzen: <select id="instances"></select> <input type="range" id="testMoveDx" min=-50 max=50 /> <input type="range" id="testMoveDy" min=-50 max=50 /> <button id="testMoveButton" onclick="moveInstance();" disabled>Bewegen</button> <button onclick="msgInstance();" id="testMessageButton" disabled>Nachricht</button>
+</div>
+<aside>
+<a href="http://www.mredkj.com/tutorials/tutorial005.html" target="_blank">Elemente zur Select-Liste hinzufügen</a>
+<a href="http://javascript.crockford.com/private.html" target="_blank">Private Variablen in JavaScript</a>
+<a href="http://webdevelopersjournal.com/articles/jsintro3/js_begin3.html" target="_blank">Erstellen einer Klasse in JS</a>
+<a href="http://www.codeproject.com/KB/aspnet/JsOOP1.aspx" target="_blank">OOP in JS</a>
+</aside>
+</body>
+</html>

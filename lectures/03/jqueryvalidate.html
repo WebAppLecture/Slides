@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Mit jQuery prüfen</h1>
+<ul>
+<li>jQuery bietet uns einige Möglichkeiten um Forms leichter und effizienter zu validieren</li>
+<li><i>Beispiel 1</i> Das <mark>jQuery Plugin</mark> <strong>Validation</strong></li>
+<li>Wie funktioniert das mit den Plugins?
+<ul>
+<li>Nach Einbinden von jQuery binden wir noch eine weitere JavaScript-Datei (das Plugin) ein</li>
+<li>Durch das Plugin gibt es eine bis mehrere neue Methoden bei jQuery bzw. jQuery Objekten</li>
+<li>In diesem Fall sind die Methoden <code>validate()</code>, <code>rules()</code> und <code>valid()</code> neu</li>
+<li>Einstellung über CSS-Klassen wie <code>required</code>, <code>email</code>, uvm. (Vorteil: Konkretes Styling möglich)</li>
+</ul>
+</li>
+<li><i>Beispiel 2</i> Selbst durch Ausnutzen des <code>data-</code> <mark>Attributes</mark></li>
+<li>Was ist das <code>data-</code> Attribut und wie kann man es verwenden?
+<ul>
+<li>Möglichkeit eigene Daten in DOM Objekten (bzw. HTML Code) zu hinterlegen</li>
+<li>Könnten z.B. die Attribute <code>data-pattern</code> und <code>data-required</code> erstellen (falls passend)</li>
+<li>Beim Laden der Seite führen wir dann <code>$('input[data-required=true]').each(...)</code> aus</li>
+<li>Setzen für jedes gefundene Element das <code>onchange</code> Ereignis mit dem entsprechenden Pattern</li>
+</ul>
+</li>
+</ul>
+<aside>
+<a href="http://docs.jquery.com/Plugins/validation" target="_blank">Dokumentation des jQuery Plugins</a>
+<a href="http://api.jquery.com/has-attribute-selector/" target="_blank">Prüfen ob ein Element ein Attribut hat</a>
+<a href="http://ejohn.org/blog/html-5-data-attributes/" target="_blank">John Resig über das <code>data-</code> Attribut</a>
+<a href="http://html5doctor.com/html5-custom-data-attributes/" target="_blank">HTML5 Doktor über eigene Attribute</a>
+<a href="http://api.jquery.com/attr/" target="_blank">Die jQuery Methode <code>attr()</code></a>
+<a href="http://speckyboy.com/2009/12/17/10-useful-jquery-form-validation-techniques-and-tutorials-2/" target="_blank">Tutorial über jQuery Form Validierung</a>
+</aside>
+</body>
+</html>

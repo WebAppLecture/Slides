@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Animationen zeichnen</h1>
+<ul>
+<li>In Canvas kann man sehr gut Animationen einbauen - dies geht über löschen und neuzeichnen</li>
+<li>Zum Zeichnen könnte man z.B. immer dieselbe Methoden mit unterschiedlichen Argumenten verwenden</li>
+<li>Oder man transformiert die Koordinaten und verwendet dieselbe Methode mit gleichen Argumenten</li>
+<li>Zusätzlich zur Transformation (<code>translate(dx,dy)</code> oder <code>rotate(alpha)</code>) kann man Zustände speichern</li>
+<li><code>save()</code> speichert den aktuellen Zustand<sup>1</sup> und <code>restore()</code> stellt den gespeicherten Zustand wieder her</li>
+</ul>
+<div class="halfright hide">
+<canvas height="200" width="200" style="border: 1px solid #CCC" id="canvasanidemo">
+</canvas>
+</div>
+<div class="doubleleft">
+<pre lang="javascript">
+var c = document.getElementById('canvas').getContext('2d'), alpha = 0;
+setInterval(rotate, 100);//Alle 100 ms rotieren
+function rotate() {
+	c.clearRect(0,0,c.canvas.width,c.canvas.height);//Clear
+	c.save();//Aktuellen Zustand speichern
+	alpha += 1 / 180 * Math.PI;//Winkel erhöhen
+	c.translate(c.canvas.width / 2, c.canvas.height / 2);
+	c.rotate(alpha);/*Rotation geht immer um 0,0 - daher Translate!*/
+	drawMaze();//Zeichnet unser schönes Maze (einfacher Alg.!)
+	c.restore();//Vorherigen Zustand wiederherstellen
+}
+</pre>
+</div>
+<aside>
+<p><sup>1</sup> Bezieht sich auf <code>fillStyle</code>, <code>font</code>, <code>lineWidth</code>, <code>strokeStyle</code>, <code>textAlign</code>, uvm...</p>
+<a href="http://billmill.org/static/canvastutorial/ball.html" target="_blank">Einen Kreis zeichnen</a>
+<a href="http://html5.litten.com/simple-animation-in-the-html5-canvas-element/" target="_blank">Einfache Animationen mit dem Canvas Element</a>
+<a href="https://developer.mozilla.org/en/Canvas_tutorial/Basic_animations" target="_blank">Grundlegendes zu Animationen</a>
+<a href="http://glimr.rubyforge.org/cake/canvas.html#KeyboardTest" target="_blank">Canvas Animations-Kit</a>
+<a href="http://www.queness.com/post/3885/8-simply-amazing-html5-canvas-and-javascript-animations" target="_blank">8 sehr coole Animationen</a>
+</aside>
+<script>
+(function () {
+	var c = document.getElementById('canvasanidemo').getContext('2d'), alpha = 0;
+	var intC = setInterval(rotate, 100);
+	var locH = location.hash;
+
+	function rotate() {
+		if(location.hash != locH)
+			clearInterval(intC);
+	
+		c.clearRect(0,0,c.canvas.width,c.canvas.height);
+		c.save();
+		alpha += 1 / 180 * Math.PI;
+		c.translate(c.canvas.width / 2, c.canvas.height / 2);
+		c.rotate(alpha);
+		drawMaze();
+		c.restore();
+	}
+
+	function drawMaze() {
+		var s = 0, r = 1, b = 1, x = 0, y = 0;
+		c.beginPath();
+		c.moveTo(x, y);
+		
+		for(var i = 0; i < 100; i++) {
+			if(i % 2 == 0) {
+				s += 10;
+				x += s * r;
+				c.lineTo(x, y);
+				r *= -1;
+			} else {
+				y += s * b;
+				c.lineTo(x, y);
+				b *= -1;
+			}
+		}
+		
+		c.stroke();
+		c.closePath();
+	}
+})();
+</script>
+</body>
+</html>

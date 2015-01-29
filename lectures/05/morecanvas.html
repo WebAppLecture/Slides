@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Noch mehr Canvas!</h1>
+<ul>
+<li>Mit Canvas können wir auch sehr leicht Gradienten zeichnen (z.B. linearer Farbverlauf)</li>
+<li>Dazu benötigen wir nur die Methode <code>createLinearGradient(sx,sy,ex,ey)</code>, die uns ein Objekt gibt</li>
+<li>Dieses Gradient Objekt besitzt die Methode <code>addColorStop(where,color)</code></li>
+</ul>
+<figure><img src="img/lineargradient.png" alt="Koordinaten beim LinearGradient" /><figcaption>Die Bedeutung der Argumente für den linearen Farbverlauf</figcaption></figure>
+<ul>
+<li>Der <code>fillStyle</code> kann mit diesem Objekt gesetzt werden und mit <code>fillRect()</code> gefüllt werden</li>
+<li>Gradangaben beim radialen Farbverlauf sind stets in <strong>rad</strong> (<code>rad = Math.PI / 180</code>)</li>
+<li>Über die Canvas-Methode <code>createPattern(img,mode)</code> können Muster erzeugt werden (z.B. <code>'repeat'</code>)</li>
+<li>Aus jedem Canvas kann über die Methode <code>toDataURL('image/png')</code> ein Bild erzeugt werden</li>
+</ul>
+<aside>
+<a href="http://www.tutorialspoint.com/html5/canvas_create_gradients.htm" target="_blank">Gradient Tutorial</a>
+<a href="http://net.tutsplus.com/tutorials/javascript-ajax/canvas-from-scratch-transformations-and-gradients/" target="_blank">Transformationen und Gradienten</a>
+<a href="http://html5demos.com/canvas-grad" target="_blank">Sehr cooles Canvas Demo</a>
+<a href="https://developer.mozilla.org/en/Canvas_tutorial/Applying_styles_and_colors" target="_blank">MDN Tutorial zu Canvas</a>
+<a href="http://stackoverflow.com/questions/934012/get-image-data-in-javascript" target="_blank">Stackoverflow zu toDataURL</a>
+<a href="http://msdn.microsoft.com/en-us/library/ff975241(v=vs.85).aspx" target="_blank">MSDN zu Canvas toDataURL im IE9</a>
+</aside>
+</body>
+</html>

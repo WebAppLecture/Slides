@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Was passiert ohne JavaScript</h1>
+<ul>
+<li>Bisher sind wir immer davon ausgegangen, dass entweder HTML5 und/oder JavaScript beim Benutzer vorhanden ist</li>
+<li>Dies ist in der Realität nicht (immer) der Fall - HTML5 wird derzeit als High-End Technologie betrachtet</li>
+<li>Zusätzlich kann JavaScript manchmal deaktiviert oder nicht vorhanden sein - welche Möglichkeiten besitzen wir?</li>
+<li>Empfohlen wird die Seite so zu designen, dass Sie auch <mark>ohne</mark> JavaScript akzeptabel aussieht</li>
+<li>Mit JavaScript führen wir die (gewollten) Änderungen beim Start der Seite (<code>$(...)</code>) aus</li>
+<li>Wollen wir zusätzlich noch Inhalt anzeigen so bietet sich eine HTML-Lösung an:
+<pre lang="html">
+&lt;!--... Quellcode der Seite--&gt;
+&lt;noscript&gt;
+JavaScript ist deaktiviert: Bitte JavaScript aktivieren um weitere Features nutzen zu können!
+&lt;/noscript&gt;
+&lt;!--... Quellcode der Seite--&gt;</pre></li>
+<li>Die Lösung über <code>&lt;noscript&gt;</code> ist elegant und schon länger implementiert</li>
+</ul>
+<aside>
+<a href="http://www.w3schools.com/tags/tag_noscript.asp" target="_blank">Der NoScript Tag auf W3Schools</a>
+<a href="http://www.htmldog.com/reference/htmltags/noscript/" target="_blank">HTMLDog Beispiel zu NoScript</a>
+<a href="http://reference.sitepoint.com/html/noscript" target="_blank">Sitepoint Erklärung und Details</a>
+</aside>
+</body>
+</html>

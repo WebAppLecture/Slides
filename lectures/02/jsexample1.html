@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (1)</h1>
+<script>
+function example1() {
+	var arr = [];
+	arr.push(1);
+	arr.push('2');
+	arr.push(true);
+	arr.push(1.5);
+	arr.push(2.5);
+	arr.splice(1,2);
+	alert('Die Länge des Arrays ist: ' + arr.length);
+	alert('Addiere die beiden Elemente zusammen: ' + (arr[0] + arr[1]));
+	alert('Hier vorsicht: ' + arr[0] + arr[1]);
+	var win = window.open();
+	win.document.write('Das ist ein Beispiel!');
+	win.document.bgColor = "FF0000";
+	win.alert('Test');
+	win.close();
+}
+</script>
+<pre lang="javascript">
+//Wir arbeiten mit einem Array (arr)
+var arr = [];
+arr.push(1);
+arr.push('2');
+arr.push(true);
+arr.push(1.5);
+arr.push(2.5);
+arr.splice(1,2);
+//Ausgabe der Eigenschaft Länge
+alert('Die Länge des Arrays ist: ' + arr.length);
+//Operationen - Ausgabe über Alert im aktuellen Fenster
+alert('Addiere die beiden Elemente zusammen: ' + (arr[0] + arr[1]));
+alert('Hier vorsicht: ' + arr[0] + arr[1]);
+//Ein Fenster aufmachen und manipulieren
+var win = window.open();
+win.document.write('Das ist ein Beispiel!');
+win.document.bgColor = "FF0000";
+//Ausgabe von alert im neuen Fenster - modaler Dialog!
+win.alert('Test');
+win.close();
+</pre>
+<button class="hide" onclick="example1();">Beispiel ausführen</button>
+</body>
+</html>

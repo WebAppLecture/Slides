@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Video und Canvas</h1>
+<ul>
+<li>Eine super Möglichkeit ergibt sich bei der Kombination Video-Tag und Canvas-Element</li>
+<li>Analog zum <code>&lt;img&gt;</code>-Element können wir Videos auf der Seite abspielen ohne diese anzuzeigen</li>
+<li>Um den aktuellen Frame zu zeichnen müssen wir nur ein <code>video</code> statt <code>img</code> übergeben</li>
+<li>Leider funktioniert beim <code>&lt;video&gt;</code>-Element das <code>onload</code> Ereignis nicht so wie vorhin, daher:
+<pre lang="javascript">
+var jumpTimer = setInterval(function() { //Daten im entsprechenden Videoelement 'video' setzen
+	try { //Verhindert Werfen eines Fehlers wenn Daten noch nicht bereit sind, der zum Abbruch führt
+		video.currentTime = start; //Setzt die Startzeit (von wo wollen wir capturen?)
+		clearInterval(jumpTimer); //Anscheinend erfolgreich - daher nicht mehr ausführen
+		video.play(); //Abspielen - von Startzeit 'start' aus
+	} catch(e) {} //Nicht erfolgreich - nach 100 ms wird dies erneut aufgerufen
+}, 100);
+</pre>
+</li>
+<li>Einige Eventhandler des Videoelements helfen uns beim Festhalten von Bildern:
+<ul>
+<li>Über <code>timeupdate</code> können wir Änderungen der Zeit abfragen</li>
+<li>Über <code>loadeddata</code> sollten wir unsere Schleife starten</li>
+</ul>
+</li>
+<li>Wichtig ist hier v.a. dass wir über <code>video.volume = 0</code> auf Lautlos stellen!</li>
+</ul>
+<aside>
+<a href="http://introducinghtml5.com/examples/ch05/drawimage.html" target="_blank">Beispiel aus Introducing HTML5</a>
+<a href="http://html5doctor.com/video-canvas-magic/" target="_blank">HTML5 Doctor über die Canvas zu Video Verbindung</a>
+<a href="http://www.craftymind.com/factory/html5video/CanvasVideo.html" target="_blank">Das Zerstörungs-Video-Experiment</a>
+<a href="http://www.reelseo.com/awesome-html5-canvas-video-demos/" target="_blank">Die Besten Canvas-Video-Demos</a>
+</aside>
+</body>
+</html>

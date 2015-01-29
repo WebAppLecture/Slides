@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Die File API</h1>
+<ul>
+<li>Mit dem <code>FileReader</code> und der File API sind Zugriffe auf Dateien möglich</li>
+<li>Es gibt ein Objekt <code>Blob</code>, der Inhalt aus dem Objekt <code>File</code> aus dem Objekt <code>FileList</code></li>
+<li>Zunächst stellt sich die Frage, wie man Dateien auswählen kann</li>
+<li>Aus Sicherheitsgründen muss der Benutzer die Dateien auswählen - dies kann man folgendermaßen erreichen:
+<ul>
+<li>Klassisch über den <code>input</code> Typ <code>file</code>, z.B. auch mit <code>multiple</code>:
+<pre lang="html">
+&lt;input type=&quot;file&quot; id=&quot;files&quot; name=&quot;files[]&quot; multiple /&gt;
+</pre>
+</li>
+<li>Elegant und modern über Drag-and-Drop und das <code>dataTransfer.files</code> Objekt des Events, z.B.
+<pre lang="javascript">
+function handleFileSelect(event) {
+	var files = event.dataTransfer.files;
+	/* Etwas damit machen */
+}
+</pre>
+</li>
+</ul>
+</li>
+<li>Anschließend kann man jede Menge Methoden verwenden um die Dateien auszulesen oder die Dateien per Ajax auf einen Server laden</li>
+</ul>
+<aside>
+<a href="http://www.w3.org/TR/FileAPI/" target="_blank">W3C Spezifikation zur File API</a>
+<a href="https://developer.mozilla.org/en/Using_files_from_web_applications" target="_blank">MDN Artikel: Dateien aus WebApplikationen verwenden</a>
+<a href="http://html5demos.com/file-api" target="_blank">File API mit Drag and Drop Demo</a>
+<a href="http://en.wikipedia.org/wiki/HTML5_File_API" target="_blank">Wikipedia zur File API</a>
+<a href="http://html5labs.interoperabilitybridges.com/prototypes/fileapi/fileapi/info" target="_blank">HTML5 Labs über die File API</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Die @media-Regel</h1>
+<ul>
+<li><code>@charset</code> und <code>@import</code> müssen immer vor allen Regeln festgelegt werden - um die in <code>@fontface</code> festgelegte Schrift nutzen zu können, muss diese ebenfalls vorab festgelegt sein</li>
+<li>Analoges gilt für die <code>@namespace</code> Deklaration - auch hier muss die Regel vor der Verwendung festgelegt sein</li>
+<li>Bei <code>@media</code> kann man folgende Gerätearten direkt aufrufen: <code>all</code> (Alles), <code>braille</code> und <code>embossed</code> (Blindenschrift), <code>handheld</code> bzw. <code>tty</code>, <code>print</code>, <code>projection</code>, <code>speech</code> (Sprachausgabe) bzw. (veraltet) <code>aural</code>, sowie <code>tv</code> und <code>screen</code></li>
+<li>Wie kann dergleichen aussehen? Wir schreiben uns CSS-Dokument und bauen dies z.B. so auf:
+<pre lang="css">
+/*Gemeinsame Regeln */
+@media screen /* Nur für Screen */
+{
+    body { width: 75%; }
+}
+@media print /* Nur für Print */
+{
+	body { width: 100%; }
+}
+</pre>
+</li>
+<li>Die @media-Regeln können auch sehr speziell und kompliziert aufgebaut werden (AND, OR, ...)</li>
+</ul>
+<aside>
+<a href="http://reference.sitepoint.com/css/at-media" target="_blank">Sitepoint Referenz zu @media</a>
+<a href="http://css-tricks.com/6731-css-media-queries/" target="_blank">CSS Tricks Artikel</a>
+<a href="http://www.mediaevent.de/css/media-type.html" target="_blank">Mediaevent über die @media-Regel</a>
+<a href="http://de.selfhtml.org/css/formate/einbinden.htm" target="_blank">SelfHTML zum Media Attribut</a>
+</aside>
+</body>
+</html>

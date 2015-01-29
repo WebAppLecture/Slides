@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Operatoren</h1>
+<ul>
+<li>Operatoren sind reservierte Zeichen, die Operationen (z.B. Addition) ausführen</li>
+<li>Es gibt: Logik-, Arithmetik-, Bit- und Vergleichsoperatoren (sowie Condition <code>?</code> und Assignment <code>=</code>)</li>
+<li>Genau wie in anderen Sprachen gibt es bei manchen Operatoren Prä- (<code>++i</code>) und Suffixdarstellungen (<code>i++</code>)</li>
+<li>Es gibt zu beachten - JavaScript nimmt einiges nicht so genau, z.B. ist <code>'0'</code> gleich <code>0</code> bei <code>==</code></li>
+<li>Daher gibt es <mark>zwei weitere Operatoren</mark> (<code>===</code> und <code>!==</code>) - diese vergleichen Wert <strong>und</strong> Typ</li>
+<li>Außerdem ist die <code>0</code> <u>nicht</u> vorzeichenlos - dies kann zu verwirrenden Ergebnissen führen (<code>a/0 != a/(-0)</code>)</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>
+Arithmetische Operatoren
+</th>
+<th>
+Vergleichsoperatoren
+</th>
+<th>
+Weitere Operatoren
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td width="33%">
+<table class="small">
+<thead>
+	<tr>
+		<th>Op.</th>
+		<th>Bedeutung</th>
+		<th>Beispiel</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>+</td>
+		<td>Addition</td>
+		<td><code>3 + 4</code> ergibt <code>7</code></td>
+	</tr>
+	<tr>
+		<td>++</td>
+		<td>Inkrement</td>
+		<td><code>i=3;i++</code> ergibt <code>4</code></td>
+	</tr>
+	<tr>
+		<td>-</td>
+		<td>Subtraktion</td>
+		<td><code>3 - 4</code> ergibt <code>-1</code></td>
+	</tr>
+	<tr>
+		<td>--</td>
+		<td>Dekrement</td>
+		<td><code>i=3;i--</code> ergibt <code>2</code></td>
+	</tr>
+	<tr>
+		<td>*</td>
+		<td>Multiplikation</td>
+		<td><code>3 * 4</code> ergibt <code>12</code></td>
+	</tr>
+	<tr>
+		<td>/</td>
+		<td>Division</td>
+		<td><code>3 / 4</code> ergibt <code>0.75</code></td>
+	</tr>
+	<tr>
+		<td>%</td>
+		<td>Modulo</td>
+		<td><code>5 % 4</code> ergibt <code>1</code></td>
+	</tr>
+</tbody>
+</table>
+</div>
+<td width="33%">
+<table class="small">
+<thead>
+	<tr>
+		<th>Op.</th>
+		<th>Bedeutung</th>
+		<th>Beispiel</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>==</td>
+		<td>gleich</td>
+		<td><code>3 == '3'</code> ergibt <code>true</code></td>
+	</tr>
+	<tr>
+		<td>!=</td>
+		<td>ungleich</td>
+		<td><code>3 != 3</code> ergibt <code>false</code></td>
+	</tr>
+	<tr>
+		<td>===</td>
+		<td>typgleich</td>
+		<td><code>3 === 3</code> ergibt <code>true</code></td>
+	</tr>
+	<tr>
+		<td>!==</td>
+		<td>typungleich</td>
+		<td><code>3 !== '3'</code> ergibt <code>true</code></td>
+	</tr>
+	<tr>
+		<td>&lt;</td>
+		<td>kleiner</td>
+		<td><code>3 &lt; 4</code> ergibt <code>true</code></td>
+	</tr>
+	<tr>
+		<td>&lt;=</td>
+		<td>kleiner gleich</td>
+		<td><code>4 &lt;= 3</code> ergibt <code>false</code></td>
+	</tr>
+	<tr>
+		<td>&gt;</td>
+		<td>größer</td>
+		<td><code>3 &gt; 4</code> ergibt <code>false</code></td>
+	</tr>
+	<tr>
+		<td>&gt;=</td>
+		<td>größer gleich</td>
+		<td><code>4 &gt;= 3</code> ergibt <code>true</code></td>
+	</tr>
+</tbody>
+</table>
+</td>
+<td width="33%">
+<table class="small">
+<thead>
+	<tr>
+		<th>Op.</th>
+		<th>Bed.</th>
+		<th>Beispiel</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td>&amp;&amp;</td>
+		<td>und</td>
+		<td><code>true &amp;&amp; false</code> ergibt <code>false</code></td>
+	</tr>
+	<tr>
+		<td>||</td>
+		<td>oder</td>
+		<td><code>true || false</code> ergibt <code>true</code></td>
+	</tr>
+	<tr>
+		<td>!</td>
+		<td>nicht</td>
+		<td><code>!false</code> ergibt <code>true</code></td>
+	</tr>
+	<tr>
+		<td>&amp;</td>
+		<td>bit und</td>
+		<td><code>2 &amp; 1</code> ergibt <code>0</code></td>
+	</tr>
+	<tr>
+		<td>|</td>
+		<td>bit oder</td>
+		<td><code>2 | 1</code> ergibt <code>3</code></td>
+	</tr>
+	<tr>
+		<td>~</td>
+		<td>bit nicht</td>
+		<td><code>~2</code> ergibt <code>-3</code></td>
+	</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+<aside>
+<a href="http://www.w3schools.com/js/js_operators.asp" target="_blank">Operatoren bei W3Schools</a>
+<a href="http://en.wikibooks.org/wiki/JavaScript/Operators" target="_blank">WikiBooks über JS-Operatoren</a>
+<a href="http://www.timmywillison.com/pres/operators/#landing" target="_blank">JavaScript-Operator Profiwissen</a>
+</aside>
+</body>
+</html>

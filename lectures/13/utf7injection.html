@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Immer UTF-8 verwenden</h1>
+<ul>
+<li>Ein großes Sicherheitsmanko stellt die Nicht-Verwendung eines <code>&lt;meta charset&gt;</code>-Elements dar</li>
+<li>Dieses Element sollte das erste tragende Element sein und sofort nach <code>&lt;html&gt;</code> bzw. <code>&lt;head&gt;</code> stehen</li>
+<li>Kommt z.B. der <code>&lt;title&gt;</code>-Tag vor der Kodierung, und kann in diesem Tag Nutzerinhalt (z.B. der Benutzername) stehen, so ist Injection möglich!</li>
+<li>So könnte der Nutzer folgende Zeichenketten in den Tag-legen:
+<pre lang="html">
++ADw-script+AD4-alert(document.location)+ADw-/script+AD4-
+</pre>
+</li>
+<li>Die serverseitige Validierung würde in diesem Fall funktionieren, da dies wie ein normaler String aussieht</li>
+<li>Probleme ergeben sich wenn der Browser einfach zu UTF-7 greift, da noch kein Zeichensatz angegeben wurde</li>
+<li>Daher: <strong>Immer</strong> sowohl <code>&lt;meta charset&gt;</code> als auch die angegebene Kodierung (im Editor) wirklich verwenden!</li>
+<li>Niemals den Benutzer <code>&lt;meta charset&gt;</code>-Tags eingeben lassen oder dergleichen aus Ausgabe zulassen</li>
+<li>Alle Probleme ergeben sich erst durch die Verwendung von UTF-7 - daher gilt: Immer die Kodierung setzen und immer UTF-8 verwenden</li>
+</ul>
+<aside>
+<a href="http://blog.php-security.org/archives/38-Wikipedia-UTF-7-XSSCross-Site-Scripting-Hole-Plugged.html" target="_blank">PHP Security über diese Lücke bei Wikipedia (ausgebessert)</a>
+<a href="http://openmya.hacker.jp/hasegawa/security/utf7cs.html" target="_blank">UTF-7 XSS Cheat-Sheet</a>
+<a href="http://html5sec.org/#charset" target="_blank">Security Cheatsheet zu UTF-7 XSS</a>
+</aside>
+</body>
+</html>

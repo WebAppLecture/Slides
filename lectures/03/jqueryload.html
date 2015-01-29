@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Wann jQuery ausführen?</h1>
+<ul>
+<li>Im Prinzip können wir z.B. das <code>onload</code>-Ereignis des <code>&lt;body&gt;</code>-Tags verwenden</li>
+<li>Problem: Das DOM ist zu dieser Zeit u.u. noch nicht fertig und wir erhalten Fehler</li>
+<li>Des weiteren ist es ungünstig JavaScript im <code>&lt;head&gt;</code> einzubinden - immer erst am Schluss vor <code>&lt;/body&gt;</code></li>
+<li>Daher ist jQuery noch gar nicht eingebunden und <code>$</code> bzw. <code>jQuery</code> existiert nicht</li>
+<li>Lösung: Verwenden der <code>ready()</code> Methode. Hier gibt es zwei mögliche Wege mit
+<ul>
+<li><code>$(document).ready(function() {...})</code> bzw.</li>
+<li><code>$(function() {...})</code>, was wesentlich kürzer aber unanschaulicher ist.</li>
+</ul>
+</li>
+<li>Vorteile gegenüber dem <code>onload</code>-Ereignis:
+<ul>
+<li>DOM ist auf jeden Fall fertig und alles, was benötigt wird, wurde geladen</li>
+<li>Die Methode kann für mehrere Skripte verwendet werden (nacheinander ausgeführt)</li>
+<li>Kann auch nach dem Laden ausgeführt werden - wird dann instantan ausgeführt</li>
+<li>Garantiert also Ausführung und zwar zum günstigsten Zeitpunkt</li>
+</ul>
+</li>
+</ul>
+<aside>
+<a href="http://api.jquery.com/ready/" target="_blank">jQuery zur Ready Methode</a>
+<a href="http://api.jquery.com/load-event/" target="_blank">Das Load Ereignis mit jQuery</a>
+<a href="http://api.jquery.com/unload/" target="_blank">Das Unload Ereignis mit jQuery</a>
+<a href="http://docs.jquery.com/Tutorials:Introducing_$(document).ready()" target="_blank">Tutorial zur Ready Methode</a>
+</aside>
+</body>
+</html>

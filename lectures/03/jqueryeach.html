@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Durch Arrays mit jQuery</h1>
+<ul>
+<li>jQuery hilft uns nicht nur bei der Arbeit mit dem DOM sondern auch mit weiteren JS-Objekten wie Arrays</li>
+<li>Durch die Methode <code>$.each(liste, callback)</code> können wir auf Listen zugreifen, z.B.
+<pre lang="javascript">
+var a = ['Eins', 'zwei', 'Drei'];//Array mit drei Einträgen
+$.each(a, function(i, v) { alert('Der Index ist ' + i + ' und der Wert ist: ' + v); });
+</pre>
+</li>
+<li>Der <strong>Callback</strong> kann also zwei Parameter enthalten: Index und Wert des aktuellen Elements</li>
+<li>Vorteil in der Verwendung von <code>each()</code>: Wir können direkt durch jQuery Objekte durchlaufen, z.B.:
+<pre lang="javascript">
+$('.someClass').each(function(i, v) { //geht durch jeden gefundenen Eintrag mit der Klasse someClass
+	alert('Der Index ist ' + i + ' und die Höhe ist: ' + $(v).height()); 
+});
+</pre>
+</li>
+<li>Der Wert <code>v</code> in der Callback-Funktion gibt uns das DOM Objekt - machen durch <code>$(v)</code> ein jQuery Objekt</li>
+<li>Was ist eigentlich <code>$</code>? Dies ist die <mark>Kurzschreibweise</mark> für <code>jQuery</code><sup>1</sup>!</li>
+<li>Nochmal zum <i>Chaining</i> - jQuery Regel: Keine sinnvolle Rückgabe =&gt; gibt jQuery Instanz zurück</li>
+</ul>
+<aside>
+<p><sup>1</sup>Dies kann z.B. über <code>var j = jQuery.noConflict();</code> auf <code>j</code> geändert werden</p>
+<a href="http://api.jquery.com/jQuery.noConflict/" target="_blank">jQuery No Conflict</a>
+<a href="http://api.jquery.com/each/" target="_blank">each auf ein jQuery Object</a>
+<a href="http://api.jquery.com/jQuery.each/" target="_blank">each auf eine Collection</a>
+<a href="http://api.jquery.com/jQuery/" target="_blank">Informationen zum Konstruktor</a>
+<a href="http://www.bennadel.com/blog/534-The-Beauty-Of-The-jQuery-Each-Method.htm" target="_blank">Das Tolle an jQuery.each</a>
+<a href="http://www.jquery4u.com/jquery-functions/jquery-each-examples/" target="_blank">Fünf Beispiele zu each</a>
+</aside>
+</body>
+</html>

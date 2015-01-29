@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Übersicht der Gefährdungen</h1>
+<ul>
+<li>Die meisten Gefährderungen gehen von Inhalt aus, der von Benutzern eingebracht / verändert werden kann</li>
+<li>Die goldene Regel lautet: Trau <strong>niemals</strong> den Daten deiner Benutzer!</li>
+<li>Im Prinzip muss man sich beim Thema Sicherheit mit beiden Problemkindern beschäftigen:
+<ul>
+<li>Auf der <mark>Clientseite</mark>: Wie schreibe ich Markup, so dass dieser möglichst sicher ist?</li>
+<li>Auf der <mark>Serverseite</mark>: Wie validiere ich Anfragen um die Echtheit der Daten sicherzustellen?</li>
+</ul>
+</li>
+<li>Die HTML5 Features können bei Benutzereingeben oft negativ ausgenutzt werden, z.B. folgende
+<pre lang="html">
+&lt;form id=&quot;test&quot; /&gt;&lt;button form=&quot;test&quot; formaction=&quot;javascript:alert(1)&quot;&gt;X&lt;/button&gt;&lt;!--formaction--&gt;
+&lt;input onfocus=write(1) autofocus&gt;&lt;!--autofocus--&gt;
+&lt;video poster=javascript:alert(1)&gt;&lt;!--poster, war zwar nur in Opera 10 vorhanden - dennoch beachten--&gt;
+&lt;body onscroll=alert(1)&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;...&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;input autofocus&gt;&lt;!--autofocus--&gt;
+</pre>
+</li>
+<li>Auch in <code>&lt;source&gt;</code>-Elementen kann man über Ereignisse wie z.B. <code>onerror</code> JavaScript einbinden</li>
+<li>Daher gilt: Niemals Benutzer HTML-Elemente eingeben lassen - und wenn dies notwendig ist? Dann sollte man statt einer Blacklist (lange Liste mit vielen Regeln) eine Whitelist (kurze Liste) vorziehen</li>
+<li>Viele Sicherheitsprobleme entstehen durch JavaScript und damit verbundenes Cross-Site-Scripting (XSS)</li>
+</ul>
+<aside>
+<a href="http://html5sec.org/" target="_blank">HTML5 Security Cheat Sheet</a>
+<a href="http://support.microsoft.com/kb/252985" target="_blank">Microsoft über XSS</a>
+<a href="http://en.wikipedia.org/wiki/Cross-site_scripting" target="_blank">Wikipedia zu Cross-Site-Scripting</a>
+<a href="http://www.technicalinfo.net/papers/CSS.html" target="_blank">Artikel zu XSS auf Technical Info</a>
+</aside>
+</body>
+</html>

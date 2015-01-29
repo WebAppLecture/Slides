@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Animationen ohne JS</h1>
+<div class="doubleleft">
+<ul>
+<li>Effekte wie eben können wir natürlich auch ohne CSS3 in JavaScript erledigen (per CSS ist schneller!)</li>
+<li>Wie sieht es aber nun aus wenn wir nicht nur Übergänge handhaben wollen sondern echte Animationen?</li>
+<li>Selbst hier können wir auf JavaScript verzichten - CSS3 Animationen!
+<pre lang="css">
+@-webkit-keyframes beispiel { /* Definition der Keyframes */
+	0% { background-color: #F00; } /* Erster Frame am Start */
+	20% { background-color: #0F0; } /* Frame bei 20% der Zeit */
+	60% { background-color: #00F; } /* Dritter Frame */
+	100% { background-color: #FFF; } /* Abschlussframe */
+}
+#someDiv {
+	-webkit-animation-name: beispiel; /* Verweis auf keyframes */
+	-webkit-animation-duration: 10s; /* Analog Transitions */
+	-webkit-animation-iteration-count: infinite; /* auch 1, ... */
+	-webkit-animation-timing-function: linear; /* Analog Trans. */
+}
+</pre>
+</li>
+<li>Animationen gehen bislang nur auf Safari, Chrome, Firefox (<code>-moz-</code>)</li>
+</ul>
+</div>
+<div class="halfright">
+<figure><img src="img/css-animations.png" alt="Animationen über Keyframes" /><figcaption>Die Schlüsselbilder legen die Fixpunkte fest</figcaption></figure>
+</div>
+<aside>
+<a href="http://css3.bradshawenterprises.com/" target="_blank">Artikel über Animationen, Transitions und Transforms</a>
+<a href="http://robertnyman.com/css3/css-animations/css-animations-simple.html" target="_blank">Einfache CSS3 Animation</a>
+<a href="http://robertnyman.com/css3/css-animations/css-animations-percentage.html" target="_blank">Schwierigeres Beispiel</a>
+<a href="http://stuffandnonsense.co.uk/content/demo/madmanimation/" target="_blank">Film in CSS3 Transitions</a>
+<a href="http://animatable.com" target="_blank">Tool zur Erstellung von CSS3 Animationen</a>
+</aside>
+</body>
+</html>

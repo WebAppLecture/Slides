@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Reactive Design</h1>
+<ul>
+<li>Im Prinzip handelt es sich bei dem Responsive Design um ein Reactive Design (es wird nicht geantwortet, d.h. auf den Benutzer eingegangen, sondern auf die Umgebung reagiert)</li>
+<li>Designs sollten so aufgebaut werden, dass diese sehr schnell für verschiedene Plattformen portiert werden können</li>
+<li>Dies schließt relative Schriften mit ein - wenn man jedem Element eine neue Schriftgröße zuweist sind mehr Änderungen notwendig als bei Zuweisung von Prozentangaben relativ zur im <code>body</code>-Selektor eingestellten Schriftgröße</li>
+<li>Zusätzlich zu den <code>@media</code>-Regeln sollte man noch weitere (HTML) Spezifikationen beachten</li>
+<li>So ist es essentiell zu den <strong>Viewport</strong> für Smartphones einzustellen</li>
+<li>Die Einstellung des Viewports geschieht im <code>&lt;head&gt;</code>-Tag z.B. mit
+<pre lang="html">
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, user-scalable=no&quot; /&gt;
+</pre>
+Legt in diesem Fall fest, dass die Seite die volle Breite hat und dies 100% Zoom (deaktiviert) entspricht</li>
+<li>Bilder sollten mit <code>img { max-width: 100%; }</code> behandelt werden um bei Smartphones nicht zu stören</li>
+<li>Für Smartphones gibt es noch jede Menge weiterer Tricks (Mobile First statt Desktop First) inklusive einiger besonderer CSS-Regeln wie z.B. <code>-webkit-tap-highlight-color: #FFF</code></li>
+</ul>
+<aside>
+<a href="http://www.stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/" target="_blank">Nützliche Media Queries von Andy Clarke</a>
+<a href="http://dev.w3.org/csswg/css-device-adapt/" target="_blank">W3C Spezifikation zu Geräteadaptionen</a>
+<a href="http://www.quirksmode.org/m/tests/widthtest.html" target="_blank">Testseite für Verschiedene Eigenschaften</a>
+<a href="http://www.theinspirationblog.net/showcases/css3-media-queries-in-the-wild/" target="_blank">Sammlung von Beispielen zu Media Queries</a>
+<a href="http://netuncovered.com/2011/05/reactive-web-design/" target="_blank">Artikel über Reactive Design</a>
+</aside>
+</body>
+</html>

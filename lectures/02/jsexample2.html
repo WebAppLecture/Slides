@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (2)</h1>
+<script>
+//Wird vom Button ausgeführt
+function example2() {
+	//Sparen uns das var vor jedem einzelnen k
+	var k = null;
+	//mit prompt(Abfrage, Standardwert) kann man sehr leicht Eingaben generieren
+	var p = prompt('Welche Funktion aufrufen? (fibonacci, fib, sqrt, cos, sin)', 'fibonacci');
+	
+	//Switch-Case auf die p Variable (Fallabfrage)
+	switch(p) {
+		case 'fib'://Benutzer hat fib eingegeben
+			var i = prompt('Ersten Wert für fib Funktion angeben:', 13);
+			var j = prompt('Zweiten Wert für fib Funktion angeben:', 15);
+			k = fib(i, j);
+			break;
+		case 'sqrt'://Benutzer hat sqrt eingegeben
+			var i = prompt('Argument für Wurzelfunktion:', 144);
+			k = Math.sqrt(i);
+			break;
+		case 'cos'://Benutzer hat cos eingegeben
+			var i = prompt('Argument für Kosinusfunktion:', 144);
+			k = Math.cos(i);
+			break;
+		case 'sin'://Benutzer hat sin eingegeben
+			var i = prompt('Argument für Sinusfunktion:', 144);
+			k = Math.sin(i);
+			break;
+		default://Standardmäßig wollen wir alles als fibonacci verwenden!
+			var i = prompt('Wert für Fibonacci Funktion angeben:', 0);
+			k = fibonacci(i);
+	}
+	
+	//Wenn k nicht gesetzt wurde - wurde nichts zurückgegeben --> kein alert!
+	if(k != null)
+		alert(k);
+}
+
+//Methode zum Berechnen der Fibonacci Zahl
+function fibonacci(n) {
+	//Bedingung - eine für Fibonacci angemessene Zahl
+	if(n < 2) {
+		alert('Wert zum Starten der fib Funktion muss mindestens 2 sein!');
+	} else {
+		var t = 1;
+		var tp = 0;
+		
+		//Zählerschleife um die Werte aufzurechnen
+		for(var i = 2; i <= n; i++) {
+			var tmp = t;
+			t = fib(t, tp);
+			tp = tmp;
+		}
+		
+		return t;
+	}
+}
+
+//Hier werden eigentlich nur zwei Zahlen addiert - soll nur nochmal zeigen wie das mit Funktionen geht
+function fib(p, pp) {
+	return p + pp;
+}
+</script>
+<pre lang="javascript">
+function example2() {
+	var p = prompt('Welche Funktion aufrufen? (fibonacci, fib, sqrt, cos, sin)', 'fibonacci');
+	switch(p) {
+		case 'sin':
+			var k = Math.sin(prompt('Argument für Sinusfunktion:', 144));
+			break;
+		//...
+		default:
+			var k = fibonacci(prompt('Wert für Fibonacci Funktion angeben:', 0));
+	}
+	//...
+}
+function fibonacci(n) {
+	//...
+	var t = 1, tp = 0;
+	for(var i = 2; i &lt;= n; i++) {
+		var tmp = t; t = fib(t, tp); tp = tmp;
+	}
+	return t;
+}
+//...
+</pre>
+<button class="hide" onclick="example2();">Beispiel ausführen</button>
+</body>
+</html>

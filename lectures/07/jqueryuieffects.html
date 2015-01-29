@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Zusätzliche Effekte</h1>
+<figure><img src="img/jquery-ui-effects.png" alt="Die (neuen) Effekte von jQuery UI" /><figcaption>Mit jQuery UI wird die Palette der Effekteabläufe nochmals stark erweitert</figcaption></figure>
+<ul>
+<li>jQuery UI erweitert auch die Palette der Effekte, die man bisher z.B. in folgendem Code verwendet hat,
+<pre lang="javascript">
+$('#mydiv').animate({ /* Zu animierende Eigenschaften */} , {
+	duration: 2000, //Zeit in ms
+	complete: function() { }, //Was passiert nach Abschluss?!
+	easing: 'linear' }); //Genau hier legen wir das Easing fest - in diesem Fall linear
+</pre>
+</li>
+<li>Zusätzlich kann man über <code>specialeasing</code> noch Effekte zu jeder Eigenschaft festlegen</li>
+</ul>
+<aside>
+<a href="http://api.jquery.com/animate/" target="_blank">Dokumentation von <code>animate()</code></a>
+<a href="http://gsgd.co.uk/sandbox/jquery/easing/" target="_blank">Das jQuery Easing Plugin</a>
+<a href="http://jqueryui.com/effect/#easing" target="_blank">Demoseite von jQuery UI Easing</a>
+</aside>
+</body>
+</html>

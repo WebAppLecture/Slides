@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>DIY Validierung</h1>
+<script>
+function validateEmail(e) {
+	if(e.willValidate && !e.validity.valid) {
+		document.getElementById('mailerror').innerHTML = 'Bitte eine korrekte Mailadresse eingeben';
+		document.getElementById('formmailsubmit').disabled = true;
+	} else if (e.value.length) {
+		document.getElementById('mailerror').innerHTML = '&nbsp;';
+		document.getElementById('formmailsubmit').disabled = false;
+	}
+}
+</script>
+<ul>
+<li>Wir wollen nun die automatische Validierung nutzen um eine eigene Validierung einzubauen</li>
+<li>Dies ist sinnvoll, da die automatische Validierung erst beim <code>onsubmit</code> sichtbar wird</li>
+</ul>
+<div class="hide" style="margin-bottom:15px;">
+<form action="http://html5.florian-rappl.de/submitted.html" method="GET" target="_blank">
+<p><label style="display: inline-block;width: 240px;text-align:right;margin-right:10px;height:30px;font-weight:bold;">E-Mail<span style="width:240px;font-weight:normal;display: block;color: #F00;font-size:8pt;height:10px;" id="mailerror">&nbsp;</span></label><input type="email" placeholder="Bitte E-Mail 'name@domain.com' eingeben" onkeyup="validateEmail(this);" style="width: 250px;height:30px;vertical-align:top;"></p>
+<button type="submit" id="formmailsubmit" style="margin-left:250px;" disabled>Abschicken</button>
+</form>
+</div>
+Der entsprechende JavaScript und HTML Code:
+<pre lang="javascript">
+function validateEmail(e) {//unsere Methode - willValidate ist ebenfalls neu und zeigt uns ob es HTML5 ist
+	if(e.willValidate &amp;&amp; !e.validity.valid) {//Jedes Element besitzt (in HTML5) eine validity Eigenschaft
+		document.getElementById('mailerror').innerHTML = 'Bitte eine korrekte Mailadresse eingeben';
+		document.getElementById('formmailsubmit').disabled = true;//Button disablen
+	} else if (e.value.length) {
+		document.getElementById('mailerror').innerHTML = '&amp;nbsp;';
+		document.getElementById('formmailsubmit').disabled = false;//Button enablen
+	}
+}
+</pre>
+<pre lang="html">
+&lt;!-- Einige Angaben zum Formular und entsprechende Labels --&gt;
+&lt;input type=&quot;email&quot; placeholder=&quot;Bitte E-Mail 'name@domain.com' eingeben&quot; onkeyup=&quot;validateEmail(this);&quot; /&gt;
+&lt;!-- Weiteres inkl. Submit Button mit entsprechender ID --&gt;
+</pre>
+<aside>
+<a href="http://stackoverflow.com/questions/432933/will-html-5-validation-be-worth-the-candle" target="_blank">Diskussion über HTML5 Validierung</a>
+<a href="http://email.about.com/od/emailprogrammingtips/qt/How-To-Validate-Email-Addresses-With-Html5.htm" target="_blank">E-Mail Adressen mit HTML5 Validieren</a>
+<a href="http://www.script-tutorials.com/data-validation-html5/" target="_blank">Tutorial zur Validierung mit HTML5 (inkl. <code>setCustomValidity()</code>)</a>
+</aside>
+</body>
+</html>

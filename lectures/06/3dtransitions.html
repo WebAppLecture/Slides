@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>3D Effekte mit CSS3</h1>
+<div class="halfleft">
+<figure><img src="img/css3-3d.png" alt="CSS3 ermöglicht die Anordnung von Elementen in drei Dimensionen" /><figcaption>Boxen können nun in 3D durch CSS3 angeordnet und animiert werden</figcaption></figure>
+</div>
+<div class="doubleright">
+<ul>
+<li>Mit CSS3 kann man auch 3D Transformationen einer Webseite hinzufügen</li>
+<li>Die Vorteile liegen auf der Hand:
+<ul>
+<li>Der Browser kann mit <code>&lt;div&gt;</code> Objekten viel besser Umgehen als mit Zeichnungen auf einem Canvas</li>
+<li>Somit erhält man Vorteile durch mögliche Hardwarebeschleunigung</li>
+<li>Text und weitere Elemente (z.B. auch Videos etc.) kann man direkt in HTML leichter einbinden als in einem Canvas</li>
+<li>HTML und CSS benötigen keinen Code und laufen somit selbst auf Browsern mit deaktiviertem JavaScript</li>
+</ul>
+</li>
+<li>Prinzipiell wird die bekannte Syntax zu Transformationen ergänzt, z.B.
+<pre lang="css">
+... { transform: perspective(5); } /*Stellt Perspektive ein*/
+... { transform: scaleZ(2); } /*Skaliert die z-Koordinaten*/
+... { transform: rotateZ(10deg); } /*Rotiert um z-Achse*/
+... { transform: skewZ(15px); } /*Verzerrt z-Richtung*/
+</pre>
+</li>
+</ul>
+</div>
+<aside>
+<a href="http://www.netmagazine.com/features/20-stunning-examples-css-3d-transforms" target="_blank">20 tolle Beispiele</a>
+<a href="http://css3.bradshawenterprises.com/" target="_blank">3D Transformationen</a>
+<a href="http://css3playground.com/flip-card.php" target="_blank">Flip-Card Beispiel</a>
+<a href="http://www.w3.org/TR/css3-3d-transforms/#transform-property" target="_blank">W3C über 3D Transformationen</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Arrays (1)</h1>
+<ul>
+<li>Damit sich hinter einer Variablen mehr Objekte verstecken können, muss es sich um ein Array handeln</li>
+<li>Arrays können auf sehr unterschiedliche Art und Weise initialisiert werden:
+<pre lang="javascript">
+var leer1 = []; //Empfohlen
+var leer2 = new Array(); //Nicht empfohlen
+var reserviert = new Array(14); //Bringt keine Performance-Vorteile
+var belegt1 = new Array('Milch', 'Zucker', 'Mehl');
+var belegt2 = ['Milch', 'Mehl', 'Äpfel'];
+</pre></li>
+<li>Möglichkeiten zum Hinzufügen eines Elements mit <code>push()</code> (ans Ende) und <code>unshift()</code> (an den Anfang)</li>
+<li>Der Zugriff auf Array Elemente erfolgt über eckige Klammern, z.B.
+<pre lang="javascript">
+var lang = ['C#', 'Java', 'C++'];
+var java = lang[1];
+var test = lang[3];//undefined
+</pre></li>
+<li>Der Zugriff ist 0 basiert, wie in anderen C ähnlichen Sprachen</li>
+<li>Bei nicht-definierten Zugriffen gibt es keinen Fehler, sondern <code>undefined</code> als Rückgabe</li>
+</ul>
+<aside>
+<a href="http://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">W3Schools über das Array Objekt</a>
+<a href="http://www.hunlock.com/blogs/Mastering_Javascript_Arrays" target="_blank">Profiwissen über JS Arrays</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Das Netzwerk optimieren</h1>
+<ul>
+<li>Das Netzwerk wird im Prinzip durch das OSI (Open Systems Interconnection) Modell in 7 Schichten aufgeteilt</li>
+<li>Als Webseitenentwickler interessiert uns allerdings nur die höchste Schicht auf der http als ein auf TCP/IP basierter Service läuft</li>
+<li>Von unseren Webserver interessieren uns Netzwerktechnisch 2 Sachen: <mark>Datendurchsatz</mark> und <mark>Antwortzeit</mark></li>
+<li>Es ist auch über JS möglich diese Werten zu messen</li>
+<li>Die Frage ist nun - wie kann man das Netzwerk aufgrund der gefundenen Daten optimieren?</li>
+<li>Ohne auf den Server direkt zuzugreifen können wir die Resourcen der Seite auf verschiedene Server (sog. Content Delivery Networks, CDN) verteilen und http-Requests generell verringern</li>
+<li>Daher stellen wir z.B. auch jQuery (und andere statische Resourcen) auf einen externen Server</li>
+<li>Am Server können wir DNS-Lookups reduzieren und Redirects jeder Art vermeiden</li>
+<li>Um DNS-Lookups zu reduzieren sollten hohe TTL (Time-To-Live) Werte verwendet werden (ca. 1 Tag)</li>
+<li>Die Browser führen im Regelfall einen eigenen DNS-Cache, welcher häufig TTL Werte ignoriert und eigene Regeln hat</li>
+</ul>
+<aside>
+<a href="http://coding.smashingmagazine.com/2011/11/14/analyzing-network-characteristics-using-javascript-and-the-dom-part-1/" target="_blank">Artikel im Smashing Magazine</a>
+<a href="http://cablemap.info/" target="_blank">Greg's Cable Map</a>
+<a href="https://github.com/bluesmoon/boomerang" target="_blank">Boomerang Projekt für Server Benchmark</a>
+<a href="http://tools.ietf.org/html/rfc1537" target="_blank">Interessantes RFC mit Details zum Format von DNS Einträgen</a>
+</aside>
+</body>
+</html>

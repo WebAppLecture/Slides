@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Drag and Drop</h1>
+<div class="doubleleft">
+<ul>
+<li>Die Drag-And-Drop API kommt vom IE(5) - sie wurde für HTML5 Reverse Engineered</li>
+<li>Alle Browser sollten die API mittlerweile im Prinzip unterstützen</li>
+<li>Die API gilt leider als eine der schlechteren - hat aber durch seine Verbreitung Vorteile</li>
+<li>Im Fokus stand die Standardisierung des Drag and Drop Vorgangs</li>
+<li>Standardmäßig <code>draggable</code> sind Text, Bilder und Links</li>
+<li>Um solche Elemente ablegen zu können müssen Ereignisse in den Ablagezonen gesetzt werden</li>
+<li>Über <code>return false</code> in <code>ondrop</code> erlauben wir das Ablegen</li>
+</ul>
+</div>
+<div class="halfright">
+<figure><img src="img/dnd.png" alt="Verdeutlichung eines Drag and Drop Vorgangs" /><figcaption>Dank Drag and Drop ist es möglich Objekte direkt miteinander interagieren zu lassen</figcaption></figure>
+</div>
+<div class="clear">
+<ul>
+<li>Beim IE muss man hier noch <code>ondragenter</code> und <code>ondragover</code> (analog zu <code>ondrop</code>) setzen</li>
+<li><code>ondragover</code> gibt uns die Chance bei Ablage etwas mit den Daten anzufangen, z.B. mit Text über 
+<pre lang="javascript">
+element.ondrop = function(event) { var text = event.dataTransfer.getData('Text'); }
+</pre>
+</li>
+</div>
+</ul>
+<aside>
+<a href="http://dev.w3.org/html5/spec/editing.html#dnd" target="_blank">Die W3C Spezifikation</a>
+<a href="http://ln.hixie.ch/?start=%201115899732&count=1" target="_blank">Reverse Engineering der Original API</a>
+<a href="http://www.youtube.com/watch?v=Tg6okHlWwv0" target="_blank">YouTube Video über Drag and Drop</a>
+<a href="http://introducinghtml5.com/examples/ch08/" target="_blank">Beispiele von IntroducingHTML5</a>
+</aside>
+</body>
+</html>

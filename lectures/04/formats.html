@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Das Format-Desaster</h1>
+<div class="doubleleft">
+<ul>
+<li>Zwar konnten sich die Hersteller auf einen Audio- und Video-Tag einigen, jedoch nicht auf einen einheitlichen Standard</li>
+<li>Daher akzeptieren diese Tags noch einen Untergeordneten Tag - den <code>&lt;source&gt;</code>-Tag, z.B.
+<pre lang="html">
+&lt;video controls&gt;
+	&lt;source src=&quot;leverage-a-synergy.ogg&quot; type=&quot;video/ogg; codecs='theora, vorbis'&quot;&gt;
+	&lt;source src=&quot;leverage-a-synergy.mp4&quot; type=&quot;video/mp4; codecs='avc1.42E01E, mp4a.40.2'&quot;&gt;
+	&lt;embed src=&quot;http://www.youtube.com/v/cmtcc94Tv3A&amp;h1=en_GB&amp;fs=1&amp;rel=0&quot; type=&quot;application/x-shockwave-flash&quot; allowscriptaccess=&quot;always&quot; allowfullscreen=&quot;true&quot; width=&quot;425&quot; height=&quot;344&quot;&gt;
+&lt;/video&gt;
+</pre>
+</li>
+<li>Hier verwenden wir einen öffentlichen Codec (OGG) und einen kommerziellen Codec (MPEG-4)</li>
+<li>Eine Fallback Lösung über Adobe Flash ist ebenfalls integriert</li>
+</ul>
+</div>
+<div class="halfright">
+<p>
+<figure>
+<table width="100%" style="font-size: 10pt;">
+<thead>
+<tr>
+<th></th>
+<th><img src="icons/browser_ie.gif" /></th>
+<th><img src="icons/browser_ff.gif" /></th>
+<th><img src="icons/browser_o.gif" /></th>
+<th><img src="icons/browser_gc.gif" /></th>
+<th><img src="icons/browser_as.gif" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>OGG*</th>
+<td class="tdno">nein</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+<td class="tdno">nein</td>
+</tr>
+<tr>
+<th>AAC(*)</th>
+<td class="tdyes">ja</td>
+<td class="tdno">nein</td>
+<td class="tdno">nein</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+</tr>
+<tr>
+<th>MP3</th>
+<td class="tdyes">ja</td>
+<td class="tdno">nein</td>
+<td class="tdno">nein</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+</tr>
+<tr>
+<th>WAV</th>
+<td class="tdno">nein</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+</tr>
+</tbody>
+</table>
+<figcaption>Die Unterstützung der wichtigsten Audio-Codecs</figcaption></figure>
+</p><p>
+<figure>
+<table width="100%" style="font-size: 10pt;">
+<thead>
+<tr>
+<th></th>
+<th><img src="icons/browser_ie.gif" /></th>
+<th><img src="icons/browser_ff.gif" /></th>
+<th><img src="icons/browser_o.gif" /></th>
+<th><img src="icons/browser_gc.gif" /></th>
+<th><img src="icons/browser_as.gif" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>OGG*</th>
+<td class="tdno">nein</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+<td class="tdno">nein</td>
+</tr>
+<tr>
+<th>webM*</th>
+<td class="tdno">nein</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+<td class="tdno">nein</td>
+</tr>
+<tr>
+<th>MPEG-4</th>
+<td class="tdyes">ja</td>
+<td class="tdno">nein</td>
+<td class="tdno">nein</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+</tr>
+<tr>
+<th>H.264</th>
+<td class="tdyes">ja</td>
+<td class="tdno">nein</td>
+<td class="tdno">nein</td>
+<td class="tdyes">ja</td>
+<td class="tdyes">ja</td>
+</tr>
+</tbody>
+</table>
+<figcaption>Die Unterstützung der wichtigsten Video-Codecs</figcaption></figure>
+</p>
+<small><p>Mit * gekennzeichnete Formate sind <strong>frei erhältlich</strong>.</p><p>Beim Verwenden eines frei erhältlichen und eines kostenpflichten Codecs wird jeder Browser unterstützt.</p></small>
+</div>
+<aside>
+<a href="http://introducinghtml5.com/examples/ch04/ch4-full-fallback.html" target="_blank">Das Original Beispiel auf Seite zum Buch</a>
+<a href="http://blog.zencoder.com/2010/10/06/how-many-formats-do-i-need-for-html5-video/" target="_blank">Wieviele Formate sind notwendig?</a>
+<a href="http://webdesign.about.com/od/video/a/html5-video-formats.htm" target="_blank">Vergleich der einzelnen Codecs</a>
+<a href="http://www.scirra.com/blog/44/on-html5-audio-formats-aac-and-ogg" target="_blank">Über AAC und OGG</a>
+<a href="http://www.webmproject.org/about/faq/" target="_blank">Das webM-Projekt (FAQ)</a>
+</aside>
+</body>
+</html>

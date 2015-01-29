@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>WebWorker debuggen</h1>
+<div class="doubleleft">
+<ul>
+<li>Mit WebWorkern zielt man noch mehr in die Richtung <i>unobtrusive JavaScript</i></li>
+<li>Man möchte also vermeiden, dass JavaScript durch eine ständige Berechnung die Seite lahmlegt</li>
+<li>Neben dem DOM fehlt einem Worker auch der Zugriff auf die Konsole</li>
+<li>Dies erschwert das Debugging ungemein</li>
+<li>Über Haltepunkte und dergleichen ist Debugging dennoch möglich</li>
+<li>Es ist aber möglich <code>console.log()</code> über den <code>MessageChannel</code> zu simulieren<sup>1</sup></li>
+<li>Dies funktioniert in IE10, Opera, Chrome, Safari - jedoch (noch) nicht in Firefox</li>
+<li>Nach Einbinden der ConsoleWorker.js-Datei ist <code>console.log()</code> auch in der Konsole verfügbar</li>
+<li>Tipp zum Testen: zunächst ohne WebWorker versuchen und wenn der Code ok ist auf WebWorker umstellen</li>
+</ul>
+</div>
+<div class="halfright">
+<figure><img src="img/debugww.png" alt="Die Möglichkeiten mit dem Worker" /><figcaption>Trotz einiger Gemeinsamkeiten fehlen dem WebWorker viele wichtige Objekte wie z.B. der Zugriff auf die Konsole</figcaption></figure>
+</div>
+<aside>
+<a href="http://www.codeproject.com/KB/solution-center/HTML5-Web-Workers.aspx" target="_blank">Codeproject Artikel über WebWorker</a>
+<a href="http://www.davidflanagan.com/2011/01/consolelog-for.html" target="_blank"><sup>1</sup>Anleitung zur Verwendung der Konsole im Worker</a>
+<a href="http://www.w3.org/TR/webmessaging/#messagechannel" target="_blank">Mehr über den MessageChannel</a>
+<a href="http://ie.microsoft.com/testdrive/Graphics/WorkerFountains/Default.html" target="_blank">Das Fountain WebWorker Demo</a>
+<a href="https://github.com/davidflanagan/WorkerConsole" target="_blank">Code der WorkerConsole auf GitHub</a>
+<a href="http://msdn.microsoft.com/library/hh673546.asp" target="_blank">MSDN Developer Guide zu WebWorker</a>
+<a href="http://en.wikipedia.org/wiki/Unobtrusive_JavaScript" target="_blank">Unaufdringlicher JavaScript</a>
+</aside>
+</body>
+</html>

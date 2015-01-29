@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (5)</h1>
+<div class="left">
+JavaScript Code:
+<pre lang="javascript">
+var el = null;//Explizites NULL setzen
+$('#selection').change(function (e) {
+	var s = this;
+	if(!s.selectedIndex || el) return;
+	el = s.innerHTML;//Speichern Originalzustand
+	$('&lt;button/&gt;').text('Zurück').click(function(){
+		$(this).remove();//Nesting
+		$(s).html(el);
+		el = null;
+	}).appendTo($(s).parent());//anhängen
+	var val = parseInt(s.selectedIndex);
+	var values = [val * 1, val * 2, val * 3];
+	$(s).html('');//innerHTML reset
+	$.each(values, function(i,v) {//Nesting
+		$(s).append('&lt;option&gt;' + v + '&lt;/option&gt;');
+	});//Elemente hinzufügen
+});
+</pre>
+</div>
+<div class="right">
+HTML Code:
+<pre lang="html">
+&lt;!--Erste Auswahlliste mit JS-Ereignis--&gt;
+&lt;select  id=&quot;selection&quot;&gt;
+&lt;!--Option für NICHTS (---)--&gt;
+	&lt;option&gt;---&lt;/option&gt;
+	&lt;option&gt;1&lt;/option&gt;
+	&lt;option&gt;2&lt;/option&gt;
+	&lt;option&gt;3&lt;/option&gt;
+&lt;/select&gt;
+&lt;!--Was passiert ohne Script?!--&gt;
+&lt;noscript&gt;
+&lt;!--Geben 2. Auswahlliste--&gt;
+	&lt;select&gt;
+		&lt;option&gt;1&lt;/option&gt;
+		&lt;option&gt;2&lt;/option&gt;
+		&lt;option&gt;3&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/noscript&gt;
+</pre>
+</div>
+<div class="hide clear">
+Auswahl zum Testen:
+<select id="selection">
+<option>---</option><option>1</option><option>2</option><option>3</option>
+</select>
+<noscript>
+<select>
+<option>1</option><option>2</option><option>3</option>
+</select>
+</noscript>
+</div>
+<script src="scripts/loadjquery.js"></script>
+<script>
+$(function() {
+	var el = null;
+	$('#selection').change(function (e) {
+		var s = this;
+
+		if(!s.selectedIndex || el)
+			return;
+
+		el = s.innerHTML;
+
+		$('<button/>').text('Zurück').click(function() {
+			$(this).remove();
+			$(s).html(el);
+			el = null;
+		}).appendTo($(s).parent());
+
+		var val = parseInt(s.selectedIndex);
+		var values = [val * 1, val * 2, val * 3];
+
+		$(s).html('');
+		$.each(values, function(i,v) {
+			$(s).append('<option>' + v + '</option>');
+		});
+	});
+});
+</script>
+</body>
+</html>

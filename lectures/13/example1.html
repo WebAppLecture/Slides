@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (33)</h1>
+HTML vor dem Zugriff mit Benutzerdaten:
+<pre lang="html">
+&lt;img src=&quot;&quot; id=&quot;ex33-img&quot; /&gt;
+&lt;span id=&quot;ex33-txt&quot;&gt;&lt;/span&gt;
+&lt;iframe id=&quot;ex33-if&quot; src=&quot;&quot; frameborder=0&gt;&lt;/iframe&gt;
+</pre>
+HTML nach dem Zugriff mit Benutzerdaten
+<pre lang="html">
+&lt;img src=&quot;http://www.mysmilie.de/midi-smileys/boese/2/0040.gif&quot; onload=&quot;alert('Du wurdest gerade gehackt!');&quot; id=&quot;ex33-img&quot; /&gt;
+&lt;span id=&quot;ex33-txt&quot;&gt;&lt;script&gt;alert('Du wurdest gerade gehackt!');&lt;/script&gt;&lt;/span&gt;
+&lt;iframe id=&quot;ex33-if&quot; src=&quot;http://html5.florian-rappl.de/badiframe.html&quot; frameborder=0&gt;&lt;/iframe&gt;
+</pre>
+<div class="hide">
+<img src="" id="ex33-img" />
+<span id="ex33-txt"></span>
+<iframe id="ex33-if" src="" frameborder=0></iframe>
+<p>
+<button id="ex33-b1">Benutzerinhalt für das Bild laden</button>
+<button id="ex33-b2">Benutzerinhalt für den Text laden</button>
+<button id="ex33-b3">Benutzerinhalt für den iframe laden</button>
+</p>
+</div>
+<script>
+(function () {
+	document.getElementById('ex33-b1').onclick = function(event) {
+		var s = document.getElementById('ex33-img').outerHTML;
+		var index = s.indexOf('src=""') + 5;
+		s = s.substr(0, index) + 'http://www.mysmilie.de/midi-smileys/boese/2/0040.gif" onload="alert(\'Du wurdest gerade gehackt!\');' + s.substr(index);
+		document.getElementById('ex33-img').outerHTML = s;
+	};
+	
+	document.getElementById('ex33-b2').onclick = function(event) {
+		var s = document.createElement('script');
+		s.innerHTML = "alert('Du wurdest gerade gehackt!');";
+		document.getElementById('ex33-txt').appendChild(s);
+	};
+	
+	document.getElementById('ex33-b3').onclick = function(event) {
+		document.getElementById('ex33-if').src = 'http://html5.florian-rappl.de/badiframe.html';
+	};
+})();
+</script>
+</body>
+</html>

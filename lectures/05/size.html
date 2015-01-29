@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Die Größe festlegen</h1>
+<ul>
+<li>Das CSS Box-Model bestimmt die Größe von Elementen auf der Seite (Vorsicht bei IE&lt;6<sup>1</sup>)</li>
+<li>Wir können mit <code>min-width</code> bzw. <code>max-width</code> minimale bzw. maximale Größen einstellen</li>
+</ul>
+<div class="left">
+<figure><img src="img/css-box-model.png" alt="Veranschaulichung des Box-Models" /><figcaption>Die reale Größe eines Elements wird durch die Kombination mehrere Eigenschaften bestimmt</figcaption></figure>
+</div>
+<div class="right">
+<ul>
+<li><code>width</code> bzw. <code>height</code> stellen eine feste Größe ein</li>
+<li>Über <code>margin</code> kann man Abstand zu anderen Elementen einstellen - hier gibt es vier Wege:
+<pre lang="css">
+margin: X; /*Links, Rechts, Oben, Unten Abstand X z.B. 5px*/
+margin: X Y; /*Oben, Unten Abstand X und Links, Rechts Abstand Y*/
+margin: O R U L; /*Oben, Rechts, Unten, Links einzeln*/
+margin-top: 17px; /*Oder direkt*/
+</pre>
+</li>
+<li><code>border</code> setzt den Rahmen (Breite, Stil, Farbe)</li>
+<li><code>padding</code> setzt den inneren Abstand (Breite)</li>
+</ul>
+</div>
+<aside>
+<a href="http://www.w3schools.com/css/css_boxmodel.asp" target="_blank">W3School über das Box-Model</a>
+<a href="http://www.w3.org/TR/CSS2/box.html" target="_blank">W3C Artikel zum Box-Model</a>
+<a href="http://redmelon.net/tstme/box_model/" target="_blank">Interaktive Demonstration</a>
+<a href="http://reference.sitepoint.com/css/boxmodel" target="_blank">Referenz des Box-Models</a>
+<a href="http://en.wikipedia.org/wiki/Internet_Explorer_box_model_bug" target="_blank"><sup>1</sup> Der IE Box-Model Fehler</a>
+<a href="http://www.quirksmode.org/css/box.html" target="_blank">Am Box-Model rumschrauben</a>
+</aside>
+</body>
+</html>

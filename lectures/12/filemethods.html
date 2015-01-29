@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Methoden im Detail</h1>
+<ul>
+<li>Hat man die entsprechende(n) Datei(en) ausgewählt, kann man deren Inhalt auslesen</li>
+<li>Zunächst benötigt man dafür eine neue Instanz eines <code>FileReader</code>-Objektes</li>
+<li>Anschließend kann man folgenden Code verwenden:
+<pre lang="javascript">
+var currentfile = evt.target.files[i];//Eine Datei aus der Auswahl auswählen
+var reader = new FileReader();//Neue Instanz
+reader.onload = (function(file) { //Anonyme Methode erstellt eigentliche Methode
+	return function(e) {
+		//Zugriff auf die aktuelle Datei des Readers über 'file'
+		//Zugriff auf den Lesenvorgang über 'e.target.result'
+	};
+})(currentfile);//'currentfile' bezeichnet die Variable der aktuellen Datei
+</pre>
+</li>
+<li>Jetzt können wir das <code>reader</code>-Objekt verwenden um eine der folgenden Methoden auszuführen:
+<ul>
+<li><code>readAsBinaryString(file)</code> liest die Datei als Binärobjekt ein mit <code>int</code>-Werten zwischen 0 und 255</li>
+<li><code>readAsText(file, encoding)</code> liest die Datei als Text ein - <code>encoding</code> ist hierbei optional</li>
+<li><code>readAsDataURL(file)</code> wandelt den Inhalt der Datei in eine DataURL um</li>
+<li><code>readAsArrayBuffer(file)</code> liest die Datei in eine <code>ArrayBuffer</code> Instanz ein</li>
+</ul>
+</li>
+</ul>
+<aside>
+<a href="http://www.html5rocks.com/en/tutorials/file/dndfiles/" target="_blank">Lokale Dateien mit JavaScript einlesen</a>
+<a href="http://www.w3.org/TR/FileAPI/#filelist-section" target="_blank">W3C Spezifikation zur File API</a>
+<a href="http://www.khronos.org/registry/typedarray/specs/latest/" target="_blank">W3C Spezifikation des ArrayBuffer Elemens</a>
+</aside>
+</body>
+</html>

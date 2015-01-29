@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Charts mit SVG</h1>
+<ul>
+<li>SVG eignet sich ausgezeichnet um damit einfache (vielleicht sogar dynamische) Charts zu zeichnen</li>
+<li>Ein einfaches dynamisches Beispiel ist unten gezeigt (das Koordinatensystem ist statisch)</li>
+<li>Wichtig ist den Namensraum (<code>...w3.org/2000/svg</code>) zu beachten - SVG ist spezialisiert</li>
+</ul>
+<div class="left">
+Wichtiger HTML Code:
+<pre lang="html">
+&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;
+	&lt;line x1=&quot;10&quot; y1=&quot;10&quot; x2=&quot;10&quot; y2=&quot;90&quot; stroke=&quot;#444&quot; /&gt;
+	&lt;line x1=&quot;10&quot; y1=&quot;90&quot; x2=&quot;780&quot; y2=&quot;90&quot; stroke=&quot;#444&quot; /&gt;
+	&lt;polyline points=&quot;10,10 7,15 13,15&quot; fill=&quot;#444&quot; /&gt;
+	&lt;polyline points=&quot;780,90 775,87 775,93&quot; fill=&quot;#444&quot; /&gt;
+&lt;/svg&gt;
+</pre>
+</div>
+<div class="right">
+Wichtiger JavaScript Code:
+<pre lang="javascript">
+//Hinzufügen des Elements und setzen der Attribute
+var r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+document.getElementById('svgChartEx').appendChild(r);
+r.setAttribute('x', 10);
+r.setAttribute('y', 50);
+r.setAttribute('width', 100);
+r.setAttribute('height', 40);
+r.setAttribute('fill', '#F00');
+</pre>
+</div>
+<div class="hide clear">
+Name: <input type="text" id="testName" /> | Wert: <input type="range" min=0 max=100 id="testRange" /> | Farbe: <input type="color" id="testColor" /> | <button onclick="addTestValue();">Hinzufügen</button>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="100" id="svgChartEx">
+	<line x1="10" y1="10" x2="10" y2="90" stroke="#444" />
+	<line x1="10" y1="90" x2="790" y2="90" stroke="#444" />
+	<polyline points="10,10 7,15 13,15" fill="#444" />
+	<polyline points="790,90 785,87 785,93" fill="#444" />
+</svg>
+</div>
+<script>
+var testValues = [];
+
+function addTestValue() {
+	var name = document.getElementById('testName').value || '(Ohne Namen)';
+	var value = parseInt(document.getElementById('testRange').value);
+	var color = document.getElementById('testColor').value;
+	
+	if(isNaN(value))
+		value = 0;
+	
+	testValues.push({
+		id : 'svg-ex-chart-nr' + testValues.length,
+		name : name,
+		value : value,
+		color: color
+	});
+	
+	var r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+	r.id = 'rect-' + testValues[testValues.length - 1].id;
+	document.getElementById('svgChartEx').appendChild(r);
+	var t = document.createElementNS('http://www.w3.org/2000/svg','text');
+	var textNode = document.createTextNode(testValues[testValues.length - 1].name);
+	t.id = 'text-' + testValues[testValues.length - 1].id;
+	document.getElementById('svgChartEx').appendChild(t);
+	t.setAttribute('font-size', '12');
+	t.setAttribute('font-family', 'Verdana');
+	t.setAttribute('fill', '#FFF');
+	t.setAttribute('y', 85);
+	t.appendChild(textNode);
+		
+	for(var i in testValues) {
+		var elr = document.getElementById('rect-' + testValues[i].id);
+		var elt = document.getElementById('text-' + testValues[i].id);
+		var width = 390 / testValues.length;
+		var gap = (i * 1 + 1) * testValues.length * width / (testValues.length + 1) + i * width + 10;
+		var height = testValues[i].value * 76 / 100;
+		elr.setAttribute('x', gap);
+		elt.setAttribute('x', gap);
+		elr.setAttribute('y', 12 + 76 - height);
+		elr.setAttribute('width', width);
+		elr.setAttribute('height', height);
+		elr.setAttribute('fill', testValues[i].color);
+	}
+}
+</script>
+<aside>
+<a href="http://reference.sitepoint.com/javascript/Element/setAttribute" target="_blank">setAttribute Methode</a>
+<a href="http://www.w3.org/TR/SVG/text.html#TextElement" target="_blank">W3C zum SVG Textelement</a>
+<a href="http://bytes.com/topic/javascript/answers/893927-svg-text-manipulation-javascript" target="_blank">SVG Textmanipulation in JS</a>
+<a href="http://apike.ca/prog_svg_jsanim.html" target="_blank">SVG mit JavaScript</a>
+<a href="http://www.w3schools.com/svg/svg_examples.asp" target="_blank">W3Schools JavaScript Beispiele</a>
+</aside>
+</body>
+</html>

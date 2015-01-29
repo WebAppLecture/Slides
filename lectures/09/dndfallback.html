@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>DND Fallback</h1>
+<ul>
+<li>IE unterstützt erst ab IE 10 die aktuelle API (bisher: ältere), Opera frühestens ab Version 12 (bisher: keine)</li>
+<li>Die Frage ist also: Welche Möglichkeiten hat man neben der offiziellen API?</li>
+<li>Hier hilft uns wieder jQuery UI - wir können Elemente nun über JavaScript Drag- und Dropfähig machen</li>
+<li>Die Syntax ist dabei ziemlich einfach und straight-forward:
+<pre lang="javascript">
+$(function() {
+	$("#draggable").draggable();
+	$("#droppable").droppable({
+		hoverClass: 'dropOver',
+		accept: '#draggable',
+		//Event von ein Element (innerhalb der Toleranzen) reingezogen wurde
+		drop: function(event, ui) {
+			//this is das drpppable Element
+			//ui.draggable das draggable Element
+			$(this).text("Es wurde folgendes gedroppt: " + $(ui.draggable).text());
+		}
+	});
+});
+</pre>
+</li>
+<li>Mit <code>accept</code> stellt die akzeptierten Elemente ein, <code>hoverClass</code> legt eine CSS-Klasse für den Hovereffekt fest</li>
+</ul>
+<aside>
+<a href="http://jqueryui.com/demos/draggable/" target="_blank">jQuery UI Demo zu Draggable</a>
+<a href="http://jqueryui.com/demos/droppable/" target="_blank">jQuery UI Demo zu Droppable</a>
+<a href="http://www.1stwebdesigner.com/freebies/drag-drop-jquery-plugins/" target="_blank">30 coole Demos zu jQuery und DnD</a>
+<a href="http://www.elated.com/articles/drag-and-drop-with-jquery-your-essential-guide/" target="_blank">Ausführliches Tutorial zu jQuery UI DnD</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>View engines</h1>
+<ul>
+<li>Bevor man tiefer in serverseitige Webseiten mit JavaScript einsteigt sollte man sich für eine view engine entscheiden</li>
+<li>Eine view engine abstrahiert die Rückgabe (Text, i.d.R. HTML), so dass man keine seltsamen Strings mehr bauen muss</li>
+<li>Die meisten view engines basieren darauf, dass man HTML schreibt, welches Platzhalter enthält, die gefüllt werden</li>
+<li>Manche Systeme abstrahieren sogar noch diese Stufe, so dass man sogar kein HTML mehr schreiben muss</li>
+<li>Als Beispiel kann man <em>Jade</em> anführen:
+<pre lang="html">
+doctype 5
+html(lang="en")
+  head
+    title= pageTitle
+  body
+    h1 Jade - node template engine
+    #container.col
+      if youAreUsingJade
+        p You are amazing
+      else
+        p Get on it!
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://stackoverflow.com/questions/1787716/is-there-a-template-engine-for-node-js" target="_blank">Verschiedene view engines für node.js</a>
+<a href="http://jade-lang.com/" target="_blank">Die Jade view engine</a>
+<a href="http://stackoverflow.com/questions/1451319/asp-net-mvc-view-engine-comparison" target="_blank">Stackoverflow: View engines für ASP.NET MVC</a>
+<a href="http://channel9.msdn.com/coding4fun/articles/Developer-Review-Four-ASPNET-MVC-View-Engines" target="_blank">Channel9 über view engines</a>
+</aside>
+</body>
+</html>

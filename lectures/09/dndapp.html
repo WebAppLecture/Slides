@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Raus aus dem Browser</h1>
+<ul>
+<li>Es ist möglich Interaktionen zwischen dem Browser und anderen Applikationen über die API zu beschreiben</li>
+<li>Das Objekt <code>dataTransfer</code>, das wir mit einem DnD-Ereignis erhalten enthält Methoden:
+<ul>
+<li><code>getData(mime)</code> mit einem Mime-Type z.B. <code>'text/plain'</code></li>
+<li><code>setData(mime, data)</code> mit einem zusätzlichen String von Daten</li>
+</ul></li>
+<li>Ein Problem ist, dass man sich schon bei <code>ondragstart</code> entscheiden muss, was man für Daten setzt</li>
+<li>Dies bedeutet, dass man nicht auf erst beim Ablegen (Worauf wird abgelegt?) entscheiden kann</li>
+<li>Alles in allem hat man am Ende sieben Ereignisse mit <code>ondragend</code>, <code>ondrag</code> und <code>ondragleave</code></li>
+<li>Neben den erwähnten Elementen kann in HTML5 jedes Element gezogen werden</li>
+<li>Hierzu benötigt man das Attribut <code>draggable</code> (bzw. <code>draggable="true"</code>)</li>
+<li>Bei älteren Safaris wird daneben noch eine CSS-Regel benötigt:
+<pre lang="css">
+[draggable] { -webkit-user-drag: element; }
+</pre>
+</li>
+<li>Ein großes Problem ist leider die Cross-Browser-Unterstützung...</li>
+</ul>
+<aside>
+<a href="http://introducinghtml5.com/examples/ch08/" target="_blank">Beispiele von IntroducingHTML5</a>
+<a href="http://html5doctor.com/native-drag-and-drop/" target="_blank">Remy Sharp über die DnD API</a>
+<a href="http://www.quirksmode.org/blog/archives/2009/09/the_html5_drag.html" target="_blank">Quirksmode über das DnD Desaster</a>
+<a href="http://www.thebuzzmedia.com/html5-drag-and-drop-and-file-api-tutorial/" target="_blank">DnD File Upload Tutorial</a>
+<a href="http://www.html5laboratory.com/drag-and-drop.php" target="_blank">Ausführlicher Artikel über DnD</a>
+<a href="https://developer.mozilla.org/en/DragDrop/Drag_and_Drop" target="_blank">MDN zur Drag and Drop API</a>
+</aside>
+</body>
+</html>

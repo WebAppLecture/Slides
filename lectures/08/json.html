@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>JavaScript Object Notation</h1>
+<ul>
+<li>Wir haben bereits die grundlegende (literale) Schreibweise für ein neues Objekt kennengelernt:
+<pre lang="javascript">
+var newObject = {};
+newObject.newProperty = 2;
+newObject.another = 'Hallo';
+newObject.newFunction = function() {};
+</pre>
+Wir können dies aber auch direkt in der Deklaration schreiben und zwar über
+<pre lang="javascript">
+var newObject = {
+	newProperty : 2,
+	another : 'Hallo',
+	newFunction : function() {}
+};
+</pre>
+Dies nennt man die JavaScript Object Notation oder kurz <strong>JSON</strong></li>
+<li>Um ein JavaScript Objekt in Text umzwandeln kann man die Methode <code>JSON.stringify()</code> verwenden, z.B.
+<pre lang="javascript">
+var newObject = { text : 'Hallo', title : 'Dies ist ein Beispiel', count : 2};
+var stringFromObject = JSON.stringify(newObject); //String aus Objekt erstellen
+console.log(newObject, stringFromObject); //Loggen Anfangswert und Resultat in der Konsole mit
+</pre>
+Umgekehrt kann man über <code>JSON.parse()</code> einen String in ein JavaScript-Objekt umwandeln.</li>
+</ul>
+<aside>
+<a href="http://msdn.microsoft.com/en-us/library/windows/apps/cc836466(v=VS.85).aspx" target="_blank">Die parse-Methode bei MSDN</a>
+<a href="http://msdn.microsoft.com/en-us/library/windows/apps/cc836459(v=vs.85).aspx" target="_blank">Die stringify-Methode bei MSDN</a>
+<a href="http://en.wikipedia.org/wiki/JSON" target="_blank">Wikipedia Artikel zu JSON</a>
+<a href="http://www.json.org/" target="_blank">Offizielle Seite mit jeder Menge Beispiele und Erklärungen</a>
+</aside>
+</body>
+</html>

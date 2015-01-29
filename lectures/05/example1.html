@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (9)</h1>
+<pre lang="javascript">
+for(var i = 0; i &lt; 500; i++) //Sterne generieren
+	stars.push({x : Math.floor(Math.random() * canvas.width * 2), y : Math.floor(Math.random() * canvas.height)});
+ballImg.onload = function() { //Erstellen ein &lt;img&gt;-Element namens ballImg
+	var ball = document.createElement('canvas'); ball.width = 64; ball.height = 64;
+	b = ball.getContext('2d'); b.translate(32, 32); //Wollen immer genau die Mitte nehmen
+	setInterval(draw, 30); //Alle 30 ms neu zeichnen über draw Methode
+ };
+ballImg.src = 'img/ball.png'; //schönes Ball Bild
+function draw() {
+	c.clearRect(0, 0, c.canvas.width, c.canvas.height);	c.save(); //löschen und Zustand speichern
+	c.translate(-x / 2, 0);
+	//Sterne zeichnen - einfach durch Array gehen und an stars[i].x und stars[i].y zeichnen
+	b.rotate(Math.PI / 180 * 5 * dx / Math.abs(dx)); //Den Ball rotieren lassen - in dx Richtung
+	b.drawImage(ballImg, 0, 0, ballImg.width, ballImg.height, -32, -32, 64, 64);//Ball zeichnen
+	c.drawImage(b.canvas, x, y);//Zeichnung übertragen
+	//Hier steht Ballphysik (x + dx, y + dy, mit PBC Check!) und restore
+}
+</pre>
+<div class="hide">
+<canvas width="900" height="100" id="examplecanvas" style="border: 1px solid #CCC; background-color: #EEE;"></canvas>
+</div>
+<script>
+setTimeout(function() {
+	var c = document.getElementById('examplecanvas').getContext('2d'), b, cInt, stars = [], loc = location.hash, x = 0, y = 0, dx = 6, dy = 2;
+	c.fillStyle = '#F00';
+	
+	for(var i = 0; i < 500; i++) {
+		stars.push({
+			x : Math.floor(Math.random() * c.canvas.width * 2),
+			y : Math.floor(Math.random() * c.canvas.height) }
+		);
+	}
+	
+	var ballImg = document.createElement('img');
+	
+	ballImg.onload = function() {
+		var ball = document.createElement('canvas');
+		ball.width = 64;
+		ball.height = 64;
+		b = ball.getContext('2d');
+		b.translate(32, 32);
+		cInt = setInterval(draw, 30);
+	};
+
+	ballImg.src = 'img/ball.png';
+	
+	function draw() {
+		if(location.hash != loc)
+			clearInterval(cInt);
+			
+		c.clearRect(0, 0, c.canvas.width, c.canvas.height);
+		c.save();		
+		c.translate(-x / 2, 0);
+		
+		for(var i = 0; i < stars.length; i++) {
+			if(stars[i].x > x / 2 && stars[i].x < x / 2 + c.canvas.width)
+				c.fillRect(stars[i].x, stars[i].y, 2, 2);
+		}
+		
+		b.rotate(Math.PI / 180 * 5 * dx / Math.abs(dx));
+		b.drawImage(ballImg, 0, 0, ballImg.width, ballImg.height, -32, -32, 64, 64);
+		c.drawImage(b.canvas, x, y);
+		
+		if(x + dx > 2 * (c.canvas.width - 64) || x + dx < 0)
+			dx *= -1;
+			
+		if(y + dy > c.canvas.height - 64 || y + dy < 0)
+			dy *= -1;
+			
+		x += dx;
+		y += dy;
+		c.restore();
+	}
+}, 100);
+</script>
+</body>
+</html>

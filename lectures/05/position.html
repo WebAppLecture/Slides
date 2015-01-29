@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Elemente positionieren</h1>
+<div class="doubleleft">
+<ul>
+<li>Die Eigenschaft <code>position</code> legt die Positionierung von Elementen fest:
+<ul>
+<li>Bei <code>position: static</code> bestimmt der Browser die Position</li>
+<li>*Bei <code>position: fixed</code> bestimmt man die Position relativ im Fenster</li>
+<li>*Bei <code>position: relative</code> ändert man die Stelle relativ zu der vom Browser festgelegten static-Position</li>
+<li>*Bei <code>position: absolute</code> legt man die Position relativ zum ersten Oberelement mit <code>position: relative</code> fest</li>
+</ul>
+</li>
+<li>Die Reihenfolge bei überlappenden Elementen bestimmt <code>z-index</code></li>
+<li>Bei Elementen mit * wird über die Eigenschaften <code>left</code> oder <code>right</code> und <code>top</code> oder <code>bottom</code> die X und Y Koordinate festgelegt</li>
+<li>Elemente mit fester Größe (<code>width</code>, <code>height</code>) bestimmen über die Eigenschaft <code>overflow</code> was mit zu viel Inhalt geschieht</li>
+<li>Mögliche Werte sind <code>hidden</code>, <code>scroll</code> und <code>visible</code> - Standard ist <code>auto</code></li>
+</ul>
+</div>
+<div class="halfright">
+<figure><img src="img/css-position.png" alt="Elemente positionieren" /><figcaption>Verdeutlichung der einzelnen Positionierungseigenschaften</figcaption></figure>
+</div>
+<aside>
+<a href="http://www.w3schools.com/css/css_positioning.asp" target="_blank">Positionieren von Elementen</a>
+<a href="http://www.w3schools.com/css/css_dimension.asp" target="_blank">Dimensionen bei W3Schools</a>
+<a href="http://www.w3schools.com/css/css_align.asp" target="_blank">Elemente ausrichten bei W3School</a>
+<a href="http://www.barelyfitz.com/screencast/html-training/css/positioning/" target="_blank">Positionieren in 10 Schritten</a>
+<a href="http://www.html.net/tutorials/css/lesson14.php" target="_blank">Tutorial zum Positionieren</a>
+</aside>
+</body>
+</html>

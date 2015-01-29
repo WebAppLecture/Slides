@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Professioneller Druck</h1>
+<ul>
+<li>Mit den <code>@page</code>-Anweisung kann man wie bei den Media-Queries spezielle Regeln definieren</li>
+<li>Wir auch können zwischen ungeraden (<i>left</i>) und geraden (<i>right</i>) Seiten unterscheiden, z.B.
+<pre lang="css">
+@page { /* Allgemeine Regeln für Druckseiten */ }
+@page : left { /* Spezielle Regeln für ungerade Seiten */ }
+@page : right { /* Regeln für gerade Seiten */ }
+@page : first { /* Regeln für die erste Seite */ }
+</pre>
+</li>
+<li>Ein spezielles Design reicht oft nicht aus um Webseiten zum Drucken zu optimieren, so müssen wir den Content auch noch beachten, z.B. stellt sich als Frage was man mit Links macht</li>
+<li>Eine Möglichkeit besteht darin die Referenzen auf die Links verweisen anzuzeigen, z.B. über
+<pre lang="css">
+a:after { content: '(' attr(href) ')'; /* ... */ } /* Betrifft alle Links */
+a[href^="http://"]:after { /* ... */ } /* nur für externe Links mit http */
+a[href^="https://"]:after { /* ... */ } /* nur für externe Links mit https */
+a[href^="#"] { display: none; } /* Verhindert die Anzeige interner Links */
+</pre>
+Die letzte Anweisung stellt eine spezielle Behandlung von internen (Hash) Links dar
+</li>
+<li>Man sollte außerdem immer auf weitere Regeln wie z.B. <code>page-break-before: always</code> achten - hiermit kann man sehr leicht kontrollieren was zusammen bleiben soll</li>
+</ul>
+<aside>
+<a href="http://coding.smashingmagazine.com/2011/11/24/how-to-set-up-a-print-style-sheet/" target="_blank">Artikel im Smashing Magazine</a>
+<a href="http://aktuell.de.selfhtml.org/artikel/css/drucklayout/" target="_blank">SelfHTML zu diesem Thema</a>
+<a href="http://www.alistapart.com/articles/goingtoprint/" target="_blank">Eric Meyer über Printstylesheets</a>
+</aside>
+</body>
+</html>

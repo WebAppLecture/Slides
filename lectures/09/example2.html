@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+<style>
+.ex21-nocookie { border: 1px solid #F00; }
+</style>
+</head>
+<body><h1>Beispiel (21)</h1>
+<pre lang="javascript">
+function createCookie(name, value, days) { /* Das Cookie erstellen */
+	var expires = ''; //Wichtig ist hier auf das Ablaufdatum zu achten
+	if (days) {	//Bei days === 0 haben wir eine Session!
+		var date = new Date();
+		date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000)); //d * (h/d) * (min/h) * (s/min) * (ms/s)
+		expires = '; expires=' + date.toGMTString(); // So wird das Ablaufdatum gesetzt
+	}
+	document.cookie = name + '=' + value + expires + '; path=/'; //Hier wird alles zusammengebaut
+}
+function readCookie(name) { /* Analog zur Session! */ }
+function eraseCookie(name) { createCookie(name, '', -1); } //Löschen mit negativem Ablaufdatum
+document.getElementById('ex21-name').onchange = function() { //Was passiert beim Wechseln der Selektbox?
+	document.getElementById('ex21-value').value = readCookie(this.value);//Auslesen mit Wert der Box
+};
+document.getElementById('ex21-save').onclick = function() {
+	createCookie(document.getElementById('ex21-name').value, document.getElementById('ex21-value').value, 7);
+	document.getElementById('ex21-name').onchange(); //Wechseln (simulieren) zur Wert-anzeige
+};
+document.getElementById('ex21-erase').onclick = function() {
+	eraseCookie(document.getElementById('ex21-name').value); //Aktuell ausgewählten Namen löschen
+	document.getElementById('ex21-name').onchange();//Wechseln (simulieren) zur Wert-anzeige
+};
+</pre>
+<div class="hide">
+<select id="ex21-name"><option>Cookie auswählen</option><option value="HTML5CookieOne">Cookie-1</option><option value="HTML5CookieTwo">Cookie-2</option><option value="HTML5CookieThree">Cookie-3</option><option value="HTML5CookieFour">Cookie-4</option><option value="HTML5CookieFive">Cookie-5</option></select>
+<input id="ex21-value" placeholder="Wert eingeben" /><button type="button" id="ex21-save">Speichern</button><button type="button" id="ex21-erase">Löschen</button>
+</div>
+<script>
+(function() {
+	function createCookie(name, value, days) {
+		var expires = '';
+		
+		if (days) {
+			var date = new Date();
+			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+			expires = '; expires=' + date.toGMTString();
+		}
+			
+		document.cookie = name + '=' + value + expires + '; path=/';
+	}
+
+	function readCookie(name) {
+		var nameEQ = name + '=';
+		var ca = document.cookie.split(';');
+		
+		for(var i = 0; i < ca.length; i++) {
+			var c = ca[i];
+			
+			while (c.charAt(0) == ' ')
+				c = c.substring(1, c.length);
+				
+			if (c.indexOf(nameEQ) == 0)
+				return c.substring(nameEQ.length, c.length);
+		}
+	}
+
+	function eraseCookie(name) {
+		createCookie(name, '', -1);
+	}
+	
+	document.getElementById('ex21-name').onchange = function() {
+		var dis = 'disabled';
+		document.getElementById('ex21-value').className = '';
+		
+		if(this.selectedIndex) {
+			dis = '';
+			var content = readCookie(this.value);
+			
+			if(!content) {
+				document.getElementById('ex21-value').className = 'ex21-nocookie';
+				content = '';
+			}
+				
+			document.getElementById('ex21-value').value = content;
+		}
+			
+		document.getElementById('ex21-save').disabled = dis;
+		document.getElementById('ex21-erase').disabled = dis;
+	};
+	
+	document.getElementById('ex21-save').onclick = function() {
+		createCookie(document.getElementById('ex21-name').value, document.getElementById('ex21-value').value, 7);
+		document.getElementById('ex21-name').onchange();
+	};
+	
+	document.getElementById('ex21-erase').onclick = function() {
+		eraseCookie(document.getElementById('ex21-name').value);
+		document.getElementById('ex21-name').onchange();
+	};
+
+	document.getElementById('ex21-name').onchange();
+})();
+</script>
+</body>
+</html>

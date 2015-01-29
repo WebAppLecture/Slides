@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>An Designmuster halten</h1>
+<ul>
+<li>Damit andere Leute auch in den Genuss der Plugins kommen können oder um die eigenen Plugins effektiver zu schreiben sollte man sich an einige Regeln bzw. Vorgehensweisen halten</li>
+<li>Ein guter Start für jedes Plugin sieht folgendermaßen aus:
+<pre lang="javascript">
+//Der Strichpunkt dient zum sicheren Abschließen von vorherigen Code
+;(function($, undefined) {
+	var defaults = {  
+		/* Standardoptionen festlegen */
+	};
+	
+	$.fn.myPlugin = function(options) {
+		//Extend verwenden um nicht gesetzte Optionen auszufüllen
+		var options = $.extend(defaults, options);
+		
+		return this.each(function () { //Durch alle Elemente durchgehen und die Veränderung durchführen
+			/* Was mit $(this) machen -- unser Plugin eben! */
+		});
+	};
+})(jQuery);//da wir nur 1 Argument übergeben aber 2 erwarten wird undefined undefined sein ;-)
+</pre>
+</li>
+<li>Man sollte private Variablen immer privat halten und am Besen eigene Namensräume verwenden</li>
+<li>Es gibt noch mehr Möglichkeiten (Events, Erweiterung bestehender Methoden, ...)</li>
+</ul>
+<aside>
+<a href="http://coding.smashingmagazine.com/2011/10/11/essential-jquery-plugin-patterns/" target="_blank">Regeln für jQuery Plugins</a>
+<a href="http://milan.adamovsky.com/2010/09/jquery-plugin-pattern-20.html" target="_blank">jQuery Plugin Pattern von Adam Novsky</a>
+<a href="http://scriptble.com/2011/02/expanding-the-jquery-plugin-development-pattern/" target="_blank">Ein einfaches Vorgehensmuster</a>
+<a href="http://www.jqueryplugins.com/" target="_blank">jQuery Plugins Seite mit jeder Menge Tutorials</a>
+</aside>
+</body>
+</html>

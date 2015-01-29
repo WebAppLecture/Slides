@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<!--brauchen das Stylesheet für jQuery UI (Standard Theme)-->
+<link rel="stylesheet" href="jquery-ui.css" />
+</head>
+<body>
+<!--läd die jQuery Funktionalität-->
+<script src="jquery.min.js"></script>
+<!--läd die jQuery UI Funktionalität-->
+<script src="jquery.ui.min.js"></script>
+<script>
+$(document).ready(function() {
+	document.getElementById('ex15-date').value = new Date().toISOString().substr(0,10);
+	
+	if(document.getElementById('ex15-range').type == 'text') {
+		$('<div id="ex15-range"></div>').replaceAll('#ex15-range').width(156).height(16).css({ 'display' : 'inline-block', 'margin' : '0 10px'}).slider({
+			slide: function(event, ui) { ex15shownumber(ui.value); }
+		});
+	} else
+		$('#ex15-range').change(function() { ex15shownumber(this.value); } );
+	
+	if(document.getElementById('ex15-date').type == 'text')
+		$('#ex15-date').datepicker({ dateFormat: 'yy-mm-dd', defaultDate: new Date() });
+});
+
+function ex15shownumber(value) {
+	$('#ex15-shownumber').text(value);
+}
+</script>
+<p>Wert: <input type="range" id="ex15-range" value="0" /><span id="ex15-shownumber">0</span></p>
+<p>Datum: <input type="date" id="ex15-date" /></p>
+</body>
+</html>

@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>JavaScript am Server</h1>
+<ul>
+<li>Mit dem <em>http</em> Modul kann man einen Webserver starten</li>
+<li>Als einfachstes Beispiel kann man <i>Hallo Welt</i> bei Anfragen als Text zurückgeben:
+<pre lang="javascript">
+var http = require('http');
+http.createServer(
+  function (request, response) {
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.end('Hallo Welt\n');
+  }
+).listen(8000);
+</pre>
+</li>
+<li>Natürlich kann man noch mehr machen (Parameter auslesen, dynamische Rückgabe, ...)</li>
+<li>Analog kann man natürlich auch Anfragen senden, z.B. folgender <i>GET</i> Request
+<pre lang="javascript">
+var http = require('http');
+http.get("http://www.google.com/index.html", function(res) {
+  console.log("Got response: " + res.statusCode);
+}).on('error', function(e) {
+  console.log("Got error: " + e.message);
+});
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://nodejs.org/api/http.html" target="_blank">Hilfe zum HTTP Modul</a>
+<a href="http://stackoverflow.com/questions/6084360/node-js-as-a-simple-web-server" target="_blank">Stackoverflow: Webserver mit node.js</a>
+</aside>
+</body>
+</html>

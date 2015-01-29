@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>jQuery Feature Detection</h1>
+<div class="right">
+<figure><img src="img/featuredetection.png" alt="Ablauf der Feature Erkennung" /><figcaption>Im Gegensatz zur Browserkennung (links) hat die Feature Erkennung z.B. den Vorteil, dass Features unabhängig voneinander betrachtet werden</figcaption></figure>
+</div>
+<div class="left">
+<ul>
+<li>Featureerkennung ist der einfachen Browsererkennung immer vorzuziehen</li>
+<li>Hiermit wird Browser-Diskriminierung verhindert und Kundenfreundlich gearbeitet</li>
+<li>Feature-Erkennung kann man z.B. mit Modernizr<sup>1</sup> oder anderen Bibliotheken durchführen</li>
+<li>Wenn jQuery bereits eingebunden ist, so kann man jQuery für einfache Erkennungen verwenden</li>
+<li>Alle hierzu notwendigen Eigenschaften befinden sich in <code>jQuery.support</code>, z.B.
+<pre lang="javascript">
+if (jQuery.support.boxModel) { ...}
+if (jQuery.support.cssFloat) { ... }
+if (jQuery.support.opacity) { ... }
+if (jQuery.support.scriptEval) { ... }
+if (jQuery.support.hrefNormalized) { ... }
+</pre>
+</li>
+</ul>
+</div>
+<aside>
+<a href="http://www.modernizr.com/" target="_blank"><sup>1</sup> Feature Detection und viele Möglichkeiten</a>
+<a href="http://msdn.microsoft.com/en-us/magazine/hh475813.aspx" target="_blank">MSDN Artikel zur Feature Detection</a>
+<a href="http://api.jquery.com/jQuery.browser/" target="_blank">jQuery Browsererkennung</a>
+<a href="http://api.jquery.com/jQuery.support/" target="_blank">jQuery Featureerkennung</a>
+<a href="http://stackoverflow.com/questions/1294586/browser-detection-versus-feature-detection" target="_blank">StackOverflow zur Feature Detektion</a>
+</aside>
+</body>
+</html>

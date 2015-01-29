@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Interaktion perfektionieren</h1>
+<div class="halfleft">
+<figure><img src="img/interaction.png" alt="Interaktionsschema" /><figcaption>Beispielhafte Kommunikation</figcaption></figure>
+</div>
+<div class="doubleright">
+<ul>
+<li>Um eine anspruchsvolle WebApplication zu erstellen muss die Interaktion zwischen Server und Client reibungslos und ohne Fehler ablaufen</li>
+<li>Hierbei ist nicht nur die Kommunikation zwischen Client und Webserver, sondern auch die Kommunikation der einzelnen Dienste auf dem Server (Webserver zu Datenbankserver etc.) essentiell</li>
+<li>Je schneller die Kommunikation ablaufen kann desto mehr Anfragen können pro Sekunde beantwortet werden</li>
+</ul>
+</div>
+<div class="clear">
+<ul>
+<li>Am Client kann die Kommunikation durch AJAX, WebSockets, JSONP uvm. aufgebohrt werden</li>
+<li>Um die Seite entsprechend Nutzerfreundlich zu gestalten sollten Animationen nur sinnvoll z.B. zum Zeigen von neuen Inhalt oder zum Darstellen von Möglichkeiten eingesetzt werden</li>
+<li>Häufig gilt hier: Weniger ist mehr! Eine schlecht platzierte Animation macht mehr Schaden als keine</li>
+<li>Mögliche Interaktionen sollten entsprechend von statischen Inhalt abgetrennt werden - daher ist es nicht sinnvoll Links wie normalen Text zu formatieren</li>
+<li>Auch für Ajax-Get Requests sollten die URLs angepasst (und später ausgelesen) werden - und zwar über den Hash in <code>location.hash</code> (z.B. <code>#wert</code>) und das Ereignis <code>onhashchanged</code></li>
+</ul>
+</div>
+<aside>
+<a href="http://infomotions.com/musings/waves/clientservercomputing.html" target="_blank">Das Client/Server Modell</a>
+<a href="http://penguin.dcs.bbk.ac.uk/academic/networks/application-layer/client-server/index.php" target="_blank">Allgemeine Client/Server Interaktion</a>
+<a href="http://en.wikipedia.org/wiki/Client–server_model" target="_blank">Wikipedia Artikel zum Client/Server Modell</a>
+<a href="http://beej.us/guide/bgnet/output/html/multipage/clientserver.html" target="_blank">Einfache C++ Client/Server Beispiele</a>
+<a href="http://www.netmagazine.com/features/perfect-web-design-app-and-why-it-doesn-t-exist" target="_blank">The perfect web design app and why it doesn’t exist</a>
+<a href="http://johanbrook.com/minimalism/anatomy-perfect-web-site/" target="_blank">The Anatomy of a Perfect Web Site</a>
+<a href="http://www.hongkiat.com/blog/importance-of-web-interactivity-tips-and-examples/" target="_blank">Importance of Web Interactivity</a>
+</aside>
+</body>
+</html>

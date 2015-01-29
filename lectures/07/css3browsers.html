@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>CSS3 für ältere Browser</h1>
+<ul>
+<li>Wir haben durch die Präfixe schon Probleme mit euen Browsern: können CSS3-Möglichkeiten überhaupt in ältere Browser eingebaut werden?</li>
+<li>Im Prinzip sollte man Webseiten je nach Projekt so aufbauen, dass diese auch ohne CSS3 funktioniert</li>
+<li>Ein möglicher Weg besteht darin, die notwendigen Features zu erkennen und einen entsprechenden Fallback einzubauen</li>
+<li>Ein anderer Weg besteht darin, einige CSS Eigenschaften mehrfach zu benennen</li>
+<li>Beispiel: Wir verwenden einen CSS3 Gradienten um einen Farbverlauf im Hintergrund zu haben, also
+<pre lang="css">
+body { /*Selektor um das body Element auszuwählen*/
+	background-image: url(gradient.png) repeat-x; /*Fallback für ältere Browser*/
+	background-image: linear-gradient(/*Farbverlauf*/); /*Für moderne Browser*/ }
+</pre>
+weshalb die erste Eigenschaft durch die zweite auf modernen Browsern überschrieben wird</li>
+<li>Eine weitere Möglichkeit bietet CSS PIE für den IE - hier werden sog. <code>filter</code> ausgenutzt</li>
+<li>Eine Beispiel für einen Filter stellt z.B. <code>rgba()</code> auf älteren IEs dar:
+<pre lang="css">
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=#7BFFFFFF, endColorstr=#7BFFFFFF );
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://coding.smashingmagazine.com/2011/05/03/using-css3-older-browsers-and-common-considerations/" target="_blank">Artikel von Smashing Magazine</a>
+<a href="http://selectivizr.com/" target="_blank">CSS3 Attribute in IE6-8</a>
+<a href="http://www.modernizr.com/" target="_blank">Feature Detection und viele Möglichkeiten</a>
+<a href="http://css3pie.com/" target="_blank">Farbverlauf, Runde Ecken und Schatten für den IE</a>
+</aside>
+</body>
+</html>

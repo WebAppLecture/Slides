@@ -1,0 +1,431 @@
+﻿@media only screen and (max-device-width: 900px) {
+/*Diese Zeile wird benötigt damit die neuen Elemente genau wie divs als Blöcke dargestellt werden */
+article, aside, dialog, figure, footer, header, hgroup, nav, section { display: block; }
+
+/*Die Seite soll den ganzen Platz einnehmen*/
+html, body
+{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+body
+{
+	position: relative;
+	background: #FFF;
+	color: #111;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+	padding-top: 40px;
+}
+
+/*Explizites Stylen des Markierungstags*/
+mark
+{
+	background-color: #FF3;
+}
+
+/*Explizites Stylen des Hervorhebungstags*/
+em
+{
+	font-family: "Courier New", Courier, monospace;
+	font-style: normal;
+	color: #F00;
+}
+
+/*Stylen des Link Tags*/
+a 
+{
+	text-decoration: underline;
+	color: #444;
+	padding-left: 12px;
+	background: url('../icons/link.png') no-repeat left center;
+}
+
+/*Und wir stylen unsere Links anders*/
+#main-toc a
+{
+	display: block;
+	margin: 3px 10px 3px 0;
+	cursor: pointer;
+	padding-left: 16px;
+	background: url('../icons/right.gif') no-repeat left center;
+	font-size: 9pt;
+}
+
+div.hide { max-width: 100%; }
+ 
+nav#helpers
+{
+	background-color: #222;
+	height: 32px;
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+/*Stylen der Buttons in der nav-Zeile*/
+nav#helpers button
+{ 
+	background-color: transparent;
+	border: none medium currentColor;
+	padding-top: 4px;
+	height: 32px;
+	opacity: 0.8;/*Buttons haben mehr Deckkraft*/
+}
+
+/*Sollen den Button auch disablen können - dann soll er sich aber auch nicht mehr verändern beim Drüberfahren*/
+nav#helpers button.disabled
+{
+	opacity: 0.3;
+	background-color: transparent;
+}
+
+/*Styling für den "Vorherige" Button*/
+#nav-prev 
+{ 
+	margin-right: 3px;
+}
+
+/*Styling für den "Nächste" Button*/
+#nav-next 
+{ 
+	margin-left: 3px;
+	margin-right: 3px;
+}
+
+/*Styling für die TextBox zur Seitenanzeige und Eingabe*/
+#nav-page
+{
+	width: 30px;
+	height: 32px;
+	text-align: center;
+	margin: 0;
+	background: #222;
+	vertical-align:top;
+	font-weight: bold;
+	color: #EEE;
+	padding-bottom: 3px;
+	border: 0;
+	padding: 0;
+}
+
+#nav-open, #nav-help, #nav-print
+{
+	display: none;
+}
+
+/*Styling für das Such-Element (div)*/
+#search
+{
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 40px;
+	background: #000;
+	opacity: 0.7;
+}
+
+/*Styling für die Textbox in der Suche*/
+#search > input
+{
+	-webkit-appearance: none;/*Einstellung für Safari*/
+	display: block;/*Soll als Block dargestellt werden*/
+	position: absolute;/*Und natürlich absolut*/
+	top: 8px;
+	left: 50%;
+	width: 280px;
+	margin-left: -157px;
+	height: 22px;
+	background: #FFF;/*Weißer Hintergrund*/
+	border: 0;
+	padding: 2px 0;
+	border-radius: 7px 0 0 7px;/*Nur links abgerundet*/
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;/*Wg. Webkit-Std. notwendig: http://www.w3.org/TR/css3-ui/#box-sizing*/
+}
+
+/*Styling für den button*/
+#search > button
+{
+	display: block;/*Analog und straight-forward*/
+	position: absolute;
+	left: 50%;
+	margin-left: 123px;
+	top: 8px;
+	height: 24px;
+	width: 32px;
+	background: #CCC url('../icons/search.png') no-repeat center center;
+	border: 0;
+	padding: 1px;
+	border-radius: 0 7px 7px 0;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
+}
+
+/*Suchergebnisse*/
+#searchresults
+{
+	position: absolute;
+	display: block;
+	left: 25px;
+	width: 100%;
+	top: 55px;
+	margin: 0;
+	padding: 0;
+}
+
+/*Styling für die Auflistung*/
+#searchresults > ul
+{
+	display: block;
+	list-style-type: none;
+	color: #FFF;
+	font-size: 10pt;
+	font-weight: bold;
+	margin: 0;
+	padding: 0;
+}
+
+/*Styling für Einträge*/
+#searchresults li, #clearsearch
+{
+	display: block;
+	margin: 0;
+	padding: 0;
+	height: 20px;
+}
+
+/*Styling für Hilfstext zu Eintrag*/
+#searchresults li small
+{
+	font-weight: normal;
+	font-size: 8pt;/*Kleine Schrift*/
+	color: #F60;
+	margin: 0 5px;/*Ein bisschen Abstand nach links und rechts*/
+}
+
+/*Hier kommt unsere eigene Scrollleiste rein*/
+#scrollarea
+{
+	display: none;
+}
+
+/*Hier stylen wir unsere eigene Scrollleiste*/
+#scrollleiste
+{
+	display: none;
+}
+
+/*Für den Link zum Löschen der Suchergebnisse*/
+#clearsearch
+{
+	position: absolute;
+	left: 25px;
+	top: 35px;
+	color: #FFF;
+	font-weight: normal;
+	font-size: 10pt;
+	cursor: pointer;
+	background: url('../icons/clearsearch.png') no-repeat left center;
+	padding-left: 20px;
+	text-decoration: none;
+}
+
+ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+li
+{
+	margin: 5px 0;
+	padding: 0;
+}
+
+menu
+{ 
+	display: inline;
+	margin: 1em 0 1em 20px;
+	padding: 0 2px 0 2px;
+}
+
+article.deck
+{
+	margin: 0;
+}
+
+/*Stylen von Kopf und Fußzeile*/
+header, footer
+{
+	display: none;
+}
+
+/*Style für eine Folie*/
+article.deck section
+{
+	padding: 5px;
+	background: #FFF;
+	line-height:120%;
+}
+
+#loadscreen
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 11;
+	background: #EEE url('../icons/init.gif') no-repeat center center;
+}
+
+#loadscreen p
+{
+	display: block;
+	height: 40px;
+	width: 200px;
+	text-align: center;
+	position: relative;
+	top: 50%;
+	left: 50%;
+	font-size: 10pt;
+	color: #444;
+	font-weight: bold;
+	margin: 50px 0 0 -100px;
+}
+
+/*Styling eines entsprechenden Ladeicons*/
+article.deck section.loading
+{
+	background: #FFF url('../icons/loader.gif') no-repeat center center;
+	height: 400px;
+}
+
+/*Styling einer Fehlerseite*/
+article.deck section div.error
+{
+	margin: 0 auto;
+	
+}
+
+/*Mit entsprechender Überschrift*/
+article.deck section div.error h1
+{
+	font-weight: bold;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #CCC;
+}
+
+/*Verwenden eines CSS3-Selectors - nur alle Geraden*/
+article.deck section li:nth-child(even)
+{
+	color: #036;
+}
+
+/*Verwenden eines CSS3-Selectors - nur alle Ungeraden*/
+article.deck section li:nth-child(odd)
+{
+	color: #039;
+}
+
+article.deck section h1
+{
+	line-height: 120%;
+	font-size: 16pt;
+	font-style: normal;
+	font-weight: 400;
+	color: #777;
+	text-shadow: 0 0 15px #666;
+	margin: 0;
+	padding: 5px 0;
+}
+
+article.deck section h2
+{
+	color: #555;
+	font-size: 12pt;
+	text-shadow: 2px 2px 15px #555;
+}
+
+/*Aside nutzen wir für unsere Referenzen*/
+aside
+{
+	border: 1px solid #EEE;
+	color: #222;
+	background: #FFB;
+	font-size: 9pt;
+	padding: 10px 0;
+}
+
+/*Wollen die Elemente als Block anzeigen*/
+aside a, aside p
+{
+	color: #000;
+	margin: 5px 5px;
+	padding: 0 0 0 18px;
+	background: url('../icons/right.png') no-repeat left center;
+	display: block;
+}
+
+/*In Preformated Tags soll Quellcode kommen - daher die Formatierung*/
+pre
+{
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	font-family: "Courier New", Courier, monospace;
+	margin: 0;
+	white-space: pre-wrap;
+}
+
+/*In den figure Tags sollen unsere Bilder mit Bildtitel stehen*/
+figure
+{
+	text-align: center;
+	max-width: 100%;
+	margin: auto;
+}
+
+figure img { border: 1px solid #FFF; max-width: 100%; }
+
+figcaption
+{
+	color: #888;
+	font-size: 9pt;
+}
+
+.tdno
+{
+	font-style: italic;
+	color: #F00;
+}
+
+.tdyes { color: green; }
+.note { display: none; }
+.small { font-size: 10pt; }
+
+.snippet-menu img
+{
+	border: 0;
+	opacity: 0.5;
+}
+
+/* Logo Zeug für die 1. Folie (Titelblatt) */
+.logo-ur, .logo-phy, .logo-fr
+{
+	margin-right:5px;
+	vertical-align:top;
+}
+
+.logo-ur { margin-top: -14px; }
+.logo-phy { margin-top: 2px; }
+.logo-fr { margin-top:-8px; }
+}

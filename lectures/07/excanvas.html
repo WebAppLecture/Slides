@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Canvas in alten Browsern</h1>
+<ul>
+<li>Fallback für Audio und Video erhalten wir durch Plugins wie Flash oder Warnungen (mit Download-Links)</li>
+<li>Doch was für Möglichkeiten haben wir bei Zeichnungen mit Canvas?</li>
+<li>Hier bieten sich wie <code>filter</code>-Eigenschaften für ältere IEs an</li>
+<li>Die Verwendung dieser Möglichkeiten in JavaScript sind jedoch genauso kompliziert wie in CSS</li>
+<li>Daher gibt es eine einfache Lösung in der Verwendung der JavaScript Bibliothek exCanvas</li>
+<li>Diese gibt uns die Möglichkeit einen Canvas-Context in älteren IEs zu verwenden mit Hilfe von
+<pre lang="html">
+&lt;!--[if IE]&gt;
+&lt;script src=&quot;excanvas.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</pre>
+</li>
+<li>Diese konditionalen Kommentare werden nur vom IE erfasst und ermöglichen eine zielgerichtete Einbindung</li>
+<li>Somit sparen wir Traffic und Berechnungszeit auf allen anderen Browsern (nicht Ziel des Skripts)</li>
+<li>Die Implementierung des exCanvas-Kontextes ist nahezu auf Augenhöhe mit dem original Canvas-Kontext</li>
+</ul>
+<aside>
+<a href="http://excanvas.sourceforge.net/" target="_blank">Die Seite von excanvas</a>
+<a href="http://code.google.com/p/explorercanvas/wiki/Instructions" target="_blank">Tutorial zur Verwendung</a>
+</aside>
+</body>
+</html>

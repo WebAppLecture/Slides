@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Unobtrusive JavaScript</h1>
+<ul>
+<li>Unobtrusive JavaScript bedeutet wörtlich <strong>unaufdringliches</strong> JavaScript</li>
+<li>Im Prinzip soll bei diesem Designmuster eine Seperation zwischen verschiedenen Ebenen (JS, HTML) erreicht werden</li>
+<li>Es geht darum, dass JavaScript den Funktionsumfang erweitern und keine Voraussetzung darstellen soll</li>
+<li>Dies geht über jQuery sehr leicht: Folgendes (altes) Verfahren (Auszug aus HTML):
+<pre lang="html">
+&lt;input type=&quot;date&quot; onchange=&quot;validateDate();&quot; /&gt;
+</pre>
+</li>
+<li>Dies wird nun durch unobtrusive JavaScript zu (Auszug aus HTML):
+<pre lang="html">
+&lt;input type=&quot;date&quot; data-mindate=&quot;1980-01-01&quot; data-maxdate=&quot;1990-01-01&quot; data-validate=&quot;true&quot; /&gt;
+</pre>
+</li>
+<li>Wie kann man das dahinter erreichen? Zum Beispiel durch folgenden JavaScript (in externer Datei!):
+<pre lang="javascript">
+$(function() {
+	$('input[data-validate="true"]').change(function() { 
+		/* Validierung unter Verwendung von data-Attributen */ });
+});
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://en.wikipedia.org/wiki/Unobtrusive_JavaScript" target="_blank">Unobtrusive JavaScript auf Wikipedia</a>
+<a href="http://icant.co.uk/articles/seven-rules-of-unobtrusive-javascript/" target="_blank">7 Regeln für Unobtrusive JavaScript</a>
+<a href="http://ichwill.net/" target="_blank">Seite über barrierefreihes JavaScript</a>
+</aside>
+</body>
+</html>

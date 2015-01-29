@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Das Cookie</h1>
+<div class="left">
+<figure><img src="img/cookie-monster.jpg" alt="Das Cookie Monster" /><figcaption>Cookies sind eine nützliche, aber auch gefährliche Technologie - außerdem sind sie nicht gerade Entwicklerfreundlich</figcaption></figure>
+</div>
+<div class="right">
+<ul>
+<li>Über JavaScript hat man durch <code>document.cookie</code> Zugriff auf die Cookies</li>
+<li>Da der Zugriff nicht straight-forward ist empfiehlt es sich Peter-Paul Kochs Skript<sup>1</sup> zu verwenden</li>
+<li>Restriktionen gibt es aber überall: Nur <strong>4 kB</strong> pro Cookie und nur <strong>Texte</strong> können gespeichert werden</li>
+<li>Cookies dienen dazu Informationen <i>zwischen</i> Seiten auszutauschen</li>
+<li>Ein Cookie besteht immer aus einem Name-Wert Paar (maximal 20 davon)</li>
+<li>Daneben werden noch Attribute wie Domäne, Pfad, Ablaufdatum (oder max. Alter), sowie Sicherheit (z.B. Secure oder httpOnly) eingestellt</li>
+<li>Die Browser schicken die Attribute nicht an Server</li>
+<li>Durch Cross-Site-Scripting und Abhören von Verbindungen sind Cookiediebstähle etc. möglich</li>
+</ul>
+</div>
+<aside>
+<a href="http://www.w3schools.com/js/js_cookies.asp" target="_blank">Cookies bei W3Schools</a>
+<a href="http://en.wikipedia.org/wiki/HTTP_cookie" target="_blank">Wikipedia Artikel</a>
+<a href="http://www.quirksmode.org/js/cookies.html" target="_blank"><sup>1</sup>Quirksmode Artikel zu Cookies</a>
+<a href="http://www.htmlgoodies.com/beyond/javascript/article.php/3470821/So-You-Want-To-Set-A-Cookie-Huh.htm" target="_blank">Artikel zu Cookies bei HTMLGoodies</a>
+<a href="https://github.com/mootools/mootools-core/wiki/Cookie" target="_blank">GitHub MooTools Quellcode Cookiemodul</a>
+</aside>
+</body>
+</html>

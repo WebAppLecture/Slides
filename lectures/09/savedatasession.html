@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Die Session</h1>
+<ul>
+<li>Die Session ist ein Spezialfall eines Cookies - ein Cookie ohne Ablaufdatum</li>
+<li>Die Session funktioniert daher nicht bei deaktivierten Cookies - hier muss man sich andere Wege überlegen</li>
+<li>Die Aufgabe der Session besteht im wesentlich darin Benutzer eine Programminstanz vorzugaukeln</li>
+<li>Die Problemstellung liegt darin, dass Webserver instanzlos agieren (d.h. Benutzerinfos vergessen)</li>
+<li>Daher muss man das bisher gemachte (z.B. Artikel in einen Warenkorb gelegt) auf dem Server speichern und eine ID für den Datensatz festlegen; für eine richtige Zuordnung muss sich der Client mit dieser ID identifizieren</li>
+<li>Beispiel des Erstellens und Auslesens einer Session in JavaScript:
+<pre lang="javascript">
+function createSession(name, value) { //Funktion zum Erstellen einer Sessionvariable
+	document.cookie = name + "=" + value + "; path=/"; //Kein Ablaufdatum etc.
+}
+function readSession(name) { //Funktion zum Auslesen einer Sessionvariable 
+	var ca = document.cookie.split(';'); //Immer am Strichpunkt aufspalten
+	for(var i = 0; i &lt; ca.length; i++) { //Über alle Unterelemente iterieren
+		while (ca[i].charAt(0) == ' ') ca[i] = ca[i].substring(1, ca[i].length); //Leerzeichen entfernen
+		if (ca[i].indexOf(name + "=") == 0) return ca[i].substring(name.length + 1, ca[i].length); }
+}
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://msdn.microsoft.com/en-us/library/windows/desktop/aa384322(v=vs.85).aspx" target="_blank">MSDN zu Sessions</a>
+<a href="http://en.wikipedia.org/wiki/Session_(computer_science)" target="_blank">Wikipedia Artikel</a>
+<a href="http://g.oswego.edu/dl/pats/session.html" target="_blank">Doug Lea über das Session Problem</a>
+<a href="http://www.quirksmode.org/js/cookies.html" target="_blank">Peter-Paul Kochs Cookieskript</a>
+</aside>
+</body>
+</html>

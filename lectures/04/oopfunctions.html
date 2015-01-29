@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Methoden in Klassen</h1>
+<ul>
+<li>Natürlich ist wie bis jetzt gezeigt eine Definition in der Klasse (Nesting) möglich</li>
+<li>Dies ist aber leider nicht sehr günstig, da die Methoden mit jeder Instanz erneut erstellt werden</li>
+<li>Wir können Methoden auch außerhalb deklarieren und innerhalb verwenden, z.B.
+<pre lang="javascript">
+function UnsereKlasse(...) {//...
+	this.FunktionsName = foo; }//Verweis auf Methode die außerhalb liegt
+function foo() { ... };//Hier ist foo deklariert
+</pre>
+</li>
+<li>Dies ist schneller, aber leider auch von außerhalb ohne eine Instanz verwendbar (ungünstig!)</li>
+<li>Am elegantesten und schnellsten ist daher eine Lösung über die <code>prototype</code> Eigenschaft, z.B.
+<pre lang="javascript">
+function UnsereKlasse(...) { /* ... */ }//Alle interna werden zugewiesen
+UnsereKlasse.prototype.FunktionsName = function() { ... };//Alle externa werden zugewiesen
+</pre>
+</li>
+<li>Der <code>prototype</code> ist für einige OOP Eigenschaften in JavaScript zuständig</li>
+<li>Problem bei diesen Ansätzen: Wir können nur auf Eigenschaften (<code>this.</code>) zugreifen</li>
+</ul>
+<aside>
+<a href="http://www.howtocreate.co.uk/tutorials/javascript/objects" target="_blank">Objects erstellen</a>
+<a href="http://webdevelopersjournal.com/articles/jsintro3/js_begin3.html" target="_blank">Erstellen einer Klasse in JS</a>
+<a href="http://www.codeproject.com/KB/aspnet/JsOOP1.aspx" target="_blank">OOP in JS</a>
+</aside>
+</body>
+</html>

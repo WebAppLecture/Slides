@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>JavaScript-Attribute</h1>
+<ul>
+<li>Zwei besondere Attribute für den <code>&lt;script&gt;</code>-Tag wurden noch nicht betrachtet:
+<ul>
+<li><code>async</code> (Skript asynchron laden und so bald als möglich ausführen) und</li>
+<li><code>defer</code> (nach hinten stellen und Reihenfolge beachten).</li>
+</ul>
+</li>
+<li>Beide Elemente ermöglichen das Laden von JavaScript <mark>ohne</mark> Pausieren</li>
+<li>Die Möglichkeiten <code>&lt;script src="..." async="true"&gt;</code> zu schreiben ist sehr neu - also noch keine ausgezeichnete Verbreitung</li>
+<li>Zusätzlich kann man noch noch ein <code>onload</code>-Attribut festlegen, welches ein Funktion nach dem erfolgreichen Ladevorgang ausführt</li>
+<li>Jeder <code>async</code>-Skript wird vor dem <code>window.load</code>-Ereignis (und sobald als Möglich) ausgeführt</li>
+<li>Bei <code>defer</code> wird die Reihenfolge auf jeden Fall eingehalten und der Skript noch vor dem <code>DOMContentLoaded</code>-Ereignis ausgeführt</li>
+<li><code>defer</code> besitzt im Moment die deutlich bessere Unterstützung da es Teil der HTML 4 Spezifikation ist</li>
+</ul>
+<aside>
+<a href="http://stackoverflow.com/questions/1834077/which-browsers-support-script-async-async/6766189" target="_blank">StackOverflow zu Async</a>
+<a href="http://davidwalsh.name/html5-async" target="_blank">David Walsh über HTML5 async</a>
+<a href="http://ie.microsoft.com/testdrive/Performance/AsyncScripts/Default.html" target="_blank">Microsoft-Test Drive für Async. Skripte</a>
+<a href="http://msdn.microsoft.com/en-us/library/ms533719(v=vs.85).aspx" target="_blank">MSDN über defer</a>
+</aside>
+</body>
+</html>

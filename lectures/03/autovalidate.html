@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Automatische Validierung</h1>
+<ul>
+<li>Es gibt einige neue Attribute wie <code>autofocus</code>, <code>placeholder=""</code>, <code>required</code>, <code>multiple</code> und <code>pattern=""</code></li>
+<li>Letzteres erlaubt Eingabe eines regulären Ausdrucks: Grund <mark>Validierung</mark>!</li>
+<li>Einige spezielle Elemente (z.B. <code>&lt;input type=email&gt;</code>) haben bereits eine vordefinierte Validierung eingebaut</li>
+<li>Für z.B. <strong>number</strong> gibt es <code>min</code>, <code>max</code> (Steuerung des Bereichs) und <code>step</code> (Steuerung der Schrittweite)</li>
+<li>Neben Validierung können wir über das Attribut <code>autocomplete</code> nun steuern ob diese Funktion vom Browser verwendet werden soll</li>
+<li>Problem ist, dass die Validierung erst beim Absenden ausgeführt wird (direkt nur über JavaScript)</li>
+<li>Attribute zum Deaktivieren: <code>novalidate</code> (ein Element) oder <code>formnovalidate</code> (alle Elemente) im Button</li>
+</ul>
+<div class="hide">
+<h2>Spielwiese</h2>
+<form method="GET" target="_blank" action="http://html5.florian-rappl.de/submitted.html">
+<ul>
+<li>E-Mail*: <input type="email" required placeholder="Bitte E-Mail eingeben"/> Url*: <input type="url" required placeholder="Bitte URL eingeben"/> Color: <input type="color" onchange="alert(this.value);"/></li>
+<li>Telefon: <input type="tel" autofocus/> Number*: <input type="number" required min=9 max=15 step=3/> Datetime: <input type="datetime"/></li>
+<li>Range: <input type="range" onchange="document.getElementById('slidertest').innerHTML = this.value;" min=30 max=300 /> Week: <input type="week" /> Month*: <input required type="month"/><button type=submit>Testen!</button><span id="slidertest"></span></li>
+</form>
+</div>
+<div class="note">
+<figure><img src="img/forms5validate.png" alt="Ein paar HTML5 Eingabefelder" /><figcaption>Anzeige einiger HTML5 Eingabefelder in Opera mit automatischer Validierung</figcaption></figure>
+</div>
+<ul>
+</ul>
+<aside>
+<a href="http://www.broken-links.com/2011/03/28/html5-form-validation/" target="_blank">Grundsätzliches zur HTML5 Validierung</a>
+<a href="http://www.the-art-of-web.com/html/html5-form-validation/" target="_blank">Ein wenig mehr Tiefgang</a>
+<a href="http://dev.opera.com/articles/view/improve-your-forms-using-html5/" target="_blank">Opera über Validierung</a>
+<a href="http://www.slideshare.net/ianoxley/html5-form-validation-7731661" target="_blank">Präsentation über HTML5 Validierung</a>
+<a href="http://www.webresourcesdepot.com/cross-browser-html5-form-validation-jquery-html5form/" target="_blank">Fallback für ältere Browser</a>
+</aside>
+</body>
+</html>

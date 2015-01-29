@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Das Manifest</h1>
+<div class="left">
+<ul>
+<li>Alles fängt im <code>&lt;html&gt;</code>-Tag an:
+<pre lang="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;de&quot; manifest=&quot;/site.appcache&quot;&gt;
+&lt;!-- Inhalt! --&gt;
+&lt;/html&gt;
+</pre>
+</li>
+<li>Der <code>applicationCache</code> wird nur dann neu geladen, wenn sich die Manifest-Datei geändert hat</li>
+<li>Daher ist es sinnvoll einen Kommentar mit Versionsbeschreibung einzubauen (zur Änderung)</li>
+<li>Wichtig ist, dass der Server die Manifest-Datei mit dem MIME-Type <code>text/cache-manifest</code> liefert</li>
+<li>Wir können über <code>navigator.onLine</code> rausfinden ob der Browser On- oder Offline ist</li>
+<li>Dies ist allerdings nicht gerade sinnvoll, geschickter ist entsprechende Dateien bei entsprechenden Verbindungsstatus einzubinden</li>
+</ul>
+</div>
+<div class="right">
+<ul>
+<li>Jedes Manifest hat 3 Sektionen: Gemeinsame-, Offline- und Online-Resourcen</li>
+<li>Eine Beispielmanifest:
+<pre lang="php">
+CACHE MANIFEST
+# Die oberste Zeile ist notwendig!
+CACHE:
+index.html
+cache.html
+style.css
+image1.png
+# Fallback hier (für Offline)
+FALLBACK:
+/ fallback.html
+# Sachen die niemals gecached werden
+NETWORK:
+network.html
+</pre>
+</li>
+<li>Die Fallback Sektion gibt an was mit welchem zu ersetzen ist (z.B. <code>/</code> (d.h. alles was nicht gefunden wird) mit <code>fallback.html</code></li>
+</ul>
+</div>
+<aside>
+<a href="https://developer.mozilla.org/en/Using_Application_Cache" target="_blank">MDN zum application cache</a>
+<a href="http://html5demos.com/offlineapp" target="_blank">HTML5 Demo zum Manifest</a>
+<a href="http://www.html5rocks.com/en/tutorials/appcache/beginner/" target="_blank">HTML5 Rocks zum Manifest</a>
+<a href="http://html5doctor.com/go-offline-with-application-cache/" target="_blank">Super Tutorial vom HTML5 Dr.</a>
+<a href="http://www.bennadel.com/blog/1944-Experimenting-With-HTML5-s-Cache-Manifest-For-Offline-Web-Applications.htm" target="_blank">Ben Nadel über das Cache Manifest</a>
+</aside>
+</body>
+</html>

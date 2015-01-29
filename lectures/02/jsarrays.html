@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+</head>
+<body><h1>Arrays</h1>
+<ul>
+<li>Damit sich hinter einer Variablen mehr Objekte verstecken können, muss es sich um ein Array handeln</li>
+<li>Arrays können auf sehr unterschiedliche Art und Weise initialisiert werden:
+<pre lang="javascript">
+var leer1 = [];
+var leer2 = new Array();
+var reserviert = new Array(14);
+var belegt1 = new Array('Milch', 'Zucker', 'Mehl');
+var belegt2 = ['Milch', 'Mehl', 'Äpfel'];
+</pre></li>
+<li>Möglichkeiten zum Hinzufügen eines Elements mit <em>push()</em> (ans Ende) und <em>unshift()</em> (an den Anfang)</li>
+<li>Mit der Eigenschaft <em>length</em> erhalten wir die Anzahl der Elemente zurück, <em>sort()</em> sortiert das Array</li>
+<li>Zum Entfernen mit <em>splice()</em> wird der Index und die Anzahl benötigt oder wir löschen das letzte mit <em>pop()</em>
+<pre lang="javascript">
+var kundenliste = [];//Erstellt ein leeres neues Array mit length=0
+kundenliste.push('Herbert Maier');//Ein neuer Eintrag drin
+kundenliste.push('Max Hilbert', 'Anton Mustermann');//Zwei weitere hinzugefügt
+var i = kundenliste.length;//Variable i hat nun den Wert 3
+kundenliste.splice(0, 2);//Entfernt zwei Einträge ab Index 0 - es bleibt 'Anton Mustermann'
+var j = kundenliste.length;//Variable j hat nun den Wert 1
+</pre></li>
+</ul>
+<aside>
+<a href="http://www.w3schools.com/jsref/jsref_obj_array.asp" target="_blank">W3Schools über das Array Objekt</a>
+<a href="http://www.w3schools.com/jsref/jsref_splice.asp" target="_blank">Mehr über splice()</a>
+<a href="http://www.hunlock.com/blogs/Mastering_Javascript_Arrays" target="_blank">Profiwissen über JS Arrays</a>
+</aside>
+</body>
+</html>

@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Neue Layout-Möglichkeiten</h1>
+<ul>
+<li>Mit CSS3 geht auch die Ära der div-Layouts dem Ende zu - wir haben nun besseres</li>
+<li>Natürlich kehrt man nicht zur guten alten Tabelle zurück, sondern zu spezialisierten Layout-Mustern</li>
+<li>Bisher am weitesten verbreitet sind Mehrspalten (siehe Inhaltsverzeichnis), z.B.
+<pre lang="css">
+#zBeinDIV { /* Wir legen nur eins von beiden fest: Entweder */
+	column-count: 3; /* Feste Anzahl oder Feste Breite */ column-width: 100px;
+	column-gap: 10px; /* Abstand zwischen den Spalten */
+	column-rule-width: 1px; /* Breite der mittleren Trennlinie */
+	column-rule-color: #CCC; /* Farbe der Trennlinie - leicht grau */
+	column-rule-style: dashed; /* Analog zu den Styles bei border */ }
+#zBeinDIV h1 { column-span: 3; } /* Geht über 3 Spalten hinweg */
+</pre>
+</li>
+<li>Aber damit nicht genug! Es werden auch <strong>flexible Boxen</strong> mit <code>display: flexbox</code> eingeführt</li>
+<li>Daneben soll noch ein Grid-Layout kommen (soz. Tabelle für Layouts) wie in Windows 8 Metro</li>
+<li>Bei ersterem ist die Spezifikation zur Zeit noch unter ständiger Arbeit</li>
+<li>Bei letzterem ist bis jetzt noch unklar ob die anderen Browserhersteller auf Microsofts Entwurf eingehen</li>
+</ul>
+<aside>
+<a href="http://www.w3.org/TR/css3-multicol/" target="_blank">W3C Dokument zu Mehrspalten</a>
+<a href="http://dev.w3.org/csswg/css3-flexbox/" target="_blank">W3C Aktuelles zur Flexbox</a>
+<a href="http://www.zenelements.com/blog/css3-multiple-columns/" target="_blank">Artikel über CSS3 Mehrspalten</a>
+<a href="http://benjamin-weigl.de/journal/tutorials/css3-multi-columns.html" target="_blank">CSS3 Multi Column Tutorial</a>
+<a href="http://www.css3.info/introducing-the-flexible-box-layout-module/" target="_blank">Vorstellung der flexiblen Boxen</a>
+<a href="http://www.the-haystack.com/2010/01/23/css3-flexbox-part-1/" target="_blank">Sanfte Einführung in Flex-Box</a>
+</aside>
+</body>
+</html>

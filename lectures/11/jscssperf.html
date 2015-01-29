@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>JS und CSS Tricks</h1>
+<ul>
+<li>Während des Downloads eines Skripts im <code>&lt;head&gt;</code>-Tag wird kein weiterer Download gestartet</li>
+<li>Dies ist unabhängig von der Art des Downloads (weiterer Skript, Bild, ...) und daher sehr schlecht für die Seite</li>
+<li>Daher gilt absolut immer: Skripten gehören an das Ende des <code>&lt;body&gt;</code>-Tags!</li>
+<li>Bei Stylesheets ist die Platzierung im <code>&lt;head&gt;</code>-Tag lohnenswert, da ansonsten Rendering verhindert wird</li>
+<li>Daher gilt hier: Stylesheets gehören immer in den <code>&lt;head&gt;</code>-Tag um Rendering zu ermöglichen!</li>
+<li>JavaScript-Dateien sollten immer minifiziert werden (Kommentare, Einrückungen, Leerzeilen und unnötige Auslassungen entfernen)</li>
+<li>CSS-Dateien sollten auch minifiziert werden - wichtig ist, dass alle min. Versionen nur produktiv eingesetzt werden</li>
+<li>Bei JavaScript kann man zusätzlich noch Variablennamen verändern (auf 1-3 Zeichen kürzen)</li>
+<li>Hierbei ist die Wahl des Tools jedoch sehr wichtig, da manche Tools bei manchen Skripten für Fehler sorgen können</li>
+</ul>
+<aside>
+<a href="http://developer.yahoo.com/performance/rules.html" target="_blank">Yahoo Best Practices</a>
+<a href="http://developer.yahoo.com/blogs/ydn/posts/2007/07/high_performanc_5/" target="_blank">Steve Souders über JS/CSS</a>
+<a href="http://stackoverflow.com/questions/1638670/javascript-at-bottom-top-of-web-page" target="_blank">StackOverflow zu JS am Ende der Seite</a>
+<a href="http://wolf-u.li/1964/minify-minimize-javascript-js-und-cascading-stylesheets-css-online-durchfuehren/" target="_blank">JS/CSS minifizieren</a>
+<a href="http://www.crockford.com/javascript/jsmin.html" target="_blank">JSMIN - Das Original von Douglas Crockford</a>
+</aside>
+</body>
+</html>

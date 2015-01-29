@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<script>
+function mailTest(e) {
+	var s = e.value.toLowerCase();
+	var t = document.getElementById('mailtestfehler');
+	
+	if(/^[a-z0-9][a-z0-9_\.-]{0,}[a-z0-9]@[a-z0-9][a-z0-9_\.-]{0,}[a-z0-9][\.][a-z0-9]{2,4}$/.test(s))
+		t.innerHTML = '';
+	else
+		t.innerHTML = '<small>Bitte gültige Mail Adresse eingeben!</small>';
+}
+</script>
+<body><h1>Per JavaScript prüfen</h1>
+<div class="left">
+<ul>
+<li>Wie vorhin erwähnt - (lokale) Überprüfung sollte immer durchgeführt werden</li>
+<li>Wichtig: Ohne JavaScript sollte Button auf jeden Fall funktionieren</li>
+<li>Bei aktiviertem JavaScript deaktivieren wir den Button direkt oder führen beim Drücken des Buttons eine Abfrage durch, ob der Submit abgebrochen werden soll</li>
+<li>Für Validierung eignet sich sehr gut der eingebaute <code>RegExp</code> Datentyp</li>
+<li><div class="hide">Beispiel:
+<input type="text" name="mailtest" value="" onkeyup="mailTest(this);" /><span id="mailtestfehler"></span>
+</div>
+</li>
+</ul>
+</div>
+<div class="right">
+<figure><img src="img/selfvalidate.png" alt="Ablauf der Validierung" /><figcaption>Schematischer Ablauf der Validierung</figcaption></figure>
+</div>
+<div class="clear">
+<ul>
+<li>Code für das Beispiel mit <code>e</code> als Referenz auf die Textbox mit E-Mail Adresse:
+<pre lang="javascript">
+var s = e.value.toLowerCase(), t = document.getElementById('mailtestfehler');
+t.innerHTML = (/^[a-z0-9][a-z0-9_\.-]{0,}[a-z0-9]@[a-z0-9][a-z0-9_\.-]{0,}[a-z0-9][\.][a-z0-9]{2,4}$/.test(s)) ? '' : '&lt;small&gt;Bitte gültige Mail Adresse eingeben!&lt;/small&gt;';
+</pre>
+</li>
+</ul>
+</div>
+<aside>
+<a href="http://regexlib.com/" target="_blank">Bibliothek mit vielen Regulären Ausdrücken</a>
+<a href="http://www.regular-expressions.info/" target="_blank">Noch mehr Reguläre Ausdrücke</a>
+<a href="http://de.wikipedia.org/wiki/Regulärer_Ausdruck" target="_blank">RegExp bei Wikipedia</a>
+<a href="http://www.danielfett.de/internet-und-opensource,artikel,regulaere-ausdruecke" target="_blank">Tutorial zu Regulären Ausdrücken</a>
+<a href="http://www.w3schools.com/js/js_form_validation.asp" target="_blank">W3C Schools über Form-Validierung</a>
+<a href="http://www.javascript-coder.com/html-form/javascript-form-validation.phtml" target="_blank">Form-Validierung schnell und einfach</a>
+</aside>
+</body>
+</html>

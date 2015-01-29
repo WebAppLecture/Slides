@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>DOM Schnittstelle zu HTML</h1>
+<div class="left">
+<ul>
+<li>DOM = <strong>D</strong>ocument <strong>Ob</strong>ject <strong>M</strong>odel</li>
+<li>Nach dem sog. <mark>Parsen</mark> der HTML-Seite ist der DOM-Tree, der die Struktur der Seite repräsentiert, erstellt</li>
+<li>Die genauen Details interessieren uns nicht - für uns ist wichtig, dass wir durch den DOM einiges können:
+<ul>
+<li>Auf Elemente des Dokuments zugreifen</li>
+<li>Elemente zum Dokument hinzufügen (anhängen, einfügen, ...)</li>
+<li>Elemente des Dokuments entfernen</li>
+<li>Elemente des Dokuments bearbeiten (z.B. Eigenschaften)</li>
+</ul>
+<li>Die Änderungen am DOM werden vom Browser sofort bemerkt und daher sofort umgesetzt</li>
+<li>Wichtig: Objekte hinzuzufügen ist effizienter als <code>innerHTML</code> zu verändern</li>
+</ul>
+</div>
+<div class="right">
+<figure><img src="img/domparser.png" alt="Der DOM-Parser" /><figcaption>Generierung des DOM durch den Parser (Webkit)</figcaption></figure>
+<figure><img src="img/domtree.png" alt="Beispielhafter DOM-Tree" /><figcaption>Auswertung des DOM-Trees mit dem IE9</figcaption></figure>
+</div>
+<aside>
+<a href="http://www.w3schools.com/htmldom/dom_intro.asp" target="_blank">W3Schools über das DOM</a>
+<a href="http://en.wikipedia.org/wiki/Document_Object_Model" target="_blank">Wikipedia Eintrag</a>
+<a href="http://www.w3.org/TR/DOM-Level-2-HTML/" target="_blank">W3C Spezifikation des DOM (Level 2)</a>
+<a href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/" target="_blank">Sehr guter Artikel zum Aufbau von Webbrowsern</a>
+</aside>
+</body>
+</html>

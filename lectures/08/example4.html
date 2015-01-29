@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (19)</h1>
+<pre lang="javascript">
+//Wieder setzen wir das Ladebild zunächst
+$('#example19insert').html('&lt;img src=&quot;loader.gif&quot; alt=&quot;Ladebalken für AJAX&quot; /&gt;');
+//Nun starten wir die JSON Abfrage
+$.ajax({ //Als URL (Beispiel) nehmen wir die serverseitige Suche - entscheidend ist das callback=?
+	url: 'http://html5skript.florian-rappl.de/search.aspx?callback=?',
+	cache: false,//Wieder wird nicht gecached
+	type: 'GET', //Und wir machen abermals GET
+	dataType: 'json', //Hier wählen wir JSON - durch callback=? wird eine JSONP Abfrage erzeugt
+	data: { s : $('#example19text').val() }, //Als Daten übergeben wir den Inhalt der Textbox
+	success: function(data) {
+		var content = []; //Sammeln das Ergebnis in einem Ausgabearray
+		$.each(data.hits, function(i,v) {
+			content.push(v.title + ' (' + v.url + ')');
+		});
+		$('#example19insert').html(content.join('&lt;br/&gt;')); //Das durch join mit Zeilenumbrüchen verbunden wird
+		$('#example19count').html(data.hits.length + ' Einträge gefunden.');//Geben auch Anzahl d. Ergebnisse aus
+		console.log(data);//Hier sehen wir was wir wirklich gekriegt haben (bereits mit jQuery bearbeitet)
+	}
+});
+</pre>
+<div class="hide">
+<input type="text" id="example19text" placeholder="Suchbegriff eingeben" size=50 /><button type="button" id="startjsonp">JSONP Starten!</button><span id="example19count"></span>
+<div id="example19insert" style="overflow-y: scroll; max-height: 70px; font-size: 8pt; border-left: 3px solid #03B; padding-left: 5px;"></div>
+</div>
+<!--läd die jQuery Funktionalität / oder nicht-->
+<script src="scripts/loadjquery.js"></script>
+<script>
+$(function() {
+	$('#startjsonp').click(function () {
+		$('#example19insert').html('<img src="icons/loader.gif" alt="Ladebalken für AJAX" />');
+		$('#example19count').html('');
+		
+		$.ajax({
+			url: 'http://html5skript.florian-rappl.de/search.aspx?callback=?',
+			cache: false,
+			type: 'GET',
+			dataType: 'json',
+			data: { s : $('#example19text').val() },
+			success: function(data) {
+				var content = [];
+				$.each(data.hits, function(i,v) {
+					content.push(v.title + ' (' + v.url + ')');
+				});
+				$('#example19insert').html(content.join('<br/>'));
+				$('#example19count').html(data.hits.length + ' Einträge gefunden.');
+				console.log(data);
+			}
+		});
+	});
+});
+</script>
+</body>
+</html>

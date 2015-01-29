@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Neue Tags für ältere IE</h1>
+<ul>
+<li>Sehr alte Browser besitzen natürlich keine Multimedia Fähigkeiten und nur limitierte CSS(3) Fähigkeiten</li>
+<li>Ein Problem erhalten wir jedoch, wenn die neuen (semantischen) HTML5-Tags auch nicht funktionieren</li>
+<li>Zwar sollte jeder Browser dann ein <code>&lt;div&gt;</code> aus unbekannten Tags machen - allerdings keine sehr alten IE</li>
+<li>Hier hilft folgender Workaround im <code>&lt;head&gt;</code>-Bereich einer Seite:
+<pre lang="html">
+&lt;script type=&quot;text/javascript&quot;&gt;
+document.createElement('header');
+document.createElement('footer');
+document.createElement('article');
+//etc... (je nachdem was gebraucht wird
+&lt;/script&gt;
+</pre>
+</li>
+<li>Dieser doch rechte einfache Workaround erstellt einfach Elemente mit den neuen Namen und gibt den IE dadurch an, dass es diese Elemente wirklich geben soll - die Elemente können dann verwendet werden</li>
+<li>Daneben ist manchmal noch folgende Angabe zur korrekten <code>&lt;div&gt;</code>-Emulation notwendig:
+<pre lang="html">
+&lt;style type=&quot;text/css&quot;&gt; header, footer, article, ... { display: block; } 
+/* Sorgt dafür dass die Elemente ANFANGS wirklich wie divs ist */&lt;/style&gt;
+</pre>
+</ul>
+<aside>
+<a href="http://pietschsoft.com/post/2010/11/14/HTML5-Day-1-New-tags-work-in-older-browsers-Awesome.aspx" target="_blank">Neue Elemente in alten Browsern?</a>
+<a href="http://code.google.com/p/html5shim/" target="_blank">JavaScript für perfekte Kompatibilität</a>
+<a href="http://net.tutsplus.com/tutorials/html-css-techniques/how-to-make-all-browsers-render-html5-mark-up-correctly-even-ie6/" target="_blank">Workaround für alte IEs</a>
+<a href="http://stackoverflow.com/questions/4175050/html5-new-layout-elements-old-browsers" target="_blank">StackOverflow über neue Tags für alte IE</a>
+</aside>
+</body>
+</html>

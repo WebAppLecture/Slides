@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+</head>
+<body><h1>Mehr Schriftarten!</h1>
+<ul>
+<li>Mit CSS3 haben wir die Möglichkeit eigene Schriften zu definieren und zu verwenden</li>
+<li>Wir können eigens auf unserem Server gespeicherte Schriften verwenden oder extern gespeicherte</li>
+<li>Die Syntax hierfür definiert in CSS eine neue Schriftart, z.B.
+<pre lang="css">
+@font-face {
+	font-family: 'Gentium'; /* Wird der neue Name! */
+	src: local('Gentium'), url('../fonts/Gentium.ttf'); /* Bevorzugt nicht downloaden */
+	font-style: italic; /* Optional: Charakterisiert Schriftart z.B. Verwendung nur bei italic*/ }
+#Verwendung { font: italic bold 14pt 'Gentium'; }
+</pre>
+</li>
+<li>Formate? true-type-font (<strong>ttf</strong>) geht mittlerweile <mark>überall</mark> - bevorzugt ist <strong>WOFF</strong> (Web Open Font Format)</li>
+<li>Über Google Webfonts<sup>1</sup> kann man an Schriften kommen, die direkt über den Google Server abrufbar sind</li>
+<li>Eine sehr stark Browser-unabhängige Schreibweise für die <code>@font-face</code> Regel is
+<pre lang="css">
+@font-face { font-family: 'Whatever'; /* Erstellen neue Schriftart Whatever */
+	src: url('myfont.eot'); /* IE9 Compatibility Modus - Liefert Support für IE ab Version 4*/
+	src: url('myfont.eot?iefix') format('eot') /*IE6-IE8*/, url('myfont.woff') format('woff') /*Modern*/,
+		 url('myfont.ttf') format('truetype'), /*Mobile*/ url('myfont.svg') format('svg'); /*Fallback*/ }
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://www.theleagueofmoveabletype.com" target="_blank">Sammlung von OpenSource Schriften</a>
+<a href="http://www.fontsquirell.com/fontface/" target="_blank">Sehr gute Seiten mit kostenlosen Schriften</a>
+<a href="http://www.google.com/webfonts" target="_blank"><sup>1</sup>Google Webfonts</a>
+<a href="http://www.w3schools.com/cssref/pr_font_font.asp" target="_blank">W3Schools über Fonts</a>
+<a href="http://www.ffffallback.com" target="_blank">Tool zur Suche nach Fallbackschriften</a>
+</aside>
+</body>
+</html>

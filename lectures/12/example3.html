@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (32)</h1>
+<pre lang="html">
+&lt;ul contenteditable contextmenu=&quot;ex32-auswahl&quot; id=&quot;ex32-list&quot; onfocus=&quot;document.querySelector('#ex32-auswahl').hidden = '';&quot; onblur=&quot;setTimeout(function() { document.querySelector('#ex32-auswahl').hidden = 'hidden'; }, 200);&quot;&gt;
+&lt;li&gt;Rotweinkuchen&lt;/li&gt;&lt;!-- Eine einfache Liste - aber mit contenteditable (Wir erhalten neue Elemente!) --&gt;
+&lt;li&gt;Apfelkuchen&lt;/li&gt; &lt;!-- Die focus und blur Ereignisse wurden eingefügt um das Menü nutzen zu können --&gt;
+&lt;li&gt;New York Cheesecake&lt;/li&gt; &lt;!-- Später brauchen wir das nicht mehr - es wird als Kontextmenü angezeigt --&gt;
+&lt;/ul&gt;&lt;!-- Menu funktioniert in noch KEINEM Browser --&gt;
+&lt;menu id=&quot;ex32-auswahl&quot; type=&quot;context&quot; hidden=&quot;hidden&quot;&gt;&lt;!-- Hidden funktioniert (noch) nicht im IE --&gt;
+&lt;button type=&quot;button&quot; onclick=&quot;document.querySelector('#ex32-list').style.listStyleType = 'disc';&quot;&gt;Rund&lt;/button&gt;
+&lt;button type=&quot;button&quot; onclick=&quot;document.querySelector('#ex32-list').style.listStyleType = 'square';&quot;&gt;Eckig&lt;/button&gt;
+&lt;button type=&quot;button&quot; onclick=&quot;document.querySelector('#ex32-list').style.listStyleType = 'decimal';&quot;&gt;Nummern&lt;/button&gt;
+&lt;button type=&quot;button&quot; onclick=&quot;document.querySelector('#ex32-list').style.listStyleType = 'none';&quot;&gt;Ohne&lt;/button&gt;
+&lt;/menu&gt;
+</pre>
+<div class="hide">
+<ul contenteditable contextmenu="ex32-auswahl" id="ex32-list" onfocus="document.querySelector('#ex32-auswahl').hidden = '';" onblur="setTimeout(function() { document.querySelector('#ex32-auswahl').hidden = 'hidden'; }, 200);">
+<li>Rotweinkuchen</li>
+<li>Apfelkuchen</li>
+<li>New York Cheesecake</li>
+</ul>
+<menu id="ex32-auswahl" type="context" hidden="hidden">
+<button type="button" onclick="document.querySelector('#ex32-list').style.listStyleType = 'disc';">Rund</button>
+<button type="button" onclick="document.querySelector('#ex32-list').style.listStyleType = 'square';">Eckig</button>
+<button type="button" onclick="document.querySelector('#ex32-list').style.listStyleType = 'decimal';">Nummern</button>
+<button type="button" onclick="document.querySelector('#ex32-list').style.listStyleType = 'none';">Ohne</button>
+</menu>
+</div>
+</body>
+</html>

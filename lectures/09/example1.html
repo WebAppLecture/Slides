@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+<style>
+#ex20-dragtarget, #ex20-dragsource
+{
+	border: 2px dashed #CCC;
+	border-radius: 15px;
+	width: 250px;
+	height: 250px;
+}
+#ex20-dragtarget
+{
+	margin-bottom: 20px;
+}
+.ex20-draggable
+{
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+	margin: 10px;
+}
+</style>
+</head>
+<body><h1>Beispiel (20)</h1>
+<div class="doubleleft">
+<pre lang="javascript">
+//Ein Dragicon Bild erstellen (wird nicht angezeigt)
+var dragIcon = document.createElement('img');//Bildelement erstellen
+dragIcon.src = 'icons/me.png';
+var elements = document.querySelectorAll('.ex20-draggable');
+//Was passiert wenn die einzelnen Elemente gezogen werden?
+for(var i in elements) //So erhalten wir alle Indizes
+	elements[i].ondragstart = function(event) { //Das ist wichtig!
+		event.dataTransfer.setData('text/plain', this.id);//Daten setzen
+		event.dataTransfer.setDragImage(dragIcon, 10, 33);//Setzen Icon
+	};
+//Events festlegen - jede Menge Ereignisse für die 2 Boxen
+document.querySelector('#ex20-dragtarget').ondrop = dropSomething;
+document.querySelector('#ex20-dragsource').ondrop = dropSomething;
+document.querySelector('#ex20-dragtarget').ondragover = acceptDrop;
+document.querySelector('#ex20-dragtarget').ondragenter = acceptDrop;
+document.querySelector('#ex20-dragsource').ondragover = acceptDrop;
+document.querySelector('#ex20-dragsource').ondragenter = acceptDrop;
+//Funktionen festlegen -- beide sind sehr wichtig
+function dropSomething(event) { //Nehmen das Eventarg. mit
+	var id = event.dataTransfer.getData('text/plain');//Daten auslesen
+	this.appendChild(document.querySelector('#' + id));//Element anh.
+	return false; }
+//Machen hier keine Unterscheidung - akzeptieren den Drop immer!
+function acceptDrop(event) { return false; }
+</pre>
+</div>
+<div class="halfright hide">
+<div id="ex20-dragtarget"></div>
+<div id="ex20-dragsource">
+<div class="ex20-draggable" id="ex20-drag1" style="background: red;" draggable="true"></div>
+<div class="ex20-draggable" id="ex20-drag2" style="background: purple;" draggable="true"></div>
+<div class="ex20-draggable" id="ex20-drag3" style="background: orange;" draggable="true"></div>
+<div class="ex20-draggable" id="ex20-drag4" style="background: beige;" draggable="true"></div>
+</div>
+</div>
+<script>
+(function() {
+	var dragIcon = document.createElement('img');
+	dragIcon.src = 'icons/me.png';
+	var elements = document.querySelectorAll('.ex20-draggable');
+	
+	for(var i in elements)
+		elements[i].ondragstart = function(event) { 
+			event.dataTransfer.setData('text/plain', this.id);
+			event.dataTransfer.setDragImage(dragIcon, 10, 33);
+		};
+	
+	document.querySelector('#ex20-dragtarget').ondrop = dropSomething;
+	document.querySelector('#ex20-dragsource').ondrop = dropSomething;
+	
+	document.querySelector('#ex20-dragtarget').ondragover = function() { return false; }
+	document.querySelector('#ex20-dragtarget').ondragenter = function() { return false; }
+	document.querySelector('#ex20-dragsource').ondragover = function() { return false; }
+	document.querySelector('#ex20-dragsource').ondragenter = function() { return false; }
+	
+	function dropSomething(event) {
+		var id = event.dataTransfer.getData('text/plain');
+		this.appendChild(document.querySelector('#' + id));
+		return false;
+	}
+})();
+</script>
+</body>
+</html>

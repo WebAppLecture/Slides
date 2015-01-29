@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (11)</h1>
+<div class="doubleleft">
+Der HTML Code:
+<pre lang="html">
+&lt;div style=&quot;position: absolute; z-index: 3; background: #F00; border: 5px solid rgb(0,255,0); width: 200px; height: 100px; left: 20px; top: 400px; text-align: center; margin: 10px; padding: 10px;&quot; id=&quot;abs-TestBox1&quot;&gt;Hallo!&lt;/div&gt;
+&lt;div style=&quot;position: absolute; z-index: 2; background: #00F; border: 1px solid rgb(0,0,0); width: 200px; height: 100px; left: 20px; top: 400px; text-align: center; margin: 0; padding: 0; color: white;&quot; id=&quot;abs-TestBox2&quot;&gt;Hallo!&lt;/div&gt;
+&lt;div style=&quot;position: relative; top: 400px; background: #F0F; border: 1px solid rgb(0,0,0); width: 50px; height: 50px; color: white;&quot; id=&quot;abs-TestBox3&quot;&gt;&lt;/div&gt;
+</pre>
+</div>
+<div class="halfright">
+Der jQuery Code:
+<pre lang="javascript">
+$('#abs-TestBox1').click(function() { $(this).css({margin: 0, border: 0, 'z-index': 1}); });
+$('#abs-TestBox2').click(function() { $(this).css({left: 30, top: 410}); });
+$('#abs-TestBox3').click(function() { $(this).animate({marginLeft: 700}, 2000); });
+</pre>
+</div>
+<div class="hide">
+<div style="position: absolute; z-index: 3; background: #F00; border: 5px solid rgb(0,255,0); width: 200px; height: 100px; left: 20px; top: 400px; text-align: center; margin: 10px; padding: 10px;" id="abs-TestBox1">
+Hallo!
+</div>
+<div style="position: absolute; z-index: 2; background: #00F; border: 1px solid rgb(0,0,0); width: 200px; height: 100px; left: 20px; top: 400px; text-align: center; margin: 0; padding: 0; color: white;" id="abs-TestBox2">
+Hallo!
+</div>
+<div style="position: relative; top: 400px; background: #F0F; border: 1px solid rgb(0,0,0); width: 50px; height: 50px; color: white;" id="abs-TestBox3"></div>
+</div>
+<!--läd die jQuery Funktionalität / oder nicht-->
+<script src="scripts/loadjquery.js"></script>
+<script>
+$(function() {
+	$('#abs-TestBox1').click(function() { 
+		$(this).css({
+			margin: 0,
+			border: 0, 
+			'z-index': 1
+		});
+	});
+	$('#abs-TestBox2').click(function() { 
+		$(this).css({
+			left: 30, 
+			top: 410
+		});
+	});
+	$('#abs-TestBox3').click(function() { 
+		$(this).animate({
+			marginLeft: 700
+		}, 2000);
+	});
+});
+</script>
+</body>
+</html>

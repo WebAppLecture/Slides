@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Beispiel (23)</h1>
+<div class="left">
+<ul>
+<li>Hier die HTML-Datei:
+<pre lang="html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;de&quot; manifest=&quot;/manifest.appcache&quot;&gt;
+&lt;meta charset=utf-8 /&gt;
+&lt;title&gt;Tolle Offline-Applikation&lt;/title&gt;
+&lt;script src=&quot;jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;online.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;site.js&quot;&gt;&lt;/script&gt;
+&lt;/html&gt;
+</pre>
+Nun das zugehörigen Manifest:
+<pre lang="php">
+CACHE MANIFEST
+# -- 2011-12-05 -- (v1)
+CACHE:
+index.html
+jquery.js
+site.js
+FALLBACK:
+online.js offline.js
+NETWORK:
+same.html
+</pre>
+</li>
+</ul>
+</div>
+<div class="right">
+<ul>
+<li>Die JavaScript-Datei <i>site.js</i>:
+<pre lang="javascript">
+$('&lt;span/&gt;').text(siteStatus).css('font-weight', 'bold').appendTo('body');
+if(onLine) {
+	//Was nützliches machen!
+	$('&lt;div/&gt;').text('Bitte folgende Online-Angebote überprüfen: ').appendTo('body');
+} else {
+	//Spezielle Offline Anzeige
+	$('&lt;div/&gt;').text('Wir haben leider kein Offline-Angebot').appendTo('body');
+}
+</pre>
+Die JavaScript-Datei <i>online.js</i>:
+<pre lang="javascript">
+var onLine = true;
+var siteStatus = 'Die Seite ist online!';
+</pre>
+Die JavaScript-Datei <i>offline.js</i>:
+<pre lang="javascript">
+var onLine = false;
+var siteStatus = 'Die Seite ist offline!';
+</pre>
+</li>
+</ul>
+<aside>
+<a href="http://html5skript.florian-rappl.de/offlineexample/index.html" target="_blank">Das Beispiel</a>
+</aside>
+</body>
+</html>

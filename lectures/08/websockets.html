@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Die Zukunft: WebSockets!</h1>
+<div class="doubleleft">
+<ul>
+<li>Es wird eine <mark>ständige</mark> <strong>TCP</strong>-Verbindung zum Server hergestellt</li>
+<li>Dadurch erhält man gegenüber AJAX mehrere Vorteile:
+<ul>
+<li>Direkter Zugang zum Server - keine Beschränkung mehr auf http</li>
+<li>Viel weniger Overhead (User-Agent, Content-Type, ...)</li>
+<li>Kein neues Erstellen von Objekten inkl. Öffnen und Schließen der Verbindung notwendig</li>
+</ul>
+</li>
+<li>Die Syntax ist sehr einfach (ganz im Gegensatz zu echter Socket-Programmierung) und analog zur Messaging API:
+<pre lang="javascript">
+var socket = new WebSocket('ws://example:8080'); //Erstellen
+socket.onmessage = function(event) { //Beim Eintreffen
+	alert(event.data); }; //Nachricht als Msg-Box
+socket.onclose = function() { //Beim Schließen
+	socket.send('See you Dudes!'); }; //Senden
+socket.onopen = function() { //Beim Öffnen
+	socket.send('Hiyo!'); }; //Senden
+</pre>
+</li>
+</ul>
+</div>
+<div class="halfright">
+<figure><img src="img/websockets.png" alt="Kommunikation bei Websockets" /><figcaption>Im Gegensatz zu AJAX läuft die Kommunikation bei Websockets in beide Richtungen und findet direkt auf TCP/IP Basis anstelle des HTTP-Headers statt</figcaption></figure>
+</div>
+<div class="clear">
+<ul>
+<li>Für Ultra-Responsive Applications (z.B. Multiplayer Spiele) sind die WebSockets daher essentiell</li>
+</ul>
+</div>
+<aside>
+<a href="http://remysharp.com/slicehost-nodejs-websockets/" target="_blank">Tutorial um Node.js auf einem Server einzurichten</a>
+<a href="http://en.wikipedia.org/wiki/WebSocket" target="_blank">Wikipedia über WebSocket</a>
+<a href="http://dev.w3.org/html5/websockets/" target="_blank">W3C Spezifikation zu Websockets</a>
+<a href="http://html5demos.com/web-socket" target="_blank">Websocket Demo</a>
+</aside>
+</body>
+</html>
