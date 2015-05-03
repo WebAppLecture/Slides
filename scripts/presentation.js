@@ -495,7 +495,7 @@ $(document).ready(function() {
 		//Alle figcaptions finden und ersetzen
 		$(v).find('figcaption').each(function(j, w) {
 			figcount++;
-			$(w).text('Abb. ' + (i + 1) + '-' + figcount + ' / ' + $(w).text());
+			$(w).html('Abb. ' + (i + 1) + '-' + figcount + ' / ' + $(w).html());
 		});
 	}
 
