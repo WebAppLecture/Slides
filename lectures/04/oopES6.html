@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Klassen in JavaScript <em>vor ES 6</em></h1>
+<ul>
+	<li>Seit ES 6 gibt es ein Schlüsselwort um Klassen direkt zu erzeugen </li>
+		<pre lang="javascript">
+			 //Definition einer Klasse in ES 6
+			class NameDerKlasse {
+				//Konstruktor
+				constructor(Arg1, Arg2){
+					this.Argument1 = Arg1;
+					this.Argument2 = Arg2;
+				}
+				//Funktionsdefinition
+				myFunction(Arg3) {
+					return Arg3 * this.Argument2 - this.Argument1 ;
+				}
+			}
+
+			//Erstellen einer Objekt-Instanz
+			let MeinKlassenObjekt = new NameDerKlasse(1,2);
+			//Funktionen verwenden
+			MeinKlassenObjekt.myFunction(10);
+			//Direkte Manipulation der Felder:
+			MeinKlassenObjekt.Argument1 = 5;</pre>
+	</li>
+</ul>
+<aside>
+</aside>
+</body>
+</html>

@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Variable ist nicht Variable</h1>
+  <p>Mit ES 6 sind neben <code>var</code> noch zwei weitere Bezeichner für Variablen hinzugekommen: <code>const</code> und <code>let</code></p>
+<ul>
+  <li><code>const</code> bezeichnet eine nicht veränderbare Konstante:
+    <pre lang="javascript">
+      const PI = 3.14; //Konvention: Verwende GROSSBUCHSTABEN für Konstanten
+      PI = 4; //nicht möglich - Type Error</pre></li>
+  <li>Der Unterschied zwischen <code>let</code> und <code>var</code> ist nicht so offensichtlich: Sie zeigen verschiedenes Scoping Verhalten
+  <pre lang="javascript">
+    //Teste den Code einmal mit let und einmal mit var
+    for(let a = 5; a < 10; a++) {
+      console.log(a);
+    }
+    alert(a);</pre>
+    <ul>
+      <li>Kontext von <code>let</code>: { /* Existent innerhalb dieser Klammern, ab Zeitpunkt der Deklaration */ } </li>
+      <li>Kontext von <code>var</code>: function(){ /* Existent ab Beginn der <em>Funktion</em> in der sie definiert wurde */ }
+    </ul>
+    </li>
+  </ul>
+  <p>Wenn ES 6 in eurem Projekt verwendet wird, empfiehlt es sich in den meisten Fällen <code>let</code> statt <code>var</code> zu verwenden, da es sich <em>gewohnter</em> verhält was das Scoping angeht, nicht gehoisted wird und einen Fehler produziert, wenn man die Variable zweimal deklariert.</p>
+
+<aside>
+</aside>
+</body>
+</html>

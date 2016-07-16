@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Noch ein Wort zu Funktionen</h1>
+  <p>Neben der Deklaration von Funktionen wie auf der vorherigen Slide gesehen gibt es noch zwei weitere Arten Funktionen zu definieren:</p>
+  <ul>
+  <li>Zuweisung an eine Variable:
+    <pre lang="javascript">
+      let f = function(s) { console.log('Hallo '+s); };
+      f('Welt');  //zeigt 'Hallo Welt'</pre>
+      Vorteil: Kein Nach-oben-ziehen (Hoisting) von Funktionen: Funktionen sind erst verwendbar wenn sie das erste mal zugewiesen werden</li>
+    <li>Seit ES 6: Verwendung des "Fat-Arrow-Operators"
+      <pre lang="javascript">
+        const f = () => console.log('Hi there'); //Kein Argument
+        f();
+        const g = x => x*3; //1 Argument
+        g(4); //Ergebnis: 12
+        const h = (a,b) => a*b; //2 Argumente
+        h(3,4);  //Ergebnis: 12</pre>
+        Vorteil: Hauptächlich syntaktische Verbesserung - Man spart sich das Schreiben von function(){...}. Allerdings wird es im Zusammenhang mit Klassen interessant, weil der <code>this</code>-Zeiger unterschiedlich gebunden wird (dazu später mehr).
+      </li>
+  </ul>
+
+<aside>
+</aside>
+</body>
+</html>
