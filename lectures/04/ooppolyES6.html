@@ -6,9 +6,32 @@
 <base href="../../" />
 </head>
 <body><h1>Polymorphie in JavaScript <em>mit ES 6</em></h1>
+<p>Polymorphie in ES 6 funktioniert mittels des Schlüsselwortes <code>extends</code></p>
+
+  <pre lang="javascript">
+     class Parent {
+      constructor(Name){
+        this.LastName = Name;
+      }
+      speak(s){
+        console.log("I glab des is a so: "+s);
+      }
+    }
+
+    class Child extends Parent{
+      constructor(LastName, _FirstName){
+        super(LastName);
+        this.FirstName = _FirstName;
+      }
+      speak(s){
+        console.log("Meine Eltern hätten gesagt: "); console.log(super.speak(s));
+        console.log("Aber ich sage:"); console.log("Ich weiß, es ist derart: "+s);
+      }
+    }
+    </pre>
 <ul>
-<li>YET TO COME</li>
-<li> Das super-Schlüsselwort</li>
+<li>Wir können das <code>super</code> Schlüsselwort verwenden um auf die Funktionen der Eltern-Klasse zuzugreifen.</li>
+<li>Wir <em>müssen</em> das <code>super</code> Schlüsselwort verwenden um den Konstruktor der Elternklasse aufzurufen befor wir Code im Kind-Konstruktor schreiben können.</li>
 </ul>
 <aside>
 </aside>
