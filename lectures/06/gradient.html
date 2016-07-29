@@ -10,10 +10,10 @@
 <li>Im Moment ist die Spezifikation für Farbverläufe noch in permanenter Bewegung</li>
 <li>Es läuft aber wohl ganz klar auf diese Syntax raus:
 <pre lang="css">
-.linear { background-image: linear-gradient(top, #00f, #fff); }
-.linearStop { background-image: linear-gradient(left top, #00f, #fff 80%); }
-.linearMultiple { background-image: linear-gradient(left, #F00, #0F0 50%, #00F); }
-.radial { background-image: radial-gradient(40% 40%, farthest-side, #ffffa2, #00f); }
+.linear { background-image: linear-gradient(to top, #00f, #fff); }
+.linearStop { background-image: linear-gradient(to left top, #00f, #fff 80%); }
+.linearMultiple { background-image: linear-gradient(to right, #F00, #0F0 50%, #00F); }
+.radial { background-image: radial-gradient(farthest-corner at 45px 45px , #FF0000 0%, #0000FF 100%); }
 </pre>
 <div style="width: 800px; height: 50px; background-image: -o-linear-gradient(left, #F00, #0F0 50%, #00F); background-image: -moz-linear-gradient(left, #F00, #0F0 50%, #00F); background-image: -ms-linear-gradient(left, #F00, #0F0 50%, #00F); background-image: -webkit-linear-gradient(left, #F00, #0F0 50%, #00F); linear-gradient(left, #F00, #0F0 50%, #00F);"></div>
 </li>
