@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Noch mehr ES 6 Features (unvollständig<sup>1</sup>)</h1>
+
+  <ul>
+    <li><code>Map</code>: Optimiertes Datenobjekt für Schlüssel-Wert-Paare. <br>Wichigste Methoden <code>.get()</code>, <code>.has()</code>,<code>.set()</code>, <code>.clear()</code> und <code>.delete()</code></li>
+    <li><code>Set</code>: Optimiertes Datenobjekt für Sammlungen eineindeutiger Werte (keine Dopplungen) <br>Wichigste Methoden <code>.add()</code> und <code>.delete()</code> sowie die Eigenschaft <code>size</code></li>
+    <li><code>Weak Maps</code> und <code>Weak Sets</code>: Minimalisierte Versionen von <code>Map</code> und <code>Set</code> für noch speziellere Anforderungen.</li>
+    <li>Template strings:
+    <pre lang="javascript">
+        let Money = 100;
+        console.log(`Der Mantel kostet ${Money} €`); //MUSS mit diesem Akzent ` geschrieben werden</pre></li>
+      <li><code>Symbol</code> um einzigartige Identifizierer zu erstellen
+          <pre lang="javascript">
+            const Token1 = Symbol(); const Token2 = Symbol();
+            Token1 === Token2; //false!</pre></li>
+
+    <li>Reflection: Ein Objekt kennt seine eigenen Schlüsselwörter
+      <pre lang="javascript">
+         const obj = { a: 4, b: "hi", c : x => 2*x};
+         Reflect.ownKeys(obj); // [a,b,c]</pre></li>
+   </ul>
+   <aside>
+     <a href="http://es6-features.org/"><sup>1</sup>Sammlung der neuen ES 6 Features inklusive Demos</a>
+</aside>
+</body>
+</html>

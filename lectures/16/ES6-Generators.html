@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Generatoren (ES 6)</h1>
+  <ul>
+  <li>Generatoren sind Funktionen, die uns einen Iterator zurückgeben, den wir aufrufen können</li>
+  <li>Eine sehr angenehme Art Generatoren zu schreiben geht mithilfe des <code>yield</code> Schlüsselwortes</li>
+    <pre lang="javascript">
+        function* myOwnGenerator(){ //der Stern ist wichtig! Markiert Funktion als Generator
+          yield "Dear";
+          yield "Diary";
+          yield "today";
+          yield "was"; yield "a"; yield "great"; yield "day";
+          return ; //beendet den Generator;
+        }
+        //Hole den Iterator
+        let myIterator = myOwnGenerator();
+        //Durchgehen:
+        console.log(myIterator.next()); // { value: "Dear", done: false}
+        console.log(myIterator.next()); // { value: "Diary", done: false}
+        // ....
+        //Alternativ
+        for(let entry of myOwnGenerator())
+          console.log(entry);</pre>
+      <li>Es sind auch kompliziertere Interaktionen möglich (<code>.next()</code> lässt sich mit Übergabeparameter aufrufen<sup>1</sup>)
+      </ul>
+   <aside>
+  <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Statements/function*" target="_blank"><sup>1</sup>MDN Doku zu Generatoren</a>
+</aside>
+</body>
+</html>

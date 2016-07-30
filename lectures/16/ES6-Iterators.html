@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Iteratoren (ES 6)</h1>
+  <ul>
+  <li>Iteratoren erlauben und durch eigene Klassen mittels <code>for( let x of y)</code> zu laufen.</li>
+  <li>Ein Iterator gibt immer ein Objekt mit einer <code>next()</code> function zurück.</li>
+  <li><code>next()</code> gibt immer ein Paar mit einmal dem aktuellen <code>value</code> und der Bool-Variable <code>done</code> zurück, die das Ende anzeigt.</li>
+</ul>
+    <pre lang="javascript">
+        class MyDiary{
+          constructor(){
+            this.entries = ["Dear", "Diary", "today", "was", "a" , "great", "day"];
+          }
+          [Symbol.iterator](){
+            let i = 0;
+            const messages = this.entries;
+            return {
+                next() { //Kurzschreibweise für next : function() { /* ... */ }
+                  if(i < messages.length)
+                    return {value: messages[i++], done: false};
+                  else
+                      return {value: undefined, done: true};
+                  } //end next function
+            }; } };
+        let d = new MyDiary();
+        for(let entry of d) console.log(entry);</pre>
+   <aside>
+</aside>
+</body>
+</html>

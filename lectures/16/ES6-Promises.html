@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Promises (ES 6)</h1>
+  <p>Promises erlauben uns aus einem Ereignisbam zu wählen, je nachdem ob eine (asynchrone!) Funktion erfolgreich ausgeführt wurde oder nicht: </p>
+
+    <pre lang="javascript">
+    //Definiere ein neues Versprechen
+    let p = new Promise(function(resolve, reject){
+      let a = 0;
+      let ms = setInterval(function(){
+        console.log(a++);
+        if(a == 5)
+          reject("Oh nein! wir haben 5 erreicht!");
+        if(a>10)
+        {
+          clearInterval(ms);
+          resolve();
+        }
+      },500);
+    });
+    //Bestimme, was nach dem Versprechen geschehen soll
+    p.then( () => console.log("Everything went ok!") ) //bei erfolgreicher Ausführung
+     .catch( error => console.log("Something went wrong! Error message: "+error) ); //im Falle eines Fehlers
+   </pre>
+   <p>Beachte: Unsere Schleife läuft weiter, auch wenn ein Fehler geworfen wurde! Außerdem wird trotz erreichens der Nummer 10, die "Erfolgreich"-Mitteilung nicht angezeigt, weil es bereits davor einen Fehler gab.</p>
+<aside>
+  <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank">MDN Doku zu Promises</a>
+</aside>
+</body>
+</html>
