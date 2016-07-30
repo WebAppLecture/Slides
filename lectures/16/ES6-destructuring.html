@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>Destructuring Assignments (ES 6)</h1>
+  <ul>
+    <li>Eine sehr angenehme Art um Variablen aus Objekten zu ziehen geht mithilfe der folgenden neuen Syntax
+    <pre lang="javascript">
+      let obj = { a: 1, b: 2, c: 3};
+      let {a,a2,b,c} = obj; // a = 1; a2 = undefined; b=2; c  = 3; </pre>
+    </li>
+    <li>Dies kann in ähnlicher Form auch bei Arrays angewendet werden:
+        <pre lang="javascript">
+          let [d,e,f] = [10,"hi", x=>x*x];
+          console.log(e+" "+f(d)); // "hi 100"
+          //auch das ist möglich:
+          let [g,[h,i]] = [8,[9,10]]; </pre>
+    </li>
+    <li>Bei Arrays kann auch <code>...</code> hilfreich sein um einen Rest zu definieren
+        <pre lang="javascript">
+        let [j,k,...rest] = [1,2,3,4,5,6,7,8,9,10];
+        // j = 1; k = 2; rest = [3,4,5,6,7,8,9,10];</pre>
+  </li>
+  <li>Achtung: Dies funktioniert nur bei gleichzeitiger Zuweisung, ansonsten werden Klammern benötigt
+    <pre lang="javascript">
+    let a,b,c, obj = { a: 1, b: 2, c: 3};
+    {a,b,c} = obj; //Fehler!
+    ({a,b,c} = obj); //Funktioniert</pre>
+  </li>
+  </ul>
+
+<aside>
+</aside>
+</body>
+</html>

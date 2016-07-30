@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
+<base href="../../" />
+</head>
+<body><h1>New with functions (ES 6)</h1>
+  <ul>
+    <li>Object Destrukturierung funktioniert auch in Funktionen
+    <pre lang="javascript">
+    let obj = { wort1: "Hallo", wort2: "wie", wort3:  "geht's?"};
+    function doStuff({wort1, wort2, wort3}){
+      console.log(wort1 + " "+ wort2 + " " + wort3);
+    }
+    doStuff(obj); //"Hallo wie geht's?";
+
+    function tellMeMore([a,b,...rest])
+    {
+      console.log("a: "+a+ " | b: "+b);
+      if(rest.length>0)
+        for(let i = 0; i &lt; rest.length;i++)
+          console.log(rest[i]);
+    }
+    let a = [1,2];
+    let b = [1,2,3,4,5];
+    tellMeMore(a); // "a: 1 | b: 2"
+    tellMeMore(b); // "a: 1 | b: 2 " + alle anderen Elemente in jeweils einer neuen Zeile</pre>
+  </li>
+  <li>Default Parameter sind möglich!
+    <pre lang="javascript">
+      function foo(a, b = 0; c = "hi") { /*...*/ };</pre>
+  </ul>
+
+<aside>
+</aside>
+</body>
+</html>
