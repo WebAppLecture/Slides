@@ -13,16 +13,16 @@
 <div class="left">
 <ul><li>Das Coordinates-Objekt, welches wir sehr häufig verwenden, enthält folgende Eigenschaften:
 <pre lang="javascript">
-var pos = ...geolocation.lastPosition.coords;
-var x = pos.latitude;//Breitengrad in Grad
-var y = pos.longitude;//Längengrad in Grad
+navigator.geolocation.getCurrentPosition(
+data => { var pos = data.coords;
+var x = pos.latitude;//Breitengrad
+var y = pos.longitude;//Längengrad
 var hor_tol = pos.accuracy; //Genauigkeit in m
-//Ab hier Angaben die NULL sein können
+//Ab hier Angaben die NULL/NaN sein können
 var h = pos.altitude;//Höhe in m
 var ver_tol = pos.altitudeAccuracy;/* Genauigkeit der Höhenmessung in m */
 var dir = pos.heading;/* Richtung (in Grad) mit 0°=Norden (im Uhrzeigersinn) */
-var v = pos.speed;//Geschwindigkeit in m/s
-</pre>
+var v = pos.speed;});//Geschwindigkeit [m/s]</pre>
 </li>
 <li>Da die Suche nach Koordinaten oftmals dauert ist die Geolocation API über Callbacks aufgebaut</li>
 </ul>
