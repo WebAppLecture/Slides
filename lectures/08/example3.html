@@ -11,7 +11,7 @@
 $('#example18insert').html('&lt;img src=&quot;loader.gif&quot; alt=&quot;Ladebalken für AJAX&quot; /&gt;');
 //Ausführen von AJAX
 $.ajax({
-	url: 'http://html5.florian-rappl.de/submitted.html', //Wir fragen diese (statische) Seite ab
+	url: 'http://webapplecture.github.io/Slides/lectures/08/AjaxDemo.html', //Wir fragen diese (statische) Seite ab
 	cache: false, //Es soll nicht gechached werden -- wollen diese Seite immer neu erhalten
 	dataType: 'html', //Setzen HTML als Datentyp fest
 	type: 'GET', //Setzen GET als Methode fest
@@ -36,9 +36,9 @@ $.ajax({
 $(function() {
 	$('#example18ajax').click(function () {
 		$('#example18insert').html('<img src="icons/loader.gif" alt="Ladebalken für AJAX" />');
-		
+
 		$.ajax({
-			url: 'http://html5skript.florian-rappl.de/uiexample/ajax.html',
+			url: 'http://webapplecture.github.io/Slides/lectures/08/AjaxDemo.html',
 			cache: false,
 			dataType: 'html',
 			type: 'GET',
