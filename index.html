@@ -1,634 +1,1453 @@
 <!DOCTYPE html>
 <html lang="de">
-	<head>
-		<!--Kodierung der Webseite setzen-->
-		<meta charset="utf-8" />
-		<title>WebApplications mit HTML5, CSS3 und JavaScript</title>
-		<!--CSS Stylesheets einbinden-->
-		<link rel="stylesheet" href="styles/jquery-ui-1.8.16.custom.css" />
-		<link rel="stylesheet" href="styles/jquery.snippet.css" />
-		<link rel="stylesheet" href="styles/presentation.css" media="only screen and (min-device-width: 900px)" />
-		<link rel="stylesheet" href="styles/mobile.css" media="only screen and (max-device-width: 900px)" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1" />
-	</head>
-	<body>
-		<!--Header sollte das erste Element sein und beinhaltet unsere Kopfzeile-->
-		<header>
-			<!--In der hgroup fassen wir alle Infos zum Header zusammen - Titel und Logo-->
-			<hgroup>
-				<img src="icons/html5.png" alt="HTML5 Logo" />
-				<h1>Programmierung und Design von WebApplications mit HTML5, CSS3 und JavaScript</h1>
-			</hgroup>
-		</header>
-		<!--Das ganze ist ein Skript (Artikel) mit verschiedenen Folien (Sektionen)-->
-		<article class="deck">
-			<section id="main-title">
-				<!--Abbildungen über figure und figcaption einbinden-->
-				<figure class="title">
-					<img src="img/logo.png" alt="" height=300 />
-					<figcaption>© Phil Banks</figcaption>
-				</figure>
-				<h1>WebApplications</h1>
-				<h2>Programmierung und Design mit HTML5, CSS3 und JavaScript</h2>
-				<footer>
-					<img src="icons/ur.png" alt="UR" class="logo-ur" onclick="window.open('http://www.uni-regensburg.de');" />Universität Regensburg /
-					<img src="icons/physik.png" class="logo-phy" alt="PHY" onclick="window.open('http://www.physik.uni-regensburg.de');" />Fakultät für Physik /
-					<img src="icons/me.png" class="logo-fr" alt="FR" onclick="window.open('http://www.florian-rappl.de');" />Florian Rappl
-				</footer>
-			</section>
-			<section id="main-about" title="Vorwort" data-lang="html"><h1>Vorwort</h1>
-				<p>Dieses Skript wurde für die Vorlesung &quot;Programmierung und Design von WebApplications mit HTML5, CSS3 und JavaScript&quot; geschrieben. Die Bedienung erfolgt über die Tastatur (d.h. die Pfeiltasten, Pos1, Ende, Enter, Leerzeichen, etc. haben eine besondere Bedeutung) oder durch die untere Navigationsleiste. Diese wurde mit JavaScript (mit jQuery) und CSS3 entsprechend verschönert um nicht immer störend im Bild zu sein und die wichtigsten Informationen und Methoden bereitszustellen.</p>
-				<p>Die Vorlesung setzt nur geringfügige Kenntnisse in HTML voraus. Für CSS sind keinerlei Grundkenntnisse notwendig, allerdings kann vorhandenes Wissen sehr hilfreich sein. JavaScript wird von Grund auf eingeführt - hier sind nur Programmierkenntnisse in einer beliebigen (Skript-) Sprache notwendig, damit die Probleme in der Sprache und nicht in der Programmierung an sich auftreten.</p>
-				<p>Das Skript wurde während der Vorlesung kontinuierlich erweitert und verbessert. Die Übungsaufgaben sind auf einer separaten Seite, der Seite zum Kurs, welche mit weiteren Materialien zu dieser Vorlesung ausgestattet ist, verlinkt. Die Lösungen zu den Übungsaufgaben sind ebenfalls auf der Kurshomepage zu finden. Der Übungsbetrieb wird in der zweiten Woche mit grundlegendem HTML beginnen und anschließend mit JavaScript Grundkenntnissen fortfahren.</p>
-				<p>Neben den HTML5 Fähigkeiten von Desktop-Browsern sind die Möglichkeiten mit den mobilen Browsern im Fokus der Web-Entwickler. Im Internet gibt es jede Menge Webseiten mit Browservergleichen und Demonstrationen von aktuellen Möglichkeiten mit dem neuen Standard. Ein auf jeden Fall aufzurufender Test ist auf der Seite von HTML5Test zu finden. Sollte der verwendete Browser hier zu wenig Punkte holen, wäre ein Browserupgrade für die Vorlesung auf jeden Fall zu empfehlen.</p>
-				<p><em>Nachtrag im September 2013</em> Die Vorlesung hat sich mittlerweile als Blockkurs etabliert. Viele in der Vorlesung vorgestellte Techniken sind mittlerweile sehr weit verbreitet und können bedenkenlos eingesetzt werden. Nachdem der Kurs versucht, an den Grenzen der Technologie zu schreiten, werden daher Technologien wie WebGL stärker berücksichtigt.</p>
-				<p>Florian Rappl im September 2011 und 2013.</p>
-				<!--Referenzen über aside einbinden-->
-				<aside>
-					<a href="http://html5.florian-rappl.de/" target="_blank">Die Seite zur Vorlesung</a>
-					<a href="http://mobilehtml5.org/" target="_blank">Vergleich der HTML5 Fähigkeiten von mobilen Browsern</a>
-					<a href="http://html5demos.com/" target="_blank">Demonstrationen und Browserübersicht zu HTML5 Fähigkeiten</a>
-					<a href="http://html5test.com/" target="_blank">Testseite für HTML5-Kompatibilität des eigenen Browsers</a>
-				</aside>
-			</section>
-			<!--Das Inhaltsverzeichnis soll automatisch erstellt werden - overflow auto ist für IE und für später da wenn wir ein richtig großes IV haben-->
-			<section id="toc-start" class="toc"><h1>Inhaltsverzeichnis (1)</h1>
-				<p></p>
-			</section>
-			<section id="toc-continued" class="toc"><h1>Inhaltsverzeichnis (2)</h1>
-				<p></p>
-			</section>
-			<section id="toc-final" class="toc"><h1>Inhaltsverzeichnis (3)</h1>
-				<p></p>
-			</section>
-			<!--Es werden nur die leeren Hüllen der Seiten eingebunden - die eigentliche Seite wird über jQuery per AJAX nachgeladen-->
+<head>
+    <meta charset="UTF-8">
+    <title>Webapplecture</title>
+    <link rel="shortcut icon" href="resources/images/html5.png">
+    <link rel="stylesheet" href="resources/css/main.css"/>
+    <link rel="stylesheet" href="resources/css/codeEditor.css"/>
+    <link rel="stylesheet" href="resources/css/codeDisplay.css"/>
+    <link rel="stylesheet" href="resources/css/buttons.css"/>
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <img src="resources/images/html5.png">
+        <nav>
+            <ul>
+                <li>
+                    <h2>Tag</h2>
+                </li>
+                <li>
+                    <a href="index.html"><h2>1</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>2</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>3</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>4</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>5</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>6</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>7</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>8</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>9</h2></a>
+                </li>
+                <li>
+                    <h2>Übung</h2>
+                </li>
+                <li>
+                    <a href="exercises.html"><h2>1</h2></a>
+                </li>
+                <li>
+                    <a href="exercises.html"><h2>2</h2></a>
+                </li>
+                <li>
+                    <a href="exercises.html"><h2>3</h2></a>
+                </li>
+                <li>
+                    <a href="exercises.html"><h2>4</h2></a>
+                </li>
+                <li>
+                    <a href="exercises.html"><h2>5</h2></a>
+                </li>
+            </ul>
+        </nav>
+        <span id="toTop">
+            <a><h2>Top</h2></a>
+        </span>
+    </div>
+</header>
+<div class="wrapper">
+<nav class="column left">
 
-			<!-- TAG 1 -->
-			<section id="lec01-lecture" title="Aufbau der Vorlesung" data-lang="html">
-			</section>
-			<section id="lec01-distribution" title="Aufteilung der Inhalte" data-lang="html">
-			</section>
-			<section id="lec01-whatisit" title="Was ist HTML5?" data-lang="html">
-			</section>
-			<section id="lec01-history" title="Geschichte von HTML" data-lang="html">
-			</section>
-			<section id="lec01-w3c" title="Arbeitsweise des W3C" data-lang="html">
-			</section>
-			<section id="lec01-usedtechs" title="Um was gehts hier genau?" data-lang="html">
-			</section>
-			<section id="lec01-why" title="Warum Webapplications?" data-lang="html">
-			</section>
-			<section id="lec01-whatgivesme" title="Der Nutzen von HTML5" data-lang="html">
-			</section>
-			<section id="lec01-crossbrowser" title="Besseres Cross-Browsing" data-lang="html">
-			</section>
-			<section id="lec01-doctype" title="Ein Standard, ein Doctype" data-lang="html">
-			</section>
-			<section id="lec01-changes" title="Änderungen zu HTML 4" data-lang="html">
-			</section>
-			<section id="lec02-jsintro" title="Einstieg in JavaScript" data-lang="js">
-			</section>
-			<section id="lec01-ECMAScript5And6" title="ECMA Script" data-lang="js">
-			</section>
-			<section id="lec02-jsunderstand" title="JavaScript verstehen" data-lang="js">
-			</section>
-			<section id="lec02-jsdatatypes" title="Variablen und Datentypen" data-lang="js">
-			</section>
-			<section id="lec01-VarLetConst" title="Variable ist nicht Variable" data-lang="js">
-			</section>
-			<section id="lec02-jsarrays1" title="Arrays (1)" data-lang="js">
-			</section>
-			<section id="lec02-jsarrays2" title="Arrays (2)" data-lang="js">
-			</section>
-			<section id="lec02-jsoperators" title="Operatoren" data-lang="js">
-			</section>
-			<section id="lec02-jsconversion" title="Konvertieren mit Operatoren" data-lang="js">
-			</section>
-			<section id="lec02-jsexample1" title="Beispiel (1)" data-lang="js">
-			</section>
-			<section id="lec02-jsswitches" title="Kontrollstrukturen" data-lang="js">
-			</section>
-			<section id="lec02-jsfunctions" title="Funktionen" data-lang="js">
-			</section>
-			<section id="lec02-jsexample2" title="Beispiel (2)" data-lang="js">
-			</section>
-			<section id="lec01-functions2" title="Funktionen 2" data-lang="js">
-			</section>
-			<section id="lec02-strings" title="Arbeiten mit Zeichenketten" data-lang="js">
-			</section>
-			<section id="lec02-conversions" title="Konvertieren von Strings" data-lang="js">
-			</section>
-			<section id="lec02-jsexample4" title="Beispiel (4)" data-lang="js">
-			</section>
-			<section id="lec02-jshtml" title="JavaScript in HTML nutzen" data-lang="js">
-			</section>
-			<section id="lec02-jsdebugging" title="Fehler im Code finden" data-lang="js">
-			</section>
-			<!-- TAG 2 -->
-			<section id="lec02-jsevents" title="Interaktion über Ereignisse" data-lang="js">
-			</section>
-			<section id="lec02-jsexample3" title="Beispiel (3)" data-lang="js">
-			</section>
-			<section id="lec02-dom" title="DOM Schnittstelle zu HTML" data-lang="js">
-			</section>
-			<section id="lec02-window" title="Das Window Objekt" data-lang="js">
-			</section>
-			<section id="lec12-dirty" title="Dirty, valid HTML" data-lang="html">
-			</section>
-			<section id="lec01-semantic" title="Semantischer Aufbau" data-lang="html">
-			</section>
-			<section id="lec01-basics" title="Neue Grundelemente" data-lang="html">
-			</section>
-			<section id="lec01-removed" title="Entfernt und neu" data-lang="html">
-			</section>
-			<section id="lec01-whentouse" title="Wann genau verwenden?" data-lang="html">
-			</section>
-			<section id="lec01-example" title="Konkretes Beispiel" data-lang="html">
-			</section>
-			<section id="lec07-html5ie5" title="Neue Tags für ältere IE" data-lang="js">
-			</section>
-			<section id="lec03-forms" title="HTML Forms" data-lang="html">
-			</section>
-			<section id="lec03-selfvalidate" title="Per JavaScript prüfen" data-lang="js">
-			</section>
-			<section id="lec03-forms5" title="Forms in HTML5" data-lang="html">
-			</section>
-			<section id="lec03-output" title="Das output Element" data-lang="html">
-			</section>
-			<section id="lec03-autovalidate" title="Automatische Validierung" data-lang="html">
-			</section>
-			<section id="lec03-examplediyvalidate" title="DIY Validierung" data-lang="js">
-			</section>
-			<section id="lec03-react" title="Auf Eingaben reagieren" data-lang="js">
-			</section>
-			<section id="lec12-interesting" title="Interessante Attribute" data-lang="html">
-			</section>
-			<section id="lec12-attributes" title="Neue Attribute" data-lang="html">
-			</section>
-			<section id="lec12-contenteditable" title="Kleiner Texteditor" data-lang="html">
-			</section>
-			<section id="lec12-example3" title="Beispiel (32)" data-lang="html">
-			</section>
-			<!-- TAG 3 -->
-			<section id="lec11-jsperformance" title="Die Performance" data-lang="js">
-			</section>
-			<section id="lec11-betterjs" title="Performance Tricks" data-lang="js">
-			</section>
-			<section id="lec02-jsstrangeness" title="JavaScript Strangeness" data-lang="js">
-			</section>
-			<section id="lec03-jquery" title="Die jQuery Bibliothek" data-lang="js">
-			</section>
-			<section id="lec03-whyjquery" title="Warum jQuery?" data-lang="js">
-			</section>
-			<section id="lec03-jqueryselect" title="Elemente auswählen" data-lang="js">
-			</section>
-			<section id="lec03-jqueryeach" title="Durch Arrays mit jQuery" data-lang="js">
-			</section>
-			<section id="lec03-jqueryadd" title="Elemente hinzufügen" data-lang="js">
-			</section>
-			<section id="lec03-jquerychange" title="Elemente ändern" data-lang="js">
-			</section>
-			<section id="lec03-jqueryvalidate" title="Mit jQuery prüfen" data-lang="js">
-			</section>
-			<section id="lec03-jqueryload" title="Wann jQuery ausführen?" data-lang="js">
-			</section>
-			<section id="lec03-jqueryanimate" title="Vitalität dank Animationen" data-lang="js">
-			</section>
-			<section id="lec03-jstimers" title="JavaScript Timers" data-lang="js">
-			</section>
-			<section id="lec03-jqueryevents" title="Ereignisse mit jQuery" data-lang="js">
-			</section>
-			<section id="lec04-nesting" title="Nesting im Visier" data-lang="js">
-			</section>
-			<section id="lec04-example1" title="Beispiel (5)" data-lang="js">
-			</section>
-			<section id="lec04-oopES6" title="Klassen in JavaScript" data-lang="js">
-			</section>
-			<section id="lec04-oopclass" title="Klassen in JavaScript vor ES 6" data-lang="js">
-			</section>
-			<section id="lec04-oopprop" title="Private und Public" data-lang="js">
-			</section>
-			<section id="lec04-oopfunctions" title="Methoden in Klassen" data-lang="js">
-			</section>
-			<section id="lec04-ooppoly" title="Polymorphie in JavaScript" data-lang="js">
-			</section>
-			<section id="lec04-ooppolyES6" title="Neue Polymorphie in JavaScript" data-lang="js">
-			</section>
-			<section id="lec04-oopns" title="Namensräume und statische Felder" data-lang="js">
-			</section>
-			<section id="lec04-example2" title="Beispiel (6)" data-lang="js">
-			</section>
-			<section id="lec11-jsget" title="JavaScript Getter" data-lang="js">
-			</section>
-			<section id="lec11-jsset" title="JavaScript Setter" data-lang="js">
-			</section>
-			<section id="lec11-example1" title="Beispiel (27)" data-lang="js">
-			</section>
-			<section id="lec04-noscript" title="Was passiert ohne JavaScript" data-lang="html">
-			</section>
-			<!-- TAG 4 -->
-			<section id="lec04-audio" title="Das Audio Element" data-lang="html">
-			</section>
-			<section id="lec04-video" title="Das Video Element" data-lang="html">
-			</section>
-			<section id="lec04-example3" title="Beispiel (7)" data-lang="html">
-			</section>
-			<section id="lec04-formats" title="Das Format-Desaster" data-lang="html">
-			</section>
-			<section id="lec04-canvas" title="Grafik mit Canvas" data-lang="html">
-			</section>
-			<section id="lec04-jscanvas" title="Canvas JavaScript Methoden" data-lang="js">
-			</section>
-			<section id="lec04-example4" title="Beispiel (8)" data-lang="js">
-			</section>
-			<section id="lec05-morecanvas" title="Noch mehr Canvas!" data-lang="js">
-			</section>
-			<section id="lec05-loadimg" title="Bilder laden und verwenden" data-lang="js">
-			</section>
-			<section id="lec05-animations" title="Animationen zeichnen" data-lang="js">
-			</section>
-			<section id="lec05-example1" title="Beispiel (9)" data-lang="js">
-			</section>
-			<section id="lec05-canvideo" title="Video und Canvas" data-lang="html">
-			</section>
-			<section id="lec07-excanvas" title="Canvas in alten Browsern" data-lang="js">
-			</section>
-			<section id="lec05-svg" title="Vektorgrafiken mit SVG" data-lang="html">
-			</section>
-			<section id="lec05-canvasvsvg" title="Canvas vs. SVG" data-lang="html">
-			</section>
-			<section id="lec05-svgcharts" title="Charts mit SVG" data-lang="js">
-			</section>
-			<section id="lec05-svgbasics" title="Grundlegendes zu SVG" data-lang="html">
-			</section>
-			<section id="lec05-raphael" title="Verwenden von RaphaëlJS" data-lang="js">
-			</section>
-			<section id="lec05-example2" title="Beispiel (10)" data-lang="js">
-			</section>
-			<section id="lec12-webgl" title="WebGL" data-lang="js">
-			</section>
-			<!-- TAG 5 -->
-			<section id="lec05-css" title="Einstieg in CSS" data-lang="css">
-			</section>
-			<section id="lec05-selectors" title="CSS Selektoren" data-lang="css">
-			</section>
-			<section id="lec05-rules" title="Regeln festlegen" data-lang="css">
-			</section>
-			<section id="lec05-position" title="Elemente positionieren" data-lang="css">
-			</section>
-			<section id="lec05-size" title="Die Größe festlegen" data-lang="css">
-			</section>
-			<section id="lec05-display" title="Anzeigemodus setzen" data-lang="css">
-			</section>
-			<section id="lec05-example3" title="Beispiel (11)" data-lang="css">
-			</section>
-			<section id="lec06-details" title="CSS im Detail" data-lang="css">
-			</section>
-			<section id="lec06-possibilities" title="Möglichkeiten" data-lang="css">
-			</section>
-			<section id="lec06-textfont" title="Schrift und Text" data-lang="css">
-			</section>
-			<section id="lec06-customfonts" title="Mehr Schriftarten!" data-lang="css">
-			</section>
-			<section id="lec06-lists" title="Listen richtig stylen" data-lang="css">
-			</section>
-			<section id="lec06-border" title="Der richtige Rahmen" data-lang="css">
-			</section>
-			<section id="lec06-colors" title="Farben in CSS3" data-lang="css">
-			</section>
-			<section id="lec06-example1" title="Beispiel (12)" data-lang="css">
-			</section>
-			<section id="lec06-gradient" title="Farbverläufe" data-lang="css">
-			</section>
-			<section id="lec06-shadow" title="Licht und Schatten" data-lang="css">
-			</section>
-			<section id="lec06-transforms" title="Transformationen" data-lang="css">
-			</section>
-			<section id="lec06-transitions" title="Effekte mit CSS3" data-lang="css">
-			</section>
-			<section id="lec06-animations" title="Animationen ohne JS" data-lang="css">
-			</section>
-			<section id="lec06-layout" title="Neue Layout-Möglichkeiten" data-lang="css">
-			</section>
-			<section id="lec06-example2" title="Beispiel (13)" data-lang="css">
-			</section>
-			<section id="lec06-3dtransitions" title="3D Effekte mit CSS3" data-lang="css">
-			</section>
-			<section id="lec07-prefixfree" title="CSS3 ohne Präfixe" data-lang="js">
-			</section>
-			<section id="lec07-css3browsers" title="CSS3 für ältere Browser" data-lang="css">
-			</section>
-			<!-- TAG 6 -->
-			<section id="lec08-whatisajax" title="Was ist AJAX?" data-lang="js">
-			</section>
-			<section id="lec08-ajaxjquery" title="AJAX mit jQuery" data-lang="js">
-			</section>
-			<section id="lec08-example3" title="Beispiel (18)" data-lang="js">
-			</section>
-			<section id="lec08-dataformats" title="Das richtige Datenformat" data-lang="js">
-			</section>
-			<section id="lec08-json" title="JavaScript Object Notation" data-lang="js">
-			</section>
-			<section id="lec08-jsonp" title="JSON als Datenformat" data-lang="js">
-			</section>
-			<section id="lec08-security" title="Grenzenlos austauschen" data-lang="js">
-			</section>
-			<section id="lec08-example4" title="Beispiel (19)" data-lang="js">
-			</section>
-			<section id="lec08-moreajaxjquery" title="Was kann jQuery noch?" data-lang="js">
-			</section>
-			<section id="lec08-promises" title="JavaScript Promises" data-lang="js">
-			</section>
-			<section id="lec16-ES6-Promises" title="Promises (ES 6)" data-lang="js">
-			</section>
-			<section id="lec10-webworker" title="Asynchroner JavaScript" data-lang="js">
-			</section>
-			<section id="lec10-whywebworker" title="Warum WebWorker?" data-lang="js">
-			</section>
-			<section id="lec10-debuggingww" title="WebWorker debuggen" data-lang="js">
-			</section>
-			<section id="lec10-example3" title="Beispiel (26)" data-lang="js">
-			</section>
-			<section id="lec08-messaging" title="Die Messaging API" data-lang="js">
-			</section>
-			<section id="lec08-websockets" title="Die Zukunft: WebSockets!" data-lang="js">
-			</section>
-			<section id="lec09-savedata" title="Daten speichern - Überblick" data-lang="js">
-			</section>
-			<section id="lec09-savedatacookie" title="Das Cookie" data-lang="js">
-			</section>
-			<section id="lec09-savedatasession" title="Die Session" data-lang="js">
-			</section>
-			<section id="lec09-example2" title="Beispiel (21)" data-lang="js">
-			</section>
-			<section id="lec09-savedatastorage" title="WebStorage" data-lang="js">
-			</section>
-			<section id="lec09-example3" title="Beispiel (22)" data-lang="js">
-			</section>
-			<section id="lec09-savedatawebsql" title="WebSQL" data-lang="js">
-			</section>
-			<section id="lec09-limitations" title="Begrenzungen" data-lang="js">
-			</section>
-			<!-- TAG 7 -->
-			<section id="lec16-ES6-destructuring" title="Destructuring Assingments" data-lang="js">
-			</section>
-			<section id="lec16-ES6-NewWithFunctions" title="Neue Features bei Funktionen" data-lang="js">
-			</section>
-			<section id="lec16-ES6-Iterators" title="Iteratoren (ES 6)" data-lang="js">
-			</section>
-			<section id="lec16-ES6-Generators" title="Generatoren (ES 6)" data-lang="js">
-			</section>
-			<section id="lec16-ES6-More" title="Sonstiges (ES 6)" data-lang="js">
-			</section>
-			<section id="lec10-geolocation" title="Geolocation" data-lang="js">
-			</section>
-			<section id="lec10-usefulgeo" title="Nützlicher Einsatz" data-lang="js">
-			</section>
-			<section id="lec10-example1" title="Beispiel (24)" data-lang="js">
-			</section>
-			<section id="lec09-dnd" title="Drag and Drop" data-lang="js">
-			</section>
-			<section id="lec09-dndapp" title="Raus aus dem Browser" data-lang="js">
-			</section>
-			<section id="lec09-dndfallback" title="DND Fallback" data-lang="js">
-			</section>
-			<section id="lec09-example1" title="Beispiel (20)" data-lang="js">
-			</section>
-			<section id="lec12-fileintro" title="Die File API" data-lang="js">
-			</section>
-			<section id="lec12-filemethods" title="Methoden im Detail" data-lang="js">
-			</section>
-			<section id="lec12-example2" title="Beispiel (31)" data-lang="js">
-			</section>
-			<section id="lec09-offline" title="Den Stecker ziehen" data-lang="html">
-			</section>
-			<section id="lec09-manifest" title="Das Manifest" data-lang="html">
-			</section>
-			<section id="lec09-example4" title="Beispiel (23)" data-lang="html">
-			</section>
-			<section id="lec10-responsive" title="Responsive Design" data-lang="html">
-			</section>
-			<section id="lec10-atrules" title="Die @-Regeln" data-lang="css">
-			</section>
-			<section id="lec10-moreatrules" title="Die @media-Regel" data-lang="css">
-			</section>
-			<section id="lec10-example2" title="Beispiel (25)" data-lang="css">
-			</section>
-			<section id="lec10-reactive" title="Reactive Design" data-lang="css">
-			</section>
-			<section id="lec10-print" title="Professioneller Druck" data-lang="css">
-			</section>
-			<section id="lec11-images" title="Inline Bilder und Sprites" data-lang="css">
-			</section>
-			<section id="lec11-example3" title="Beispiel (29)" data-lang="html">
-			</section>
-			<section id="lec12-gaming" title="Games mit HTML5" data-lang="html">
-			</section>
-			<section id="lec12-engines" title="Existierende Engines" data-lang="html">
-			</section>
-			<section id="lec12-useful" title="Nützliche Bibliotheken" data-lang="js">
-			</section>
-			<section id="lec12-example1" title="Beispiel (30)" data-lang="js">
-			</section>
+</nav>
+<main class="column middle">
+<section id="Einfuehrung">
+    <article id="vorwort">
+        <h2>Vorwort</h2>
+        <p>Dieses Skript wurde für die Vorlesung "Programmierung und Design von WebApplications mit HTML5, CSS3 und JavaScript" geschrieben. Es stellt die Weiterentwicklung des bisherigen Skripts dar das 2011 von Florian Rappl erstellt wurde. Das alte Skript war nicht auf mobilen Geräten benutzbar und auch nicht gut als Nachschlagwerk geeignet, weswegen es das erklärte Ziel dieses Skripts ist genau dies möglich zu machen.</p>
+        <p>Die Vorlesung setzt nur geringfügige Kenntnisse in HTML voraus. Für CSS sind keinerlei Grundkenntnisse notwendig, allerdings kann vorhandenes Wissen sehr hilfreich sein. JavaScript wird von Grund auf eingeführt - hier sind nur Programmierkenntnisse in einer beliebigen (Skript-) Sprache notwendig, damit die Probleme in der Sprache und nicht in der Programmierung an sich auftreten.</p>
+        <p>Das Skript wird gerade von Grund auf neu geschrieben, wer Fehler findet soll darauf aufmerksam machen. Auch konstruktive oder unkonstruktive Kritik was Aufbau, Geschwindigkeit, Schwerpunkte und sonstige Qualitätsmerkmale angeht ist willkommen.</p>
+        <p>Die Übungsaufgaben sind über den Link oben auf der Seite zu finden. Die Lösungen zu den Übungsaufgaben sind dort ebenfalls zu finden.</p>
+        <p>Ich möchte vor allem neue, interresante Möglichkeiten von HTML5 und Javascript aufzeigen, viele davon werden noch keine breite Browserunterstützung genießen. Wenn man experimentelle Features in der Lehre meidet führt das nur dazu, dass der Kurs sehr schnell veraltet ist. Die Web Entwicklung bewegt sich sehr schnell; es kann passieren, dass unmögliche Dinge in 6 Monaten machbar sind und in zwei Jahren Standard. Grundsätzlich werde ich deswegen in Google Chrome arbeiten, da dieser Browser den anderen meist ein gutes Stück vorraus ist was die Implementierung und Optimierung von neuen Features angeht.</p>
+        <p>Neben den HTML5 Fähigkeiten von Desktop-Browsern sind die Möglichkeiten mit den mobilen Browsern im Fokus der Web-Entwickler. Im Internet gibt es jede Menge Webseiten mit Browservergleichen und Demonstrationen von aktuellen Möglichkeiten mit dem neuen Standard. Ein auf jeden Fall aufzurufender Test ist auf der Seite von HTML5Test zu finden. Sollte der verwendete Browser hier zu wenig Punkte holen, wäre ein Browserupgrade für die Vorlesung auf jeden Fall zu empfehlen.</p>
 
-			<!-- TAG 8 -->
-			<section id="lec11-unobtrusive" title="Unobtrusive JavaScript" data-lang="js">
-			</section>
-			<section id="lec11-example2" title="Beispiel (28)" data-lang="js">
-			</section>
-			<section id="lec11-lastcss" title="Noch einmal CSS3" data-lang="css">
-			</section>
-			<section id="lec07-compatibility" title="Abwärtskompatibilität" data-lang="html">
-			</section>
-			<section id="lec07-features" title="jQuery Feature Detection" data-lang="js">
-			</section>
-			<section id="lec07-example1" title="Beispiel (14)" data-lang="js">
-			</section>
-			<section id="lec07-jqueryui" title="jQuery UI im Blickpunkt" data-lang="js">
-			</section>
-			<section id="lec07-jqueryuiinclude" title="jQuery UI einbinden" data-lang="js">
-			</section>
-			<section id="lec07-jqueryuipossibilities" title="jQuery UI Möglichkeiten" data-lang="js">
-			</section>
-			<section id="lec07-legacyforms" title="Neue Form Elemente für alle" data-lang="js">
-			</section>
-			<section id="lec07-example2" title="Beispiel (15)" data-lang="js">
-			</section>
-			<section id="lec07-jqueryuithemes" title="jQuery UI Themes" data-lang="js">
-			</section>
-			<section id="lec07-jqueryuieffects" title="Zusätzliche Effekte" data-lang="js">
-			</section>
-			<section id="lec08-moreanimations" title="Mehr Animationen!" data-lang="js">
-			</section>
-			<section id="lec08-example2" title="Beispiel (17)" data-lang="js">
-			</section>
-			<section id="lec08-utilities" title="jQuery Utilities nutzen" data-lang="js">
-			</section>
-			<section id="lec08-filter" title="jQuery Filter einsetzen" data-lang="js">
-			</section>
-			<section id="lec08-example1" title="Beispiel (16)" data-lang="js">
-			</section>
-			<section id="lec10-ownplugins" title="Eigene jQuery Plugins" data-lang="js">
-			</section>
-			<section id="lec10-designrules" title="An Designmuster halten" data-lang="js">
-			</section>
-			<section id="lec10-exampleshowmore" title="Ein Beispiel: Show-More" data-lang="js">
-			</section>
-			<section id="lec11-network" title="Das Netzwerk optimieren" data-lang="html">
-			</section>
-			<section id="lec11-jscssperf" title="JS und CSS Tricks" data-lang="js">
-			</section>
-			<section id="lec11-mostjquery" title="Häufige jQuery Befehle" data-lang="js">
-			</section>
-			<section id="lec11-expires" title="ETags und Expired Header" data-lang="html">
-			</section>
-			<section id="lec11-compress" title="GZIP Komprimierung" data-lang="html">
-			</section>
-			<section id="lec11-caching" title="Serverseitiges Caching" data-lang="html">
-			</section>
-			<section id="lec11-asyncdefer" title="JavaScript-Attribute" data-lang="html">
-			</section>
-			<section id="lec13-security" title="Übersicht der Gefährdungen" data-lang="html">
-			</section>
-			<section id="lec13-exploits" title="Offene Stellen" data-lang="html">
-			</section>
-			<section id="lec13-utf7injection" title="Immer UTF-8 verwenden" data-lang="html">
-			</section>
-			<section id="lec13-example1" title="Beispiel (33)" data-lang="html">
-			</section>
-			<section id="lec13-server" title="Lecks am Server stopfen" data-lang="html">
-			</section>
-			<section id="lec13-xsrf" title="Cross Site Request Forgery" data-lang="html">
-			</section>
-			<section id="lec13-ssl" title="Sichere Seiten mit SSL" data-lang="html">
-			</section>
-			<section id="lec13-w3c" title="W3C Specification" data-lang="html">
-			</section>
-			<section id="lec13-example2" title="Beispiel (34)" data-lang="html">
-			</section>
-			<section id="lec13-browser" title="Blick in den Browser" data-lang="html">
-			</section>
-			<section id="lec13-webkit" title="Webkit Codebasis" data-lang="html">
-			</section>
-			<section id="lec13-rendering" title="Rendering nachvollziehen" data-lang="html">
-			</section>
-			<section id="lec13-example3" title="Beispiel (35)" data-lang="html">
-			</section>
-			<section id="lec13-interaction" title="Interaktion perfektionieren" data-lang="html">
-			</section>
-			<section id="lec13-validate" title="Validierungen einbauen" data-lang="html">
-			</section>
-			<section id="lec14-design" title="Designmuster für Webseiten" data-lang="html">
-			</section>
-			<section id="lec14-mvc" title="Model-View-Controller (MVC)" data-lang="html">
-			</section>
-			<section id="lec14-mvp" title="Model-View-Presenter (MVP)" data-lang="html">
-			</section>
-			<section id="lec14-mvvm" title="Model-View-ViewModel (MVVM)" data-lang="html">
-			</section>
-			<section id="lec14-frameworks" title="Bekannte Frameworks" data-lang="html">
-			</section>
-			<section id="lec14-comparison" title="Server und Sprachen" data-lang="html">
-			</section>
-			<section id="lec14-performance" title="Vergleich der Performance" data-lang="html">
-			</section>
-			<section id="lec14-example1" title="Beispiel (36)" data-lang="html">
-			</section>
-			<section id="lec15-nodejs" title="Node.js" data-lang="js">
-			</section>
-			<section id="lec15-nodeapi" title="Die Node API" data-lang="js">
-			</section>
-			<section id="lec15-serverjs" title="JavaScript am Server" data-lang="js">
-			</section>
-			<section id="lec15-viewengines" title="Viewengines" data-lang="js">
-			</section>
-			<section id="lec15-appjs" title="Anwendungen mit JavaScript" data-lang="js">
-			</section>
-			<section id="lec15-chromium" title="Das Chromium Embedded Framework" data-lang="js">
-			</section>
-			<!--Literaturverzeichnis-->
-			<section id="main-literature" title="Literatur" data-lang="html"><h1>Literatur</h1>
-				<p>Die folgenden Bücher sind zur Zusammenstellung des Unterrichtsmaterials verwendet worden.</p>
-				<ul>
-					<li>Uwe Hess, Günther Karl: <b>HTML 4</b>, bhv Verlag 2000, ISBN 3-8287-5005-2</li>
-					<li>Bruce Lawson, Remy Sharp: <b>Introducing HTML5</b>, New Riders 2011, ISBN 0-3216-8729-9</li>
-					<li>Steve Souders: <b>High Performance Websites</b>, O'Reilly 2008, ISBN 3-8972-1850-5</li>
-					<li>jQuery Community Experts: <b>jQuery Cookbook</b>, O'Reilly 2010, ISBN 0-5961-5977-1</li>
-					<li>Florence Maurice: <b>CSS3 Leitfaden</b>, Addison-Wesley 2010, ISBN 3-8273-3031-4</li>
-					<li>Ed Tittel, Norbert Mikula, Ramesh Chandak: <b>XML For Dummies</b>, mitp 2000, ISBN 3-8266-2860-8</li>
-					<li>David Siegel: <b>Web Site Design</b>, Markt und Technik 2000, ISBN 3-8272-5331-4</li>
-					<li>Emily Vander Veer: <b>JavaScript For Dummies</b>, Wiley Publishing 2005, ISBN 0-7645-7659-3</li>
-					<li>Richard Mansfield: <b>CSS Web Design For Dummies</b>, Wiley Publishing 2005, ISBN 0-7645-8425-1</li>
-					<li>Christoph Prevezanos: <b>Jetzt lerne ich HTML5: Start ohne Vorwissen</b>, M+T 2011, ISBN 3-8272-4674-5</li>
-					<li>Jesse Skinner: <b>Unobtrusive Ajax</b>, O'Reilly 2007, ISBN 0-5965-1024-4</li>
-				</ul>
-			</section>
-		</article>
-		<!-- Ladebildschirm der erst entfernt wird sobald jQuery ready Aktiv wird und alles geladen wurde -->
-		<div id="loadscreen" class="loading">
-			<p><script>document.write('Seite wird geladen...')</script><noscript>Diese Seite funktioniert ohne JavaScript nicht! Bitte JavaScript aktivieren.</noscript></p>
-		</div>
-		<!-- Ein versteckter Hilfedialog - über ein div realisiert, welches durch JS ausgeblendet wird -->
-		<div id="help">
-			<h1>Übersicht über die Tastaturmakros</h1>
-			<ul>
-				<li><mark>POS1</mark>Zur ersten Folie</li>
-				<li><mark>ENDE</mark>Zur letzten Folie</li>
-				<li><mark>ENTER</mark>(Textbox) Zur Folie springen</li>
-				<li><mark>ENTER</mark>(Folie) Zur nächsten Folie</li>
-				<li><mark>LEER</mark>Zur nächsten Folie</li>
-				<li><mark>&larr;</mark>Zur vorherigen Folie</li>
-				<li><mark>&uarr;</mark>Zur vorherigen Folie</li>
-				<li><mark>&rarr;</mark>Zur nächsten Folie</li>
-				<li><mark>&darr;</mark>Zur nächsten Folie</li>
-				<li><mark>&uArr;</mark>10 Folien nach hinten</li>
-				<li><mark>&dArr;</mark>10 Folien nach vorne</li>
-				<li><mark>I</mark>Inhaltsverzeichnis anzeigen</li>
-				<li><mark>R</mark>Referenzen anzeigen</li>
-				<li><mark>P</mark>Druckersion anzeigen</li>
-				<li><mark>Q</mark>Quellcode anzeigen</li>
-				<li><mark>E</mark>Seite extern öffnen</li>
-				<li><mark>H</mark>Diese Hilfe anzeigen</li>
-				<li><mark>T</mark>Texteingabe anzeigen</li>
-			</ul>
-		</div>
-		<!-- Ein versteckter Druckdialog - über ein div realisiert, welches durch JS ausgeblendet wird -->
-		<div id="print">
-			Für die Druckausgabe zu druckende Seiten auswählen:
-			<ul>
-				<li><input type="radio" name="page" value="all" /> Alles</li>
-				<li><input type="radio" name="page" value="current" checked="checked" /> Aktuelle Seite</li>
-				<li><input type="radio" name="page" value="pages" /> Seiten: <input type="text" name="pages" /></li>
-				<li>Entweder eine einzelne Seite oder eine Seitenauswahl eingeben. Beispiele: "3-5" oder "2;4" oder "2-5;7" usw.</li>
-			</ul>
-		</div>
-		<!-- Die Suchbox -->
-		<div id="search">
-			<!--Textbox und Button - mehr nicht!-->
-			<input type="search"><button type="button"></button>
-			<a id="clearsearch">Ergebnisse löschen</a>
-			<div id="searchresults">
-				<!--Und eine Auflistung für unsere Ergebnisse-->
-				<ul></ul>
-				<div id="scrollarea"><div id="scrollleiste"></div></div>
-			</div>
-		</div>
-		<!--Die Navigation am unteren Seitenrand-->
-		<nav id="helpers"><button title="Vorherige" id="nav-prev" class="nav-prev"><img src="icons/prev.png" alt="Vorheriges" /></button><input type="text" id="nav-page" value="1" /><button title="Nächste" id="nav-next" class="nav-next"><img src="icons/next.png" alt="Nächstes" /></button><menu><button id="nav-toc" title="Inhaltsverzeichnis"><img src="icons/toc.png" alt="Inhaltsverzeichnis" /></button><button id="nav-res" title="Referenzen"><img src="icons/ref.png" alt="Referenzen" /></button><button id="nav-print" title="Druckversion"><img src="icons/print.png" alt="Druckvorschau" /></button><button id="nav-code" title="Quellcode"><img src="icons/code.png" alt="Code umschalten"/></button><button id="nav-open" title="Extern öffnen"><img src="icons/open.png" alt="Öffnen" /></button><button id="nav-help" title="Hilfe"><img src="icons/help.png" alt="Hilfe" /></button></menu></nav>
-		<!-- Ein versteckter Eingabedialog - über ein div realisiert, welches durch JS ausgeblendet wird -->
-		<div id="textinput">
-			<textarea style="padding: 10px; width: 540px; height: 180px; font-size: 16pt; border: 1px solid #CCC; background: #FFA; color: #00A;"></textarea>
-		</div>
-		<!-- Abschließendes Element sollte immer der footer sein-->
-		<footer>
-			<p>&copy; 2011-2014 Florian Rappl, 2014-2016 Markus A. Huber | <a href="http://webapplecture.github.io/imprint.html" target="_blank" style="color:#FFF;">Impressum</a></p>
-		</footer>
-		<!--Aus Optimierungsgründen binden wir die JS erst am Schluss ein-->
-		<script src="scripts/jquery.js"></script><!--jQuery-->
-		<script src="scripts/prefixfree.min.js"></script><!--Spart uns Arbeit am Stylesheet mit CSS3-->
-		<script src="scripts/jquery-ui-1.8.16.custom.min.js"></script><!--Spezialisiertes jQuery UI-->
-		<script src="scripts/jquery.snippet.js"></script><!--jQuery Snippet Plugin mit eigenen Modifkationen-->
-		<script src="scripts/jquery.mousewheel.js"></script><!--jQuery Mousewheel Plugin mit Modifikationen-->
-		<script src="scripts/presentation.js"></script><!--Der eigene JavaScript-->
-	</body>
+        <p>Louis Ritzkowski, Februar 2019.</p>
+    </article>
+    <article id="umWas">
+        <h2>Um was gehts hier genau?</h2>
+        <h3>Wir werden uns mit drei Technologien beschäftigen:</h3>
+
+        <ul>
+            <li>HTML(5) zur Beschreibung der Seite (Struktur)</li>
+            <li>JavaScript(ES6) für die eigentlichen Interaktionen (Programmierung)</li>
+            <li>CSS(3) zur Gestaltung dieser (Design)</li>
+        </ul>
+        <p>Wie bereits erwähnt werden diese Technologien schrittweise eingeführt. Daneben werden wir uns bei Zeit noch mit folgenden Möglichkeiten beschäftigen:</p>
+        <ul>
+            <li>Spiele und Animationen / Grafiken (auch 3D) </li>
+            <li>mit JavaScript Abwärtskompatibilität zu älteren Webbrowsern schaffen </li>
+            <li>Webseiten durch einfache Tricks optimieren (weniger Requests, JavaScript minifizieren, ...)</li>
+            <li>JavaScript für die Client- und Serverentwicklung mit Node.js</li>
+        </ul>
+    </article>
+    <article id="aufbau">
+        <h2>Aufbau des Kurses</h2>
+        <h3>Erste Woche</h3>
+        <p>Nachmittags Übungen zur Vorlesung</p>
+        <ul>
+            <li>
+                <strong>Montag:</strong> Grundlagen HTML, JS. Arbeiten mit der Browserumgebung
+            </li>
+            <li>
+                <strong>Dienstag:</strong> Formulare mit HTML5 und JS, was bringt mir CSS?
+            </li>
+            <li>
+                <strong>Mittwoch:</strong> Klassen und Fortführendes JS
+            </li>
+            <li>
+                <strong>Donnerstag:</strong> Multimedia mit HTML5 und JS
+            </li>
+            <li>
+                <strong>Freitag:</strong> Animationen in JS und CSS
+            </li>
+        </ul>
+        <h3>Zweite Woche</h3>
+        <p>Nachmittags Projektarbeit, Freitag nur Vormittag</p>
+        <ul>
+            <li>
+                <strong>Montag:</strong>
+            </li>
+            <li>
+                <strong>Dienstag:</strong>
+            </li>
+            <li>
+                <strong>Mittwoch:</strong> WebWorker
+            </li>
+            <li>
+                <strong>Donnerstag:</strong> Node.js und Electron - JS everywhere
+            </li>
+            <li>
+                <strong>Freitag:</strong> Projekt Präsentation
+            </li>
+        </ul>
+    </article>
+    <article id="codeExample">
+        <h2>Code Examples</h2>
+        <p>Im Skript werden interaktive Codebeispiele in folgenden Formaten verwendet:</p>
+        <section>
+        <h3>Javascript</h3>
+        <div id="js-bsp-1" class="codeEditor" data-language="js">
+            <div class="container">
+                <span class="uprightTitle">Input</span>
+                <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                <span class="trigger runButton">Run Code</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                <pre class="source hidden">
+                    function(input, output) {
+                        console.log('bar');
+                        output.value += input.value;
+                    }
+                </pre>
+            </div>
+        </div>
+        <p>Der Aufbau des Javascript Editors besteht aus drei Textareas die mit etwas JS und CSS erweitert sind.</p>
+        <ul>
+            <li><strong>Input/Output:</strong> einfache Textareas ohne Erweiterung.</li>
+            <li><strong>CodeEditor:</strong> Textarea deren Inhalt als Javascript Code interpretiert wird. Sie erhält input und output als variablen übergeben und kann diese modifizieren. Unter verwendung des 'this' Keywords kann sie sich auch selbst editieren.</li>
+            <li><strong>Run Code:</strong> Der Knopf zur linken des Code Editors führt den interpretierten Inhalt aus. Wenn mal nichts passiert -> Console überprüfen, wahrscheinlich hat ein Semantikfehler das Ausführen verhindert. (Syntaxfehler sollte der Code Editor selbst schon anzeigen)</li>
+        </ul>
+        </section>
+        <section>
+        <h3>HTML</h3>
+        <div id="html-bsp-1" class="codeEditor" data-language="html">
+            <div class="container" style="height: 160px">
+                <span class="uprightTitle">CSS</span>
+                <textarea class="css" contenteditable="true" spellcheck="false" title="Input"></textarea>
+                <span class="trigger runButton">Zurücksetzten</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <div class="output" spellcheck="false" title="Output"></div>
+                <pre class="source hidden">
+                    <!--<!DOCTYPE html>
+                    <html>
+                    <body>
+                        <h2>Meine erste Überschrift</h2>
+                        <p>Mein erster <em>Absatz</em></p>
+                    </body>
+                    </html>-->
+                </pre>
+                <pre class="css-source hidden">
+                    <!--p {
+                      color: red;
+                    }-->
+                </pre>
+            </div>
+        </div>
+        <p>Der Html Editor ist grundlegend gleich aufgebaut.</p>
+        <ul>
+            <li><strong>CSS:</strong> Textarea deren Inhalt als CSS interpretiert wird. &lt;body&gt; kann HIER nicht gestyled werden!</li>
+            <li><strong>CodeEditor:</strong> Textarea deren Inhalt als HTML interpretiert wird.</li>
+            <li><strong>Zurücksetzem:</strong> Setzt HTML und CSS Eingaben zurück!</li>
+        </ul>
+        </section>
+        
+    </article>
+    
+    <article id="warumWebApp">
+        <h2>Warum Webapplications?</h2>
+        <figure>
+            <img src="./resources/images/slides/vm.png" alt="Browser Virtual Machine">
+            <figcaption>Abb. 12-1 / Der Browser ist ein eigenständiges System</figcaption>
+        </figure>
+        <ul>
+            <li>Ein Browser erfüllt alle Anforderungen an ein Betriebssystem</li>
+            <li>Webanwendungen zu schreiben gibt uns viele Vorteile, die wir nützen möchten</li>
+        </ul>
+    </article>
+</section>
+<section id="HTML-Grundlagen">
+    <article>
+        <h2>Geschichte von HTML</h2>
+        <ul>
+            <li>HTML heißt Hyper-Text Markup-Language und wurde von Tim Berners-Lee 1992 eingeführt</li>
+            <li>Die erste standardisierte Version erschien im November 1995 mit HTML 2.0</li>
+            <li>Der HTML Standard wird genauso wie CSS, SVG, DOM, SOAP, PNG uvm. vom W3C kontrolliert</li>
+            <li>Der erste nur vom W3C eingeführte Standard erschien im Januar 1997 mit HTML 3.2</li>
+            <li>Version 3.0 wurde ausgelassen, da dieser bei Einführung bereits veraltet war</li>
+            <li>Nach HTML 4.01 dachte man das XHTML (stark an XML angelehnt) die Zukunft sei</li>
+            <li>Nach starker Fragmentiertung und viel Kritik wurde dies 2008 eingestellt. Java basierte Frameworks wie JSF und JSP verwenden jedoch nach wie vor XHTML.</li>
+            <li>Seit April 2009 wird an HTML5 gearbeitet</li>
+            <li>Im Oktober 2014 wird die fertige HTML5 Spezifikation vom W3C vorgelegt.</li>
+        </ul>
+    </article>
+    <article>
+        <h2>Was ist HTML?</h2>
+        <p>HTML ist die Standard Markup Sprache mit der Webseiten geschrieben werden.</p>
+
+        <ul>
+            <li>HTML steht für Hyper Text Markup Language</li>
+            <li>HTML beschreibt die Struktur von Webseiten</li>
+            <li>HTML Elemente sind die Bausteine, aus denen Webseiten bestehen</li>
+            <li>HTML Elemente werden durch Tags (spitze Klammern) dargestellt</li>
+            <li>HTML Tags beschreiben Inhalte einer Webseite (Überschriften, Paragraphen, Tabellen, ...)</li>
+            <li>Browser zeigen HTML Tags nicht an, sondern benutzen sie um die Inhalte darzustellen</li>
+        </ul>
+    </article>
+    <article id="html5Nutzen">
+        <h2>Der Nutzen von HTML5</h2>
+        <ul>
+            <li>HTML5 bedeutet: Die Wiedervereinigung von HTML mit neuen (längst überfälligen) Elementen (Tags)</li>
+            <li>HTML5 bedeutet nicht: Eine völlig neue Art der Erstellung von Webseiten</li>
+            <li>Für uns bringt HTML5 jede Menge neuer nützlicher Elemente mit sich wie z.B. neue Forms Elemente, die sich auch selbstständig validieren können und somit jede Menge JavaScripts sparen (können)</li>
+            <li>Allgemein bringt HTML5 genauere Regeln zur Implementierung in den Browsern mit sich - dadurch werden in Zukunft die syntaktischen Unterschiede zwischen den Browsern deutlich verringert</li>
+            <li>Das bedeutet, dass das Parsing Modell ist nun standardisiert und Fehler werden von allen Browsern gleich interpretiert werden</li>
+            <li>Durch audio, video und das canvas-Element sind nun reichhaltige Multimedia-Fähigkeiten ohne zusätzliche Plug-Ins möglich</li>
+            <li>Durch neue Tags wie header, footer, section, article, nav, uvm. können Screenreader die Seite effektiver auslesen und anzeigen</li>
+            <li>HTML5 bietet sehr viele neue JavaScript Objekte, welche WebApplications erst möglich machen</li>
+        </ul>
+    </article>
+    <article>
+        <h2>Simples Beispiel</h2>
+        <div id="html-bsp-2" class="codeEditor" data-language="html">
+            <div class="container" style="height: 220px">
+                <span class="uprightTitle">CSS</span>
+                <textarea class="css" contenteditable="true" spellcheck="false" title="Input"></textarea>
+                <span class="trigger runButton">Zurücksetzten</span>
+                <textarea class="editor language-js" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <div class="output language-js" spellcheck="false" title="Output"></div>
+                <pre class="source hidden">
+                    <!--<!DOCTYPE html>
+                    <html>
+                    <head>
+                        <title>Titel</title>
+                    </head>
+                    <body>
+                        <h1>Meine erste Überschrift</h1>
+                        <p>Mein erster Absatz</p>
+                    </body>
+                    </html>-->
+                </pre>
+                <pre class="css-source hidden">
+                    <!--p {
+                      color: red;
+                    }-->
+                </pre>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="HTML5-Semantik">
+    <article>
+        <h2>Dirty, but valid HTML</h2>
+        <ul>
+        <li>HTML5 zeichnet sich auch dadurch aus, dass die Validierung und das Fehlerverhalten standardisiert ist</li>
+        <li>Dies erlaubt jedem HTML auf eine schnelle und kompakte Art und Weise zu schreiben</li>
+        <li>Folgendes HTML-Dokument ist z.B. komplett vollständig (<strong>und</strong> validiert als HTML5!):<br>
+        <code><ol>
+            <li>&lt;!DOCTYPE html&gt;</li>
+            <li>&lt;meta charset="utf-8"&gt;</li>
+            <li>&lt;title&gt;Ein Beispiel&lt;/title&gt;</li>
+            <li>&lt;div&gt;</li>
+            <li>Ein Test...</li>
+            <li>&lt;/div&gt;</li>
+        </ol>
+        </code>
+        </li>
+        <li>Damit noch nicht genug - für Browser könnten wir sogar noch <code>&lt;/div&gt;</code> und Anführungszeichen weglassen</li>
+        <li>Dies wird auch auf großen Seiten wie z.B. Google praktiziert - hier werden keine Anführungszeichen verwendet</li>
+        <li>Außerdem fehlt der <code>&lt;head&gt;</code> und <code>&lt;body&gt;</code>-Tag und die Paragraphs und der HTML-Oberknoten werden nicht geschlossen</li>
+        <li>Neben solcher Erleichterungen muss man bei IDs und Klassennamen (Bezeichnern) jedoch immer noch auf Regeln aufpassen - daher im Zweifelsfall mit geeigneten Tools überprüfen</li>
+        </ul>
+        <div id="html-bsp-4" class="codeEditor" data-language="html">
+            <div class="container" style="height: 200px">
+                <span class="uprightTitle">CSS</span>
+                <textarea class="css" contenteditable="true" spellcheck="false" title="Input"></textarea>
+                <span class="trigger runButton">Zurücksetzten</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <div class="output" spellcheck="false" title="Output"></div>
+                <pre class="source hidden">
+                    <!--
+                    <!DOCTYPE html>
+                    <meta charset="utf-8">
+                    <title>Ein Beispiel</title
+                    <div>
+                    Ein Test...
+                    -->
+                </pre>
+                <pre class="css-source hidden">
+                    <!--div {
+                        background-color: green;
+                    }
+                    -->
+                </pre>
+            </div>
+        </div>
+    </article>
+    <article>
+        <h2>Semantischer Aufbau</h2>
+        <ul>
+        <li>HTML 4 repräsentierte den Stand der Webentwickler um 1997, HTML5 repräsentiert den Stand von heute</li>
+        <li>Insgesamt 28 neue Elemente (viele davon sind offensichtlich von ID und Klassenamen inspiriert worden)</li>
+        <li>Ein Ziel von HTML5 ist es, Elementen mehr (direkt ersichtliche) Bedeutung zu geben</li>
+        <li>Browser können nun die Informationen in einer Webseite besser interpretieren</li>
+        </ul>
+        <figure><img src="resources/images/slides/semantics.png" alt="HTML5 Semantics Badge"><figcaption>Die Wichtigkeit des semantischen Aufbaus von HTML5 sieht man bereits am Logo-Badge (CSS3 links, Semantics rechts)</figcaption></figure>
+        <ul>
+        <li>Alle Elemente können natürlich öfters verwendet werden (mehrere <code>nav</code>, <code>header</code>, <code>main</code>, <code>footer</code>, <code>aside</code>, <code>article</code>, <code>section</code>, ... Elemente möglich)</li>
+        <li>Die Aussage bzw. Struktur der Elemente sollte passen - dies erleichtert die Zusammenarbeit Webbrowser - Webseite</li>
+        <li>Für uns von großer Bedeutung: Crawler / Screenreader können mehr über die Seite erfahren</li>
+        </ul>
+    </article>
+    <article>
+        <h2>Neue Grundelemente</h2>
+        <ul>
+        <li>HTML5 führt einige neue Elemente ein, welche direkt nichts anderes als ein <code>div</code> darstellen</li>
+        <li>Der Vorteile in der Benutzung dieser neuen Tags liegen auf der Hand:
+        <ul>
+        <li>Bessere Auslesbarkeit durch Screenreader</li>
+        <li>Strukturierterer Aufbau</li>
+        <li>Direkteres und damit auch leichteres Styling</li>
+        </ul>
+        </li>
+        <li>Die Abwärtskompabilität ist bis auf den IE sehr gut gegeben</li>
+        </ul>
+    
+        Neue Elemente (u.a.):
+        <ul>
+        <li><code>&lt;em&gt;</code> (Hervorhebung)</li>
+        <li><code>&lt;time&gt;</code> (Zeit)</li>
+        <li><code>&lt;blockquote&gt;</code> und <code>&lt;cite&gt;</code></li>
+        <li><code>&lt;details&gt;</code> (Detailliste)</li>
+        <li><code>&lt;fieldset&gt;</code> (Formular)</li>
+        <li><code>&lt;figure&gt;</code> und <code>&lt;figcaption&gt;</code></li>
+        <li><code>&lt;dl&gt;</code> (Definition)</li>
+        <li><code>&lt;mark&gt;</code> (Markierung)</li>
+        <li><code>&lt;ruby&gt;</code> mit <code>&lt;rp&gt;</code> und <code>&lt;rt&gt;</code></li>
+        </ul>
+        <small>... sowie <a href="https://developer.mozilla.org/de/docs/Web/HTML/HTML5/HTML5_element_list">weitere</a> (~90). Diese sind aber sehr speziell </small>
+    </article>
+    <article>
+        <h2>Wann verwende ich die neuen Tags?</h2>
+        <ul>
+        <li>Für das <code>header</code> Element gilt:
+        <ul>
+        <li>Sollte das erste Element mit Inhalt auf der Seite sein</li>
+        <li>Enthält im Regelfall Logos, Titel, Such- und Loginformulare sowie essentielle Links (z.B. Homepage)</li>
+        <li>Es können aber auch <code>article</code> Elemente o.ä. einen <code>header</code> haben</li>
+        </ul>
+        </li>
+        <li>Mit dem <code>main</code> Tag kann man den Hauptteil (Inhalt) einer Seite markieren</li>
+        <li>Die Spezifikation für den <code>nav</code> Tag sagt:
+        <ul>
+        <li>Markiert eine Navigationsgruppe, aber sollte nicht für jede Sammlung von Links, z.B. Sponsorenlinks, verwendet werden</li>
+        <li>Eine Suchergebnisseite stellt auch kein <code>nav</code> dar, da hier die Suchergebnisse den Inhalt darstellen</li>
+        </ul>
+        </li><li>Der <code>footer</code> dient für folgende Zwecke:
+        <ul>
+        <li>Letztes Element mit Inhalt (z.B. weiterführende rechtliche Links und Hinweise)</li>
+        <li>Hier können Informationen über den Autor (<code>address</code>), das Erstellungsdatum (<code>time</code>) sowie Links platziert werden</li>
+        </ul>
+        </li>
+        </ul>
+    </article>
+    <article>
+        <h2>Beispiel Blogeintrag</h2>
+        <div id="html-bsp-4" class="codeEditor" data-language="html">
+            <div class="container" style="height: 500px">
+                <span class="uprightTitle">CSS</span>
+                <textarea class="css" contenteditable="true" spellcheck="false" title="Input"></textarea>
+                <span class="trigger runButton">Zurücksetzten</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <div class="output" spellcheck="false" title="Output"></div>
+                <pre class="source hidden">
+                    <!--
+                    <article> 
+                        <header>
+                            <h2>Physics of the future</h2>
+                            <time datetime=2011-10-13 pubdate>13. Oktober 2011</time>
+                        </header>
+                        <p>Michio Kaku's Buch ist jetzt schon ein Klassiker ohne Ablaufdatum.</p>
+                        <footer> 
+                            Veröffentlicht in Bücher von <address>Anonymous</address> mit 1 Kommentar
+                        </footer>
+                        <article> 
+                            <header>
+                                Kommentar von <a href="http://www.florian-rappl.de">Florian Rappl</a> um <time datetime="2011-10-14T08:45Z">8:45 Uhr am 14.10.2011</time>
+                            </header>
+                            <p>Hört sich gut an - das muss ich mir mal durchlesen!</p>
+                        </article> 
+                    </article> 
+                    -->
+                </pre>
+                <pre class="css-source hidden">
+                    <!--article {
+                        border: 1px solid #ddd;
+                        border-radius: 10px;
+                        padding: 2px;
+                    }
+                    article > article {
+                        border-radius: 8px;
+                    }
+                    header {
+                       border: 1px solid red;
+                       border-radius: 8px;
+                    }
+                    article > article > header{
+                        border-radius: 6px;
+                    }
+                    -->
+                </pre>
+            </div>
+        </div>
+    </article>
+</section>
+<section id="JavaScript-Grundlagen">
+    <article>
+        <h2>Einstieg in JavaScript</h2>
+        <ul>
+            <li>JavaScript hat gar nichts mit Java gemein - der ursprüngliche Name ist LiveScript</li>
+            <li>Ziel und Zweck: Fähigkeiten von Webseiten verbessern und eine dynamische Webseite auf dem Client zu erzeugen</li>
+            <li>Heute kann man mit Hilfe von Hilfsumgebungen jedoch JavaScript für jegliche Anwedung auf jeglicher Platform benutzen. Eigenständige Programme für Desktops, Serverapplikationen, Smartphoneapps und sogar Mikrokontroller können heute mit JavaScript erstellt werden.
+            <li>JavaScript kann in einem HTML Dokument geschrieben oder von extern eingebunden werden</li>
+            <li>Ein Beispiel für direkte Einbindung (im Dokument):<br>
+            <code>&lt;script&gt;/*Javascript Kommentar */&lt;/script&gt;</code>
+            </li>
+            <li>Ein Beispiel für indirekte (externe) Einbindung:<br>
+            <code>&lt;script src="pfad/zum/beispiel.js"&gt;&lt;/script&gt;</code>
+            </li>
+            <li>Ein Beispiel für die indirekte Einbindung als Modul:<br>
+            <code>&lt;script type="module" src="pfad/zum/beispiel.js"&gt;&lt;/script&gt;</code>
+            <li>Durch den Wettkampf unter den Browser Herstellern werden die JavaScript-Engines immer schneller, zur Zeit führt Google's <strong>Chrome V8</strong> Javascript Engine hier deutlich. Dieser Engine ist Open-Source und wird von allen Chromium basierten Browsern benutzt. (Dies beinhaltet bald auch Microsoft Edge)</li>
+        </ul>
+    </article>
+    <article>
+        <h2>ECMA Script</h2>
+        <ul>
+            <li>ECMA Script bezeichnet den Sprachkern auf dem JavaScript und CoffeeScript basieren.</li>
+            <li>Seit Juni 2015 gibt es Version 6 "Harmony"</li>
+            <li>Zum jetzigen Stand (Februar 2019) ist die Prozentsatz an unterstüzter ES 6 Funktionalität wie folgt
+            <ul>
+                <li>Chrome V8 basierte Browser: 98%</li>
+                <li>SpiderMoney basierte Browser (Firefox): 98%</li>
+                <li>Chakra basierte Browser (MS Edge): 96%</li>
+                <li>JavascriptCore basierte Browser (Safari, IOS): 99% (hier fehlt nur ein Syntaxupdate)</li>
+                <li>Samsung 8.2: 97%</li>
+                <li>Node.js V11+: 98%</li>
+            </ul>
+            </li>
+            <li>Es gibt Programme, die es erlauben ES 6 Code in ES 5 zu übersetzen (Babel, Traceur; Implementierung liegt hier bei 50-70%)</li>
+            <li>ES 6 enthält einige Neuerungen, die die "JavaScript-Strangeness" vermindern</li>
+            <li>Die für uns interessantesten Features sind
+            <ul>
+              <li>Verwendung von Klassen und Modulen</li>
+              <li>Variablen-Deklaration mit <code>const</code> und <code>let</code></li>
+              <li>DOM Element Selektion mit <code>document.querySelector</code></li>
+            </ul>
+            </li>
+        </ul>
+    </article>
+    <article>
+        <h2>Javascript Verstehen</h2>
+        <ul>
+            <li>Objekte
+                <ul>
+                    <li>Objekte kapseln Eigenschaften und Methoden (Schnittstelle!)</li>
+                    <li>Objekte ermöglichen uns Zugriff auf Elemente einer Webseite</li>
+                    <li>z.B. können wir mit dem <code>window</code> Objekt auf den aktuellen Kontext zugreifen</li>
+                </ul>
+            </li>
+            <li>Methoden
+                <ul>
+                    <li>Aktive Schnittstelle eines Objektes (zum Ausführen einer Aktion)</li>
+                    <li>Wenn unabhängig vom Kontext kann man von einer Funktion sprechen</li>
+                    <li>z.B. schließt <code>window.close()</code> das aktuelle Fenster (Tab) komplett</li>
+                </ul>
+            </li>
+            <li>Eigenschaften
+                <ul>
+                    <li>Verkörpern Merkmale des Objektes (sog. passive Schnittstelle)</li>
+                    <li>Eigenschaften geben Informationen über den Zustand des Objektes</li>
+                    <li>z.B. setzt <code>document.bgColor = "FF0000"</code> die Hintergrundfarbe auf rot</li>
+                </ul>
+            </li>
+        </ul>
+    </article>
+    <article>
+        <h2>Variablen und Datentypen</h2>
+        <figure><img src="resources/images/slides/jsdatatypes.png" alt="Die verschiedenen JavaScript Datentypen"><figcaption>Auflistung der verschiedenen JavaScript Datentypen</figcaption></figure>
+        <ul>
+        <li>Es gibt 6 elementare Typen: <code>Number</code>, <code>String</code>, <code>Boolean</code>, <code>undefined</code>, <code>Function</code> und <code>Object</code></li>
+        <li>Alle anderen Typen (z.B. <code>Array</code>) bauen auf <code>Object</code> auf (auch <code>null</code>)</li>
+        <li>Unter Variablen verstehen wir Speicher für Objekte und Werte (z.B. gilt Zahl = Wert und String = Objekt)</li>
+        <li>Deklaration einer Variablen erfolgt mit ihrer ersten Aufzählung (Lokal: <code>var</code> davor, z.B. <code>var i = 2</code>)</li>
+        </ul>
+    </article>
+    <article>    
+        <h2>Variable ist nicht Variable</h2>
+        <p>Mit ES 6 sind neben <code>var</code> noch zwei weitere Bezeichner für Variablen hinzugekommen: <code>const</code> und <code>let</code></p>
+        <ul>
+            <li><code>const</code> bezeichnet eine nicht veränderbare Konstante:
+            <div id="js-bsp-2" class="codeEditor" data-language="js">
+                <div class="container" style="height: 180px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function(input, output) {
+                            // Fehler in der Konsole -> Öffnen mit F12
+                            //Konvention: Verwende GROSSBUCHSTABEN für Konstanten
+                            const PI = 3.14; 
+                            PI = 4; //nicht möglich - Type Error
+                        }
+                    </pre>
+                </div>
+            </div>
+            </li>
+            <li>Der Unterschied zwischen <code>let</code> und <code>var</code> ist nicht so offensichtlich: Sie zeigen verschiedenes Scoping Verhalten
+                <div id="js-bsp-3" class="codeEditor" data-language="js">
+                    <div class="container" style="height: 160px">
+                        <span class="uprightTitle">Input</span>
+                        <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                        <span class="trigger runButton">Run Code</span>
+                        <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                        <span class="uprightTitle">Output</span>
+                        <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                        <pre class="source hidden">
+                            function(input, output) {
+                                //Teste den Code einmal mit let und einmal mit var
+                                for(let a = 5; a < 10; a++) {
+                                    output.value += a + ", ";
+                                }
+                                alert(a);
+                            }
+                        </pre>
+                    </div>
+                </div>
+            <ul>
+              <li>Kontext von <code>let</code>: { /* Existent innerhalb dieser Klammern, ab Zeitpunkt der Deklaration */ } </li>
+              <li>Kontext von <code>var</code>: function(){ /* Existent ab Beginn der <em>Funktion</em> in der sie definiert wurde */ }
+            </li></ul>
+            </li>
+          </ul>
+          <p>Wenn ES 6 in eurem Projekt verwendet wird, empfiehlt es sich in den meisten Fällen <code>let</code> statt <code>var</code> zu verwenden, da es sich <em>gewohnter</em> verhält was das Scoping angeht, nicht gehoisted wird und einen Fehler produziert, wenn man die Variable zweimal deklariert. Wenn ihr Module verwendet fällt das Problem teilweise weg, da es keinen Globalen Namespace mehr gibt.</p>
+    </article>
+    <article>
+        <h2>Arrays (1)</h2>
+        <ul>
+        <li>Damit sich hinter einer Variablen mehr Objekte verstecken können, muss es sich um ein Array handeln</li>
+        <li>Arrays können auf sehr unterschiedliche Art und Weise initialisiert werden:
+            <div id="js-bsp-4" class="codeEditor" data-language="js">
+                <div class="container" style="height: 180px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function(input, output) {
+                            let leer1 = []; //Empfohlen
+                            let leer2 = new Array(); //Nicht empfohlen
+                            let reserviert = new Array(14); 
+                            //Bringt keine Performance-Vorteile
+                            let belegt1 = new Array('Milch', 'Zucker', 'Mehl');
+                            let belegt2 = ['Milch', 'Mehl', 'Äpfel'];
+                        }
+                    </pre>
+                </div>
+            </div>
+        </li>
+        <li>Möglichkeiten zum Hinzufügen eines Elements mit <code>push()</code> (ans Ende) und <code>unshift()</code> (an den Anfang)
+            <div id="js-bsp-5" class="codeEditor" data-language="js">
+                <div class="container" style="height: 150px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function(input, output) {
+                            let array = output.value.split("\n");
+                            array.push(input.value); // probiers doch aus
+                            output.value = "";
+                            output.value += array.join("\n");
+                        }
+                    </pre>
+                </div>
+            </div>
+        </li>
+        <li>Der Zugriff auf Array Elemente erfolgt über eckige Klammern, z.B.
+            <div id="js-bsp-6" class="codeEditor" data-language="js">
+                <div class="container" style="height: 150px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function(input, output) {
+                            let lang = ['C#', 'Java', 'C++'];
+                            output.value = lang[1];
+                            output.value += "\n";
+                            output.value += lang[3]; // geht das überhaupt?
+                        }
+                    </pre>
+                </div>
+            </div>
+        </li>
+        <li>Der Zugriff ist 0 basiert, wie in anderen C ähnlichen Sprachen</li>
+        <li>Bei nicht-definierten Zugriffen gibt es keinen Fehler, sondern <code>undefined</code> als Rückgabe</li>
+        </ul>
+    </article>
+    <article>
+        <h2>Arrays (2)</h2>
+        <ul>
+        <li>Die Eigenschaft <code>length</code> gibt eine Zahl zurück, welche 1 größer als der größte Integer Key ist</li>
+        <li>Mit <code>sort()</code> können wir das Array sortieren - optional unter Angabe einer Sortierfunktion</li>
+        <li>Standardmäßig wird nur die Stringdarstellung sortiert, z.B.
+            <div id="js-bsp-7" class="codeEditor" data-language="js">
+                <div class="container" style="height: 160px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function(input, output) {
+                            var a = [1, 5, 12, 23, 100];
+                            input.value = a.sort();//1 100 12 23 5
+                            output.value = a.sort(function(a,b) { 
+                                return a-b;
+                            }); //1 5 12 23 100
+                        }
+                    </pre>
+                </div>
+            </div>
+        </li>
+        <li>Zum Entfernen mit <code>splice()</code> wird der Index und die Anzahl benötigt oder wir löschen das letzte mit <code>pop()</code>
+            <div id="js-bsp-8" class="codeEditor" data-language="js">
+                <div class="container" style="height: 220px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function(input, output) {
+                            var kundenliste = 
+                            ['Herbert Maier','Max Hilbert', 'Anton Mustermann']; 
+                            input.value = kundenliste;
+                            input.value += " - " + kundenliste.length; // 3
+                            kundenliste.splice(0, 2); 
+                            //Entfernt zwei Einträge ab Index 0
+                            output.value = kundenliste;
+                            output.value += " - " + kundenliste.length; // 1
+                        }
+                    </pre>
+                </div>
+            </div>
+        </li>
+        <li>Mit <code>includes()</code> kann ein Array auf die Existenz eines Eintrags überprüft werden
+            <div id="js-bsp-9" class="codeEditor" data-language="js">
+                <div class="container" style="height: 100px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function(input, output) {
+                            let array = ['C#','Java','Python','Ruby'];
+                            output.value = array.includes(input.value);
+                        }
+                    </pre>
+                </div>
+            </div>
+        </li>
+        </ul>
+    </article>
+    <article>
+        <h2>Operatoren</h2>
+        <ul>
+        <li>Operatoren sind reservierte Zeichen, die Operationen (z.B. Addition) ausführen</li>
+        <li>Es gibt: Logik-, Arithmetik-, Bit- und Vergleichsoperatoren (sowie Condition <code>?</code> und Assignment <code>=</code>)</li>
+        <li>Genau wie in anderen Sprachen gibt es bei manchen Operatoren Prä- (<code>++i</code>) und Suffixdarstellungen (<code>i++</code>)</li>
+        <li>Es gibt zu beachten - JavaScript nimmt einiges nicht so genau, z.B. ist <code>'0'</code> gleich <code>0</code> bei <code>==</code></li>
+        <li>Daher gibt es <strong>zwei weitere Operatoren</strong> (<code>===</code> und <code>!==</code>) - diese vergleichen Wert <strong>und</strong> Typ</li>
+        <li>Außerdem ist die <code>0</code> <u>nicht</u> vorzeichenlos - dies kann zu verwirrenden Ergebnissen führen (<code>a/0 != a/(-0)</code>)</li>
+        </ul>
+        <br><br><br>
+        <table>
+        <thead>
+        <tr>
+        <th>
+        Arithmetische Operatoren
+        </th>
+        <th>
+        Vergleichsoperatoren
+        </th>
+        <th>
+        Weitere Operatoren
+        </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+        <td width="33%">
+        <table class="small">
+        <thead>
+            <tr>
+                <th>Op.</th>
+                <th>Bedeutung</th>
+                <th>Beispiel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>+</td>
+                <td>Addition</td>
+                <td><code>3 + 4</code> ergibt <code>7</code></td>
+            </tr>
+            <tr>
+                <td>++</td>
+                <td>Inkrement</td>
+                <td><code>i=3;i++</code> ergibt <code>4</code></td>
+            </tr>
+            <tr>
+                <td>-</td>
+                <td>Subtraktion</td>
+                <td><code>3 - 4</code> ergibt <code>-1</code></td>
+            </tr>
+            <tr>
+                <td>--</td>
+                <td>Dekrement</td>
+                <td><code>i=3;i--</code> ergibt <code>2</code></td>
+            </tr>
+            <tr>
+                <td>*</td>
+                <td>Multiplikation</td>
+                <td><code>3 * 4</code> ergibt <code>12</code></td>
+            </tr>
+            <tr>
+                <td>/</td>
+                <td>Division</td>
+                <td><code>3 / 4</code> ergibt <code>0.75</code></td>
+            </tr>
+            <tr>
+                <td>%</td>
+                <td>Modulo</td>
+                <td><code>5 % 4</code> ergibt <code>1</code></td>
+            </tr>
+            <tr>
+                <td>**</td>
+                <td>Potenzierung</td>
+                <td><code>2 ** 3</code> ergibt <code>8</code></td>
+            </tr>
+        </tbody>
+        </table>
+
+        </td><td width="33%">
+        <table class="small">
+        <thead>
+            <tr>
+                <th>Op.</th>
+                <th>Bedeutung</th>
+                <th>Beispiel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>==</td>
+                <td>gleich</td>
+                <td><code>3 == '3'</code> ergibt <code>true</code></td>
+            </tr>
+            <tr>
+                <td>!=</td>
+                <td>ungleich</td>
+                <td><code>3 != 3</code> ergibt <code>false</code></td>
+            </tr>
+            <tr>
+                <td>===</td>
+                <td>typgleich</td>
+                <td><code>3 === 3</code> ergibt <code>true</code></td>
+            </tr>
+            <tr>
+                <td>!==</td>
+                <td>typungleich</td>
+                <td><code>3 !== '3'</code> ergibt <code>true</code></td>
+            </tr>
+            <tr>
+                <td>&lt;</td>
+                <td>kleiner</td>
+                <td><code>3 &lt; 4</code> ergibt <code>true</code></td>
+            </tr>
+            <tr>
+                <td>&lt;=</td>
+                <td>kleiner gleich</td>
+                <td><code>4 &lt;= 3</code> ergibt <code>false</code></td>
+            </tr>
+            <tr>
+                <td>&gt;</td>
+                <td>größer</td>
+                <td><code>3 &gt; 4</code> ergibt <code>false</code></td>
+            </tr>
+            <tr>
+                <td>&gt;=</td>
+                <td>größer gleich</td>
+                <td><code>4 &gt;= 3</code> ergibt <code>true</code></td>
+            </tr>
+        </tbody>
+        </table>
+        </td>
+        <td width="33%">
+        <table class="small">
+        <thead>
+            <tr>
+                <th>Op.</th>
+                <th>Bed.</th>
+                <th>Beispiel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>&amp;&amp;</td>
+                <td>und</td>
+                <td><code>true &amp;&amp; false</code> ergibt <code>false</code></td>
+            </tr>
+            <tr>
+                <td>||</td>
+                <td>oder</td>
+                <td><code>true || false</code> ergibt <code>true</code></td>
+            </tr>
+            <tr>
+                <td>!</td>
+                <td>nicht</td>
+                <td><code>!false</code> ergibt <code>true</code></td>
+            </tr>
+            <tr>
+                <td>&amp;</td>
+                <td>bit und</td>
+                <td><code>2 &amp; 1</code> ergibt <code>0</code></td>
+            </tr>
+            <tr>
+                <td>|</td>
+                <td>bit oder</td>
+                <td><code>2 | 1</code> ergibt <code>3</code></td>
+            </tr>
+            <tr>
+                <td>~</td>
+                <td>bit nicht</td>
+                <td><code>~2</code> ergibt <code>-3</code></td>
+            </tr>
+        </tbody>
+        </table>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+    </article>
+    <article>
+        <h2>Konvertieren mit Operatoren</h2>
+            <ul>
+            <li>Um eine boolsche Variable zu erhalten, ist doppelte Negation, d.h. <code>!!myvar</code> ausgezeichnet</li>
+            <li>Strings kann man allgemein durch Addition mit einem String, z.B. <code>myvar + ''</code>, erhalten</li>
+            <li>Alle Typen konvertieren zu Zahlen bei (fast) allen Operationen, z.B. <code>myvar * 1</code> oder <code>+myvar</code></li>
+            <li>Wir können solche Zahlen auch runden, hier ist <code>~~myvar</code> geeignet</li>
+            <div id="js-bsp-10" class="codeEditor" data-language="js">
+                <div class="container" style="height: 120px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function(input, output) {
+                            output.value = !!input.value + "\n";
+                            output.value += input.value * 1 + "\n";
+                            output.value += ~~input.value;
+                        }
+                    </pre>
+                </div>
+            </div>
+            <li>Neben boolschen Werten, Zahlen und Strings können wir auch Standardwerte definieren</li>
+            <li>So gibt <code>myvar || mydefault</code> immer <code>mydefault</code> zurück, außer <code>myvar</code> konvertiert zu <code>true</code></li>
+            <li>Umgekehrt gibt <code>myvar &amp;&amp; mydefault</code> immer <code>myvar</code> zurück, außer <code>myvar</code> konvertiert zu <code>true</code></li>
+            <li>Sinnvoll vor Konvertierungen sind auch die Operatoren <code>typeof</code> und <code>instanceof</code>, z.B.
+            <div id="js-bsp-11" class="codeEditor" data-language="js">
+                <div class="container" style="height: 180px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function(input, output) {
+                            let o = input.value || {},
+                                f = function() {};
+                            output.value = (typeof o) + "\n";
+                            output.value += ( o instanceof Object ) + "\n";
+                            output.value += (typeof f) + "\n";
+                            output.value += f instanceof Object;
+                        }
+                    </pre>
+                </div>
+            </div>
+            </li>
+            </ul>
+    </article>
+    <article>
+        <h2>Kontrollstrukturen</h2>
+        <ul>
+        <li>Bis jetzt geht unser Code immer linear runter - keine Verzweigung möglich</li>
+        <li>Viele (z.B. aus C) bekannte Schlüsselwörter gibt es auch hier:
+        <ul>
+        <li><code>for(_;_;_) {...}</code> für eine Zählerschleife (Vor Ausführung, Bedingung, Ende d. Iteration)</li>
+        <li><code>for(...) {...}</code> für eine implizite Zählerschleife ("foreach"), z.B. <code>for(var name in names)</code></li>
+        <li><code>while(_) {...}</code> für eine kopfgesteuerte Schleife (Bedingung)</li>
+        <li><code>do {...} while(_);</code> für eine fußgesteuerte Schleife (Bedingung)</li>
+        <li><code>switch(_) { case _: ... break; }</code> für eine Fallunterscheidung (Variable, Wert)</li>
+        <li><code>if(_) {...} else {...}</code> für eine bedingte Anweisung (Bedingung)</li>
+        </ul>
+        </li>
+        <li>Beachte den Unterschied zwischen <code>for(var name in names)</code> und <code>for(var name of names)</code>!
+            <div id="js-bsp-12" class="codeEditor" data-language="js">
+                <div class="container" style="height: 220px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function(input, output) {
+                            output.value = "";
+                            let names = ['C#','Java','Python','Ruby'];
+                            for(n in names) {
+                                output.value += n + ", " + names[n] + "\n"; 
+                            }
+                            for(name of names) {
+                                output.value += name + "\n";    
+                            }
+                        }
+                    </pre>
+                </div>
+            </div>
+        </li>
+        <li>Die Bedingung wird als boolscher Wert abgefragt - also <code>true</code> oder <code>false</code></li>
+        <li>Bedingte Anweisungen können analog zu allen C ähnlichen Sprachen beliebig verschachtelt werden</li>
+        <li>Um in Fallunterscheidungen einen Standardblock zu definieren, verwendet man anstelle von <code>case</code> das Schlüsselwort <code>default</code></li>
+        </ul>
+    </article>
+    <article>
+        <h2>Funktionen</h2>
+        <ul>
+        <li>Diese werden über das Schlüsselwort <code>function</code> erstellt, z.B. <code>function foo() {...}</code></li>
+        <li>Besteht aus abgeschlossenem Block mit Anweisungen und (möglichen) Parametern</li>
+        <li>Ziel ist die Kapslung von Anweisungen zur (variablen) Ausführung an beliebigen Stellen</li>
+        <li>Jeder Parameter ist in JavaScript <strong>optional</strong> - daher können Funktionen nicht überladen werden</li>
+        <li>In einer Funktion kann man über <code>arguments</code> (Array) auf alle übergebenen Parameter zugreifen</li>
+        <li>Den Parametern Standardwerte zuzuweisen ist unsere Aufgabe - unbedingt beachten
+            <div id="js-bsp-13" class="codeEditor" data-language="js">
+                <div class="container" style="height: 100px">
+                    <span class="uprightTitle">Input</span>
+                    <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                    <span class="trigger runButton">Run Code</span>
+                    <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                    <span class="uprightTitle">Output</span>
+                    <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                    <pre class="source hidden">
+                        function() { // (input, output)
+                            let a = arguments[0].value || "kein input!";
+                            arguments[1].value = a;
+                        }
+                    </pre>
+                </div>
+            </div>
+        </li>
+        <li>Funktionsaufrufe geschehen über den Funktionsnamen und den Parameterwerten in Klammern</li>
+        <li>Es ist möglich Methoden ohne anonyme Funktion zu erstellen (können direkt ausgeführt werden)</li>
+        <li>JavaScript kennt keine explizit genannten Rückgabewerte, da die Sprache sowieso dynamisch ist</li>
+        <li>Standardmäßig wird <code>undefined</code> zurückgegeben - außer man gibt mit <code>return</code> etwas zurück</li>
+        <li>Wird in einer Funktion auf einen (bzw. den aktuellen) Kontext verwiesen, so ist dies eine Methode</li>
+        <li>Wenn man Funktionen übergibt sollte man aufpassen ob man den Kontext per <code>.bind()</code> mitgeben sollte. <code>this</code> wechselt seinen Wert je nachdem wo die Funktion aufgerufen wird. (Siehe Sourcecode der CodeEditors!)</li>
+        </ul>
+    </article>
+    <article>
+        <h2>Beispiel Funktionen</h2>
+        <div id="js-bsp-13" class="codeEditor" data-language="js">
+            <div class="container" style="height: 500px">
+                <span class="uprightTitle">Input</span>
+                <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                <span class="trigger runButton">Run Code</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                <pre class="source hidden">
+                    function(input, output) { // (input, output)
+                        switch(input.value) {
+                            case 'sin':
+                                output.value = 
+                                    Math.sin(prompt('Sinusfunktion:', 144));
+                                break;
+                            //...
+                            default:
+                                output.value = 
+                                    fibonacci(prompt('Fibonacci:', 0));
+                        }
+
+                        function fibonacci(n) {
+                            //...
+                            var t = 1, tp = 0;
+                            for(var i = 2; i <= n; i++) {
+                                var tmp = t; t = fib(t, tp); tp = tmp;
+                            }
+                            return t;
+                        }
+                    }
+                </pre>
+            </div>
+        </div>
+    </article>
+    <article>
+        <h2>Noch ein Wort zu Funktionen</h2>
+        <p>Neben der Deklaration von Funktionen wie auf der vorherigen Slide gesehen gibt es noch zwei weitere Arten Funktionen zu definieren:</p>
+        <ul>
+        <li>Zuweisung an eine Variable:
+        <div id="js-bsp-14" class="codeEditor" data-language="js">
+            <div class="container" style="height: 100px">
+                <span class="uprightTitle">Input</span>
+                <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                <span class="trigger runButton">Run Code</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                <pre class="source hidden">
+                    function(input, output) { 
+                        output.value = "Hallo " + input.value;
+                        // z.B. 'Hallo Welt'
+                    }
+                </pre>
+            </div>
+        </div>
+        Vorteil: Kein Nach-oben-ziehen (Hoisting) von Funktionen: Funktionen sind erst verwendbar wenn sie das erste mal zugewiesen werden</li>
+        <li>Seit ES 6: Verwendung des "Fat-Arrow-Operators"
+        <div id="js-bsp-15" class="codeEditor" data-language="js">
+            <div class="container" style="height: 50px">
+                <span class="uprightTitle">Input</span>
+                <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                <span class="trigger runButton">Run Code</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                <pre class="source hidden">
+                    (input, output) => output.value = "Hallo " + input.value;
+                </pre>
+            </div>
+        </div>
+        <div id="js-bsp-16" class="codeEditor" data-language="js">
+            <div class="container" style="height: 50px">
+                <span class="uprightTitle">Input</span>
+                <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                <span class="trigger runButton">Run Code</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                <pre class="source hidden">
+                    () => "Hi" //Kein Argument;
+                </pre>
+            </div>
+        </div>
+        <div id="js-bsp-17" class="codeEditor" data-language="js">
+            <div class="container" style="height: 50px">
+                <span class="uprightTitle">Input</span>
+                <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                <span class="trigger runButton">Run Code</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                <pre class="source hidden">
+                    input => input.value * 3;
+                </pre>
+            </div>
+        </div>
+        Vorteil: Hauptächlich syntaktische Verbesserung - Man spart sich das Schreiben von function(){...}. Allerdings wird es im Zusammenhang mit Klassen interessant, weil der <code>this</code>-Zeiger unterschiedlich gebunden wird (dazu später mehr).
+        </li>
+        </ul>
+    </article>
+    <article>
+        <h2>Arbeiten mit Zeichenketten</h2>
+        <ul>
+        <li>Strings (Zeichenketten) sind der am häufigsten benutzte Datentyp, da jede Eingabe zunächst ein String ist</li>
+        <li>Strings zu manipulieren (verbinden, entfernen, suchen, ...) gehört daher zu den häufigsten Aufgaben</li>
+        <li>JavaScript beherrscht von Grund auf sehr viele Methoden um mit Strings effizient arbeiten zu können</li>
+        <li>Die Eigenschaft <code>length</code> gibt uns die Länge zurück z.B. ist <code>'hallo'.length</code> gleich 5</li>
+        </ul>
+        <div id="js-bsp-18" class="codeEditor" data-language="js">
+            <div class="container" style="height: 200px">
+                <span class="uprightTitle">Input</span>
+                <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                <span class="trigger runButton">Run Code</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                <pre class="source hidden">
+                    function(input, output) {
+                        let s = "Hallo Welt, Guten Tag!"
+                        output.value = s.indexOf(input.value) + "\n";
+                        output.value += s.lastIndexOf(input.value) + "\n";
+                        output.value += s.split(input.value) + "\n";
+                        output.value += s.split(input.value).slice(1,2) + "\n";
+                        output.value += s.replace(input.value, "_") + "\n";
+                        output.value += s.replaceAll(input.value, "_") + "\n";
+                    }
+                </pre>
+            </div>
+        </div>
+        <div class="left">
+        <h3>Einige wichtige Methoden</h3>
+        <ul>
+        <li><code>concat()</code></li>
+        <li><code>indexOf()</code> und <code>lastIndexOf()</code></li>
+        <li><code>match()</code></li>
+        <li><code>replace()</code> (und <code>replaceAll()</code> per Prototyp Erweiterung)</li>
+        <li><code>slice()</code> und <code>split()</code></li>
+        <li><code>substr()</code> und <code>substring()</code></li>
+        </ul>
+        </div>
+        <div class="right">
+        <h3>Methoden mit HTML Ausgabe</h3>
+        <ul>
+        <li><code>link()</code></li>
+        <li><code>bold()</code> und <code>italics()</code></li>
+        <li><code>fixed()</code></li>
+        <li><code>anchor()</code></li>
+        <li><code>small()</code> und <code>strike()</code></li>
+        <li><code>sub()</code> und <code>sup()</code></li>
+        </ul>
+        </div>
+    </article>
+    <article>
+        <h2>Konvertieren von Strings</h2>
+        <ul>
+        <li>Wie erwähnt: Jede Eingabe erstmal ein String - wie wird dieser z.B. zu einer Zahl?</li>
+        <li>Von einer Zahl zu einem String ist recht einfach z.B. bei <code>var i = 2</code> über var str = i.toString()</li>
+        <li>Umgekehrt ist es nicht so einfach - eine Möglichkeit ist <code>var str = '123'</code> mit <code>var i = str * 1</code></li>
+        <li>Was geschieht wenn wir aber folgendes verwenden: <code>var str = 'abc'</code>? Wir erhalten <code>i = NaN</code></li>
+        <li><strong>NaN</strong> heißt <i>Not a Number</i> und ist ein spezieller Wert! Funktion zum Test ist <code>isNaN()</code></li>
+        <li>Konvertierungsmethoden wie <code>parseInt()</code> und <code>parseFloat()</code> können auch verwendet werden</li>
+        <li>Geben zwar auch im ungünstigen Fall <code>NaN</code> zurück - eignen sich aber sehr gut um wirklich Komma- oder Ganzzahl zu erhalten</li>
+        <li>Boolsche Konvertierung: alles konvertiert, z.B. ergibt 0 oder auch <code>null</code> als Wert <code>false</code></li>
+        <li>Arrays mit Elemente, Objekte mit Inhalten etc. ergeben als Wert <code>true</code></li>
+        <li>Auswerten von Benutzereingabe: mit <strong>regulären Ausdrücken</strong> (<code>match()</code>) und Typüberprüfung arbeiten</li>
+        <div id="js-bsp-18" class="codeEditor" data-language="js">
+            <div class="container" style="height: 180px">
+                <span class="uprightTitle">Input</span>
+                <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                <span class="trigger runButton">Run Code</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                <pre class="source hidden">
+                    function(input, output) {
+                        output.value = input.value * 1 + "\n";
+                        output.value += isNaN(input.value * 1) + "\n";
+                        output.value += parseInt(input.value) + "\n";
+                        output.value += parseFloat(input.value) + "\n";
+                        let regexp = new RegExp("[a-z]{3}[0-9]{5}", "g");
+                        output.value += input.value.match(regexp);
+                    }
+                </pre>
+            </div>
+        </div>
+        </ul>
+    </article>
+    <article>
+    <h2>Fehler im Code finden</h2>
+        <li>Fehler in Javascript zu finden funktioniert anders als bei compilierten Sprachen (keine Compilerfehler)</li>
+        <li>Entweder über <code>console.log()</code> oder <code>alert()</code> eigene Kontrollen einbauen oder Entwicklertools nutzen</li>
+        <li>Im Prinzip hat jeder der großen 5 Browser sehr gute Entwicklertools</li>
+        <li>Die Entwicklungstools von Chrome sind sehr gut.</li>
+        <li>Die Wichtigsten Tools:
+            <ul>
+            <li><strong>Console</strong> für Ausgaben von Fehlern und Ausprobieren von Code</li>
+            <li><strong>DOM Inspektor</strong> um das DOM zu bearbeiten</li>
+            <li><strong>Sources</strong> um z.B. Breakpoints für das Debuggen zu setzten</li>
+            <li>Später auch <strong>Performance</strong> um die langsamen Codeteile zu identifizieren</li>
+            <li>Wenn man mit Servern kommuniziert wird <strong>Network</strong> auch sehr wichtig</li>
+            </ul>
+        </li>
+        </ul>
+    </article>
+</section>
+<section id="Javascript-meets-HTML">
+    <article>
+        <h2>JavaScript in HTML nutzen</h2>
+        <ul>
+        <li>Einbindung erfolgt wie erwähnt über das <code>&lt;script&gt;</code> Element</li>
+        <li>Allgemein wird JavaScript immer über sog. <strong>Ereignisse</strong> angesprochen</li>
+        <li>Je nachdem um welches HTML Element es sich handelt, stehen andere Ereignisse zur Verfügung</li>
+        <li>Beispiel: Bei vielen Elementen existiert das <code>onclick</code> Event, das beim Klicken ausgeführt wird:
+        <div id="html-bsp-2" class="codeEditor" data-language="html">
+            <div class="container" style="height: 100px">
+                <span class="uprightTitle">CSS</span>
+                <textarea class="css" contenteditable="true" spellcheck="false" title="Input"></textarea>
+                <span class="trigger runButton">Zurücksetzten</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <div class="output" spellcheck="false" title="Output"></div>
+                <pre class="source hidden">
+                    <!--
+                    <button onclick="alert('Das ist ein Test');">
+                        Teste Mich!
+                    </button>
+                    -->
+                </pre>
+                <pre class="css-source hidden">
+                </pre>
+            </div>
+        </div>
+        </li>
+        <li>Daneben können wir mit JavaScript noch Werte aus HTML auslesen und manipulieren:
+        <ul>
+        <li>Die Seite ist im <code>document</code> Objekt gekapselt (hier ist z.B. auch das <code>&lt;body&gt;</code> Element als Objekt enthalten)</li>
+        <li>Um im <code>document</code> gezielt auf Elemente zuzugreifen benutzen wir <code>document.querySelector()</code> oder <code>document.querySelectorAll()</code> wenn wir mehrere Elemente suchen, der Selektor Syntax entspricht dem von CSS und jQuery.
+            <ul>
+            <li><code>querySelector("#target")</code> um auf <code>&lt;div id="target"&gt;</code> zuzugreifen.</li>
+            <li><code>querySelector(".target")</code> um auf <code>&lt;div class="target"&gt;</code> zuzugreifen.</li>
+            <li><code>querySelector("[data-value='33']")</code> um auf <code>&lt;div data-value="33"&gt;</code> zuzugreifen.</li>
+            <li>Es gibt noch unzählige <a href="https://www.w3schools.com/cssref/css_selectors.asp">weitere Möglichkeiten</a>.</li>
+            </ul>
+        </li>
+        </ul>
+        </li>
+        </ul>
+    </article>
+    <article>
+        <h2>Interaktion über Ereignisse</h2>
+        <div class="left">
+        <ul>
+        <li>Ereignisse (Events) sind Aktionen die von JavaScript detektiert werden können</li>
+        <li>Jedes HTML Element hat einige bestimmte Ereignisse, die wir nutzen können</li>
+        <li>Zunächst definieren wir die Ereignisbehandlung im HTML Tag des entsprechenden Elements</li>
+        <li>Beispiele für Ereignisse:
+        <ul>
+        <li>Ein Mausklick (<code>onclick</code>)</li>
+        <li>Absenden des Formulars (<code>onsubmit</code>)</li>
+        <li>Eingabe / Änderung von Formelement (<code>onchange</code>)</li>
+        <li>Betreten der Seite (<code>onload</code>)</li>
+        <li>Mit der Maus über ein Element fahren (<code>onmouseover</code>)</li>
+        </ul>
+        </li>
+        <li>JavaScript ist komplett ereignisgesteuert</li>
+        </ul>
+        </div>
+        <div class="right">
+        <figure><img src="resources/images/slides/events.png" alt="Ablauf von JavaScript Ereignissen"><figcaption>Der Nutzen von Ereignissen liegt in der Interaktion mit dem Benutzer</figcaption></figure>
+        <figure><img src="resources/images/slides/selfevents.png" alt="JavaScript selbst auslösen"><figcaption>JavaScript benötigt keine Ereignisse zum Ausführen</figcaption></figure>
+        </div>
+    </article>
+    <article>
+        <h2>Beispiel Interaktion HTML/JS</h2>
+        <div id="js-bsp-19" class="codeEditor" data-language="js">
+            <div class="container" style="height: 450px">
+                <span class="uprightTitle">Input</span>
+                <textarea class="input" contenteditable="true" spellcheck="false" title="Input"></textarea>
+
+                <span class="trigger runButton">Run Code</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <textarea class="output" contenteditable="true" spellcheck="false" title="Output"></textarea>
+                <pre class="source hidden">
+                    function(input, output) {
+                        let colorDiv = 
+                            document.querySelector("#colorSetExample"),
+                            button =
+                            colorDiv.querySelector("button"),
+                            select =
+                            colorDiv.querySelector("select");
+                        button.addEventListener('click', 
+                            setName.bind(button, colorDiv));
+                        select.addEventListener('change', 
+                            setColor.bind(select, colorDiv));
+
+                        function setName(colorDiv) {
+                            this.innerHTML = colorDiv.style.background;
+                        }
+                        function setColor(colorDiv) {
+                            if(this.selectedIndex) {
+                                colorDiv.style.background = 
+                                    this.options[this.selectedIndex].value;
+                            }
+                        }
+
+                    }
+                </pre>
+            </div>
+        </div>
+        <div id="html-bsp-3" class="codeEditor" data-language="html">
+            <div class="container" style="height: 200px">
+                <span class="uprightTitle">CSS</span>
+                <textarea class="css" contenteditable="true" spellcheck="false" title="Input"></textarea>
+                <span class="trigger runButton">Zurücksetzten</span>
+                <textarea class="editor" contenteditable="true" spellcheck="false" title="Editor"></textarea>
+                <span class="uprightTitle">Output</span>
+                <div class="output" spellcheck="false" title="Output"></div>
+                <pre class="source hidden">
+                    <!--
+                    <div id="colorSetExample" style="background: none;">
+                        <select>
+                            <option>---</option>
+                            <option value="#F00">Red</option>
+                            <option value="#0F0">Green</option>
+                            <option value="#00F">Blue</option>
+                        </select>
+
+                        <button>Anklicken</button>
+                    </div>
+                    -->
+                </pre>
+                <pre class="css-source hidden">
+                </pre>
+            </div>
+        </div>
+        <ul>
+            <li>Beachte: <code>this</code> wird explizit per <code>bind()</code> gesetzt!</li>
+        </ul>
+    </article>
+    <article>
+        <h2>DOM Schnittstelle zu HTML</h2>
+        <div class="left">
+        <ul>
+        <li>DOM = <strong>D</strong>ocument <strong>Ob</strong>ject <strong>M</strong>odel</li>
+        <li>Nach dem sog. <strong>Parsen</strong> der HTML-Seite ist der DOM-Tree, der die Struktur der Seite repräsentiert, erstellt</li>
+        <li>Die genauen Details interessieren uns nicht - für uns ist wichtig, dass wir durch den DOM einiges können:
+        <ul>
+        <li>Auf Elemente des Dokuments zugreifen</li>
+        <li>Elemente zum Dokument hinzufügen (anhängen, einfügen, ...)</li>
+        <li>Elemente des Dokuments entfernen</li>
+        <li>Elemente des Dokuments bearbeiten (z.B. Eigenschaften)</li>
+        </ul>
+        </li><li>Die Änderungen am DOM werden vom Browser sofort bemerkt und daher sofort umgesetzt</li>
+        <li>Wichtig: Objekte hinzuzufügen ist effizienter als <code>innerHTML</code> zu verändern</li>
+        </ul>
+        </div>
+        <div class="right">
+        <figure><img src="resources/images/slides/domparser.png" alt="Der DOM-Parser"><figcaption>Generierung des DOM durch den Parser (Webkit)</figcaption></figure>
+        <figure><img src="resources/images/slides/domtree.png" alt="Beispielhafter DOM-Tree"><figcaption>Auswertung des DOM-Trees mit Vivaldi(Chromium)</figcaption></figure>
+        </div>
+    </article>
+    <article>
+        <h2>Das Window Objekt</h2>
+        <div class="left">
+        <ul>
+        <li>Unser <code>document</code> liegt im aktuellen <code>window</code> Objekt</li>
+        <li>Die Ereignisse des Fensters sind ziemlich zentraler Natur, z.B. <code>onerror</code> (JavaScript Fehler), <code>onfocus</code> (Fenster fokussiert),  sowie <code>onresize</code> und <code>onscroll</code> (Ändern der Fenstereigenschaften)
+        </li><li>Wir können über <code>history</code> auch auf den Verlauf des aktuellen Fensters zugreifen</li>
+        <li>Dank <code>frames</code> gibt es die Möglichkeit auf die (veralteten) frames und iframes zuzugreifen</li>
+        <li>Eine Methode des Fensters haben wir schon öfters verwendet: <code>alert()</code> - daneben gibt es z.B. noch <code>confirm()</code> und <code>prompt()</code></li>
+        <li>Über <code>window.open(url, 'Neues Fenster'[, options])</code> können wir ein neues Fenster (bzw. Tab) aufmachen, wobei <code>options</code> einen String darstellt</li>
+        </ul>
+        </div>
+        <div class="right">
+        <figure><img src="resources/images/slides/windowopen.png" alt="Optionen bei window.open()"><figcaption>Anschauliche Erklärung der möglichen Optionen beim Öffnen eines neuen Fensters mit JavaScript - die Angaben sind als Beispiel zu verstehen, wobei mehrere Angaben durch ein Komma getrennt werden</figcaption></figure>
+        </div>
+    </article>
+</section>
+
+</main>
+</div><script type="text/javascript" src="./resources/js/JsFills.js"></script>
+<script type="text/javascript" src="./resources/js/JsCodeEditor.js"></script>
+<script type="text/javascript" src="./resources/js/HtmlCodeEditor.js"></script>
+<script type="text/javascript" src="./resources/js/initEditors.js"></script>
+<script type="text/javascript" src="./resources/js/buildIndex.js"></script>
+</body>
 </html>

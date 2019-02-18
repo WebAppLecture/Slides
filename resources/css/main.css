@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #3c3f41;
+    color: #bbbbbb;
+    font-family: sans-serif;
+    font-size: 24px;
+    padding-top: 3em;
+    margin: 0;
+    font-family: 'Segoe UI Light', "Segoe UI", "Georgia", "Lucida Grande", "Verdana", "Arial", "Helvetica", sans-serif;
+}
+
+.wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+body > header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 3em;
+    padding: 10px;
+    background-color: #272822;
+    z-index: 500;
+    box-shadow:  0 8px 8px -6px black;
+}
+
+body > header > .wrapper {
+    position: relative;
+    top: -2em;
+}
+
+body > header img {
+    transform: rotate(10deg) scale(0.8) translateY(-10px);
+    float: left;
+}
+
+body > header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+body > header nav ul li{
+    align-items: center;
+    display: inline-flex;
+}
+
+body > header nav ul li a{
+    font-weight: 400;
+    color: #5ad8ee;
+    text-transform: none;
+}
+
+body > header #toTop {
+    position: relative;
+    top: -5.5em;
+    float: right;
+}
+
+body > .wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+}
+
+.column {
+    float: left;
+}
+
+.column.left {
+    order: 1;
+    flex-basis: 25%;
+}
+
+.column.middle {
+    order: 2;
+    flex-basis: 75%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    padding-left: 10px;
+    box-shadow: inset 6px 0 8px -6px black;
+}
+
+body nav.left a {
+    text-decoration: none;
+    color: #bbbbbb;
+}
+
+body nav.left > ul > li{
+    list-style-type: none;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+body nav.left > ul > li a:hover {
+    color: #5ad8ee;
+}
+
+body nav.left > ul > li > ul > li{
+    list-style-type: none;
+    font-weight: normal;
+}
+
+body nav.left > ul > li > ul > li:hover{
+    background-color: #272822;
+}
+
+section {
+    display: block;
+}
+
+section > article {
+    min-height: fit-content;
+    height: calc(100vh - 1em);
+}
+
+.noSpacing > section > article {
+    min-height: fit-content;
+    height: fit-content;
+}
+
+article:before { 
+    content: ''; 
+    display: block; 
+    position: relative; 
+    width: 0; 
+    height: 3em; 
+    margin-top: -3em 
+}
+
+article ul li {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+article div.left {
+    float: left;
+    width: 50%;
+}
+
+article div.right {
+    float: right;
+    width: 50%;
+}
+
+article figure {
+    text-align: center;
+    margin: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+a, a:visited {
+    color: #5ad8ee;
+}
+
