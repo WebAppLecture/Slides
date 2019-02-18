@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Webapplecture</title>
+    <link rel="shortcut icon" href="resources/images/html5.png">
+    <link rel="stylesheet" href="resources/css/main.css"/>
+    <link rel="stylesheet" href="resources/css/codeEditor.css"/>
+    <link rel="stylesheet" href="resources/css/codeDisplay.css"/>
+    <link rel="stylesheet" href="resources/css/buttons.css"/>
+</head>
+<body>
+<header>
+    <div class="wrapper">
+        <img src="resources/images/html5.png">
+        <nav>
+            <ul>
+                <li>
+                    <h2>Tag</h2>
+                </li>
+                <li>
+                    <a href="index.html"><h2>1</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>2</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>3</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>4</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>5</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>6</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>7</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>8</h2></a>
+                </li>
+                <li>
+                    <a href="index.html"><h2>9</h2></a>
+                </li>
+                <li>
+                    <h2>Übung</h2>
+                </li>
+                <li>
+                    <a href="exercises.html"><h2>1</h2></a>
+                </li>
+                <li>
+                    <a href="exercises.html"><h2>2</h2></a>
+                </li>
+                <li>
+                    <a href="exercises.html"><h2>3</h2></a>
+                </li>
+                <li>
+                    <a href="exercises.html"><h2>4</h2></a>
+                </li>
+                <li>
+                    <a href="exercises.html"><h2>5</h2></a>
+                </li>
+            </ul>
+        </nav>
+        <span id="toTop">
+            <a><h2>Top</h2></a>
+        </span>
+    </div>
+</header>
+<div class="wrapper">
+<nav class="column left">
+
+</nav>
+<main class="column middle noSpacing">
+<section id="Empfohlene Aufgaben">
+    <article>
+        <h2>01. Das Grundgerüst</h2>
+        <hr>
+        <p> Erstellen Sie das Grundgerüst einer Webseite mit allen (benötigten)
+        Elementen einschließlich eines Absatzes (der Tag dafür ist  <code>&lt;p&gt;</code>), der ein
+        wenig Text und ein Bild, das durch den  <code>&lt;img&gt;</code>-Tag angezeigt wird, enthält.</p>
+    </article>
+    <article>
+        <h2>02. Es lebe die Struktur</h2>
+        <hr>
+        <p> Verwenden Sie die Webseite aus Übungsaufgabe 1. Erstellen Sie anstelle des
+        Textabsatzes auf der Seite einen Artikel, der jeweils einen Kopf- und einen
+        Fußbereich besitzt. Fügen Sie dem Artikel zwei Textabsätze hinzu.
+        </p>
+        <p>Im ersten Textabsatz sollten noch ein wenig Text mit hervorgehobenen
+        <code>&lt;em&gt;</code> ) Wörtern, kursiven ( <code>&lt;i&gt;</code> ) Ausdrücken und fett ( <code>&lt;strong&gt;</code> )
+        dargestellten Zahlen geschrieben werden. Im zweiten Absatz sollten
+        Informationen zum Autor ( <code>&lt;address&gt;</code> ) und zur letzten Erstellungszeit
+        ( <code>&lt;time&gt;</code> ) der Seite angezeigt werden.</p>
+    </article>
+    <article>
+        <h2>03. Weitere Funktionalitäten</h2>
+        <hr>
+        <p> Ergänzen Sie nun die Webseite aus Aufgabe 2 um zwei eigenständige
+        Sektionen. Diese sollen jeweils Überschriften der zweiten Ebene sowie
+        (beliebige) Randinformationen ( <code>&lt;aside&gt;</code> ) besitzen.
+        </p>
+        <p>Verwenden Sie für die Randinformationen der ersten Sektion eine nicht
+        nummerierte Liste ( <code>&lt;ul&gt;</code> ) mit entsprechenden Einträgen. Für die zweite
+        Sektion sollten Sie eine kleine Tabelle mit drei Spalten, vier Zeilen und
+        entsprechenden Kopf- und Fußzeilen ( <code>&lt;thead&gt;</code> und  <code>&lt;tfoot&gt;</code> ) einfügen.</p>
+    </article>
+    <article>
+        <h2>04. Fakultätsfunktion</h2>
+        <hr>
+        <p> Schreiben Sie eine Funktion namens  <code>faculty()</code>, die ein Argument  <i>n </i>
+        erhalten soll. Das Argument soll als (ganze) Zahl behandelt werden. Als
+        Rückgabewert der Funktion soll  <i>n! </i> berechnet werden. Die genaue Formel hierzu
+        lautet
+         <code> 
+        n! = Π_ i = 1 ^n i = n ⋅ (n - 1) ⋅ (n - 2) ⋅ ... ⋅ 1
+         </code>.
+        </p><p> Die Ausgabe soll über die eingebaute Funktion  <span class="jfunc">alert </span> erfolgen. Die
+        Eingabe kann über die eingebaute Methode  <span class="jfunc">prompt </span> geschehen.</p>
+    </article>
+    <article>
+        <h2>05. Zahlen sortieren</h2>
+        <hr>
+        <p> Über eine  <code>while </code>-Schleife soll solange ein  <code>prompt()</code> angezeigt
+    werden, wie der Benutzer eine gültige Zahl eingibt (d.h. Abbruch der Schleife
+    bei ungültiger Eingabe). Die Zahlen sollen in einem Array <code>zahlen</code>
+    gespeichert werden. Nach dem Abbruch der  <code>while</code>-Schleife soll das
+    eingegebene Array zahlen aufsteigend sortiert werden.
+    </p><p> Abschließend soll das Array über  <code>alert()</code> ausgegeben werden. Benutzen
+    Sie hierzu  <code>zahlen.toString()</code>.</p>
+    </article>
+</section>
+<section id="Bonus Aufgaben"></section>
+    
+</main>
+</div><script type="text/javascript" src="./resources/js/JsFills.js"></script>
+<script type="text/javascript" src="./resources/js/JsCodeEditor.js"></script>
+<script type="text/javascript" src="./resources/js/HtmlCodeEditor.js"></script>
+<script type="text/javascript" src="./resources/js/initEditors.js"></script>
+<script type="text/javascript" src="./resources/js/buildIndex.js"></script>
+</body>
+</html>

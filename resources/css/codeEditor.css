@@ -1,0 +1,112 @@
+.codeEditor {
+    padding: 10px;
+}
+
+.codeEditor div.container {
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    border-radius: .75em;
+    flex-shrink: 1;
+    min-height: 60px;
+}
+
+.codeEditor .uprightTitle,
+.codeEditor .runButton {
+    display: inline-flex;
+    vertical-align: middle;
+    font-family: monospace;
+    writing-mode: vertical-lr;
+    justify-content: center;
+    color: #4b4b4b;
+    margin: 0;
+    width: 2em;
+    line-height: 2em;
+    border-radius: .75em 0 0 .75em;
+}
+
+.codeEditor .uprightTitle {
+    cursor: default;
+    background-color: #fd971f;
+}
+
+.codeEditor .runButton {
+    cursor: pointer;
+    background-color: #5ad8ee;
+}
+
+.codeEditor .runButton.error {
+    background-color: #f92672;
+}
+
+.codeEditor .editor,
+.codeEditor .input,
+.codeEditor .css,
+.codeEditor .output {
+    display: inline-block;
+    resize: none;
+    font-family: monospace;
+    background-color: #272822;
+    color: #5ad8ee;
+    margin: 0 .5em 0 0;
+    padding: 0.5em;
+    border-radius: 0 .75em .75em 0;
+    overflow-y: auto;
+}
+
+.codeEditor pre func {
+    color: #f92672;
+}
+
+.codeEditor pre fparam {
+    color: #fd971f;
+}
+
+.codeEditor .editor {
+    width: 35em;
+    border: 2px solid #5ad8ee;
+    line-height: 1.5em;
+    counter-reset: line;
+    tab-size: 4;
+}
+
+.codeEditor .css {
+    tab-size: 2;
+}
+
+.codeEditor pre:focus,
+.codeEditor textarea:focus{
+    outline: none;
+}
+
+.codeEditor .editor.error {
+    border: 2px solid #f92672;
+}
+
+.codeEditor .editor.error {
+    border: 2px solid #f92672;
+}
+
+.codeEditor .input,
+.codeEditor .css,
+.codeEditor .output {
+    border: 2px solid #fd971f;
+    width: 15em;
+}
+
+.codeEditor pre span {
+    display: block;
+    line-height: 1.5rem;
+}
+.codeEditor pre span:before {
+    counter-increment: line;
+    content: counter(line);
+    display: inline-block;
+    border-right: 1px solid #ddd;
+    padding: 0 .5em;
+    margin-right: .5em;
+    text-align: right;
+    color: #888;
+}
+
+
